@@ -15,7 +15,6 @@
       ],
       "facts_source": "content.js and config.js in the repo are the only source of product facts and prices.",
       "backlog": [
-        "FOUNDATION 2: Add JSON-LD structured data to the home page: Organization, WebSite, SoftwareApplication with the three plans as offers (prices from config.js).",
         "FOUNDATION 3: Create a Roman Urdu version of the home page at /ur/ with hreflang links between / and /ur/, and add it to sitemap.xml. Pre-render its text into the HTML the same way (extend seo-agent/tools/prerender.js).",
         "FOUNDATION 4: Draft /privacy/ and /terms/ pages (clearly marked as drafts for owner review) and set their URLs in config.js links.privacy and links.terms.",
         "FOUNDATION 5: Create the /blog/ section: index page, article template matching the site design, link to it from the footer, add IndexNow key file.",
@@ -27,7 +26,8 @@
         "ARTICLE: How to reduce COD returns for online sellers in Pakistan.",
         "ARTICLE: Never miss a late-night WhatsApp order: options for small shops.",
         "ARTICLE (pillar): WhatsApp automation for small businesses in Pakistan — complete guide.",
-        "CHECK: webxeen.com could not be fetched from the agent's cloud (proxy blocked). Re-check live site and PageSpeed when possible; until then audit from the repo."
+        "CHECK: webxeen.com could not be fetched from the agent's cloud (proxy blocked). Re-check live site and PageSpeed when possible; until then audit from the repo.",
+        "IDEA: SoftwareApplication rich results need real ratings/reviews. When the owner has genuine customer reviews shown on the site, add them (never invent)."
       ],
       "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices.",
       "target_markets": {
