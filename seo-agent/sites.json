@@ -1,0 +1,29 @@
+{
+  "_help": "Add one entry per website. The agent only works on entries with approved: true and a repo it can access. Backlog: top item is done first.",
+  "sites": [
+    {
+      "id": "webxeen",
+      "approved": true,
+      "repo": "szain1603/webxeen-site",
+      "domain": "https://webxeen.com",
+      "type": "static HTML on Vercel; text in content.js, prices in config.js",
+      "business": "Webxeen: AI WhatsApp sales assistant for small businesses. Answers customers 24/7 in 8 languages (Urdu, Roman Urdu, English, Arabic, Farsi, Spanish, Hindi, Italian), takes orders with receipts, checks payment screenshots, seller controls everything from WhatsApp.",
+      "audience": "Small sellers in Pakistan (clothing/online shops, restaurants, clinics, Instagram/Facebook sellers); secondary: small businesses in the Gulf and Europe.",
+      "languages": ["en", "ur-Latn"],
+      "facts_source": "content.js and config.js in the repo are the only source of product facts and prices.",
+      "backlog": [
+        "FOUNDATION 1: Put all page text into index.html as real HTML (keep content.js working for the language toggle) so search engines see it without JavaScript.",
+        "FOUNDATION 2: Add JSON-LD structured data to the home page: Organization, WebSite, SoftwareApplication with the three plans as offers (prices from config.js).",
+        "FOUNDATION 3: Create a Roman Urdu version of the home page at /ur/ with hreflang links between / and /ur/, and add it to sitemap.xml.",
+        "FOUNDATION 4: Draft /privacy/ and /terms/ pages (clearly marked as drafts for owner review) and set their URLs in config.js links.privacy and links.terms.",
+        "FOUNDATION 5: Create the /blog/ section: index page, article template matching the site design, link to it from the footer, add IndexNow key file.",
+        "ARTICLE: How to spot fake payment screenshots on WhatsApp (for Pakistani online sellers).",
+        "ARTICLE: How to set up WhatsApp auto reply for an online clothing shop.",
+        "ARTICLE: How to reduce COD returns for online sellers in Pakistan.",
+        "ARTICLE: Never miss a late-night WhatsApp order: options for small shops.",
+        "ARTICLE (pillar): WhatsApp automation for small businesses in Pakistan — complete guide."
+      ],
+      "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices."
+    }
+  ]
+}
