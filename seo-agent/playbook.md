@@ -1,6 +1,6 @@
 # SEO Playbook
 
-Last reviewed: 2026-06-30
+Last reviewed: 2026-10-12
 (The agent updates this date and the Changelog every run. Rules change only with a source.)
 
 ## 1. What actually moves rankings (what good agencies do)
@@ -53,6 +53,8 @@ Based on Google's spam policies:
 - Expired-domain abuse and site-reputation abuse (renting a strong site to host unrelated
   content).
 - Structured data that doesn't match visible content.
+- **Back button hijacking:** scripts that stop the browser's Back button from leaving the
+  site or send visitors to pages they didn't ask for (spam policy, enforced since 15 June 2026).
 If a source recommends any of these as a "hidden trick", treat it as a red flag about
 that source.
 
@@ -69,8 +71,9 @@ that source.
   - Home: `Organization` + `WebSite`; product: `SoftwareApplication` with `offers`.
   - Articles: `Article` (or `BlogPosting`) with `author`, `datePublished`, `dateModified`.
   - `BreadcrumbList` on articles.
-  - FAQ markup: allowed, but since 2023 Google shows FAQ rich results only for
-    well-known government and health sites. Don't expect a rich result from it.
+  - FAQ markup: Google stopped showing FAQ rich results for all sites on 7 May 2026 and
+    removed FAQ reporting from Search Console. Don't add `FAQPage` markup for Google; a
+    visible FAQ section is still useful for readers and AI answers. Existing markup is harmless.
   - HowTo rich results were retired by Google; don't rely on them.
 - Bing/Yandex: support IndexNow (a key file at the site root + ping on new pages).
 
@@ -91,6 +94,8 @@ that source.
 ## 5. Measurement (owner shares numbers; agent records them in log.md)
 
 - Search Console: clicks, impressions, average position per page, top queries.
+- Search Console also has **Generative AI performance reports** (since June 2026) showing how
+  the site appears in AI Overviews / AI Mode. Ask the owner to share these numbers too.
 - When the owner pastes Search Console data, prioritise: pages with high impressions and
   position 5–20 (refresh), queries with impressions but no matching page (new article).
 
@@ -100,3 +105,16 @@ that source.
   (spam policies incl. scaled content / site reputation / expired domain abuse, March 2024;
   INP as Core Web Vital, March 2024; FAQ/HowTo rich result changes, 2023).
   First agent run must check for changes after this date.
+- 2026-10-12 — First agent review (sources checked: Google Search Status Dashboard,
+  Google Search Central blog, Search Engine Land, Search Engine Roundtable).
+  - FAQ rich results retired for all sites (7 May 2026); playbook FAQ rule updated.
+    https://developers.google.com/search/docs/appearance/structured-data/faqpage ,
+    https://searchengineland.com/google-to-no-longer-support-faq-rich-results-476957
+  - New spam policy "back button hijacking" (announced April 2026, enforced from 15 June 2026)
+    added to Red lines. https://developers.google.com/search/blog/2026/04/back-button-hijacking
+  - Search Console Generative AI performance reports (June 2026) added to Measurement.
+    https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports
+  - Spam updates on 24 Jun, 18 Aug and 24 Sep 2026 (the last one finished ~8 Oct). No new
+    rules from them; existing Red lines already cover what they target.
+    https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history
+  - Not verified this run (pages could not be fetched): Bing Webmaster blog. No Bing rule changed.

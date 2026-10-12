@@ -64,6 +64,9 @@ b. **Do the next task** from the site's backlog in `sites.json` (`backlog` array
    first). When the backlog is empty, the default task is: write one new article following
    the playbook's content rules, targeting the most useful keyword cluster not yet covered.
 c. **Fix** any audit failures that are safe and small.
+c2. **webxeen only:** if `content.js` or `config.js` changed since the last run (check
+   `git log`), or you edited them, re-run `node seo-agent/tools/prerender.js` (needs `jsdom@24`
+   on NODE_PATH) so the static HTML in `index.html` matches. Check the page still works.
 d. Update the site's `sitemap.xml` (`lastmod` for changed pages, entries for new ones).
 e. Remove the finished backlog item from `sites.json`; add new ideas you found to the
    end of the backlog.

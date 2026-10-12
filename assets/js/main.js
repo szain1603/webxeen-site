@@ -49,9 +49,11 @@
     fake: '<div class="pic pic-f"><span class="shot"><i></i><i></i><i></i><i></i></span><i class="scan"></i><b class="warn">!</b></div>'
   };
 
-  /* ---------- build lists once (texts filled by data-i18n) ---------- */
+  /* ---------- build lists (texts filled by data-i18n). index.html already holds a
+     pre-rendered English copy for search engines; it is replaced here from content.js. ---------- */
   function build() {
     var facts = $('#facts');
+    facts.innerHTML = '';
     EN.facts.forEach(function (f, i) {
       var val = f.text || (f.num + (f.suffix || ''));
       var d = h('div', { 'class': 'fact', 'data-reveal-item': '' },
@@ -59,16 +61,19 @@
       facts.appendChild(d);
     });
     var pg = $('#probGrid');
+    pg.innerHTML = '';
     EN.problem.items.forEach(function (it, i) {
       pg.appendChild(h('article', { 'class': 'prob', 'data-reveal-item': '' },
         '<div aria-hidden="true">' + PIC[it.icon] + '</div><h3 data-i18n="problem.items.' + i + '.title"></h3><p data-i18n="problem.items.' + i + '.text"></p>'));
     });
     var st = $('#steps');
+    st.innerHTML = '';
     EN.how.steps.forEach(function (s, i) {
       st.appendChild(h('li', { 'class': 'step', 'data-step': i },
         '<span class="n" aria-hidden="true">' + (i + 1) + '</span><div><h3 data-i18n="how.steps.' + i + '.title"></h3><p data-i18n="how.steps.' + i + '.text"></p></div>'));
     });
     var fs = $('#features');
+    fs.innerHTML = '';
     EN.features.forEach(function (f, i) {
       var k = 'features.' + i + '.';
       var list = (f.bullets || []).map(function (b, j) { return '<li data-i18n="' + k + 'bullets.' + j + '"></li>'; }).join('');
@@ -90,16 +95,19 @@
       fs.appendChild(sec);
     });
     var fg = $('#fgrid');
+    fg.innerHTML = '';
     EN.grid.items.forEach(function (it, i) {
       fg.appendChild(h('article', { 'class': 'fcard', 'data-reveal-item': '' },
         '<span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24">' + ICON[it.icon] + '</svg></span><h3 data-i18n="grid.items.' + i + '.title"></h3><p data-i18n="grid.items.' + i + '.text"></p>'));
     });
     var sl = $('#soonList');
+    sl.innerHTML = '';
     EN.soon.items.forEach(function (it, i) {
       sl.appendChild(h('li', { 'data-reveal-item': '' },
         '<em data-i18n="soon.badge"></em><b data-i18n="soon.items.' + i + '.title"></b><span data-i18n="soon.items.' + i + '.text"></span>'));
     });
     var pl = $('#plans');
+    pl.innerHTML = '';
     P.plans.forEach(function (p) {
       var feats = (EN.pricing.features[p.id] || []).map(function (x, j) {
         return '<li data-i18n="pricing.features.' + p.id + '.' + j + '"></li>';
@@ -112,6 +120,7 @@
         '<a class="btn ' + (p.popular ? 'btn-em' : 'btn-out') + '" data-link="demo" target="_blank" rel="noopener" data-i18n="pricing.button"></a>'));
     });
     var fq = $('#faqList');
+    fq.innerHTML = '';
     EN.faq.items.forEach(function (q, i) {
       fq.appendChild(h('details', { 'data-reveal-item': '' },
         '<summary data-i18n="faq.items.' + i + '.q"></summary><p data-i18n="faq.items.' + i + '.a"></p>'));
@@ -291,6 +300,8 @@
   build();
   links();
   applyLang(lang);
+  // seo-agent/tools/prerender.js sets this flag to save the filled-in English page as static HTML
+  if (window.WEBXEEN_PRERENDER) return;
   nav();
   videos();
   // main.js runs right away (text is on screen at first paint); GSAP is deferred,
