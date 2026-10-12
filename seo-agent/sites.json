@@ -8,8 +8,11 @@
       "domain": "https://webxeen.com",
       "type": "static HTML on Vercel; text in content.js, prices in config.js",
       "business": "Webxeen: AI WhatsApp sales assistant for small businesses. Answers customers 24/7 in 8 languages (Urdu, Roman Urdu, English, Arabic, Farsi, Spanish, Hindi, Italian), takes orders with receipts, checks payment screenshots, seller controls everything from WhatsApp.",
-      "audience": "Small sellers in Pakistan (clothing/online shops, restaurants, clinics, Instagram/Facebook sellers); secondary: small businesses in the Gulf and Europe.",
-      "languages": ["en", "ur-Latn"],
+      "audience": "Worldwide. Small businesses anywhere that sell or take bookings on WhatsApp: online shops, clothing brands, restaurants, clinics, salons, Instagram/Facebook sellers. Strong home markets: Pakistan, the Gulf (UAE, Saudi Arabia, Qatar), UK and Europe; also India, Africa, Latin America and South-East Asia where WhatsApp is the main way to buy.",
+      "languages": [
+        "en",
+        "ur-Latn"
+      ],
       "facts_source": "content.js and config.js in the repo are the only source of product facts and prices.",
       "backlog": [
         "FOUNDATION 1: Put all page text into index.html as real HTML (keep content.js working for the language toggle) so search engines see it without JavaScript.",
@@ -17,13 +20,35 @@
         "FOUNDATION 3: Create a Roman Urdu version of the home page at /ur/ with hreflang links between / and /ur/, and add it to sitemap.xml.",
         "FOUNDATION 4: Draft /privacy/ and /terms/ pages (clearly marked as drafts for owner review) and set their URLs in config.js links.privacy and links.terms.",
         "FOUNDATION 5: Create the /blog/ section: index page, article template matching the site design, link to it from the footer, add IndexNow key file.",
+        "GLOBAL 1: Make the home page market-neutral: default pricing to USD for visitors outside Pakistan (detect with the browser time zone, keep the PKR/USD toggle), make hero/FAQ copy speak to shops worldwide, add hreflang x-default.",
+        "GLOBAL 2: Build the Arabic home page at /ar/ (right-to-left, real Arabic copy, not machine-literal) and the Spanish home page at /es/, with hreflang between all versions and sitemap entries.",
+        "GLOBAL 3: Add use-case landing pages in English for worldwide audiences, each genuinely different: restaurants, clothing/fashion shops, clinics and salons, Instagram sellers.",
         "ARTICLE: How to spot fake payment screenshots on WhatsApp (for Pakistani online sellers).",
         "ARTICLE: How to set up WhatsApp auto reply for an online clothing shop.",
         "ARTICLE: How to reduce COD returns for online sellers in Pakistan.",
         "ARTICLE: Never miss a late-night WhatsApp order: options for small shops.",
         "ARTICLE (pillar): WhatsApp automation for small businesses in Pakistan — complete guide."
       ],
-      "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices."
+      "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices.",
+      "target_markets": {
+        "goal": "Rank worldwide, not only in Pakistan. Pakistan is one market among many.",
+        "priority_languages": [
+          "en",
+          "ar",
+          "es",
+          "ur-Latn",
+          "ur",
+          "hi",
+          "it",
+          "fa"
+        ],
+        "rules": [
+          "Global pages are written for an international reader: USD prices, generic payment wording (bank transfer, card, cash on delivery, mobile wallets), examples from several countries. Pakistan-specific details (JazzCash, PKR, Lahore) go only on Pakistan-focused pages.",
+          "Use the product's real 8-language support as the main global advantage: build real localized pages (Arabic, Spanish first) on their own URLs with hreflang and x-default.",
+          "Prefer long-tail, use-case and language-specific keywords (e.g. 'WhatsApp order bot for restaurants', 'bot de WhatsApp para tiendas', 'بوت واتساب للمتاجر') over head terms dominated by large global companies.",
+          "Never claim global customers, countries served or numbers that are not in the facts source."
+        ]
+      }
     }
   ]
 }

@@ -60,7 +60,9 @@ a. **Audit the live site** (fetch the pages with the web tools, and read the rep
    - Speed: if the PageSpeed Insights API can be fetched
      (`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=<URL>&strategy=mobile`),
      record the mobile performance score and Core Web Vitals.
-b. **Do the next task** from the site's backlog in `sites.json` (`backlog` array, top item
+b. **Respect the site's `target_markets`** in `sites.json` for every page you write or change
+   (for Webxeen: rank worldwide, not only in Pakistan).
+   **Do the next task** from the site's backlog in `sites.json` (`backlog` array, top item
    first). When the backlog is empty, the default task is: write one new article following
    the playbook's content rules, targeting the most useful keyword cluster not yet covered.
 c. **Fix** any audit failures that are safe and small.

@@ -25,8 +25,9 @@ they work because most small sites don't do them consistently.
 6. **Refresh beats new.** Every 3–6 months, update articles that are getting impressions
    but sitting on positions 5–20: improve the answer, add missing sub-questions, update
    the date. This is often the fastest win.
-7. **Local and language targeting.** Write for the real audience's words. For Pakistan:
-   English, Roman Urdu and Urdu-script queries are different searches. Separate language
+7. **Local and language targeting.** Write for the real audience's words in each market
+   (see section 6). Example: in Pakistan, English, Roman Urdu and Urdu-script queries are
+   different searches; in the Gulf, Arabic and English are. Separate language
    versions get separate URLs with `hreflang` tags.
 8. **Answer-engine optimisation (AI Overviews, ChatGPT/Copilot answers).** Clear question
    headings, a direct 40–60 word answer under each, short lists and tables, consistent
@@ -93,6 +94,23 @@ that source.
 - Search Console: clicks, impressions, average position per page, top queries.
 - When the owner pastes Search Console data, prioritise: pages with high impressions and
   position 5–20 (refresh), queries with impressions but no matching page (new article).
+
+## 6. International SEO (rank worldwide)
+
+- One domain (`webxeen.com`), languages in subfolders: `/` (English, global), `/ar/`, `/es/`,
+  `/ur/` etc. Every version links to all others with `hreflang`, plus `hreflang="x-default"`
+  pointing to the English page. Each language version has its own canonical.
+- Translate for the market, not word for word: local terms, currency, payment habits and
+  examples. Machine-literal translations perform poorly and read as low quality.
+- Don't auto-redirect by IP or language; suggest the right version with a visible switch
+  instead, so search engine crawlers (mostly US-based) can see every version.
+- Global English pages: USD prices, international examples, no country-only jargon.
+  Country pages carry the local details.
+- Target where competition is beatable: long-tail use-case keywords and non-English
+  keywords, where few strong pages exist. Large global companies dominate generic English
+  head terms; win around them first.
+- Earn links and mentions from several countries (directories, partner sites, guest posts
+  in each language market), not only from one country.
 
 ## Changelog
 
