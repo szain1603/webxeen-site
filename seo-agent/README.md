@@ -27,3 +27,5 @@ Pasand na aaye to **Close pull request** daba dein, kuch live nahi hoga.
 - `playbook.md` — SEO ke tareeqay (agent khud update karta hai)
 - `sites.json` — websites ki list aur har website ke agle kaam
 - `log.md` — har hafte ka record
+- `tools/prerender.js` — website ka English text `index.html` mein likhta hai taake Google bina JavaScript ke parh sake.
+  Agar aap `content.js` ya `config.js` badlein to agla agent run isay khud dobara chala dega.
