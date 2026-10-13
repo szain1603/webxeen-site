@@ -21,11 +21,11 @@ window.WEBXEEN_CONFIG = {
     defaultRegion: 'pk',          // 'pk' shows PKR first, 'abroad' shows USD first
     trialDays: 7,
     yearlyFreeMonths: 2,
-    extraReplyPrice: 'Rs 1',
+    extraReplyPrice: 'Rs 1.5',
     plans: [
-      { id: 'silver',  monthlyPKR: 2500, setupPKR: 3000,  monthlyUSD: 29,  popular: false },
-      { id: 'gold',    monthlyPKR: 4500, setupPKR: 5000,  monthlyUSD: 59,  popular: true  },
-      { id: 'premium', monthlyPKR: 9000, setupPKR: 10000, monthlyUSD: 119, popular: false }
+      { id: 'silver',  monthlyPKR: 3000, setupPKR: 3000,  monthlyUSD: 29,  popular: false },
+      { id: 'gold',    monthlyPKR: 5500, setupPKR: 5000,  monthlyUSD: 59,  popular: true  },
+      { id: 'premium', monthlyPKR: 17000, setupPKR: 10000, monthlyUSD: 119, popular: false }
     ]
   }
 };
