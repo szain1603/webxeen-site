@@ -6,7 +6,7 @@
       "approved": true,
       "repo": "szain1603/webxeen-site",
       "domain": "https://webxeen.com",
-      "type": "static HTML on Vercel; text in content.js, prices in config.js; index.html holds a pre-rendered English copy made by seo-agent/tools/prerender.js (re-run after any change to content.js or config.js)",
+      "type": "static HTML on Vercel; text in content.js, prices in config.js; index.html (English) and ur/index.html (Roman Urdu, fully generated — never edit by hand) hold pre-rendered copies made by seo-agent/tools/prerender.js (re-run after any change to content.js or config.js)",
       "business": "Webxeen: AI WhatsApp sales assistant for small businesses. Answers customers 24/7 in 8 languages (Urdu, Roman Urdu, English, Arabic, Farsi, Spanish, Hindi, Italian), takes orders with receipts, checks payment screenshots, seller controls everything from WhatsApp.",
       "audience": "Worldwide. Small businesses anywhere that sell or take bookings on WhatsApp: online shops, clothing brands, restaurants, clinics, salons, Instagram/Facebook sellers. Strong home markets: Pakistan, the Gulf (UAE, Saudi Arabia, Qatar), UK and Europe; also India, Africa, Latin America and South-East Asia where WhatsApp is the main way to buy.",
       "languages": [
@@ -15,11 +15,10 @@
       ],
       "facts_source": "content.js and config.js in the repo are the only source of product facts and prices.",
       "backlog": [
-        "FOUNDATION 3: Create a Roman Urdu version of the home page at /ur/ with hreflang links between / and /ur/, and add it to sitemap.xml. Pre-render its text into the HTML the same way (extend seo-agent/tools/prerender.js).",
         "FOUNDATION 4: Draft /privacy/ and /terms/ pages (clearly marked as drafts for owner review) and set their URLs in config.js links.privacy and links.terms.",
         "FOUNDATION 5: Create the /blog/ section: index page, article template matching the site design, link to it from the footer, add IndexNow key file.",
-        "GLOBAL 1: Make the home page market-neutral: default pricing to USD for visitors outside Pakistan (detect with the browser time zone, keep the PKR/USD toggle), make hero/FAQ copy speak to shops worldwide, add hreflang x-default.",
-        "GLOBAL 2: Build the Arabic home page at /ar/ (right-to-left, real Arabic copy, not machine-literal) and the Spanish home page at /es/, with hreflang between all versions and sitemap entries.",
+        "GLOBAL 1: Make the home page market-neutral: default pricing to USD for visitors outside Pakistan (detect with the browser time zone, keep the PKR/USD toggle), make hero/FAQ copy speak to shops worldwide. (hreflang x-default already done on 2026-10-13.)",
+        "GLOBAL 2: Build the Arabic home page at /ar/ (right-to-left, real Arabic copy, not machine-literal) and the Spanish home page at /es/, with hreflang between all versions and sitemap entries. To add a language: add its block to content.js and one entry to PAGES in seo-agent/tools/prerender.js (it then builds the page, hreflang and absolute paths), and add it to sitemap.xml.",
         "GLOBAL 3: Add use-case landing pages in English for worldwide audiences, each genuinely different: restaurants, clothing/fashion shops, clinics and salons, Instagram sellers.",
         "ARTICLE: How to spot fake payment screenshots on WhatsApp (for Pakistani online sellers).",
         "ARTICLE: How to set up WhatsApp auto reply for an online clothing shop.",
@@ -27,7 +26,8 @@
         "ARTICLE: Never miss a late-night WhatsApp order: options for small shops.",
         "ARTICLE (pillar): WhatsApp automation for small businesses in Pakistan — complete guide.",
         "CHECK: webxeen.com could not be fetched from the agent's cloud (proxy blocked). Re-check live site and PageSpeed when possible; until then audit from the repo.",
-        "IDEA: SoftwareApplication rich results need real ratings/reviews. When the owner has genuine customer reviews shown on the site, add them (never invent)."
+        "IDEA: SoftwareApplication rich results need real ratings/reviews. When the owner has genuine customer reviews shown on the site, add them (never invent).",
+        "IDEA: Write Roman Urdu versions of future Pakistan-focused articles on /ur/blog/... with hreflang to the English article (Roman Urdu queries are a separate, less competitive search market)."
       ],
       "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices.",
       "target_markets": {

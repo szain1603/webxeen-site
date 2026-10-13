@@ -11,7 +11,10 @@
   var P = CFG.pricing;
   var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
                 set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
-  var lang = TXT[store.get('wx-lang')] ? store.get('wx-lang') : 'en';
+  // Each language has its own URL (/ = English, /ur = Roman Urdu). The page's language comes
+  // from <html data-page-lang>, so search engines and visitors see the same text on each URL.
+  var PAGE_LANG = root.getAttribute('data-page-lang');
+  var lang = TXT[PAGE_LANG] ? PAGE_LANG : (TXT[store.get('wx-lang')] ? store.get('wx-lang') : 'en');
   var region = store.get('wx-region') || P.defaultRegion || 'pk';
 
   /* ---------- helpers ---------- */
@@ -143,7 +146,9 @@
       var v = get(e.getAttribute('data-i18n-aria'));
       if (v != null) e.setAttribute('aria-label', fill(v));
     });
-    $$('.lang [data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === l)); });
+    $$('.lang [data-lang]').forEach(function (b) {
+      if (b.getAttribute('data-lang') === l) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+    });
     $('#planNote').innerHTML = fill(get('pricing.note'));
     renderPrices();
     if (window.ScrollTrigger) window.ScrollTrigger.refresh();
@@ -184,7 +189,7 @@
   }
 
   /* ---------- videos ---------- */
-  var BASE = 'assets/video/';
+  var BASE = '/assets/video/';
   function aspect() { return MOBILE.matches ? '9x16' : '16x9'; }
   function setPoster(v) { v.poster = BASE + v.dataset.v + '-' + aspect() + '-poster.webp'; }
   function loadVideo(v) {
@@ -237,7 +242,14 @@
     });
     $$('a', l).forEach(function (a) { a.addEventListener('click', function () { b.setAttribute('aria-expanded', 'false'); l.classList.remove('open'); }); });
     doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && l.classList.contains('open')) { b.click(); b.focus(); } });
-    $$('.lang [data-lang]').forEach(function (btn) { btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-lang')); }); });
+    // Language links go to the other URL; remember the choice for next time.
+    $$('.lang [data-lang]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var l = a.getAttribute('data-lang');
+        store.set('wx-lang', l);
+        if (!TXT[PAGE_LANG]) { e.preventDefault(); applyLang(l); }   // old single-URL pages
+      });
+    });
     $$('[data-region]').forEach(function (btn) { btn.addEventListener('click', function () { region = btn.getAttribute('data-region'); store.set('wx-region', region); renderPrices(); }); });
   }
 
