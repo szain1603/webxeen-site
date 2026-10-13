@@ -99,11 +99,16 @@ window.WEBXEEN_CONTENT = {
         { icon: 'globe', title: 'Your currency, your time zone', text: 'Each business has its own currency and time zone — selling in the Gulf or Europe works too.' }
       ]
     },
+    channels: {
+      eyebrow: 'One AI, every inbox',
+      title: 'WhatsApp today. Instagram and Messenger next.',
+      text: 'The same assistant, the same products and the same order flow — on every app your customers use to message you.',
+      live: 'Live now', soon: 'Coming soon',
+      wa: 'WhatsApp', ig: 'Instagram DMs', fb: 'Facebook Messenger'
+    },
     soon: {
       title: 'Coming soon', badge: 'Coming soon',
       items: [
-        { title: 'Facebook Messenger', text: 'The same AI, on Messenger' },
-        { title: 'Instagram DMs', text: 'The same AI, on Instagram' },
         { title: 'Comment-to-DM', text: 'Auto reply to “Price?” comments by DM' },
         { title: 'TikTok', text: 'Links to your WhatsApp for now' },
         { title: 'Seller dashboard', text: 'Manage everything online' }
@@ -232,11 +237,16 @@ window.WEBXEEN_CONTENT = {
         { icon: 'globe', title: 'Apni currency, apna time zone', text: 'Har business ki apni currency aur time zone — Gulf ya Europe mein bechna bhi mumkin hai.' }
       ]
     },
+    channels: {
+      eyebrow: 'Aik AI, har inbox',
+      title: 'Aaj WhatsApp. Agla qadam Instagram aur Messenger.',
+      text: 'Wohi assistant, wohi products, wohi order ka tareeqa — har us app par jahan aap ke customers aap ko message karte hain.',
+      live: 'Abhi live', soon: 'Jald aa raha hai',
+      wa: 'WhatsApp', ig: 'Instagram DMs', fb: 'Facebook Messenger'
+    },
     soon: {
       title: 'Jald aa raha hai', badge: 'Jald aa raha hai',
       items: [
-        { title: 'Facebook Messenger', text: 'Wohi AI, Messenger par' },
-        { title: 'Instagram DMs', text: 'Wohi AI, Instagram par' },
         { title: 'Comment-to-DM', text: '“Price?” comment ka jawab DM mein' },
         { title: 'TikTok', text: 'Abhi ke liye aap ke WhatsApp ka link' },
         { title: 'Seller dashboard', text: 'Sab kuch online manage karein' }
