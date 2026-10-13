@@ -50,9 +50,10 @@ button{font:inherit;cursor:pointer}
 .links a:hover{color:#fff}
 .nav-right{display:flex;align-items:center;gap:12px}
 .lang,.region{display:inline-flex;padding:4px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
-.lang button,.region button{border:0;background:none;color:#D6DEEC;font-weight:700;font-size:13px;padding:7px 12px;border-radius:999px;min-height:34px}
-.lang button[aria-pressed=true]{background:#fff;color:var(--navy)}
-.lang button{white-space:nowrap}.l-short{display:none}
+.lang a{display:inline-flex;align-items:center;text-decoration:none}
+.lang button,.lang a,.region button{border:0;background:none;color:#D6DEEC;font-weight:700;font-size:13px;padding:7px 12px;border-radius:999px;min-height:34px}
+.lang button[aria-pressed=true],.lang a[aria-current=page]{background:#fff;color:var(--navy)}
+.lang button,.lang a{white-space:nowrap}.l-short{display:none}
 .how.pinned{min-height:100vh;display:flex;align-items:center}
 .how.pinned>.wrap{width:100%}
 .burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);padding:0;flex-direction:column;align-items:center;justify-content:center;gap:5px}
@@ -278,11 +279,11 @@ h2{font-size:clamp(30px,4.2vw,48px);line-height:1.08;letter-spacing:-.03em;font-
 }
 @media (max-width:400px){
   :root{--gut:16px}
-  .lang button{padding:7px 10px;font-size:12.5px}
+  .lang button,.lang a{padding:7px 10px;font-size:12.5px}
   .l-full{display:none}.l-short{display:inline}
   .nav-in{gap:8px}.nav-right{gap:8px}
   .burger{width:40px;height:40px}
-  .lang button{min-height:32px}
+  .lang button,.lang a{min-height:32px}
   .logo{font-size:18px}
   .logo svg{width:28px;height:28px}
   .soon-list{grid-template-columns:1fr}
