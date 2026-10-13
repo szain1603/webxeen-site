@@ -23,8 +23,8 @@ window.WEBXEEN_CONFIG = {
     yearlyFreeMonths: 2,
     extraReplyPrice: 'Rs 1.5',
     plans: [
-      { id: 'silver',  monthlyPKR: 3000, setupPKR: 3000,  monthlyUSD: 29,  popular: false },
-      { id: 'gold',    monthlyPKR: 5500, setupPKR: 5000,  monthlyUSD: 59,  popular: true  },
+      { id: 'silver',  monthlyPKR: 5000, setupPKR: 3000,  monthlyUSD: 29,  popular: false },
+      { id: 'gold',    monthlyPKR: 10000, setupPKR: 5000,  monthlyUSD: 59,  popular: true  },
       { id: 'premium', monthlyPKR: 17000, setupPKR: 10000, monthlyUSD: 119, popular: false }
     ]
   }
