@@ -104,7 +104,12 @@ window.WEBXEEN_CONTENT = {
       title: 'WhatsApp today. Instagram and Messenger next.',
       text: 'The same assistant, the same products and the same order flow — on every app your customers use to message you.',
       live: 'Live now', soon: 'Coming soon',
-      wa: 'WhatsApp', ig: 'Instagram DMs', fb: 'Facebook Messenger'
+      wa: 'WhatsApp', ig: 'Instagram DMs', fb: 'Facebook Messenger',
+      chats: {
+        wa: [{ w: 'in', t: 'Hi, is this dress available?' }, { w: 'out', t: 'Yes! Sizes M and L — $45.' }, { w: 'in', t: 'M please. Can I pay on delivery?' }, { w: 'out', t: 'Sure. Please send your name and address 😊' }, { w: 'in', t: 'Sarah, 12 Park Road' }, { w: 'out', t: 'Order #ALI-0031 is booked ✅' }],
+        ig: [{ w: 'in', t: 'Price?' }, { w: 'out', t: '$25 — free delivery 🚚' }, { w: 'in', t: 'Do you have it in black?' }, { w: 'out', t: 'Yes, black and maroon. Shall I place the order?' }, { w: 'in', t: 'Yes please! 2 pieces' }, { w: 'out', t: 'Done ✅ Total $50. Receipt sent.' }],
+        fb: [{ w: 'in', t: 'Can it arrive by tomorrow?' }, { w: 'out', t: 'Delivery takes 1–2 days in the city.' }, { w: 'in', t: 'Can I pay by card?' }, { w: 'out', t: 'Yes, we send the exact amount right after your order.' }, { w: 'in', t: 'Sent the payment screenshot' }, { w: 'out', t: 'Payment received, thank you! 🙌' }]
+      }
     },
     soon: {
       title: 'Coming soon', badge: 'Coming soon',
@@ -242,7 +247,12 @@ window.WEBXEEN_CONTENT = {
       title: 'Aaj WhatsApp. Agla qadam Instagram aur Messenger.',
       text: 'Wohi assistant, wohi products, wohi order ka tareeqa — har us app par jahan aap ke customers aap ko message karte hain.',
       live: 'Abhi live', soon: 'Jald aa raha hai',
-      wa: 'WhatsApp', ig: 'Instagram DMs', fb: 'Facebook Messenger'
+      wa: 'WhatsApp', ig: 'Instagram DMs', fb: 'Facebook Messenger',
+      chats: {
+        wa: [{ w: 'in', t: 'Assalam o Alaikum, yeh suit available hai?' }, { w: 'out', t: 'Ji haan! Size M aur L — Rs 4,500.' }, { w: 'in', t: 'M chahiye, COD ho jayega?' }, { w: 'out', t: 'Bilkul. Naam aur address bhej dein 😊' }, { w: 'in', t: 'Ayesha, Model Town Lahore' }, { w: 'out', t: 'Order #ALI-0031 book ho gaya ✅' }],
+        ig: [{ w: 'in', t: 'Price?' }, { w: 'out', t: 'Rs 2,450 — Lahore mein free delivery 🚚' }, { w: 'in', t: 'Black mein hai?' }, { w: 'out', t: 'Ji, black aur maroon dono. Order karein?' }, { w: 'in', t: 'Yes please! 2 pieces' }, { w: 'out', t: 'Done ✅ Total Rs 4,900. Receipt bhej di.' }],
+        fb: [{ w: 'in', t: 'Kal tak deliver ho jayega?' }, { w: 'out', t: 'Lahore mein 1–2 din mein, InshaAllah.' }, { w: 'in', t: 'JazzCash se pay kar sakta hun?' }, { w: 'out', t: 'Ji, order ke baad exact amount bhej dete hain.' }, { w: 'in', t: 'Screenshot bhej diya' }, { w: 'out', t: 'Payment mil gayi, shukriya! 🙌' }]
+      }
     },
     soon: {
       title: 'Jald aa raha hai', badge: 'Jald aa raha hai',

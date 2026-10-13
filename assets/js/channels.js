@@ -8,11 +8,18 @@
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return; // keep the static chats from the HTML
 
-  var CHATS = {
-    wa: [['in', 'Assalam o Alaikum, yeh suit available hai?'], ['out', 'Ji haan! Size M aur L — Rs 4,500.'], ['in', 'M chahiye, COD ho jayega?'], ['out', 'Bilkul. Naam aur address bhej dein 😊'], ['in', 'Ayesha, Model Town Lahore'], ['out', 'Order #ALI-0031 book ho gaya ✅']],
-    ig: [['in', 'Price?'], ['out', 'Rs 2,450 — Lahore mein free delivery 🚚'], ['in', 'Black mein hai?'], ['out', 'Ji, black aur maroon dono. Order karein?'], ['in', 'Yes please! 2 pieces'], ['out', 'Done ✅ Total Rs 4,900. Receipt bhej di.']],
-    fb: [['in', 'Kal tak deliver ho jayega?'], ['out', 'Lahore mein 1–2 din mein, InshaAllah.'], ['in', 'JazzCash se pay kar sakta hun?'], ['out', 'Ji, order ke baad exact amount bhej dete hain.'], ['in', 'Screenshot bhej diya'], ['out', 'Payment mil gayi, shukriya! 🙌']]
-  };
+  /* Chat language: the Roman Urdu page (/ur) shows Roman Urdu chats. The English page shows
+     English chats to visitors outside Pakistan, and Roman Urdu chats to visitors whose device
+     is set to Pakistan time (that is how Pakistani shoppers actually write). */
+  var TXT = window.WEBXEEN_CONTENT || {};
+  var page = document.documentElement.getAttribute('data-page-lang') || 'en';
+  var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  var inPK = tz === 'Asia/Karachi';
+  var key = page === 'ur' || (page === 'en' && inPK) ? 'ur' : 'en';
+  var src = (TXT[key] && TXT[key].channels && TXT[key].channels.chats) || (TXT.en && TXT.en.channels && TXT.en.channels.chats);
+  if (!src) return;
+  var CHATS = {};
+  Object.keys(src).forEach(function (k) { CHATS[k] = src[k].map(function (m) { return [m.w, m.t]; }); });
   var MAX = 5, visible = false, started = false;
 
   function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
