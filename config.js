@@ -25,7 +25,7 @@ window.WEBXEEN_CONFIG = {
     plans: [
       { id: 'silver',  monthlyPKR: 5000, setupPKR: 3000,  monthlyUSD: 29,  popular: false },
       { id: 'gold',    monthlyPKR: 10000, setupPKR: 5000,  monthlyUSD: 59,  popular: true  },
-      { id: 'premium', monthlyPKR: 17000, setupPKR: 10000, monthlyUSD: 119, popular: false }
+      { id: 'premium', monthlyPKR: 18000, setupPKR: 10000, monthlyUSD: 119, popular: false }
     ]
   }
 };
