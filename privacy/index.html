@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Privacy Policy — Webxeen</title>
 <meta name="description" content="How Webxeen handles information for website visitors, businesses using our AI WhatsApp sales assistant, and their customers.">
-<!-- OWNER: this page is a DRAFT. After you (or a lawyer) have checked it and filled in the
-     "OWNER: please confirm" notes, the SEO agent will remove the noindex line below. -->
-<meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#0B1730">
 <link rel="canonical" href="https://webxeen.com/privacy">
 <meta property="og:type" content="website">
@@ -103,14 +100,21 @@
 <ul>
 <li><strong>The seller</strong> the customer is talking to: they see their own customers’ orders, messages, payment screenshots and complaints.</li>
 <li><strong>WhatsApp (Meta):</strong> messages are sent and received through WhatsApp, so WhatsApp’s own terms and privacy policy also apply.</li>
-<li><strong>Service providers</strong> that help us run Webxeen: our website host (Vercel, servers mainly in the United States), and providers for AI language processing, WhatsApp Business messaging and email (including Cloudflare for email forwarding). They may use the information only to provide their service to us.</li>
+<li><strong>Service providers</strong> that help us run Webxeen. They may use the information only to provide their service to us:
+<ul>
+<li><strong>Meta (WhatsApp Business Platform / Cloud API)</strong> — sends and receives WhatsApp messages.</li>
+<li><strong>Google (Gemini API)</strong> — writes the assistant’s replies and reads payment screenshots.</li>
+<li><strong>Supabase</strong> — database and file storage (orders, customers, messages and payment screenshots).</li>
+<li><strong>Vercel</strong> — hosts our website and the assistant’s software.</li>
+<li><strong>Resend</strong> — sends email alerts and reports to sellers.</li>
+<li><strong>Cloudflare</strong> — forwards email sent to our address.</li>
+</ul></li>
 <li><strong>Authorities</strong>, when the law requires it.</li>
 </ul>
-<!-- OWNER: please confirm — list the actual providers you use (for example your hosting company, the AI model provider and the WhatsApp Business API provider). -->
 
 <h2 id="keep">6. How long we keep it</h2>
 <ul>
-<li><strong>While a seller uses Webxeen:</strong> customer history (past orders and conversations the assistant remembers) is kept for the memory period of the seller’s plan: 3 months on Silver, 1 year on Gold and 5 years on Premium. Older history is deleted.</li>
+<li><strong>While a seller uses Webxeen:</strong> the assistant remembers a customer’s past orders for the memory period of the seller’s plan: 3 months on Silver, 1 year on Gold and 5 years on Premium. Chat messages are deleted after that memory period or after 1 year, whichever is shorter. Order records and customer details (name and delivery address) stay in the seller’s account while the seller uses Webxeen.</li>
 <li><strong>When a seller stops using Webxeen:</strong> the seller’s shop information and their customers’ data are deleted within 30 days, and removed from backups within 60 days. Before deletion, the seller can ask us for a copy of their data.</li>
 <li><strong>Billing records</strong> (invoices and payment records) are kept for 5 years, because tax law requires it.</li>
 <li>Messages sent to us directly (for example demo requests) are kept for up to 12 months unless you become a seller.</li>
@@ -129,7 +133,6 @@
 
 <h2 id="transfers">9. International processing</h2>
 <p>Webxeen serves businesses in many countries, and our service providers may process information in countries other than yours, including the United States. Where the law requires it, we use appropriate safeguards for these transfers.</p>
-<!-- OWNER: please confirm — the country of your AI provider and WhatsApp Business provider, if not the United States. -->
 
 <h2 id="children">10. Children</h2>
 <p>Webxeen is a service for businesses and is not meant for children. We do not knowingly collect information from children for our own purposes.</p>
