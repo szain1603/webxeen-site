@@ -1,0 +1,20 @@
+/* Privacy Policy and Terms pages. Uses colours and fonts from styles.css. */
+.legal-top{background:var(--navy)}
+.legal-top .nav-in{justify-content:space-between}
+.legal-back{color:#E2E8F0;font-weight:600;font-size:15px;text-decoration:none}
+.legal-back:hover{text-decoration:underline}
+.legal{background:var(--warm);padding:48px 0 72px}
+.legal .wrap{max-width:780px}
+.legal h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-.02em;margin-bottom:10px}
+.legal .updated{color:var(--muted);font-size:15px;margin-bottom:28px}
+.legal .intro{font-size:18px;margin-bottom:28px}
+.legal h2{font-size:22px;line-height:1.3;margin:36px 0 12px}
+.legal h3{font-size:18px;margin:22px 0 8px}
+.legal p{margin:0 0 14px}
+.legal ul{list-style:disc;padding-inline-start:24px;margin:0 0 14px}
+.legal li{margin-bottom:6px}
+.legal a{color:var(--em-d);font-weight:600}
+.legal .toc{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin-bottom:8px}
+.legal .toc ol{list-style:decimal;padding-inline-start:22px;margin:0}
+.legal .toc li{margin-bottom:4px}
+@media (max-width:600px){.legal{padding:32px 0 56px}.legal h2{font-size:20px}}

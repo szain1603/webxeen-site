@@ -180,7 +180,7 @@
       if (k === 'privacy') v = L.privacy;
       if (k === 'terms') v = L.terms;
       if (isPh(v)) { a.setAttribute('href', '#contact'); a.setAttribute('data-placeholder', v); }
-      else a.setAttribute('href', v);
+      else { a.setAttribute('href', v); a.removeAttribute('data-placeholder'); }
       if (a.getAttribute('data-text') === 'email') a.textContent = L.contactEmail;
     });
     if (isPh(L.demoWhatsApp) || isPh(L.contactEmail) || isPh(L.privacy)) {
