@@ -66,3 +66,6 @@ Newest entries at the bottom. One entry per site per run.
 - PR: https://github.com/szain1603/webxeen-site/pull/5
 - Owner to do by hand: read /privacy and /terms (ideally with a lawyer) and send the missing
   details; merge the new PR; request indexing for https://webxeen.com/ur.
+- 09:31 UTC: owner pushed answers to PR #5 (Lahore address, payments, late fees, refunds, data
+  deletion, no AI training, governing law) and removed noindex from /terms. Agent added /terms to
+  sitemap.xml. /privacy kept on noindex: AI provider and WhatsApp Business provider names still open.
