@@ -1,0 +1,35 @@
+/* ============ Motion (Framer Motion) effects + animated graphics ============
+   Everything here is added by assets/js/motion-fx.js at runtime. If that file is
+   removed, the site works exactly as before. */
+
+/* scroll progress bar */
+.fx-progress{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);height:3px;background:var(--em-l);transform-origin:0 50%;transform:scaleX(0);z-index:60;pointer-events:none}
+
+/* hero particle network */
+.fx-net{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.hero h1 .fx-w{display:inline-block;will-change:transform}
+
+/* how it works: scroll-drawn flow graphic (replaces the small phone) */
+.how .mini-phone{display:none}
+.fx-flow{width:100%;max-width:560px;height:auto;display:block;margin-inline:auto;overflow:visible}
+.fx-flow .fx-node{transition:opacity .4s}
+@media (max-width:980px){
+  .how-visual{display:block;margin-top:36px}
+}
+
+/* feature cards, plans, video frames: tilt targets */
+.fcard,.plan,.vframe,.soon-list li{will-change:transform}
+
+/* FAQ spring accordion */
+.faq details>p{overflow:hidden}
+
+/* final CTA parallax blobs */
+.final{position:relative;overflow:hidden}
+.final-in{position:relative;z-index:1}
+.fx-blob{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(70px);opacity:.4;pointer-events:none;z-index:0}
+.fx-blob.a{background:var(--em);left:-180px;top:-200px}
+.fx-blob.b{background:var(--navy-3);right:-180px;bottom:-220px}
+
+@media (prefers-reduced-motion:reduce){
+  .fx-progress{display:none}
+}
