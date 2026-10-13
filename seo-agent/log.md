@@ -45,6 +45,6 @@ Newest entries at the bottom. One entry per site per run.
 - Audit (from repo): both pages 1 h1, 12 h2, unique title/description/canonical, lang set,
   OG tags OK. Still open: privacy/terms links are placeholders (FOUNDATION 4).
 - Live site and PageSpeed not fetched (blocked from agent cloud).
-- PR: see PR link in the report.
+- PR: https://github.com/szain1603/webxeen-site/pull/4
 - Owner to do by hand: merge the PR; then Search Console → URL Inspection → https://webxeen.com/ur
   → "Request indexing"; if sitemap.xml is not submitted in Search Console yet, submit it.
