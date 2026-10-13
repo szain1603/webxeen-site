@@ -11,9 +11,9 @@ window.WEBXEEN_CONFIG = {
     // Example: 'hello@webxeen.com'
     contactEmail: 'hello@webxeen.com',
     // Example: 'https://webxeen.com/privacy'
-    privacy: '{{PRIVACY_URL}}',
+    privacy: '/privacy',
     // Optional. Example: 'https://webxeen.com/terms'
-    terms: '{{TERMS_URL}}'
+    terms: '/terms'
   },
 
   /* ---- Prices --------------------------------------------------------- */
