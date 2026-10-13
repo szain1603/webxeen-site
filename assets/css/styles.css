@@ -190,7 +190,7 @@ h2{font-size:clamp(30px,4.2vw,48px);line-height:1.08;letter-spacing:-.03em;font-
 .soon{background:var(--navy);color:#fff;padding:48px 0}
 .soon-in{display:grid;gap:20px}
 .soon-title{font-size:24px}
-.soon-list{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.soon-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .soon-list li{padding:12px 16px;border-radius:16px;border:1px dashed rgba(255,255,255,.28);background:rgba(255,255,255,.04);min-width:0}
 .soon-list b{display:block;font-size:15.5px}
 .soon-list span{font-size:13.5px;color:#B9C5DA}
@@ -292,3 +292,53 @@ h2{font-size:clamp(30px,4.2vw,48px);line-height:1.08;letter-spacing:-.03em;font-
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+
+/* ---------- channels: one AI, every inbox (animated chats in the background) ---------- */
+.chan{position:relative;overflow:hidden;background:radial-gradient(80% 90% at 50% 0%,#14284F 0%,#071022 70%);color:#fff;padding:110px 0 120px;isolation:isolate}
+.chan-bg{position:absolute;inset:-40px -20px;display:grid;grid-template-columns:repeat(3,minmax(0,330px));justify-content:center;gap:36px;perspective:1400px;z-index:-1;pointer-events:none}
+.chan-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 55% at 50% 52%,rgba(7,16,34,.92) 0%,rgba(7,16,34,.55) 55%,rgba(7,16,34,.15) 100%)}
+.chan-col{align-self:center;border-radius:26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 80px rgba(0,0,0,.35);overflow:hidden;height:440px;display:flex;flex-direction:column;transform:rotateY(14deg) rotateX(6deg)}
+.chan-col.ig{transform:translateY(-36px) rotateX(8deg)}
+.chan-col.fb{transform:rotateY(-14deg) rotateX(6deg)}
+.chan-head{display:flex;align-items:center;gap:10px;padding:14px 16px;font-size:15px}
+.chan-head i{width:30px;height:30px;border-radius:50%;flex:none}
+.chan-head small{margin-inline-start:auto;font-size:11px;opacity:.75}
+.chan-col.wa .chan-head{background:#075E54}.chan-col.wa .chan-head i{background:#25D366}
+.chan-col.ig .chan-head{background:linear-gradient(90deg,#833AB4,#E1306C 55%,#F77737)}.chan-col.ig .chan-head i{background:rgba(255,255,255,.85)}
+.chan-col.fb .chan-head{background:#0866FF}.chan-col.fb .chan-head i{background:rgba(255,255,255,.85)}
+.chan-feed{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:14px;overflow:hidden}
+.cb{max-width:82%;padding:9px 13px;border-radius:16px;font-size:13.5px;line-height:1.4}
+.cb.in{align-self:flex-start;background:rgba(255,255,255,.14);border-bottom-left-radius:5px}
+.cb.out{align-self:flex-end;border-bottom-right-radius:5px;color:#fff}
+.chan-col.wa .cb.out{background:#0B8F62}.chan-col.ig .cb.out{background:linear-gradient(135deg,#9B3DC7,#E1306C)}.chan-col.fb .cb.out{background:#0866FF}
+.cb.typing{display:flex;gap:4px;padding:12px 14px}
+.cb.typing i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.8);animation:chanDot 1s infinite}
+.cb.typing i:nth-child(2){animation-delay:.15s}.cb.typing i:nth-child(3){animation-delay:.3s}
+@keyframes chanDot{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+.chan-in{position:relative;text-align:center;max-width:760px}
+.chan .eyebrow{color:var(--em-l)}
+.chan h2{font-size:clamp(30px,4.4vw,48px);line-height:1.12;margin-bottom:16px}
+.chan-text{color:#C9D4E8;font-size:18px;max-width:600px;margin:0 auto 30px}
+.chan-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.chan-pills li{display:flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.chan-pills li.on{border-color:rgba(52,211,153,.6);background:rgba(16,185,129,.14)}
+.chan-pills b{font-size:15px}
+.chan-pills em{font-style:normal;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:2px 7px;color:#3A2300;background:var(--amber)}
+.chan-pills li.on em{background:var(--em-l);color:#04281c}
+.chan-dot{width:12px;height:12px;border-radius:50%;flex:none}
+.chan-dot.wa{background:#25D366;box-shadow:0 0 0 4px rgba(37,211,102,.25)}
+.chan-dot.ig{background:linear-gradient(135deg,#833AB4,#E1306C,#F77737)}
+.chan-dot.fb{background:#0866FF}
+@media (max-width:980px){.chan-bg{grid-template-columns:repeat(3,minmax(0,260px));gap:20px}.chan-col{height:400px}}
+@media (max-width:700px){
+  .chan{padding:72px 0 64px;display:flex;flex-direction:column}
+  .chan-bg{position:relative;inset:auto;order:2;margin:36px auto 0;padding-inline:16px;width:100%;max-width:460px;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;z-index:0}
+  .chan-bg::after{display:none}
+  .chan-col.fb{display:none}
+  .chan-col,.chan-col.ig{transform:none;height:300px;border-radius:20px}
+  .chan-head{padding:10px 12px;font-size:13px}.chan-head i{width:22px;height:22px}
+  .chan-feed{padding:10px}
+  .cb{font-size:11.5px;max-width:90%}
+  .chan-text{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){.cb.typing i{animation:none}}
