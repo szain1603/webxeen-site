@@ -48,3 +48,24 @@ Newest entries at the bottom. One entry per site per run.
 - PR: https://github.com/szain1603/webxeen-site/pull/4
 - Owner to do by hand: merge the PR; then Search Console → URL Inspection → https://webxeen.com/ur
   → "Request indexing"; if sitemap.xml is not submitted in Search Console yet, submit it.
+
+## 2026-10-13 (extra run, started by owner) — webxeen
+- PR #4 (Roman Urdu page) was merged by the owner at 07:09 UTC, just before this run's commit
+  was pushed, so this work goes in a new PR.
+- Checked: PR #3 (Motion animations) is in main and in this branch; motion.min.js, motion-fx.js
+  and motion-fx.css load on / and /ur with no errors (Chromium, desktop + mobile).
+- Done: FOUNDATION 4. Draft /privacy (~880 words) and /terms (~670 words), English, same fonts,
+  colours and footer as the site (new assets/css/legal.css). Only facts from content.js/config.js;
+  every unknown is an "OWNER: please confirm" HTML comment (business name/address, payment and
+  refund rules, AI/hosting providers, data deletion, governing law). Both pages have noindex
+  until the owner reviews them, and are not in sitemap.xml yet.
+- config.js links.privacy = /privacy, links.terms = /terms; prerender re-run, footer links on
+  / and /ur now work (no more placeholder warning in the console).
+- 08:06 UTC: main got PR #6 (cache fix, ?v= versions, hero video). Merged main into this branch,
+  kept main's index.html and re-ran prerender.js; legal pages link CSS with ?v=20261013 too.
+- PR: https://github.com/szain1603/webxeen-site/pull/5
+- Owner to do by hand: read /privacy and /terms (ideally with a lawyer) and send the missing
+  details; merge the new PR; request indexing for https://webxeen.com/ur.
+- 09:31 UTC: owner pushed answers to PR #5 (Lahore address, payments, late fees, refunds, data
+  deletion, no AI training, governing law) and removed noindex from /terms. Agent added /terms to
+  sitemap.xml. /privacy kept on noindex: AI provider and WhatsApp Business provider names still open.
