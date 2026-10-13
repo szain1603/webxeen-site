@@ -29,7 +29,7 @@
         "IDEA: SoftwareApplication rich results need real ratings/reviews. When the owner has genuine customer reviews shown on the site, add them (never invent).",
         "IDEA: Write Roman Urdu versions of future Pakistan-focused articles on /ur/blog/... with hreflang to the English article (Roman Urdu queries are a separate, less competitive search market)."
       ],
-      "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices. Files in /assets/ are cached by browsers for 1 year (vercel.json): when you change an existing CSS/JS file, bump its ?v=YYYYMMDD in index.html (and privacy/terms pages), then re-run prerender.js.",
+      "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices. Cache-busting: see AGENT.md rule 6; the privacy/ and terms/ pages also link styles.css and legal.css with ?v=YYYYMMDD, bump those too.",
       "target_markets": {
         "goal": "Rank worldwide, not only in Pakistan. Pakistan is one market among many.",
         "priority_languages": [

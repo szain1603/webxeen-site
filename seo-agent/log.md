@@ -61,8 +61,8 @@ Newest entries at the bottom. One entry per site per run.
   until the owner reviews them, and are not in sitemap.xml yet.
 - config.js links.privacy = /privacy, links.terms = /terms; prerender re-run, footer links on
   / and /ur now work (no more placeholder warning in the console).
-- Fixed: browsers cache /assets/ files for 1 year, so changed styles.css/main.js now load with
-  ?v=20261013 (otherwise old visitors would get the old language switch).
+- 08:06 UTC: main got PR #6 (cache fix, ?v= versions, hero video). Merged main into this branch,
+  kept main's index.html and re-ran prerender.js; legal pages link CSS with ?v=20261013 too.
 - PR: https://github.com/szain1603/webxeen-site/pull/5
 - Owner to do by hand: read /privacy and /terms (ideally with a lawyer) and send the missing
   details; merge the new PR; request indexing for https://webxeen.com/ur.
