@@ -19,7 +19,7 @@ window.WEBXEEN_CONTENT = {
       title: 'Your shop’s WhatsApp, answering and taking orders <em>24/7</em>.',
       sub: 'Webxeen replies to your customers in their own language — Urdu, English, Arabic and more — and books orders automatically, even while you sleep.',
       cta1: 'Get a free demo on WhatsApp', cta2: 'See pricing',
-      note: '{trial}-day free trial · No app to install',
+      note: 'Free test before you buy · No app to install',
       videoLabel: 'Animation: a customer orders two kurtas on WhatsApp and the AI sends back a receipt.'
     },
     facts: [
@@ -115,16 +115,16 @@ window.WEBXEEN_CONTENT = {
       ]
     },
     pricing: {
-      eyebrow: 'Pricing', title: 'Simple monthly plans.', sub: 'Start with a {trial}-day free trial.',
+      eyebrow: 'Pricing', title: 'Simple monthly plans.', sub: 'Test it free with your own products before you buy.',
       regionPK: 'Pakistan (PKR)', regionAbroad: 'Abroad (USD)', regionLabel: 'Show prices for',
-      perMonth: '/month', setup: 'One-time setup', popular: 'Most popular', button: 'Start free trial',
+      perMonth: '/month', setup: 'One-time setup', popular: 'Most popular', button: 'Get a free test',
       names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
       features: {
         silver: ['1,000 replies / month', 'Up to 50 products', 'Urdu + Roman Urdu + English', 'Orders + COD', 'Email order alerts + morning summary', '3 months memory'],
         gold: ['4,000 replies / month', 'Up to 300 products', 'All 8 languages', 'Payment screenshot checking', 'Complaints sent to your team', 'WhatsApp alerts with tap buttons', 'Monthly report', '1 year memory'],
         premium: ['15,000 replies / month', 'Unlimited products', 'Up to 3 numbers / branches', 'Everything in Gold', 'Priority support', 'Courier and payment-link integrations (coming soon)', '5 years memory']
       },
-      note: '{trial}-day free trial. Yearly plan = {yearly} months free. Extra replies {extra} each after your limit — the bot never stops mid-month.'
+      note: 'Free test: we set the assistant up with your products and you chat with it as a customer. Yearly plan = {yearly} months free. Extra replies {extra} each after your limit — the bot never stops mid-month.'
     },
     faq: {
       eyebrow: 'FAQ', title: 'Questions, answered.',
@@ -139,7 +139,7 @@ window.WEBXEEN_CONTENT = {
     },
     final: {
       title: 'Let your WhatsApp sell while you rest.',
-      sub: 'Try Webxeen free for {trial} days. We set it up with your products, prices and delivery rules.',
+      sub: 'Test Webxeen free before you buy. We set it up with your products, prices and delivery rules, and you chat with it as a customer.',
       cta1: 'Get a free demo on WhatsApp', cta2: 'Email us'
     },
     footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© {year} Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
@@ -157,7 +157,7 @@ window.WEBXEEN_CONTENT = {
       title: 'Aap ki shop ka WhatsApp — <em>24/7</em> jawab bhi de, order bhi le.',
       sub: 'Webxeen aap ke customers ko unki apni zubaan mein jawab deta hai — Urdu, English, Arabic aur bohat si — aur order khud book karta hai, chahe aap so rahe hon.',
       cta1: 'WhatsApp par free demo lein', cta2: 'Qeematein dekhein',
-      note: '{trial} din free trial · Koi app install nahi karni',
+      note: 'Khareedne se pehle free test · Koi app install nahi karni',
       videoLabel: 'Animation: customer WhatsApp par 2 kurtay order karta hai aur AI receipt bhejta hai.'
     },
     facts: [
@@ -253,16 +253,16 @@ window.WEBXEEN_CONTENT = {
       ]
     },
     pricing: {
-      eyebrow: 'Qeematein', title: 'Aasaan mahana plans.', sub: '{trial} din free trial se shuru karein.',
+      eyebrow: 'Qeematein', title: 'Aasaan mahana plans.', sub: 'Khareedne se pehle apne products ke saath free test karein.',
       regionPK: 'Pakistan (PKR)', regionAbroad: 'Bahar (USD)', regionLabel: 'Qeematein dikhayein',
-      perMonth: '/mahina', setup: 'Aik dafa setup', popular: 'Sab se pasandeeda', button: 'Free trial shuru karein',
+      perMonth: '/mahina', setup: 'Aik dafa setup', popular: 'Sab se pasandeeda', button: 'Free test karein',
       names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
       features: {
         silver: ['1,000 jawab / mahina', '50 products tak', 'Urdu + Roman Urdu + English', 'Orders + COD', 'Email order alerts + subah ki summary', '3 mahine ki yaaddasht'],
         gold: ['4,000 jawab / mahina', '300 products tak', 'Tamam 8 zubaanein', 'Payment screenshot check', 'Shikayatein aap ki team tak', 'WhatsApp alerts tap buttons ke saath', 'Mahana report', '1 saal ki yaaddasht'],
         premium: ['15,000 jawab / mahina', 'Unlimited products', '3 numbers / branches tak', 'Gold ki har cheez', 'Priority support', 'Courier aur payment-link integrations (jald aa raha hai)', '5 saal ki yaaddasht']
       },
-      note: '{trial} din free trial. Saalana plan = {yearly} mahine free. Limit ke baad har extra jawab {extra} — bot mahine ke beech kabhi band nahi hota.'
+      note: 'Free test: hum assistant ko aap ke products ke saath set karte hain aur aap customer ban kar us se baat karte hain. Saalana plan = {yearly} mahine free. Limit ke baad har extra jawab {extra} — bot mahine ke beech kabhi band nahi hota.'
     },
     faq: {
       eyebrow: 'Sawalat', title: 'Aap ke sawal, hamare jawab.',
@@ -277,7 +277,7 @@ window.WEBXEEN_CONTENT = {
     },
     final: {
       title: 'Aap ka WhatsApp bechta rahe, aap aaram karein.',
-      sub: 'Webxeen {trial} din free try karein. Hum isay aap ke products, qeematon aur delivery rules ke saath set kar dete hain.',
+      sub: 'Khareedne se pehle Webxeen ka free test karein. Hum isay aap ke products, qeematon aur delivery rules ke saath set kar dete hain, aur aap customer ban kar check karte hain.',
       cta1: 'WhatsApp par free demo lein', cta2: 'Email karein'
     },
     footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© {year} Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }

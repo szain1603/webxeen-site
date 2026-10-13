@@ -77,7 +77,7 @@ plans: [
 
 - Sirf number badlein (comma ke baghair: `4500`, `4,500` nahi).
 - "Most popular" ka label kis plan par ho: wahan `popular: true`, baqi `false`.
-- `trialDays: 7`, `yearlyFreeMonths: 2`, `extraReplyPrice: 'Rs 1'` bhi yahin hain — yeh text mein khud ba khud lag jate hain.
+- `trialDays: 7`, `yearlyFreeMonths: 2`, `extraReplyPrice: 'Rs 1.5'` bhi yahin hain — yeh text mein khud ba khud lag jate hain.
 - Plans ki features ki list (jaise "1,000 replies / month") `content.js` mein `pricing → features` ke andar hai.
 
 ---
