@@ -50,7 +50,8 @@ Newest entries at the bottom. One entry per site per run.
   → "Request indexing"; if sitemap.xml is not submitted in Search Console yet, submit it.
 
 ## 2026-10-13 (extra run, started by owner) — webxeen
-- Same open PR #4 (one agent PR per site); today's work added as new commits.
+- PR #4 (Roman Urdu page) was merged by the owner at 07:09 UTC, just before this run's commit
+  was pushed, so this work goes in a new PR.
 - Checked: PR #3 (Motion animations) is in main and in this branch; motion.min.js, motion-fx.js
   and motion-fx.css load on / and /ur with no errors (Chromium, desktop + mobile).
 - Done: FOUNDATION 4. Draft /privacy (~880 words) and /terms (~670 words), English, same fonts,
@@ -62,6 +63,6 @@ Newest entries at the bottom. One entry per site per run.
   / and /ur now work (no more placeholder warning in the console).
 - Fixed: browsers cache /assets/ files for 1 year, so changed styles.css/main.js now load with
   ?v=20261013 (otherwise old visitors would get the old language switch).
-- PR: https://github.com/szain1603/webxeen-site/pull/4
+- PR: NEWPR
 - Owner to do by hand: read /privacy and /terms (ideally with a lawyer) and send the missing
-  details; merge PR #4; request indexing for https://webxeen.com/ur.
+  details; merge the new PR; request indexing for https://webxeen.com/ur.
