@@ -33,3 +33,6 @@
 @media (prefers-reduced-motion:reduce){
   .fx-progress{display:none}
 }
+
+/* keep the hero video below the fixed menu so nothing in the video hides behind it */
+@media (min-width:769px){ .hero-media{top:68px} }

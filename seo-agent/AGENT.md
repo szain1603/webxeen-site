@@ -22,8 +22,12 @@ message you write for the owner is in simple Roman Urdu.
 5. **Do not break the site.** Keep all existing files working. Do not change prices, links
    in `config.js`, or the design unless the playbook task explicitly calls for it. After
    editing, check every HTML file you touched for valid structure and working relative links.
-6. **Legal pages** (privacy, terms) are drafts for the owner to review; say so clearly in the PR.
-7. Keep each PR small enough for a non-developer to review: 1 new article + a short list of
+6. **Cache-busting:** whenever you change `config.js`, `content.js` or any file in `assets/css/` or
+   `assets/js/`, update the `?v=YYYYMMDD` version on its `<link>`/`<script>` tag in `index.html` to
+   today's date, then re-run `seo-agent/tools/prerender.js` so every language page gets it too.
+   Otherwise returning visitors keep seeing the old file.
+7. **Legal pages** (privacy, terms) are drafts for the owner to review; say so clearly in the PR.
+8. Keep each PR small enough for a non-developer to review: 1 new article + a short list of
    fixes is ideal. Put the most important item first.
 
 ## Each run, in this order
