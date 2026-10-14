@@ -147,7 +147,7 @@ window.WEBXEEN_CONTENT = {
       sub: 'Test Webxeen free before you buy. We set it up with your products, prices and delivery rules, and you chat with it as a customer.',
       cta1: 'Get a free demo on WhatsApp', cta2: 'Email us'
     },
-    footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© {year} Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
+    footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
   },
 
   ur: {
@@ -290,6 +290,6 @@ window.WEBXEEN_CONTENT = {
       sub: 'Khareedne se pehle Webxeen ka free test karein. Hum isay aap ke products, qeematon aur delivery rules ke saath set kar dete hain, aur aap customer ban kar check karte hain.',
       cta1: 'WhatsApp par free demo lein', cta2: 'Email karein'
     },
-    footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© {year} Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }
+    footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }
   }
 };
