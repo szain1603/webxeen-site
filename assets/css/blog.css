@@ -1,0 +1,78 @@
+/* Blog index and articles. Uses colours and fonts from styles.css (load styles.css first). */
+.blog-top{background:var(--navy)}
+.blog-top .nav-in{justify-content:space-between}
+.blog-top nav{display:flex;align-items:center;gap:18px}
+.blog-top nav a{color:#E2E8F0;font-weight:600;font-size:15px;text-decoration:none}
+.blog-top nav a:hover{text-decoration:underline}
+.blog-top nav .btn{color:#04281C}
+.blog-top nav .btn:hover{text-decoration:none}
+
+.blog{background:var(--warm);padding:40px 0 72px}
+.blog .wrap{max-width:780px}
+.blog h1{font-size:clamp(30px,5vw,44px);line-height:1.15;letter-spacing:-.02em;margin-bottom:14px}
+.blog h2{font-size:24px;line-height:1.3;letter-spacing:-.01em;margin:40px 0 12px}
+.blog h3{font-size:19px;line-height:1.35;margin:26px 0 8px}
+.blog p{margin:0 0 16px}
+.blog ul,.blog ol{padding-inline-start:24px;margin:0 0 16px}
+.blog ul{list-style:disc}.blog ol{list-style:decimal}
+.blog li{margin-bottom:6px}
+.blog a{color:var(--em-d);font-weight:600}
+.blog .lede{font-size:19px;line-height:1.55}
+
+/* breadcrumbs + byline */
+.crumbs ol{list-style:none;padding:0;margin:0 0 18px;display:flex;flex-wrap:wrap;gap:6px;font-size:14.5px;color:var(--muted)}
+.crumbs li{margin:0}
+.crumbs li+li::before{content:"›";margin-inline-end:6px}
+.crumbs a{color:var(--muted);font-weight:600}
+.byline{color:var(--muted);font-size:15px;margin-bottom:26px}
+
+/* direct answer box (helps readers and AI answers) */
+.answer{background:var(--white);border:1px solid var(--line);border-inline-start:5px solid var(--em);border-radius:16px;padding:18px 22px;margin:0 0 24px}
+.answer p:last-child{margin-bottom:0}
+.toc{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:16px 22px;margin:0 0 8px}
+.toc ol{margin:0}
+
+/* tables, checklists, example chats */
+.table-wrap{overflow-x:auto;margin:0 0 18px;border:1px solid var(--line);border-radius:14px;background:var(--white)}
+.blog table{border-collapse:collapse;width:100%;font-size:15.5px}
+.blog th,.blog td{text-align:start;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.blog th{background:var(--warm-2);font-weight:700}
+.blog tr:last-child td{border-bottom:0}
+.checklist{list-style:none!important;padding-inline-start:0!important}
+.checklist li{position:relative;padding-inline-start:30px}
+.checklist li::before{content:"✓";position:absolute;inset-inline-start:0;top:0;width:22px;height:22px;border-radius:50%;background:var(--em-xl);color:var(--em-dd);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.chat{background:#E9E4DA;border-radius:16px;padding:16px;margin:0 0 18px;display:flex;flex-direction:column;gap:8px}
+.chat p{max-width:85%;margin:0;padding:8px 12px;border-radius:12px;font-size:15.5px;line-height:1.45;background:var(--white)}
+.chat .me{align-self:flex-end;background:#D9FDD3}
+.chat .who{display:block;font-size:12.5px;font-weight:700;color:var(--muted)}
+
+/* call to action + related */
+.cta-box{background:var(--navy);color:#E2E8F0;border-radius:var(--radius);padding:28px;margin:40px 0 0}
+.cta-box h2{color:#fff;margin:0 0 8px}
+.cta-box p{color:#C9D3E5}
+.cta-box .btn{width:auto}
+.blog .btn-em{color:#04281C;font-weight:700;text-decoration:none}
+.related{margin-top:40px}
+.related ul{list-style:none;padding:0;display:grid;gap:12px}
+.related li{margin:0}
+.related a{display:block;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-decoration:none}
+.related a:hover{border-color:var(--em)}
+
+/* blog index */
+.post-list{list-style:none!important;padding:0!important;display:grid;gap:16px;margin:8px 0 0}
+.post-list li{margin:0}
+.post-card{display:block;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px 22px;text-decoration:none;color:var(--ink)!important;font-weight:400!important;transition:border-color .2s,box-shadow .2s}
+.post-card:hover{border-color:var(--em);box-shadow:var(--shadow)}
+.post-card h2,.post-card h3{margin:0 0 6px;font-size:20px}
+.post-card p{margin:0;color:var(--muted)}
+.post-card .meta{display:block;font-size:13.5px;color:var(--muted);margin-bottom:6px}
+.empty{background:var(--white);border:1px dashed var(--line);border-radius:18px;padding:22px}
+
+@media (max-width:600px){
+  .blog{padding:28px 0 56px}
+  .blog h2{font-size:21px}
+  .blog-top nav .hide-sm{display:none}
+  .cta-box{padding:22px}
+  .cta-box .btn{width:100%}
+}
+.empty p:last-child{margin-bottom:0}

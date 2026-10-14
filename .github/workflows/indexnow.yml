@@ -1,0 +1,45 @@
+# After a merge that changes sitemap.xml, tell Bing & co. (IndexNow) which pages changed.
+# Waits until Vercel has deployed (the key file is live) before submitting.
+name: IndexNow
+on:
+  push:
+    branches: [main]
+    paths: [sitemap.xml]
+  workflow_dispatch:
+    inputs:
+      all:
+        description: Submit every URL in sitemap.xml
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Wait for the deploy (key file and sitemap live)
+        run: |
+          for i in $(seq 1 30); do
+            if curl -fsS https://webxeen.com/e21cc142480f44c4c42672b747d0ff45.txt | grep -q e21cc142480f44c4c42672b747d0ff45 \
+               && curl -fsS https://webxeen.com/sitemap.xml | cmp -s - sitemap.xml; then
+              echo "Live."; exit 0
+            fi
+            sleep 20
+          done
+          echo "Site not updated after 10 minutes; submitting anyway."
+      - name: Submit changed URLs
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.all }}" = "true" ]; then
+            node seo-agent/tools/indexnow.js --all
+          elif [ "${{ github.event_name }}" = "push" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
+            node seo-agent/tools/indexnow.js --changed "${{ github.event.before }}"
+          else
+            node seo-agent/tools/indexnow.js --all
+          fi

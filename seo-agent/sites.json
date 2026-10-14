@@ -15,19 +15,20 @@
       ],
       "facts_source": "content.js and config.js in the repo are the only source of product facts and prices.",
       "backlog": [
-        "FOUNDATION 5: Create the /blog/ section: index page, article template matching the site design, link to it from the footer, add IndexNow key file.",
-        "OWNER REVIEW: /terms is final (owner filled it in on 2026-10-13; indexable, in sitemap). /privacy still has noindex and one open note: the names of the AI model provider and WhatsApp Business provider (and their countries). When the owner gives these, fill them in, remove the noindex/draft comment from privacy/index.html and add /privacy to sitemap.xml. Do not remove noindex before the owner answers.",
+        "OWNER REVIEW: /privacy — the owner's PR #7 (branch fix/privacy-providers, opened 2026-10-13) fills in the provider names, removes noindex and adds /privacy to sitemap.xml. If PR #7 is merged, this item is done: delete it. If it is closed without merging, keep /privacy on noindex until the owner gives the AI model provider and WhatsApp Business provider names.",
         "GLOBAL 1: Make the home page market-neutral: default pricing to USD for visitors outside Pakistan (detect with the browser time zone, keep the PKR/USD toggle), make hero/FAQ copy speak to shops worldwide. (hreflang x-default already done on 2026-10-13.)",
         "GLOBAL 2: Build the Arabic home page at /ar/ (right-to-left, real Arabic copy, not machine-literal) and the Spanish home page at /es/, with hreflang between all versions and sitemap entries. To add a language: add its block to content.js and one entry to PAGES in seo-agent/tools/prerender.js (it then builds the page, hreflang and absolute paths), and add it to sitemap.xml.",
         "GLOBAL 3: Add use-case landing pages in English for worldwide audiences, each genuinely different: restaurants, clothing/fashion shops, clinics and salons, Instagram sellers.",
-        "ARTICLE: How to spot fake payment screenshots on WhatsApp (for Pakistani online sellers).",
+        "ARTICLE: How to spot fake payment screenshots on WhatsApp (for Pakistani online sellers). This is the FIRST blog article: also do the 'First article only' steps in AGENT.md (remove blog noindex, add /blog to sitemap, footer link).",
         "ARTICLE: How to set up WhatsApp auto reply for an online clothing shop.",
         "ARTICLE: How to reduce COD returns for online sellers in Pakistan.",
         "ARTICLE: Never miss a late-night WhatsApp order: options for small shops.",
         "ARTICLE (pillar): WhatsApp automation for small businesses in Pakistan — complete guide.",
         "CHECK: webxeen.com could not be fetched from the agent's cloud (proxy blocked). Re-check live site and PageSpeed when possible; until then audit from the repo.",
         "IDEA: SoftwareApplication rich results need real ratings/reviews. When the owner has genuine customer reviews shown on the site, add them (never invent).",
-        "IDEA: Write Roman Urdu versions of future Pakistan-focused articles on /ur/blog/... with hreflang to the English article (Roman Urdu queries are a separate, less competitive search market)."
+        "IDEA: Write Roman Urdu versions of future Pakistan-focused articles on /ur/blog/... with hreflang to the English article (Roman Urdu queries are a separate, less competitive search market).",
+        "IDEA: Ask the owner for a real author name (and a one-line bio) for blog articles; until then articles use 'Webxeen team'.",
+        "CHECK: After the blog PR is merged, confirm the IndexNow GitHub Action ran green (repo Actions tab). If GitHub Actions is disabled for the repo, tell the owner how to enable it."
       ],
       "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices. Cache-busting: see AGENT.md rule 6; the privacy/ and terms/ pages also link styles.css and legal.css with ?v=YYYYMMDD, bump those too.",
       "target_markets": {

@@ -69,3 +69,26 @@ Newest entries at the bottom. One entry per site per run.
 - 09:31 UTC: owner pushed answers to PR #5 (Lahore address, payments, late fees, refunds, data
   deletion, no AI training, governing law) and removed noindex from /terms. Agent added /terms to
   sitemap.xml. /privacy kept on noindex: AI provider and WhatsApp Business provider names still open.
+
+## 2026-10-14 — webxeen
+- Playbook review skipped (last reviewed 2026-10-12, less than 6 days old).
+- Open PRs: #7 (owner's privacy-provider fix, not an agent PR) — left alone; it covers the /privacy
+  backlog item. No agent PR open, so this run opens a new one.
+- Done: FOUNDATION 5 (blog section).
+  - /blog (blog/index.html): hub page in the site design (new assets/css/blog.css), breadcrumb,
+    topics, empty "first guides on their way" box, demo CTA. Kept on noindex and out of sitemap.xml
+    until the first article exists (an empty hub is thin content); the home-page footer link is
+    added with the first article (steps in AGENT.md "Publishing an article").
+  - Article template: seo-agent/templates/article.html (not deployed): BlogPosting + BreadcrumbList
+    JSON-LD, byline "Webxeen team", short-answer box, TOC, checklist/table/example-chat blocks, CTA,
+    related guides, optional hreflang for a Roman Urdu twin.
+  - IndexNow: key file /e21cc142480f44c4c42672b747d0ff45.txt, seo-agent/tools/indexnow.js, and
+    .github/workflows/indexnow.yml (after a merge that changes sitemap.xml, waits for Vercel, then
+    submits the changed URLs). api.indexnow.org is blocked from the agent cloud, so it runs on GitHub.
+  - Demo links on blog pages are read from config.js (static href as fallback).
+- Tested in Chromium (desktop 1280 + mobile 390): /blog and a filled-in copy of the template —
+  1 h1, valid JSON-LD, no console errors, no 404s, no horizontal scroll.
+- Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: https://github.com/szain1603/webxeen-site/pull/12
+- Owner to do by hand: merge PR #12, then open https://webxeen.com/blog to check the look.
+  Nothing to submit in Search Console yet (blog hub is noindex until the first article).
