@@ -89,3 +89,6 @@ Newest entries at the bottom. One entry per site per run.
 - Tested in Chromium (desktop 1280 + mobile 390): /blog and a filled-in copy of the template —
   1 h1, valid JSON-LD, no console errors, no 404s, no horizontal scroll.
 - Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: https://github.com/szain1603/webxeen-site/pull/12
+- Owner to do by hand: merge PR #12, then open https://webxeen.com/blog to check the look.
+  Nothing to submit in Search Console yet (blog hub is noindex until the first article).
