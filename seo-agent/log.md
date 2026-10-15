@@ -115,5 +115,5 @@ Newest entries at the bottom. One entry per site per run.
   with London (1280): correct currency each time, toggle works, no console errors, no 404s,
   no horizontal scroll. JSON-LD valid.
 - Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
-- PR: (see below)
+- PR: https://github.com/szain1603/webxeen-site/pull/15
 - Owner to do by hand: merge the PR; optionally send the USD price per extra reply.
