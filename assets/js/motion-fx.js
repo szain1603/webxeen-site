@@ -10,6 +10,11 @@
   var $$ = function (s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); };
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var touch = matchMedia('(hover: none)').matches;
+  // Phones, small screens and slow computers skip the heavy decorations so scrolling stays smooth.
+  var light = touch || matchMedia('(max-width: 900px)').matches ||
+    (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || (navigator.deviceMemory && navigator.deviceMemory <= 4);
+  var scrolling = 0;
+  addEventListener('scroll', function () { scrolling = performance.now(); }, { passive: true });
   var SPRING = { type: 'spring', stiffness: 260, damping: 22 };
   var NS = 'http://www.w3.org/2000/svg';
   function el(tag, cls, parent) { var e = doc.createElement(tag); if (cls) e.className = cls; if (parent) parent.appendChild(e); return e; }
@@ -23,16 +28,19 @@
 
   /* 2. hero: particle network (canvas) */
   (function () {
-    var hero = $('.hero'); if (!hero) return;
+    var hero = $('.hero'); if (!hero || light || reduce) return;
     var c = el('canvas', 'fx-net'); c.setAttribute('aria-hidden', 'true');
     var veil = $('.hero-veil', hero); hero.insertBefore(c, veil ? veil.nextSibling : hero.firstChild);
     var ctx = c.getContext('2d'), P = [], W = 0, H = 0, mx = -999, my = -999, dpr = Math.min(window.devicePixelRatio || 1, 2), visible = true;
     function size() {
       W = hero.clientWidth; H = hero.clientHeight; c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var n = Math.round(Math.min(W < 768 ? 22 : 60, W * H / 18000)); P = [];
+      var n = Math.round(Math.min(40, W * H / 24000)); P = [];
       for (var i = 0; i < n; i++) P.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3, r: 1 + Math.random() * 1.8 });
     }
+    var frame = 0;
     function draw() {
+      // ~30 frames a second, and none while the page is being scrolled
+      if (!reduce && visible && (++frame % 2 || performance.now() - scrolling < 150 || doc.hidden)) { requestAnimationFrame(draw); return; }
       ctx.clearRect(0, 0, W, H);
       for (var i = 0; i < P.length; i++) {
         var p = P[i];
@@ -111,7 +119,6 @@
     var nodes = $$('.fx-node', svg), pkt = $('.fx-pkt', svg);
     nodes.forEach(function (n, i) { n.style.opacity = reduce || i === 0 ? 1 : .35; });
     if (reduce) { nodes.forEach(function (n) { n.style.opacity = 1; }); return; }
-    M.animate($('.fx-ring', svg), { r: [56, 70, 56], opacity: [.45, .1, .45] }, { duration: 2.4, repeat: Infinity });
     var queue = Promise.resolve();
     function drawSeg(i) {
       var s = segs[i]; if (s.done) return; s.done = true;
@@ -195,7 +202,7 @@
 
   /* 9. final call to action: parallax blobs */
   (function () {
-    var f = $('.final'); if (!f) return;
+    var f = $('.final'); if (!f || light) return;
     var a = el('span', 'fx-blob a'), b = el('span', 'fx-blob b');
     a.setAttribute('aria-hidden', 'true'); b.setAttribute('aria-hidden', 'true');
     f.insertBefore(b, f.firstChild); f.insertBefore(a, f.firstChild);
