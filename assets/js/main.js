@@ -15,7 +15,20 @@
   // from <html data-page-lang>, so search engines and visitors see the same text on each URL.
   var PAGE_LANG = root.getAttribute('data-page-lang');
   var lang = TXT[PAGE_LANG] ? PAGE_LANG : (TXT[store.get('wx-lang')] ? store.get('wx-lang') : 'en');
-  var region = store.get('wx-region') || P.defaultRegion || 'pk';
+  // Currency shown first: the visitor's own choice (PKR/USD buttons) wins; otherwise
+  // config.js defaultRegion. 'auto' = PKR in Pakistan and on the Roman Urdu page, USD elsewhere.
+  function guessRegion() {
+    var d = P.defaultRegion;
+    if (d === 'pk' || d === 'abroad') return d;
+    if (PAGE_LANG === 'ur') return 'pk';
+    if (window.WEBXEEN_PRERENDER) return 'abroad';   // static HTML on / is the global version
+    var tz = '';
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+    if (!tz) return 'pk';                            // unknown: keep the old default
+    return tz === 'Asia/Karachi' ? 'pk' : 'abroad';
+  }
+  var region = store.get('wx-region');
+  if (region !== 'pk' && region !== 'abroad') region = guessRegion();
 
   /* ---------- helpers ---------- */
   var fmt = function (n) { return Number(n).toLocaleString('en-US'); };
@@ -23,8 +36,12 @@
   function fill(s) {
     return String(s)
       .replace(/\{trial\}/g, P.trialDays).replace(/\{yearly\}/g, P.yearlyFreeMonths)
-      .replace(/\{extra\}/g, P.extraReplyPrice).replace(/\{usdFrom\}/g, usdFrom)
+      .replace(/\{extra\}/g, extraPrice()).replace(/\{usdFrom\}/g, usdFrom)
       .replace(/\{year\}/g, new Date().getFullYear());
+  }
+  function extraPrice() {
+    if (region !== 'abroad') return P.extraReplyPrice;
+    return P.extraReplyPriceUSD || get('pricing.extraAbroad') || get('pricing.extraAbroad', 'en');
   }
   function get(path, l) {
     return path.split('.').reduce(function (o, k) { return o == null ? o : o[k]; }, TXT[l || lang]);
@@ -149,7 +166,6 @@
     $$('.lang [data-lang]').forEach(function (b) {
       if (b.getAttribute('data-lang') === l) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
     });
-    $('#planNote').innerHTML = fill(get('pricing.note'));
     renderPrices();
     if (window.ScrollTrigger) window.ScrollTrigger.refresh();
   }
@@ -168,6 +184,7 @@
       }
     });
     $$('[data-region]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-region') === region)); });
+    $('#planNote').innerHTML = fill(get('pricing.note'));
   }
 
   /* ---------- links ---------- */

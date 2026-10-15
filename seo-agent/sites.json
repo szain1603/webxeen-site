@@ -16,7 +16,6 @@
       "facts_source": "content.js and config.js in the repo are the only source of product facts and prices.",
       "backlog": [
         "OWNER REVIEW: /privacy — the owner's PR #7 (branch fix/privacy-providers, opened 2026-10-13) fills in the provider names, removes noindex and adds /privacy to sitemap.xml. If PR #7 is merged, this item is done: delete it. If it is closed without merging, keep /privacy on noindex until the owner gives the AI model provider and WhatsApp Business provider names.",
-        "GLOBAL 1: Make the home page market-neutral: default pricing to USD for visitors outside Pakistan (detect with the browser time zone, keep the PKR/USD toggle), make hero/FAQ copy speak to shops worldwide. (hreflang x-default already done on 2026-10-13.)",
         "GLOBAL 2: Build the Arabic home page at /ar/ (right-to-left, real Arabic copy, not machine-literal) and the Spanish home page at /es/, with hreflang between all versions and sitemap entries. To add a language: add its block to content.js and one entry to PAGES in seo-agent/tools/prerender.js (it then builds the page, hreflang and absolute paths), and add it to sitemap.xml.",
         "GLOBAL 3: Add use-case landing pages in English for worldwide audiences, each genuinely different: restaurants, clothing/fashion shops, clinics and salons, Instagram sellers.",
         "ARTICLE: How to spot fake payment screenshots on WhatsApp (for Pakistani online sellers). This is the FIRST blog article: also do the 'First article only' steps in AGENT.md (remove blog noindex, add /blog to sitemap, footer link).",
@@ -28,7 +27,10 @@
         "IDEA: SoftwareApplication rich results need real ratings/reviews. When the owner has genuine customer reviews shown on the site, add them (never invent).",
         "IDEA: Write Roman Urdu versions of future Pakistan-focused articles on /ur/blog/... with hreflang to the English article (Roman Urdu queries are a separate, less competitive search market).",
         "IDEA: Ask the owner for a real author name (and a one-line bio) for blog articles; until then articles use 'Webxeen team'.",
-        "CHECK: After the blog PR is merged, confirm the IndexNow GitHub Action ran green (repo Actions tab). If GitHub Actions is disabled for the repo, tell the owner how to enable it."
+        "CHECK: After the blog PR is merged, confirm the IndexNow GitHub Action ran green (repo Actions tab). If GitHub Actions is disabled for the repo, tell the owner how to enable it.",
+        "IDEA (owner): the hero and feature videos show a Pakistani example (kurtas, PKR). For the global page, consider a second hero video with a neutral example (e.g. shirts in USD) shown to non-Pakistan visitors.",
+        "IDEA (owner): the free-demo WhatsApp link opens with a Roman Urdu greeting ('Assalam o Alaikum, mujhe ... demo chahiye'). Ask the owner if English-page visitors should get an English greeting (would need a second demo link in config.js).",
+        "OWNER: give the USD price per extra reply (config.js pricing.extraReplyPriceUSD). Until then USD visitors see 'a small fee'."
       ],
       "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices. Cache-busting: see AGENT.md rule 6; the privacy/ and terms/ pages also link styles.css and legal.css with ?v=YYYYMMDD, bump those too.",
       "target_markets": {
