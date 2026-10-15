@@ -17,7 +17,7 @@ window.WEBXEEN_CONTENT = {
     hero: {
       badge: 'AI sales assistant for WhatsApp',
       title: 'Your shop’s WhatsApp, answering and taking orders <em>24/7</em>.',
-      sub: 'Webxeen replies to your customers in their own language — Urdu, English, Arabic and more — and books orders automatically, even while you sleep.',
+      sub: 'Webxeen replies to your customers in their own language — English, Arabic, Spanish, Urdu and more — and books orders automatically, even while you sleep.',
       cta1: 'Get a free demo on WhatsApp', cta2: 'See pricing',
       note: 'Free test before you buy · No app to install',
       videoLabel: 'Animation: a customer orders two kurtas on WhatsApp and the AI sends back a receipt.'
@@ -41,15 +41,15 @@ window.WEBXEEN_CONTENT = {
       eyebrow: 'How it works',
       title: 'Three steps. Zero extra work.',
       steps: [
-        { title: 'Customer sends a message', text: 'Any time, in any of 8 languages. “2 kurtay chahiye.”' },
+        { title: 'Customer sends a message', text: 'Any time, in any of 8 languages: “I need 2 shirts”, <bdi lang="ar">“أريد قميصين”</bdi> or “2 kurtay chahiye”.' },
         { title: 'AI answers and books the order', text: 'Using only your products, prices and delivery rules. It collects name, address and payment, then sends a receipt with an order number.' },
         { title: 'You tap one button', text: 'Paid, Dispatched or Cancel — right inside WhatsApp. Your customer is told automatically.' }
       ],
       demo: {
-        cust: '2 kurtay chahiye',
-        bot: 'Ji zaroor! Blue lawn kurta PKR 2,600 each. 2 kurtay = PKR 5,200. Order book kar doon?',
-        receipt: 'Order confirmed · #ALI-0012 · PKR 5,200',
-        seller: 'New order #12 · PKR 5,200',
+        cust: 'I need 2 shirts',
+        bot: 'Sure! The blue linen shirt is $26 each. 2 shirts = $52. Shall I book the order?',
+        receipt: 'Order confirmed · #ALI-0012 · $52',
+        seller: 'New order #12 · $52',
         told: 'Customer told ✓'
       }
     },
@@ -63,14 +63,14 @@ window.WEBXEEN_CONTENT = {
       {
         id: 'c', eyebrow: 'Orders', title: 'Orders with receipts and order numbers.',
         text: 'Product, quantity, name, address and payment method — collected in the chat, confirmed, and sent back as a clean receipt like #ALI-0012.',
-        bullets: ['Customer can switch payment method after booking (COD to JazzCash, etc.)', 'Customer can cancel before dispatch', 'Online payments use a slightly odd amount like PKR 5,199.72, so you spot each payment instantly — never more than the total'],
+        bullets: ['Customer can switch payment method after booking (e.g. cash on delivery to bank transfer or a mobile wallet)', 'Customer can cancel before dispatch', 'Online payments use a slightly odd amount like 5,199.72 instead of 5,200, so you spot each payment instantly — never more than the total'],
         videoLabel: 'Animation: items go into a cart, order details are filled in and a receipt with an order number prints.'
       },
       {
         id: 'd', eyebrow: 'Payment check', title: 'Checks payment screenshots for you.',
         text: 'The AI reads the amount, transaction ID, date and receiver. It rejects photos that are not receipts and warns you when something looks wrong:',
         bullets: ['Amount is lower than due', 'Money went to a different account', 'Screenshot looks edited', 'Same screenshot or transaction ID was used for another order'],
-        note: 'No AI can catch every fake. Always confirm the payment in your own bank or JazzCash app before you dispatch.',
+        note: 'No AI can catch every fake. Always confirm the payment in your own bank or mobile-wallet app before you dispatch.',
         videoLabel: 'Animation: a sample payment screenshot is scanned. First it looks OK, then a second one shows a lower amount warning.'
       },
       {
@@ -121,7 +121,8 @@ window.WEBXEEN_CONTENT = {
     },
     pricing: {
       eyebrow: 'Pricing', title: 'Simple monthly plans.', sub: 'Test it free with your own products before you buy.',
-      regionPK: 'Pakistan (PKR)', regionAbroad: 'Abroad (USD)', regionLabel: 'Show prices for',
+      regionPK: 'Pakistan (PKR)', regionAbroad: 'Other countries (USD)', regionLabel: 'Show prices for',
+      extraAbroad: 'cost a small fee',
       perMonth: '/month', setup: 'One-time setup', popular: 'Most popular', button: 'Get a free test',
       names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
       features: {
@@ -138,8 +139,8 @@ window.WEBXEEN_CONTENT = {
         { q: 'Can it cancel or refund?', a: 'Yes. Customers can cancel before dispatch. You can cancel, mark refunded or returned with one line (cancel 18, refunded 18, returned 18), and undo if needed. Every action asks a quick Yes/No, then the customer is told automatically.' },
         { q: 'Is my data safe?', a: 'Each business has its own separate setup — its own number, products, prices and customers. Your data is used to run your shop’s assistant. Please read our Privacy Policy for full details.' },
         { q: 'Which languages does it speak?', a: 'Urdu, Roman Urdu, English, Arabic, Farsi, Spanish, Hindi and Italian. The Silver plan covers Urdu, Roman Urdu and English; Gold and Premium include all languages.' },
-        { q: 'What if the AI makes a mistake?', a: 'It only answers from your own products and prices, and stays on topic. You confirm every payment yourself in your own bank or JazzCash app, and complaints go straight to your team with numbers like C1.' },
-        { q: 'Can I use it outside Pakistan?', a: 'Yes. Each business has its own currency and time zone. Plans abroad start at {usdFrom}/month.' }
+        { q: 'What if the AI makes a mistake?', a: 'It only answers from your own products and prices, and stays on topic. You confirm every payment yourself in your own bank or mobile-wallet app, and complaints go straight to your team with numbers like C1.' },
+        { q: 'Does it work outside Pakistan?', a: 'Yes. Each business has its own currency and time zone, and the assistant replies in 8 languages — so a shop in the Gulf, the UK, Europe or anywhere else on WhatsApp can use it. Plans outside Pakistan start at {usdFrom}/month.' }
       ]
     },
     final: {
@@ -265,6 +266,7 @@ window.WEBXEEN_CONTENT = {
     pricing: {
       eyebrow: 'Qeematein', title: 'Aasaan mahana plans.', sub: 'Khareedne se pehle apne products ke saath free test karein.',
       regionPK: 'Pakistan (PKR)', regionAbroad: 'Bahar (USD)', regionLabel: 'Qeematein dikhayein',
+      extraAbroad: 'ki choti si fees',
       perMonth: '/mahina', setup: 'Aik dafa setup', popular: 'Sab se pasandeeda', button: 'Free test karein',
       names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
       features: {

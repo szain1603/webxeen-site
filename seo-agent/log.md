@@ -92,3 +92,28 @@ Newest entries at the bottom. One entry per site per run.
 - PR: https://github.com/szain1603/webxeen-site/pull/12
 - Owner to do by hand: merge PR #12, then open https://webxeen.com/blog to check the look.
   Nothing to submit in Search Console yet (blog hub is noindex until the first article).
+
+## 2026-10-15 — webxeen
+- Playbook review skipped (last reviewed 2026-10-12, less than 6 days old).
+- Open PRs: only #7 (owner's privacy fix, still open) — left alone; the /privacy backlog item stays.
+  No agent PR open, so this run opens a new one.
+- Done: GLOBAL 1 (market-neutral home page).
+  - Prices: config.js defaultRegion = 'auto'. Visitors whose device time zone is Asia/Karachi see
+    PKR first; everyone else sees USD first. /ur always starts in PKR. The PKR/USD buttons still
+    work and the visitor's choice is remembered. The static HTML on / now shows USD (global
+    version, what Google sees); /ur static HTML shows PKR. Prices themselves unchanged.
+  - USD visitors no longer see "Rs 1.5" for extra replies: text says "cost a small fee" until the
+    owner sets pricing.extraReplyPriceUSD in config.js.
+  - English copy (content.js "en"): hero languages list leads with English/Arabic/Spanish;
+    "how it works" chat example in USD (shirts, $52) with a multilingual first step (English,
+    Arabic, Roman Urdu); JazzCash/PKR wording replaced with "bank transfer / mobile wallet";
+    price toggle "Other countries (USD)"; FAQ "Does it work outside Pakistan?" rewritten
+    (no claims about existing customers or countries). Roman Urdu page text unchanged.
+  - ?v=20261015 on config.js, content.js, main.js (index.html, /ur, blog, article template);
+    prerender.js re-run (idempotent); sitemap lastmod for / and /ur = 2026-10-15.
+- Tested in Chromium: / with New York (1280), Karachi (390), Dubai (390) time zones and /ur
+  with London (1280): correct currency each time, toggle works, no console errors, no 404s,
+  no horizontal scroll. JSON-LD valid.
+- Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: (see below)
+- Owner to do by hand: merge the PR; optionally send the USD price per extra reply.
