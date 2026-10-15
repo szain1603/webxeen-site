@@ -96,16 +96,16 @@
       '<path d="M110 150 C 120 300, 200 330, 300 320" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="6" stroke-linecap="round"/>' +
       '<path d="M300 320 C 400 330, 480 300, 490 150" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="6" stroke-linecap="round"/>' +
       '<path d="M490 80 C 430 -10, 170 -10, 110 80" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round"/>' +
-      '<path class="fx-seg" d="M110 150 C 120 300, 200 330, 300 320" fill="none" stroke="#34D399" stroke-width="6" stroke-linecap="round"/>' +
-      '<path class="fx-seg" d="M300 320 C 400 330, 480 300, 490 150" fill="none" stroke="#34D399" stroke-width="6" stroke-linecap="round"/>' +
+      '<path class="fx-seg" d="M110 150 C 120 300, 200 330, 300 320" fill="none" stroke="#34E0A1" stroke-width="6" stroke-linecap="round"/>' +
+      '<path class="fx-seg" d="M300 320 C 400 330, 480 300, 490 150" fill="none" stroke="#34E0A1" stroke-width="6" stroke-linecap="round"/>' +
       '<path class="fx-seg" d="M490 80 C 430 -10, 170 -10, 110 80" fill="none" stroke="#10B981" stroke-width="4" stroke-linecap="round"/>' +
       '<g class="fx-node"><rect x="72" y="60" width="76" height="118" rx="14" fill="#060B17" stroke="#24314F" stroke-width="2"/><rect x="80" y="72" width="60" height="94" rx="8" fill="#F2F6F3"/>' +
         '<rect x="100" y="82" width="34" height="12" rx="6" fill="#D1FAE5"/><rect x="86" y="100" width="40" height="12" rx="6" fill="#fff"/><rect x="100" y="118" width="30" height="12" rx="6" fill="#D1FAE5"/></g>' +
-      '<g class="fx-node"><circle class="fx-ring" cx="300" cy="320" r="56" fill="none" stroke="#34D399" stroke-width="2" opacity=".45"/>' +
-        '<circle cx="300" cy="320" r="42" fill="url(#fxCore)"/><text x="300" y="329" text-anchor="middle" font-family="Jakarta,system-ui,sans-serif" font-weight="800" font-size="24" fill="#04281C">AI</text></g>' +
+      '<g class="fx-node"><circle class="fx-ring" cx="300" cy="320" r="56" fill="none" stroke="#34E0A1" stroke-width="2" opacity=".45"/>' +
+        '<circle cx="300" cy="320" r="42" fill="url(#fxCore)"/><text x="300" y="329" text-anchor="middle" font-family="Sora,system-ui,sans-serif" font-weight="800" font-size="24" fill="#04281C">AI</text></g>' +
       '<g class="fx-node"><rect x="452" y="60" width="76" height="118" rx="14" fill="#060B17" stroke="#24314F" stroke-width="2"/><rect x="460" y="72" width="60" height="94" rx="8" fill="#0E1B33"/>' +
         '<rect x="468" y="82" width="44" height="30" rx="6" fill="#fff"/><rect x="468" y="118" width="21" height="14" rx="4" fill="#10B981"/><rect x="491" y="118" width="21" height="14" rx="4" fill="#334155"/></g>' +
-      '<circle class="fx-pkt" r="10" fill="#34D399" stroke="#fff" stroke-width="3" opacity="0"/>';
+      '<circle class="fx-pkt" r="10" fill="#34E0A1" stroke="#fff" stroke-width="3" opacity="0"/>';
     vis.appendChild(svg);
     var segs = $$('.fx-seg', svg).map(function (p) { var L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = reduce ? 0 : L; return { p: p, L: L, done: reduce }; });
     var nodes = $$('.fx-node', svg), pkt = $('.fx-pkt', svg);

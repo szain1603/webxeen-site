@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Live demo — try Webxeen’s AI WhatsApp assistant with your business</title>
+<meta name="description" content="Pick your business type, add your products and chat with your own AI sales assistant. See the customer’s chat and the shop owner’s alerts side by side. Free, no sign-up.">
+<meta name="theme-color" content="#0A0F1C">
+<link rel="canonical" href="https://webxeen.com/demo">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Webxeen">
+<meta property="og:url" content="https://webxeen.com/demo">
+<meta property="og:title" content="Try Webxeen live — your own AI WhatsApp assistant in 2 minutes">
+<meta property="og:description" content="Chat as your customer on one phone and watch the shop owner’s phone on the other. Restaurants, online sellers, clinics, schools and more.">
+<meta property="og:image" content="https://webxeen.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/sora-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/plex-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/plex-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/styles.css?v=20261015">
+<link rel="stylesheet" href="/assets/css/demo.css?v=20261015">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://webxeen.com/demo#page",
+  "name": "Webxeen live demo",
+  "url": "https://webxeen.com/demo",
+  "description": "Try Webxeen’s AI WhatsApp sales assistant with your own business: pick a business type, add products and chat as your customer.",
+  "isPartOf": { "@id": "https://webxeen.com/#website" },
+  "about": { "@id": "https://webxeen.com/#app" }
+}
+</script>
+</head>
+<body class="home demo-page">
+<a class="skip" href="#demo" data-t="skip">Skip to the demo</a>
+
+<header class="nav solid" id="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo" aria-label="Webxeen home">
+      <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#34E0A1"></rect><path d="M9 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7a2.5 2.5 0 0 1-2.5 2.5h-7l-4.5 3.6v-3.6H9A2.5 2.5 0 0 1 6.5 19v-7A2.5 2.5 0 0 1 9 9.5z" fill="#0A0F1C"></path><path d="M16 11.6l1.1 2.7 2.7 1.1-2.7 1.1-1.1 2.7-1.1-2.7-2.7-1.1 2.7-1.1z" fill="#34E0A1"></path></svg>
+      <span>Webxeen</span>
+    </a>
+    <nav class="dnav" aria-label="Main">
+      <a href="/" data-home data-t="nav.home">Home</a>
+      <a href="/#pricing" data-home="#pricing" data-t="nav.pricing">Pricing</a>
+      <a href="/#faq" data-home="#faq" data-t="nav.faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language" data-t-aria="nav.lang">
+        <button type="button" data-ui-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-ui-lang="ur" aria-pressed="false" lang="ur-Latn"><span class="l-full">Roman Urdu</span><span class="l-short">Urdu</span></button>
+      </div>
+      <a class="btn btn-sm btn-ghost nav-cta" data-wa target="_blank" rel="noopener" href="https://wa.me/923164308893?text=Assalam%20o%20Alaikum%2C%20mujhe%20Webxeen%20ka%20free%20demo%20chahiye" data-t="nav.test">Free test on WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<main id="demo" class="demo" tabindex="-1">
+  <div class="wrap">
+    <header class="d-head">
+      <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span><span data-t="head.eyebrow">Live demo</span></p>
+      <h1 data-t="head.title">Try Webxeen with your own business.</h1>
+      <p class="d-sub" data-t="head.sub">Pick your business, add your products, then type as a customer on the first phone. The second phone shows what you, the shop owner, receive.</p>
+    </header>
+
+    <noscript><p class="d-noscript">Please turn on JavaScript to use the live demo. / Live demo ke liye JavaScript on karein.</p></noscript>
+
+    <div class="d-grid" id="dGrid">
+      <!-- 1. setup -->
+      <aside class="d-setup" aria-labelledby="setupTitle">
+        <h2 id="setupTitle" class="d-setup-title" data-t="setup.title">Set up your demo</h2>
+
+        <div class="d-step">
+          <p class="d-label" id="chLabel"><b>1</b><span data-t="setup.s1">Where do customers message you?</span></p>
+          <div class="d-seg" role="radiogroup" aria-labelledby="chLabel" id="chGroup">
+            <button type="button" role="radio" aria-checked="true" data-ch="wa"><i class="cd wa" aria-hidden="true"></i>WhatsApp</button>
+            <button type="button" role="radio" aria-checked="false" data-ch="ig"><i class="cd ig" aria-hidden="true"></i>Instagram</button>
+            <button type="button" role="radio" aria-checked="false" data-ch="fb"><i class="cd fb" aria-hidden="true"></i>Messenger</button>
+          </div>
+        </div>
+
+        <div class="d-step">
+          <p class="d-label" id="catLabel"><b>2</b><span data-t="setup.s2">What do you run?</span></p>
+          <div class="d-cats" role="radiogroup" aria-labelledby="catLabel" id="catGroup"></div>
+        </div>
+
+        <form class="d-step d-form" id="bizForm" novalidate>
+          <p class="d-label"><b>3</b><span data-t="setup.s3">Your details</span></p>
+          <details class="d-det" id="dDet">
+          <summary data-t="setup.edit">Edit name, products and prices</summary>
+          <div class="d-det-in">
+          <label class="d-fl" for="fName" data-t="setup.name">Business name</label>
+          <input id="fName" class="d-in" maxlength="40" autocomplete="organization">
+          <p class="d-fl" id="itemsLabel">Products and prices</p>
+          <div id="fItems" class="d-items" role="group" aria-labelledby="itemsLabel"></div>
+          <button type="button" class="d-add" id="fAdd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg><span data-t="setup.add">Add item</span></button>
+          <div class="d-row2">
+            <div id="feeWrap"><label class="d-fl" for="fFee" data-t="setup.fee">Delivery fee</label><input id="fFee" class="d-in" inputmode="decimal" maxlength="7"></div>
+            <div><label class="d-fl" for="fCur" data-t="setup.cur">Currency</label>
+              <select id="fCur" class="d-in"><option value="Rs">Rs (PKR)</option><option value="$">$ (USD)</option><option value="AED">AED</option><option value="SAR">SAR</option><option value="£">£ (GBP)</option><option value="€">€ (EUR)</option></select></div>
+          </div>
+          <p class="d-fl" id="payLabel" data-t="setup.pay">Payment methods</p>
+          <div class="d-chips" id="fPays" role="group" aria-labelledby="payLabel"></div>
+          <label class="d-fl" for="fHours" data-t="setup.hours">Opening hours</label>
+          <input id="fHours" class="d-in" maxlength="60">
+          <label class="d-fl" for="fArea" data-t="setup.area">Area / city</label>
+          <input id="fArea" class="d-in" maxlength="50">
+          </div>
+          </details>
+          <button type="submit" class="btn btn-em d-start" data-t="setup.start">Start chat with these details</button>
+          <p class="d-note" data-t="setup.note">Demo only — nothing is sent to anyone.</p>
+        </form>
+      </aside>
+
+      <!-- phone switcher (small screens) -->
+      <div class="d-tabs" role="tablist" aria-label="Phones" id="dTabs">
+        <button type="button" role="tab" id="tabCust" aria-controls="custPane" aria-selected="true" data-tab="cust"><span data-t="tabs.cust">Customer</span></button>
+        <button type="button" role="tab" id="tabSell" aria-controls="sellPane" aria-selected="false" data-tab="sell"><span data-t="tabs.sell">Shop owner</span><b class="d-badge" id="sellBadge" hidden>0</b></button>
+      </div>
+
+      <!-- 2. customer phone -->
+      <section class="d-phone d-cust" id="custPane" role="tabpanel" aria-labelledby="custCap" data-ch="wa">
+        <p class="d-cap" id="custCap"><span class="d-cap-dot" aria-hidden="true"></span><span data-t="phone.cust">You are the customer — type here</span></p>
+        <div class="ph">
+          <div class="ph-head">
+            <span class="ph-av" id="cAv" aria-hidden="true">KG</span>
+            <span class="ph-id"><b id="cName">Karachi Grill</b><small id="cStatus">online</small></span>
+            <span class="ph-chan" id="cChan">WhatsApp</span>
+            <button type="button" class="ph-icon" id="cReset" data-t-aria="phone.restart" aria-label="Restart chat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"></path><path d="M4 4v4h4"></path></svg></button>
+          </div>
+          <div class="ph-log" id="cLog" role="log" aria-live="polite" tabindex="0" data-t-aria="phone.log" aria-label="Chat messages"></div>
+          <button type="button" class="ph-newmsg" id="cNew" hidden><span data-t="phone.new">New messages</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+          <div class="ph-quick" id="cQuick"></div>
+          <form class="ph-compose" id="cForm" autocomplete="off">
+            <label class="sr" for="cIn" data-t="phone.msgLabel">Message</label>
+            <input id="cIn" maxlength="300" placeholder="Type a message…" enterkeyhint="send">
+            <button type="submit" data-t-aria="phone.send" aria-label="Send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z"></path></svg></button>
+          </form>
+          <div class="ph-sheet" id="cSheet" hidden>
+            <div class="ph-sheet-in" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+              <div class="ph-sheet-head"><h3 id="sheetTitle" data-t="phone.all">All options</h3><button type="button" class="ph-icon" id="cSheetClose" data-t-aria="phone.close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+              <div class="ph-sheet-body" id="cSheetBody"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. shop owner phone -->
+      <section class="d-phone d-sell" id="sellPane" role="tabpanel" aria-labelledby="sellCap">
+        <p class="d-cap" id="sellCap"><span class="d-cap-dot s" aria-hidden="true"></span><span data-t="phone.sell">You are the shop owner — tap the buttons</span></p>
+        <div class="ph ph-s">
+          <div class="ph-head">
+            <span class="ph-av s" aria-hidden="true">W</span>
+            <span class="ph-id"><b data-t="phone.alerts">Webxeen alerts</b><small id="sSub">for Karachi Grill</small></span>
+          </div>
+          <div class="s-stats" aria-live="off">
+            <span><b id="stOrders">0</b><small data-t="stats.orders">orders</small></span>
+            <span><b id="stSales">Rs 0</b><small data-t="stats.sales">sales</small></span>
+            <span><b id="stCheck">0</b><small data-t="stats.check">to check</small></span>
+          </div>
+          <div class="ph-log s-log" id="sLog" role="log" aria-live="polite" tabindex="0" data-t-aria="phone.sLog" aria-label="Shop owner alerts"></div>
+          <form class="ph-compose" id="sForm" autocomplete="off">
+            <label class="sr" for="sIn" data-t="phone.sMsgLabel">Reply to the customer</label>
+            <input id="sIn" maxlength="300" placeholder="Reply to the customer as the shop…" enterkeyhint="send">
+            <button type="submit" data-t-aria="phone.send" aria-label="Send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z"></path></svg></button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <section class="d-after" aria-labelledby="afterTitle">
+      <div>
+        <h2 id="afterTitle" data-t="after.title">Like it? Try it with your real products on WhatsApp.</h2>
+        <p data-t="after.text">We set the assistant up with your products, prices and delivery rules. You chat with it as a customer before you pay anything.</p>
+      </div>
+      <div class="d-after-cta">
+        <a class="btn btn-em btn-lg" data-wa target="_blank" rel="noopener" href="https://wa.me/923164308893?text=Assalam%20o%20Alaikum%2C%20mujhe%20Webxeen%20ka%20free%20demo%20chahiye" data-t="after.cta">Get a free test</a>
+        <a class="btn btn-ghost btn-lg" href="/#pricing" data-home="#pricing" data-t="after.pricing">See pricing</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <a href="/" class="logo logo-sm"><svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#34E0A1"></rect><path d="M9 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7a2.5 2.5 0 0 1-2.5 2.5h-7l-4.5 3.6v-3.6H9A2.5 2.5 0 0 1 6.5 19v-7A2.5 2.5 0 0 1 9 9.5z" fill="#0A0F1C"></path></svg><span>Webxeen</span></a>
+      <p class="muted" data-t="foot.tagline">AI WhatsApp sales assistant for small businesses.</p>
+    </div>
+    <nav class="foot-links" aria-label="Legal">
+      <a href="/privacy" data-t="foot.privacy">Privacy Policy</a>
+      <a href="/terms" data-t="foot.terms">Terms</a>
+    </nav>
+    <p class="muted small" data-t="foot.rights">© 2023 Webxeen. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="/config.js?v=20261015"></script>
+<script src="/assets/js/demo.js?v=20261015"></script>
+</body>
+</html>

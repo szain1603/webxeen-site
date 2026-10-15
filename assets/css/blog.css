@@ -27,15 +27,15 @@
 .byline{color:var(--muted);font-size:15px;margin-bottom:26px}
 
 /* direct answer box (helps readers and AI answers) */
-.answer{background:var(--white);border:1px solid var(--line);border-inline-start:5px solid var(--em);border-radius:16px;padding:18px 22px;margin:0 0 24px}
+.answer{background:var(--white);border:1px solid var(--line-l);border-inline-start:5px solid var(--em);border-radius:16px;padding:18px 22px;margin:0 0 24px}
 .answer p:last-child{margin-bottom:0}
-.toc{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:16px 22px;margin:0 0 8px}
+.toc{background:var(--white);border:1px solid var(--line-l);border-radius:16px;padding:16px 22px;margin:0 0 8px}
 .toc ol{margin:0}
 
 /* tables, checklists, example chats */
-.table-wrap{overflow-x:auto;margin:0 0 18px;border:1px solid var(--line);border-radius:14px;background:var(--white)}
+.table-wrap{overflow-x:auto;margin:0 0 18px;border:1px solid var(--line-l);border-radius:14px;background:var(--white)}
 .blog table{border-collapse:collapse;width:100%;font-size:15.5px}
-.blog th,.blog td{text-align:start;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.blog th,.blog td{text-align:start;padding:10px 14px;border-bottom:1px solid var(--line-l);vertical-align:top}
 .blog th{background:var(--warm-2);font-weight:700}
 .blog tr:last-child td{border-bottom:0}
 .checklist{list-style:none!important;padding-inline-start:0!important}
@@ -55,18 +55,18 @@
 .related{margin-top:40px}
 .related ul{list-style:none;padding:0;display:grid;gap:12px}
 .related li{margin:0}
-.related a{display:block;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-decoration:none}
+.related a{display:block;background:var(--white);border:1px solid var(--line-l);border-radius:14px;padding:14px 18px;text-decoration:none}
 .related a:hover{border-color:var(--em)}
 
 /* blog index */
 .post-list{list-style:none!important;padding:0!important;display:grid;gap:16px;margin:8px 0 0}
 .post-list li{margin:0}
-.post-card{display:block;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px 22px;text-decoration:none;color:var(--ink)!important;font-weight:400!important;transition:border-color .2s,box-shadow .2s}
+.post-card{display:block;background:var(--white);border:1px solid var(--line-l);border-radius:18px;padding:20px 22px;text-decoration:none;color:var(--ink)!important;font-weight:400!important;transition:border-color .2s,box-shadow .2s}
 .post-card:hover{border-color:var(--em);box-shadow:var(--shadow)}
 .post-card h2,.post-card h3{margin:0 0 6px;font-size:20px}
 .post-card p{margin:0;color:var(--muted)}
 .post-card .meta{display:block;font-size:13.5px;color:var(--muted);margin-bottom:6px}
-.empty{background:var(--white);border:1px dashed var(--line);border-radius:18px;padding:22px}
+.empty{background:var(--white);border:1px dashed var(--line-l);border-radius:18px;padding:22px}
 
 @media (max-width:600px){
   .blog{padding:28px 0 56px}

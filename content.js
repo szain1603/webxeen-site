@@ -13,14 +13,34 @@ window.WEBXEEN_CONTENT = {
       title: 'Webxeen — AI WhatsApp sales assistant for your shop',
       description: 'Webxeen answers your customers on WhatsApp 24/7 in 8 languages, takes orders with receipts, checks payment screenshots and lets you run everything with one tap.'
     },
-    nav: { how: 'How it works', features: 'Features', pricing: 'Pricing', faq: 'FAQ', cta: 'Free demo', menu: 'Menu', lang: 'Language' },
+    nav: { how: 'How it works', features: 'Features', pricing: 'Pricing', faq: 'FAQ', demo: 'Live demo', cta: 'Try live demo', menu: 'Menu', lang: 'Language' },
     hero: {
       badge: 'AI sales assistant for WhatsApp',
-      title: 'Your shop’s WhatsApp, answering and taking orders <em>24/7</em>.',
+      title: 'Your shop’s WhatsApp, answering and taking orders <em>24/7.</em>',
       sub: 'Webxeen replies to your customers in their own language — English, Arabic, Spanish, Urdu and more — and books orders automatically, even while you sleep.',
-      cta1: 'Get a free demo on WhatsApp', cta2: 'See pricing',
-      note: 'Free test before you buy · No app to install',
-      videoLabel: 'Animation: a customer orders two kurtas on WhatsApp and the AI sends back a receipt.'
+      cta1: 'Try the live demo', cta2: 'Free test on WhatsApp',
+      note: 'No sign-up · 8 languages · Free test before you buy',
+      artLabel: 'Example: a customer orders food on WhatsApp, the assistant books it, and the shop owner gets the order with one-tap buttons.'
+    },
+    heroChat: {
+      shop: 'Grill House', ini: 'GH', status: 'replies instantly', you: 'Customer',
+      c1: 'Hi! Can I see the menu? Do you deliver downtown?',
+      b1: 'Hi! Yes, downtown delivery is $3. Today’s favourites:',
+      p1: 'Chicken Kebab', p2: 'Classic Burger', p3: 'Margherita Pizza', pr1: '$12', pr2: '$9', pr3: '$14', a1: 'kabab', a2: 'burger', a3: 'pizza',
+      c2: '1 kebab plate and 2 burgers please',
+      b2: '1 x Chicken Kebab $12 + 2 x Classic Burger $18 + delivery $3 = <b>$33</b>. Shall I confirm?',
+      q1: 'Confirm', q2: 'Edit order', q3: 'More',
+      b3: 'Done! Order <b>#GH-0012</b> is booked. Cash on delivery.',
+      b4: 'Your order #GH-0012 is on the way.',
+      seller: 'You · shop owner', newOrder: 'New order #GH-0012', lines: '1 x Chicken Kebab<br>2 x Classic Burger · Downtown', total: '$33 · Cash on delivery',
+      paid: 'Paid', disp: 'Dispatched', more: 'More', told: 'Customer told automatically', wait: 'Waiting for new orders…'
+    },
+    demoStrip: {
+      eyebrow: 'Live demo',
+      title: 'Try it with your own business — in 2 minutes.',
+      text: 'Pick your business type, add your products and chat with your own assistant. You type as the customer on one phone and watch the shop owner’s phone on the other.',
+      cta: 'Open the live demo', note: 'No sign-up. Nothing is sent to real WhatsApp.',
+      cats: { restaurant: 'Restaurant', seller: 'Online seller', clinic: 'Clinic', school: 'School', salon: 'Salon', bakery: 'Bakery', grocery: 'Grocery', electronics: 'Electronics' }
     },
     facts: [
       { num: 8, label: 'languages it replies in' },
@@ -146,7 +166,7 @@ window.WEBXEEN_CONTENT = {
     final: {
       title: 'Let your WhatsApp sell while you rest.',
       sub: 'Test Webxeen free before you buy. We set it up with your products, prices and delivery rules, and you chat with it as a customer.',
-      cta1: 'Get a free demo on WhatsApp', cta2: 'Email us'
+      cta0: 'Try the live demo', cta1: 'Get a free test on WhatsApp', cta2: 'Email us'
     },
     footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
   },
@@ -157,14 +177,34 @@ window.WEBXEEN_CONTENT = {
       title: 'Webxeen — aap ki shop ke liye AI WhatsApp sales assistant',
       description: 'Webxeen WhatsApp par aap ke customers ko 24/7, 8 zubaanon mein jawab deta hai, receipt ke saath order leta hai, payment screenshot check karta hai aur sab kuch aik tap se chalata hai.'
     },
-    nav: { how: 'Kaise kaam karta hai', features: 'Features', pricing: 'Qeematein', faq: 'Sawalat', cta: 'Free demo', menu: 'Menu', lang: 'Zubaan' },
+    nav: { how: 'Kaise kaam karta hai', features: 'Features', pricing: 'Qeematein', faq: 'Sawalat', demo: 'Live demo', cta: 'Live demo', menu: 'Menu', lang: 'Zubaan' },
     hero: {
       badge: 'WhatsApp ke liye AI sales assistant',
       title: 'Aap ki shop ka WhatsApp — <em>24/7</em> jawab bhi de, order bhi le.',
       sub: 'Webxeen aap ke customers ko unki apni zubaan mein jawab deta hai — Urdu, English, Arabic aur bohat si — aur order khud book karta hai, chahe aap so rahe hon.',
-      cta1: 'WhatsApp par free demo lein', cta2: 'Qeematein dekhein',
-      note: 'Khareedne se pehle free test · Koi app install nahi karni',
-      videoLabel: 'Animation: customer WhatsApp par 2 kurtay order karta hai aur AI receipt bhejta hai.'
+      cta1: 'Live demo try karein', cta2: 'WhatsApp par free test',
+      note: 'Sign-up nahi · 8 zubaanein · Khareedne se pehle free test',
+      artLabel: 'Misaal: customer WhatsApp par khana order karta hai, assistant order book karta hai, aur shop owner ko aik tap wale buttons ke saath order milta hai.'
+    },
+    heroChat: {
+      shop: 'Karachi Grill', ini: 'KG', status: 'foran jawab deta hai', you: 'Customer',
+      c1: 'Menu bhej dein? DHA mein delivery hai?',
+      b1: 'Ji haan, DHA delivery Rs 150. Aaj ke favourite:',
+      p1: 'Chicken Karahi', p2: 'Seekh Kabab', p3: 'Garlic Naan', pr1: 'Rs 1,450', pr2: 'Rs 780', pr3: 'Rs 120', a1: 'karahi', a2: 'kabab', a3: 'naan',
+      c2: '1 karahi aur 4 naan',
+      b2: '1 x Chicken Karahi Rs 1,450 + 4 x Garlic Naan Rs 480 + delivery Rs 150 = <b>Rs 2,080</b>. Confirm kar doon?',
+      q1: 'Confirm', q2: 'Order edit', q3: 'More',
+      b3: 'Ho gaya! Order <b>#KG-0012</b> book ho gaya. Payment delivery par cash.',
+      b4: 'Aap ka order #KG-0012 raste mein hai.',
+      seller: 'Aap · shop owner', newOrder: 'Naya order #KG-0012', lines: '1 x Chicken Karahi<br>4 x Garlic Naan · DHA', total: 'Rs 2,080 · Cash on delivery',
+      paid: 'Paid', disp: 'Dispatched', more: 'More', told: 'Customer ko khud bata diya', wait: 'Naye orders ka intezar…'
+    },
+    demoStrip: {
+      eyebrow: 'Live demo',
+      title: 'Apne business ke saath try karein — sirf 2 minute mein.',
+      text: 'Apne business ki qism chunein, apne products daalein aur apne assistant se baat karein. Aik phone par aap customer hain, doosre par shop owner ka phone dekhein.',
+      cta: 'Live demo kholein', note: 'Sign-up nahi. Asal WhatsApp par kuch nahi jata.',
+      cats: { restaurant: 'Restaurant', seller: 'Online seller', clinic: 'Clinic', school: 'School', salon: 'Salon', bakery: 'Bakery', grocery: 'Grocery', electronics: 'Electronics' }
     },
     facts: [
       { num: 8, label: 'zubaanon mein jawab' },
@@ -290,7 +330,7 @@ window.WEBXEEN_CONTENT = {
     final: {
       title: 'Aap ka WhatsApp bechta rahe, aap aaram karein.',
       sub: 'Khareedne se pehle Webxeen ka free test karein. Hum isay aap ke products, qeematon aur delivery rules ke saath set kar dete hain, aur aap customer ban kar check karte hain.',
-      cta1: 'WhatsApp par free demo lein', cta2: 'Email karein'
+      cta0: 'Live demo try karein', cta1: 'WhatsApp par free test', cta2: 'Email karein'
     },
     footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }
   }

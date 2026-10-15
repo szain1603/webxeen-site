@@ -13,6 +13,9 @@ Neeche har kaam click-by-click likha hai. Aap ko coding aani zaroori nahi.
 |---|---|
 | `index.html` | Website ka English page (webxeen.com) |
 | `ur/index.html` | Roman Urdu page (webxeen.com/ur) — SEO agent khud banata hai, haath se edit na karein |
+| `demo/index.html` | Live demo page (webxeen.com/demo): visitor apna business chun kar customer aur shop owner dono phones par chat try karta hai |
+| `assets/js/demo.js` | Demo ka dimagh: har business type ke products, qeematein aur jawab. Sab kuch visitor ke browser mein chalta hai, kahin kuch nahi jata |
+| `assets/img/art.svg` | Products ki tasveerein (karahi, naan, kurta, cake waghera) jo home aur demo dono mein dikhti hain |
 | `config.js` | **Qeematein aur links** — sirf yahan badlein |
 | `content.js` | **Website ka saara text** (English + Roman Urdu) |
 | `assets/video/` | 6 videos (A se F), har aik desktop (16x9) aur mobile (9x16) mein, MP4 + WebM, aur poster tasveerein |

@@ -20,6 +20,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://webxeen.com/"/>
   </url>
   <url>
+    <loc>https://webxeen.com/demo</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://webxeen.com/terms</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>yearly</changefreq>
