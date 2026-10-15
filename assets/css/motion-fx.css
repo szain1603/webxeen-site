@@ -26,7 +26,7 @@
 /* final CTA parallax blobs */
 .final{position:relative;overflow:hidden}
 .final-in{position:relative;z-index:1}
-.fx-blob{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(70px);opacity:.4;pointer-events:none;z-index:0}
+.fx-blob{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(80px);opacity:.16;pointer-events:none;z-index:0}
 .fx-blob.a{background:var(--em);left:-180px;top:-200px}
 .fx-blob.b{background:var(--navy-3);right:-180px;bottom:-220px}
 

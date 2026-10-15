@@ -32,7 +32,7 @@
         "IDEA (owner): the free-demo WhatsApp link opens with a Roman Urdu greeting ('Assalam o Alaikum, mujhe ... demo chahiye'). Ask the owner if English-page visitors should get an English greeting (would need a second demo link in config.js).",
         "OWNER: give the USD price per extra reply (config.js pricing.extraReplyPriceUSD). Until then USD visitors see 'a small fee'."
       ],
-      "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices. Cache-busting: see AGENT.md rule 6; the privacy/ and terms/ pages also link styles.css and legal.css with ?v=YYYYMMDD, bump those too.",
+      "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices. Cache-busting: see AGENT.md rule 6; the privacy/ and terms/ pages also link styles.css and legal.css with ?v=YYYYMMDD, bump those too. /demo is the live demo page (demo/index.html, assets/js/demo.js, assets/css/demo.css): a free rule-based demo that runs in the visitor's browser; keep its link in the menu, hero, demo strip and final call to action.",
       "target_markets": {
         "goal": "Rank worldwide, not only in Pakistan. Pakistan is one market among many.",
         "priority_languages": [

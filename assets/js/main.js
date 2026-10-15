@@ -53,6 +53,8 @@
     return e;
   }
   var EN = TXT.en;
+  var ART = '/assets/img/art.svg?v=20261015';
+  var inPK = false; try { inPK = Intl.DateTimeFormat().resolvedOptions().timeZone === 'Asia/Karachi'; } catch (e) {}
 
   /* ---------- icons ---------- */
   var ICON = {
@@ -166,6 +168,15 @@
     $$('.lang [data-lang]').forEach(function (b) {
       if (b.getAttribute('data-lang') === l) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
     });
+    // Example chat in the hero: visitors in Pakistan see it in Roman Urdu on the English page too
+    // (that is how Pakistani shoppers write). The /ur page always shows Roman Urdu.
+    var chatLang = l === 'en' && inPK && !window.WEBXEEN_PRERENDER ? 'ur' : l;
+    if (chatLang !== l) $$('[data-i18n^="heroChat."]').forEach(function (e) {
+      var v = get(e.getAttribute('data-i18n'), chatLang); if (v != null) e.innerHTML = v;
+    });
+    $$('use[data-art]').forEach(function (u) {
+      var id = get(u.getAttribute('data-art'), chatLang); if (id) u.setAttribute('href', ART + '#' + id);
+    });
     renderPrices();
     if (window.ScrollTrigger) window.ScrollTrigger.refresh();
   }
@@ -199,6 +210,13 @@
       if (isPh(v)) { a.setAttribute('href', '#contact'); a.setAttribute('data-placeholder', v); }
       else { a.setAttribute('href', v); a.removeAttribute('data-placeholder'); }
       if (a.getAttribute('data-text') === 'email') a.textContent = L.contactEmail;
+    });
+    // Live demo links: /demo, with the business type (data-demo="restaurant") and the page language
+    $$('[data-demo]').forEach(function (a) {
+      var q = [], cat = a.getAttribute('data-demo');
+      if (cat) q.push('cat=' + encodeURIComponent(cat));
+      if (lang === 'ur') q.push('lang=ur');
+      a.setAttribute('href', '/demo' + (q.length ? '?' + q.join('&') : ''));
     });
     if (isPh(L.demoWhatsApp) || isPh(L.contactEmail) || isPh(L.privacy)) {
       console.warn('[Webxeen] Placeholders still in config.js — replace {{DEMO_WHATSAPP_LINK}}, {{CONTACT_EMAIL}}, {{PRIVACY_URL}} before launch.');
@@ -276,6 +294,44 @@
     $$('.mp-body .mb').forEach(function (m) { m.classList.toggle('vis', +m.dataset.st <= i); });
   }
 
+  /* ---------- hero: the example chat plays itself (customer orders, owner taps a button) ---------- */
+  function heroChat() {
+    var art = $('#heroArt'); if (!art || reduce) return;
+    var body = $('.hp-body', art), items = $$('[data-seq]', art);
+    var typing = h('p', { 'class': 'hb bot typing', 'aria-hidden': 'true' }, '<i></i><i></i><i></i>');
+    var visible = true, timers = [];
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(art);
+    var hides = $$('[data-hide]', art);
+    function show(n) {
+      items.forEach(function (e) { if (+e.getAttribute('data-seq') === n) e.classList.add('on'); });
+      hides.forEach(function (e) { if (+e.getAttribute('data-hide') === n) e.classList.add('gone'); });
+      typing.classList.remove('on');
+    }
+    function type() { body.appendChild(typing); typing.classList.add('on'); }
+    function press(sel) { var t = $(sel, art); if (t) t.classList.add('pressed'); }
+    var script = [
+      [500, function () { show(1); }], [1100, type], [2000, function () { show(2); }],
+      [3500, function () { show(3); }], [3900, type], [4800, function () { show(4); }],
+      [6200, function () { press('.hq .tap'); }], [6600, type], [7300, function () { show(5); }],
+      [9200, function () { press('.hs-btns .tap'); }], [9800, function () { show(7); }],
+      [14500, run]
+    ];
+    // first time: the first question and answer are already on screen, so the phone is never empty
+    function run(first) {
+      timers.forEach(clearTimeout); timers = [];
+      if (first !== true && (!visible || document.hidden)) { timers.push(setTimeout(run, 1000)); return; }
+      items.forEach(function (e) { e.classList.remove('on'); });
+      hides.forEach(function (e) { e.classList.remove('gone'); });
+      $$('.pressed', art).forEach(function (e) { e.classList.remove('pressed'); });
+      typing.classList.remove('on');
+      var skip = first === true ? 2600 : 0;
+      if (skip) { show(1); show(2); }
+      script.forEach(function (st) { if (st[0] >= skip) timers.push(setTimeout(st[1], st[0] - skip)); });
+    }
+    art.classList.add('play');
+    run(true);
+  }
+
   /* ---------- counters ---------- */
   function count(el) {
     var to = +el.dataset.count, suf = el.dataset.suffix || '', t0 = performance.now();
@@ -332,6 +388,7 @@
   // seo-agent/tools/prerender.js sets this flag to save the filled-in English page as static HTML
   if (window.WEBXEEN_PRERENDER) return;
   nav();
+  heroChat();
   videos();
   // main.js runs right away (text is on screen at first paint); GSAP is deferred,
   // so animations start once the page has finished parsing.

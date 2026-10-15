@@ -25,7 +25,10 @@ message you write for the owner is in simple Roman Urdu.
 6. **Cache-busting:** whenever you change `config.js`, `content.js` or any file in `assets/css/` or
    `assets/js/`, update the `?v=YYYYMMDD` version on its `<link>`/`<script>` tag in `index.html` to
    today's date, then re-run `seo-agent/tools/prerender.js` so every language page gets it too.
-   Otherwise returning visitors keep seeing the old file.
+   Otherwise returning visitors keep seeing the old file. The live demo page `demo/index.html`
+   (hand-written, not generated) loads `styles.css`, `demo.css`, `config.js` and `demo.js` with
+   its own `?v=` tags: bump those as well when you change them. Product pictures live in
+   `assets/img/art.svg` (referenced as `art.svg?v=YYYYMMDD#name`).
 7. **Legal pages** (privacy, terms) are drafts for the owner to review; say so clearly in the PR.
 8. Keep each PR small enough for a non-developer to review: 1 new article + a short list of
    fixes is ideal. Put the most important item first.
