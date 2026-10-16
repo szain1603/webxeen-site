@@ -25,7 +25,8 @@ message you write for the owner is in simple Roman Urdu.
 6. **Cache-busting:** whenever you change `config.js`, `content.js` or any file in `assets/css/` or
    `assets/js/`, update the `?v=YYYYMMDD` version on its `<link>`/`<script>` tag in `index.html` to
    today's date, then re-run `seo-agent/tools/prerender.js` so every language page gets it too.
-   Otherwise returning visitors keep seeing the old file. The live demo page `demo/index.html`
+   Otherwise returning visitors keep seeing the old file (files in `assets/css`, `assets/js` and
+   `assets/img` are cached for 7 days, so a changed file without a new `?v=` stays old for a week). The live demo page `demo/index.html`
    (hand-written, not generated) loads `styles.css`, `demo.css`, `config.js` and `demo.js` with
    its own `?v=` tags: bump those as well when you change them. Product pictures live in
    `assets/img/art.svg` (referenced as `art.svg?v=YYYYMMDD#name`).
