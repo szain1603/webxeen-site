@@ -117,3 +117,27 @@ Newest entries at the bottom. One entry per site per run.
 - Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
 - PR: https://github.com/szain1603/webxeen-site/pull/15
 - Owner to do by hand: merge the PR; optionally send the USD price per extra reply.
+
+## 2026-10-16 — webxeen
+- Playbook review skipped (last reviewed 2026-10-12, less than 6 days old).
+- Open PRs: #7 (owner's privacy fix) and #17 (owner's perf/smooth-scroll) — neither is an agent PR,
+  both left alone. /privacy backlog item stays until #7 is merged. New agent PR opened.
+- Done: GLOBAL 2, part 1 — Arabic home page at /ar (right-to-left).
+  - content.js: full "ar" block written for Arab/Gulf buyers (not word-for-word): chat examples in
+    dirhams (AED), Gulf names/places, FAQ "Does it reply in Arabic?" says Arabic is in Gold and
+    Premium (Silver = Urdu, Roman Urdu, English — same facts as the English page). Seller commands
+    stay in English (that is how the product works); the text says so. Prices: USD (from config.js).
+  - prerender.js: new PAGES entry (ar/index.html, og tags, skip link, noscript text). It now writes
+    hreflang en / ur-Latn / ar / x-default on all three pages and adds "ar" to WebSite.inLanguage.
+  - index.html: "العربية" link in the language switcher (also on /ur and /ar via prerender).
+  - styles.css: Arabic font fallback (Segoe UI / Noto Sans Arabic / Geeza Pro / Tahoma), no
+    negative letter-spacing on Arabic (it breaks joined letters), taller line-height.
+    ?v=20261016 on styles.css (all pages) and content.js.
+  - sitemap.xml: /ar added, ar hreflang on every home entry, lastmod 2026-10-16 for /, /ur, /ar.
+- Spanish /es left for the next run (top of backlog), so each language gets a careful translation.
+- Tested in Chromium: /ar at 1280 (Dubai) and 390 (Riyadh), / at 1280 (New York), /ur at 390
+  (Karachi): rtl + lang=ar, 1 h1, USD prices on /ar, no console errors, no 404s, no horizontal
+  scroll. JSON-LD valid on all three pages.
+- Note: PR #17 also changes styles.css and the ?v= lines, so whichever PR is merged second may
+  show a conflict; the agent will fix it on the next run.
+- Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).

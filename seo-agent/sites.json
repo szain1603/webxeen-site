@@ -16,7 +16,7 @@
       "facts_source": "content.js and config.js in the repo are the only source of product facts and prices.",
       "backlog": [
         "OWNER REVIEW: /privacy — the owner's PR #7 (branch fix/privacy-providers, opened 2026-10-13) fills in the provider names, removes noindex and adds /privacy to sitemap.xml. If PR #7 is merged, this item is done: delete it. If it is closed without merging, keep /privacy on noindex until the owner gives the AI model provider and WhatsApp Business provider names.",
-        "GLOBAL 2: Build the Arabic home page at /ar/ (right-to-left, real Arabic copy, not machine-literal) and the Spanish home page at /es/, with hreflang between all versions and sitemap entries. To add a language: add its block to content.js and one entry to PAGES in seo-agent/tools/prerender.js (it then builds the page, hreflang and absolute paths), and add it to sitemap.xml.",
+        "GLOBAL 2 (part 2): Build the Spanish home page at /es/ (real Spanish copy for Spain and Latin America, not machine-literal; examples in local currencies or USD). Arabic /ar was done on 2026-10-16. To add a language: add its block to content.js and one entry to PAGES in seo-agent/tools/prerender.js (it then builds the page, hreflang and absolute paths), add the language link in index.html's .lang group, and add it (with hreflang lines on every home entry) to sitemap.xml.",
         "GLOBAL 3: Add use-case landing pages in English for worldwide audiences, each genuinely different: restaurants, clothing/fashion shops, clinics and salons, Instagram sellers.",
         "ARTICLE: How to spot fake payment screenshots on WhatsApp (for Pakistani online sellers). This is the FIRST blog article: also do the 'First article only' steps in AGENT.md (remove blog noindex, add /blog to sitemap, footer link).",
         "ARTICLE: How to set up WhatsApp auto reply for an online clothing shop.",
@@ -30,7 +30,10 @@
         "CHECK: After the blog PR is merged, confirm the IndexNow GitHub Action ran green (repo Actions tab). If GitHub Actions is disabled for the repo, tell the owner how to enable it.",
         "IDEA (owner): the hero and feature videos show a Pakistani example (kurtas, PKR). For the global page, consider a second hero video with a neutral example (e.g. shirts in USD) shown to non-Pakistan visitors.",
         "IDEA (owner): the free-demo WhatsApp link opens with a Roman Urdu greeting ('Assalam o Alaikum, mujhe ... demo chahiye'). Ask the owner if English-page visitors should get an English greeting (would need a second demo link in config.js).",
-        "OWNER: give the USD price per extra reply (config.js pricing.extraReplyPriceUSD). Until then USD visitors see 'a small fee'."
+        "OWNER: give the USD price per extra reply (config.js pricing.extraReplyPriceUSD). Until then USD visitors see 'a small fee'.",
+        "IDEA: /demo works only in English and Roman Urdu. Arabic (and later Spanish) visitors land on the English demo; add an Arabic UI to demo.js when possible.",
+        "OWNER: ask a native Arabic speaker (ideally from the Gulf) to read https://webxeen.com/ar once and send any wording changes; the agent will apply them in content.js.",
+        "IDEA: Arabic blog articles for Gulf sellers (e.g. 'بوت واتساب للمتاجر', 'الرد التلقائي في واتساب للأعمال') on /ar/blog/... with hreflang, once the English blog has its first articles."
       ],
       "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices. Cache-busting: see AGENT.md rule 6; the privacy/ and terms/ pages also link styles.css and legal.css with ?v=YYYYMMDD, bump those too. /demo is the live demo page (demo/index.html, assets/js/demo.js, assets/css/demo.css): a free rule-based demo that runs in the visitor's browser; keep its link in the menu, hero, demo strip and final call to action.",
       "target_markets": {
