@@ -486,3 +486,22 @@ html[lang=ar] .eyebrow{text-transform:none;font-size:14px}
 html[lang=ar] .hero h1{line-height:1.3}
 html[lang=ar] h2{line-height:1.35}
 html[lang=ar] .lead,html[lang=ar] p{line-height:1.8}
+
+/* ---------- two services (home) ---------- */
+.svc{padding:clamp(56px,7vw,88px) 0 8px}
+.svc h2{font-size:clamp(28px,3.6vw,44px);margin:10px 0 28px}
+.svc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.svc-card{position:relative;display:flex;flex-direction:column;gap:10px;padding:28px;border-radius:24px;background:var(--card);border:1px solid var(--line-2);box-shadow:var(--shadow);color:var(--text);text-decoration:none;transition:transform .25s ease,border-color .25s ease}
+a.svc-card:hover,.svc-card:focus-within{transform:translateY(-3px);border-color:var(--mint-line)}
+.svc-web{background:linear-gradient(160deg,var(--mint-bg),var(--card) 60%)}
+.svc-ic{width:48px;height:48px;border-radius:14px;background:var(--mint);display:grid;place-items:center}
+.svc-ic svg{width:26px;height:26px;fill:none;stroke:var(--mint-ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.svc-tag{font-size:13px;font-weight:600;color:var(--mint);letter-spacing:.02em}
+.svc-card h3{font-size:clamp(20px,2vw,24px);line-height:1.25}
+.svc-card p{color:var(--dim);max-width:46ch;flex:1}
+.svc-links{display:flex;flex-wrap:wrap;gap:8px 22px}
+.svc-go{font-weight:600;color:var(--mint);text-decoration:none}
+.svc-go::after{content:" →"}
+.svc-links .svc-go:hover{text-decoration:underline}
+@media (max-width:760px){.svc-grid{grid-template-columns:1fr}.svc-card{padding:22px}}
+html[dir=rtl] .svc-go::after{content:" ←"}
