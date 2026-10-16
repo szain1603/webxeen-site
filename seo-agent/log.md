@@ -141,3 +141,6 @@ Newest entries at the bottom. One entry per site per run.
 - Note: PR #17 also changes styles.css and the ?v= lines, so whichever PR is merged second may
   show a conflict; the agent will fix it on the next run.
 - Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: https://github.com/szain1603/webxeen-site/pull/18
+- Owner to do by hand: merge PR #18; then in Search Console request indexing for https://webxeen.com/ar;
+  optionally have a native Arabic speaker read /ar.
