@@ -14,7 +14,7 @@ window.WEBXEEN_CONTENT = {
       title: 'Webxeen — AI WhatsApp sales assistant for your shop',
       description: 'Webxeen answers your customers on WhatsApp 24/7 in 8 languages, takes orders with receipts, checks payment screenshots and lets you run everything with one tap.'
     },
-    nav: { how: 'How it works', features: 'Features', pricing: 'Pricing', faq: 'FAQ', demo: 'Live demo', cta: 'Try live demo', menu: 'Menu', lang: 'Language' },
+    nav: { how: 'How it works', features: 'Features', pricing: 'Pricing', faq: 'FAQ', demo: 'Live demo', cta: 'Try live demo', menu: 'Menu', lang: 'Language', websites: 'Websites' },
     hero: {
       badge: 'AI sales assistant for WhatsApp',
       title: 'Your shop’s WhatsApp, answering and taking orders <em>24/7.</em>',
@@ -164,6 +164,14 @@ window.WEBXEEN_CONTENT = {
         { q: 'Does it work outside Pakistan?', a: 'Yes. Each business has its own currency and time zone, and the assistant replies in 8 languages — so a shop in the Gulf, the UK, Europe or anywhere else on WhatsApp can use it. Plans outside Pakistan start at {usdFrom}/month.' }
       ]
     },
+    web: {
+      eyebrow: 'Also from Webxeen',
+      title: 'Websites that move as you scroll.',
+      text: 'We build scroll-animation and 3D product websites for brands. Your product turns, opens up and explains itself as visitors scroll — and every page can end with an order button that goes straight to your WhatsApp assistant.',
+      points: ['3D product reveal and scroll stories', 'Fast and smooth on phones', 'Order on WhatsApp from any page', 'Ready for Google search'],
+      cta: 'See the website service',
+      cta2: 'Ask for a quote'
+    },
     final: {
       title: 'Let your WhatsApp sell while you rest.',
       sub: 'Test Webxeen free before you buy. We set it up with your products, prices and delivery rules, and you chat with it as a customer.',
@@ -178,7 +186,7 @@ window.WEBXEEN_CONTENT = {
       title: 'Webxeen — aap ki shop ke liye AI WhatsApp sales assistant',
       description: 'Webxeen WhatsApp par aap ke customers ko 24/7, 8 zubaanon mein jawab deta hai, receipt ke saath order leta hai, payment screenshot check karta hai aur sab kuch aik tap se chalata hai.'
     },
-    nav: { how: 'Kaise kaam karta hai', features: 'Features', pricing: 'Qeematein', faq: 'Sawalat', demo: 'Live demo', cta: 'Live demo', menu: 'Menu', lang: 'Zubaan' },
+    nav: { how: 'Kaise kaam karta hai', features: 'Features', pricing: 'Qeematein', faq: 'Sawalat', demo: 'Live demo', cta: 'Live demo', menu: 'Menu', lang: 'Zubaan', websites: 'Websites' },
     hero: {
       badge: 'WhatsApp ke liye AI sales assistant',
       title: 'Aap ki shop ka WhatsApp — <em>24/7</em> jawab bhi de, order bhi le.',
@@ -328,6 +336,14 @@ window.WEBXEEN_CONTENT = {
         { q: 'Kya Pakistan se bahar use ho sakta hai?', a: 'Ji haan. Har business ki apni currency aur time zone hoti hai. Bahar ke plans {usdFrom}/mahina se shuru hain.' }
       ]
     },
+    web: {
+      eyebrow: 'Webxeen ki doosri service',
+      title: 'Aisi websites jo scroll ke saath chalti hain.',
+      text: 'Hum brands ke liye scroll animation aur 3D product websites banate hain. Visitor scroll karta hai to aap ka product ghoomta hai, khulta hai aur apni khoobiyan khud batata hai — aur har page ke aakhir mein order ka button seedha aap ke WhatsApp assistant tak le jata hai.',
+      points: ['3D product reveal aur scroll stories', 'Phone par tez aur smooth', 'Har page se WhatsApp par order', 'Google search ke liye tayyar'],
+      cta: 'Website service dekhein',
+      cta2: 'Qeemat poochein'
+    },
     final: {
       title: 'Aap ka WhatsApp bechta rahe, aap aaram karein.',
       sub: 'Khareedne se pehle Webxeen ka free test karein. Hum isay aap ke products, qeematon aur delivery rules ke saath set kar dete hain, aur aap customer ban kar check karte hain.',
@@ -337,12 +353,20 @@ window.WEBXEEN_CONTENT = {
   },
 
   ar: {
+    web: {
+      eyebrow: 'أيضًا من Webxeen',
+      title: 'مواقع تتحرك مع التمرير.',
+      text: 'نصمم مواقع بحركة التمرير وعرض المنتجات ثلاثي الأبعاد للعلامات التجارية. يدور منتجك ويُظهر تفاصيله بينما يتصفح الزائر — ويمكن أن تنتهي كل صفحة بزر طلب يذهب مباشرة إلى مساعد واتساب الخاص بك.',
+      points: ['عرض المنتج ثلاثي الأبعاد وقصص التمرير', 'سريعة وسلسة على الجوال', 'اطلب عبر واتساب من أي صفحة', 'جاهزة لبحث Google'],
+      cta: 'تعرّف على خدمة المواقع',
+      cta2: 'اطلب عرض سعر'
+    },
     meta: {
       lang: 'ar', dir: 'rtl', switchLabel: 'العربية',
       title: 'Webxeen — مساعد مبيعات ذكي على واتساب لمتجرك',
       description: 'Webxeen يرد على عملائك في واتساب على مدار الساعة بـ 8 لغات منها العربية، يستقبل الطلبات ويرسل إيصالًا برقم الطلب، يفحص صور إثبات الدفع، وتدير كل شيء بلمسة واحدة.'
     },
-    nav: { how: 'كيف يعمل', features: 'المزايا', pricing: 'الأسعار', faq: 'الأسئلة الشائعة', demo: 'تجربة مباشرة', cta: 'جرّب الآن', menu: 'القائمة', lang: 'اللغة' },
+    nav: { websites: 'المواقع', how: 'كيف يعمل', features: 'المزايا', pricing: 'الأسعار', faq: 'الأسئلة الشائعة', demo: 'تجربة مباشرة', cta: 'جرّب الآن', menu: 'القائمة', lang: 'اللغة' },
     hero: {
       badge: 'مساعد مبيعات بالذكاء الاصطناعي لواتساب',
       title: 'واتساب متجرك يرد على العملاء ويستقبل الطلبات <em>24/7.</em>',

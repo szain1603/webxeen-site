@@ -1,0 +1,27 @@
+/* /websites — service page. Uses tokens from styles.css. */
+.web-page .nav-in{gap:20px}
+.wnav{display:flex;gap:22px;margin-inline-start:auto}
+.wnav a{color:var(--dim);text-decoration:none;font-weight:500;font-size:15px}
+.wnav a:hover{color:var(--text)}
+.w-hero{padding:150px 0 70px;background:radial-gradient(800px 420px at 85% 0%,rgba(var(--accent-rgb),.12),transparent 62%),radial-gradient(700px 400px at -10% 100%,rgba(var(--blue-rgb),.09),transparent 60%),var(--bg)}
+.w-hero-in{max-width:860px}
+.w-hero h1{font-size:clamp(40px,6vw,72px);line-height:1.03;letter-spacing:-.035em;font-weight:800;margin:16px 0 20px;text-wrap:balance}
+.w-hero h1 em{font-style:normal;color:var(--mint)}
+.w-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:36px}
+.w-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.w-card h3{font-size:20px;margin:16px 0 8px}
+.w-card p{color:var(--dim)}
+.w-ic{width:48px;height:48px;border-radius:14px;background:var(--mint-bg);border:1px solid var(--mint-line);display:grid;place-items:center}
+.w-ic svg{width:24px;height:24px;fill:none;stroke:var(--mint);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.w-two{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:start}
+.w-rules{display:grid;gap:16px}
+.w-rules li{color:var(--dim)}
+.w-rules b{color:var(--text)}
+.w-steps{list-style:none;counter-reset:s;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.w-steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:8px}
+.w-steps li::before{content:counter(s);width:34px;height:34px;border-radius:50%;background:var(--mint);color:var(--mint-ink);display:grid;place-items:center;font:700 15px var(--font-d)}
+.w-steps b{font-size:17px}
+.w-steps span{color:var(--dim);font-size:15px}
+.faq-wrap{max-width:820px}
+@media (max-width:900px){.wnav{display:none}.w-grid,.w-two{grid-template-columns:1fr}.w-steps{grid-template-columns:1fr 1fr}.w-hero{padding-top:120px}}
+@media (max-width:560px){.w-steps{grid-template-columns:1fr}}

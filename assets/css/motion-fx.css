@@ -28,7 +28,7 @@
 .final-in{position:relative;z-index:1}
 /* soft glow made with a gradient (a CSS blur filter here made scrolling stutter) */
 .fx-blob{position:absolute;width:620px;height:620px;border-radius:50%;pointer-events:none;z-index:0;will-change:transform}
-.fx-blob.a{background:radial-gradient(closest-side,rgba(52,224,161,.16),rgba(52,224,161,0));left:-220px;top:-240px}
+.fx-blob.a{background:radial-gradient(closest-side,rgba(var(--accent-rgb),.16),rgba(var(--accent-rgb),0));left:-220px;top:-240px}
 .fx-blob.b{background:radial-gradient(closest-side,rgba(122,167,255,.14),rgba(122,167,255,0));right:-220px;bottom:-260px}
 /* flow graphic: pulsing ring (CSS, pauses off screen) */
 .fx-flow .fx-ring{transform-box:fill-box;transform-origin:center;animation:fxRing 2.4s ease-in-out infinite}
