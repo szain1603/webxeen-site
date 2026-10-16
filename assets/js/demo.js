@@ -354,7 +354,34 @@
     start();
     if (isMobile() && !$('#dDet').open) $('#dTabs').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
   }
-  function selectCh(c) {
+  /* the customer phone drops away and rises back up from below in the new app's look */
+  var chAnim = null;
+  function riseIn(apply) {
+    var ph = $('#custPane .ph');
+    if (reduce || !ph || !ph.animate) { apply(); return; }
+    if (chAnim) chAnim.cancel();
+    var r = ph.getBoundingClientRect();
+    var go = function () {
+      var down = ph.animate([{ transform: 'translateY(0)', opacity: 1 }, { transform: 'translateY(40%) scale(.96)', opacity: 0 }],
+        { duration: 220, easing: 'cubic-bezier(.4,0,1,1)', fill: 'forwards' });
+      chAnim = down;
+      down.onfinish = function () {
+        apply();
+        chAnim = ph.animate([{ transform: 'translateY(110%) scale(.92)', opacity: 0 }, { transform: 'translateY(-2%) scale(1.01)', opacity: 1, offset: .75 }, { transform: 'none', opacity: 1 }],
+          { duration: 700, easing: 'cubic-bezier(.16,1,.3,1)' });
+        down.cancel();
+      };
+    };
+    if (isMobile() && (r.top > innerHeight || r.bottom < 0)) {
+      $('#dTabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(go, 450);
+    } else go();
+  }
+  function selectCh(c, user) {
+    if (user && c !== ch) {
+      $$('#chGroup [role=radio]').forEach(function (b) { b.setAttribute('aria-checked', String(b.getAttribute('data-ch') === c)); });
+      return riseIn(function () { selectCh(c); });
+    }
     ch = c;
     $$('#chGroup [role=radio]').forEach(function (b) { b.setAttribute('aria-checked', String(b.getAttribute('data-ch') === c)); });
     radioKeys($('#chGroup'));
@@ -1406,7 +1433,7 @@
       if (S) S.rl = uiLang;
     });
   });
-  $$('#chGroup [role=radio]').forEach(function (b) { b.addEventListener('click', function () { selectCh(b.getAttribute('data-ch')); }); });
+  $$('#chGroup [role=radio]').forEach(function (b) { b.addEventListener('click', function () { selectCh(b.getAttribute('data-ch'), true); }); });
   $('#fCur').addEventListener('change', function () {
     var cur = $('#fCur').value;
     if (!draft.touched) { var name = $('#fName').value; draft = presetDraft(draft.cat, cur); renderForm(); if (name && name !== CATS[draft.cat].name && name !== (INTL[draft.cat] || {}).name) $('#fName').value = name; }

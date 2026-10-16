@@ -31,4 +31,8 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://webxeen.com/websites</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
 </urlset>
