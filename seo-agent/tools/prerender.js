@@ -11,7 +11,8 @@
     index.html     English (/). Only the part between the skip link and <noscript>,
                    the JSON-LD block and the hreflang block are rewritten; edit the rest by hand.
     ur/index.html  Roman Urdu (/ur). Fully generated from index.html + content.js "ur".
-                   Never edit it by hand: change index.html / content.js and re-run.
+    ar/index.html  Arabic (/ar, right-to-left). Fully generated from index.html + content.js "ar".
+                   Never edit these by hand: change index.html / content.js and re-run.
 */
 'use strict';
 const fs = require('fs');
@@ -30,6 +31,13 @@ const PAGES = [
       ogDescription: 'WhatsApp ke liye AI sales assistant: 8 zubaanon mein jawab, receipt ke saath orders, payment screenshot ki checking.',
       skip: 'Content par jayein',
       noscript: 'Videos chalane ke liye JavaScript on karein.'
+    } },
+  { key: 'ar', hreflang: 'ar', url: SITE + 'ar', file: 'ar/index.html',
+    extra: {
+      ogTitle: 'Webxeen — واتساب متجرك يرد على العملاء ويستقبل الطلبات 24/7',
+      ogDescription: 'مساعد مبيعات ذكي لواتساب: يرد بـ 8 لغات منها العربية، يستقبل الطلبات بإيصالات، ويفحص صور إثبات الدفع.',
+      skip: 'انتقل إلى المحتوى',
+      noscript: 'فعّل JavaScript لتشغيل الفيديوهات.'
     } }
 ];
 
