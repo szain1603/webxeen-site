@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3D Shoe Website Sample (Kadam Runner) — Webxeen</title>
+<link rel="canonical" href="https://webxeen.com/websites/sample/kadam">
+<meta property="og:title" content="3D shoe website sample by Webxeen">
+<meta property="og:description" content="A sample scroll-animation product page: the shoe turns and explains each part as you scroll.">
+<meta property="og:url" content="https://webxeen.com/websites/sample/kadam">
+<meta name="theme-color" content="#EEEBE4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+.wx-badge{position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:80;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#0E1426;color:#fff;font:600 13px/1 "Archivo",Arial,sans-serif;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.wx-badge b{color:#8FA6FF;font-weight:600}</style>
+
+<meta name="description" content="Sample scroll-animation product page by Webxeen: a 3D running shoe that explains its details as you scroll.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800;900&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one 3D shoe on a fixed stage; the page scrolls past it and each section turns it
+   to the part being explained (upper, collar, midsole, outsole), then colours, then order. */
+:root{
+  color-scheme:light;
+  --paper:#EEEBE4;    /* warm studio paper */
+  --paper-2:#E4E0D7;
+  --ink:#151515;
+  --muted:#5F5B54;
+  --line:rgba(21,21,21,.14);
+  --accent:#FF5B1F;   /* track orange */
+  --accent-ink:#1A0A02;
+  --card:rgba(250,248,244,.94);
+  --f-display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --f-body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --gut-l:max(16px,env(safe-area-inset-left,0px));
+  --gut-r:max(16px,env(safe-area-inset-right,0px));
+}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--f-display);font-weight:800;letter-spacing:-.01em;text-transform:uppercase;line-height:.92;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1240px;margin:0 auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(238,235,228,.92);border-bottom:1px solid var(--line)}
+.top .wrap{height:60px;display:flex;align-items:center;gap:24px}
+.logo{font-family:var(--f-display);font-weight:900;font-size:28px;letter-spacing:.04em;text-decoration:none;line-height:1}
+.logo span{color:var(--accent)}
+.nav{display:flex;gap:22px;margin-left:auto}
+.nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:15px}
+.nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;font:600 15px var(--f-body);text-decoration:none;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;white-space:nowrap}
+.btn:hover{background:#2a2a2a}
+.btn.alt{background:transparent;color:var(--ink)}
+.btn.alt:hover{background:rgba(21,21,21,.06)}
+.btn.hot{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.hot:hover{background:#FF7440}
+.top .btn{min-height:40px;padding:0 16px;font-size:14px}
+@media (max-width:760px){.nav{display:none}.top .btn{margin-left:auto}}
+
+/* 3D stage */
+#stage{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0;transition:opacity .8s ease}
+#stage.ready{opacity:1}
+.loading{position:fixed;left:50%;top:55%;translate:-50% 0;z-index:1;color:var(--muted)}
+.loading.gone{display:none}
+.layer{position:relative}
+.colours .head,.rail,.hint{position:relative;z-index:2}
+
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 60px);display:grid;align-items:center;overflow:hidden;padding-block:48px}
+.bgword{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:0;font-family:var(--f-display);font-weight:900;font-size:clamp(150px,31vw,520px);line-height:.8;color:var(--paper-2);letter-spacing:.02em;white-space:nowrap;user-select:none;pointer-events:none}
+.hero .copy{position:relative;z-index:2;max-width:520px;display:grid;gap:18px}
+.hero h1{font-size:clamp(44px,6.6vw,100px)}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{font-size:clamp(16px,1.5vw,19px);color:var(--muted);max-width:42ch}
+.hero .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--muted)}
+.hint{position:absolute;z-index:2;left:var(--gut-l);bottom:22px;display:flex;align-items:center;gap:10px;color:var(--muted)}
+.hint i{width:1px;height:34px;background:var(--ink);opacity:.35}
+
+/* detail sections */
+.part{min-height:100svh;display:grid;align-items:center;padding-block:80px}
+.part .wrap{display:flex;width:100%}
+.part.right .wrap{justify-content:flex-end}
+.spec{position:relative;z-index:2;width:min(440px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 26px 22px;display:grid;gap:14px}
+.spec .n{display:flex;justify-content:space-between;color:var(--muted)}
+.spec .n b{color:var(--accent);font-weight:500}
+.spec h2{font-size:clamp(40px,4.4vw,60px)}
+.spec p{color:var(--muted)}
+.spec dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:4px 0 0;padding-top:12px;border-top:1px solid var(--line)}
+.spec dt{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.spec dd{margin:0;font-weight:600;text-align:right}
+
+/* kinetic weight */
+.weight{position:relative;min-height:150svh;overflow:hidden}
+.weight .stick{position:sticky;top:60px;height:calc(100svh - 60px);display:grid;place-items:center}
+.big{position:absolute;z-index:0;font-family:var(--f-display);font-weight:900;font-size:clamp(160px,30vw,460px);line-height:.8;color:transparent;-webkit-text-stroke:2px var(--ink);white-space:nowrap;opacity:.9}
+.big b{color:var(--accent);-webkit-text-stroke:0}
+.weight .cap{position:absolute;z-index:2;bottom:8%;left:50%;translate:-50% 0;text-align:center;width:min(560px,92%);display:grid;gap:8px}
+.weight .cap h2{font-size:clamp(34px,4vw,54px)}
+.weight .cap p{color:var(--muted)}
+
+/* colours: vertical scroll walks sideways */
+.colours{position:relative;overflow:hidden;padding-block:90px 60px}
+.colours .head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 40px}
+.colours .head h2{font-size:clamp(52px,7vw,104px)}
+.colours .head p{color:var(--muted);max-width:36ch}
+.rail{margin-top:42vh;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+.track{display:flex;gap:18px;width:max-content}
+.swatch{width:min(380px,80vw);flex:none;background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:22px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:center;text-align:left;font:inherit;color:inherit;cursor:pointer}
+.swatch.on{border-color:var(--ink)}
+.swatch .dot{width:54px;height:54px;border-radius:50%;grid-row:span 2;box-shadow:inset 0 0 0 3px rgba(255,255,255,.6),0 0 0 1px var(--line)}
+.swatch h3{font-size:34px}
+.swatch p{color:var(--muted);font-size:15px}
+.swatch .pick{grid-column:1 / -1;margin-top:8px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.swatch.on .pick{color:var(--accent)}
+
+/* order */
+.order{min-height:100svh;display:grid;align-items:center;padding-block:80px}
+.order .wrap{display:flex;justify-content:flex-end}
+.buy{position:relative;z-index:2;width:min(480px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:28px;display:grid;gap:18px}
+.buy h2{font-size:clamp(48px,5vw,72px)}
+.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;font-family:var(--f-display);font-weight:800;font-size:44px}
+.price small{flex-basis:100%;font-family:var(--f-body);font-weight:500;font-size:15px;color:var(--muted)}
+.sizes{display:flex;flex-wrap:wrap;gap:8px}
+.sizes button{min-width:52px;min-height:44px;border-radius:12px;border:1.5px solid var(--line);background:transparent;font:600 15px var(--f-body);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
+.sizes button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chosen{color:var(--muted);font-size:15px}
+.buy .btn{width:100%}
+.fine{color:var(--muted);font-size:13.5px}
+
+footer{position:relative;z-index:2;background:var(--ink);color:#CFCBC3;padding-block:30px;font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+footer a{color:#fff}
+
+/* phones: shoe sits in the top half, text cards in the bottom half */
+@media (max-width:760px){
+  .hero{align-items:end;padding-block:0 84px}
+  .hero .copy{max-width:none;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px}
+  .bgword{top:30%}
+  .part{align-items:end;padding-block:0 40px}
+  .part.right .wrap{justify-content:flex-start}
+  .order{align-items:end;padding-block:0 40px}
+  .rail{margin-top:46vh}
+  .weight .cap{bottom:6%}
+  .hero h1{font-size:42px}
+  .hero .lede{display:none}
+  .colours .head h2{font-size:44px}
+  .colours .head p{display:none}
+  .buy .fine{display:none}
+  .buy{gap:12px;padding:22px}
+}
+/* reduced motion or no WebGL: no scrubbing, everything in place */
+.still .colours .track{flex-wrap:wrap;width:auto}
+@media (prefers-reduced-motion:reduce){ #stage{transition:none} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">KADAM<span>.</span></a>
+    <nav class="nav" aria-label="Main"><a href="#upper">Details</a><a href="#colours">Colours</a><a href="#order">Order</a></nav>
+    <a class="btn hot" id="topOrder" href="#order">Order now</a>
+  </div>
+</header>
+
+<canvas id="stage" aria-hidden="true"></canvas>
+<p class="loading mono" id="loading">Loading 3D shoe…</p>
+
+<main class="layer">
+  <section class="hero" id="top" data-k="hero">
+    <div class="bgword" aria-hidden="true">KADAM</div>
+    <div class="wrap">
+      <div class="copy">
+        <p class="mono" style="color:var(--accent)">New · Runner 01</p>
+        <h1>Light enough to <em>forget</em> you’re wearing it.</h1>
+        <p class="lede">A knit running shoe for long city days. Scroll down and it shows you every part, one at a time.</p>
+        <div class="row"><a class="btn hot" href="#order">Order on WhatsApp</a><a class="btn alt" href="#upper">See the details</a></div>
+        <div class="meta mono"><span>240 g</span><span>Sizes 39–45</span><span>3 colours</span></div>
+      </div>
+    </div>
+    <div class="hint mono" aria-hidden="true"><i></i>Scroll</div>
+  </section>
+
+  <section class="part right" id="upper" data-k="upper">
+    <div class="wrap"><article class="spec">
+      <div class="n mono"><b>01 / 04</b><span>Upper</span></div>
+      <h2>Knit mesh that breathes</h2>
+      <p>Thousands of tiny air holes keep your feet cool on a hot afternoon. Soft at the toe, firm at the sides where you need support.</p>
+      <dl><dt>Material</dt><dd>Engineered knit mesh</dd><dt>Overlays</dt><dd>Two side stripes</dd></dl>
+    </article></div>
+  </section>
+
+  <section class="part" id="collar" data-k="collar">
+    <div class="wrap"><article class="spec">
+      <div class="n mono"><b>02 / 04</b><span>Collar &amp; heel</span></div>
+      <h2>Padded collar, pull tab</h2>
+      <p>Foam around the ankle stops rubbing. Grab the heel tab and slip in without untying the laces.</p>
+      <dl><dt>Collar</dt><dd>Foam padded</dd><dt>Heel tab</dt><dd>Yes</dd></dl>
+    </article></div>
+  </section>
+
+  <section class="part right" id="midsole" data-k="midsole">
+    <div class="wrap"><article class="spec">
+      <div class="n mono"><b>03 / 04</b><span>Midsole</span></div>
+      <h2>Soft foam, all day</h2>
+      <p>One piece of cushioning foam under the whole foot takes the shock of every step, from the morning walk to the last errand.</p>
+      <dl><dt>Foam</dt><dd>EVA, one piece</dd><dt>Heel drop</dt><dd>8 mm</dd></dl>
+    </article></div>
+  </section>
+
+  <section class="part" id="outsole" data-k="outsole">
+    <div class="wrap"><article class="spec">
+      <div class="n mono"><b>04 / 04</b><span>Outsole</span></div>
+      <h2>Grip that holds on</h2>
+      <p>The rubber pattern underneath grips dusty pavements and wet tiles, and it is sewn and glued so it doesn’t peel.</p>
+      <dl><dt>Outsole</dt><dd>Rubber</dd><dt>Best for</dt><dd>Walking, light runs</dd></dl>
+    </article></div>
+  </section>
+
+  <section class="weight" id="weight" data-k="weight">
+    <div class="stick">
+      <div class="big" id="bigWeight" aria-hidden="true">240<b>g</b></div>
+      <div class="cap"><p class="mono" style="color:var(--accent)">Weight · size 42</p><h2>240 grams. That’s it.</h2><p>About the weight of a smartphone and a half. Your legs will notice by evening.</p></div>
+    </div>
+  </section>
+
+  <section class="colours" id="colours" data-k="colours" aria-labelledby="colTitle">
+    <div class="wrap head"><h2 id="colTitle">Pick your colour</h2><p>Keep scrolling to try each one on the shoe, or tap a card.</p></div>
+    <div class="rail"><div class="track" id="track">
+      <button type="button" class="swatch on" data-v="0"><span class="dot" style="background:#1F7FB8"></span><h3>Midnight</h3><p>Ocean-blue knit, navy stripes</p><span class="pick">On the shoe now</span></button>
+      <button type="button" class="swatch" data-v="1"><span class="dot" style="background:#E7C6C4"></span><h3>Beach</h3><p>Sand-pink knit, rose stripes</p><span class="pick">Tap to try</span></button>
+      <button type="button" class="swatch" data-v="2"><span class="dot" style="background:#2B2B2D"></span><h3>Street</h3><p>Charcoal knit, coral stripes</p><span class="pick">Tap to try</span></button>
+    </div></div>
+  </section>
+
+  <section class="order" id="order" data-k="order">
+    <div class="wrap"><div class="buy">
+      <p class="mono" style="color:var(--accent)">Runner 01</p>
+      <h2>Make it yours</h2>
+      <div class="price">Rs 7,900 <small>Free delivery in Lahore · Cash on delivery</small></div>
+      <div>
+        <p class="mono" style="color:var(--muted);margin-bottom:10px" id="sizeLabel">Size (EU)</p>
+        <div class="sizes" role="group" aria-labelledby="sizeLabel" id="sizes"></div>
+      </div>
+      <p class="chosen" id="chosen">Colour: Midnight · Size: 42</p>
+      <a class="btn hot" id="waBtn" target="_blank" rel="noopener" href="#">Order on WhatsApp</a>
+      <p class="fine">The order button opens WhatsApp with your colour and size filled in. A Webxeen assistant can answer and confirm it, day or night.</p>
+    </div></div>
+  </section>
+</main>
+
+<a class="wx-badge" href="/websites">Sample by <b>Webxeen</b> · Get a site like this →</a>
+<footer>
+  <div class="wrap">
+    <span>Sample template by Webxeen. Kadam, the prices and the details are examples.</span>
+    <span>3D shoe model © 2021 Shopify, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> (resized textures).</span>
+  </div>
+</footer>
+
+<script src="/assets/js/gsap.min.js"></script>
+<script src="/assets/js/ScrollTrigger.min.js"></script>
+<script type="importmap">
+{ "imports": {
+  "three": "/assets/vendor/three/build/three.module.min.js",
+  "three/addons/": "/assets/vendor/three/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const $ = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NAMES = ['Midnight', 'Beach', 'Street'];
+const WA = '923164308893';
+
+/* ---------- order box (works without 3D) ---------- */
+let size = 42, variant = 0;
+const sizesEl = $('#sizes');
+for (let s = 39; s <= 45; s++) {
+  const b = document.createElement('button'); b.type = 'button'; b.textContent = s;
+  b.setAttribute('aria-pressed', String(s === size));
+  b.addEventListener('click', () => { size = s; $$('button', sizesEl).forEach(x => x.setAttribute('aria-pressed', String(+x.textContent === s))); syncOrder(); });
+  sizesEl.appendChild(b);
+}
+function syncOrder() {
+  $('#chosen').textContent = `Colour: ${NAMES[variant]} · Size: ${size}`;
+  const msg = `Assalam o Alaikum! Mujhe Kadam Runner 01 chahiye. Colour: ${NAMES[variant]}, Size: ${size}.`;
+  $('#waBtn').href = `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+}
+syncOrder();
+
+/* ---------- 3D stage ---------- */
+const canvas = $('#stage');
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' }); }
+catch (e) { $('#loading').textContent = '3D is not available on this device.'; document.documentElement.classList.add('still'); }
+
+if (renderer) start();
+
+async function start() {
+  const small = matchMedia('(max-width: 760px)').matches;
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, small ? 1.5 : 1.75));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+
+  const scene = new THREE.Scene();
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  const key = new THREE.DirectionalLight(0xffffff, 1.4); key.position.set(3, 5, 4); scene.add(key);
+
+  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+  camera.position.set(0, 0, 7);
+
+  // soft contact shadow drawn once on a small canvas
+  const sc = document.createElement('canvas'); sc.width = sc.height = 128;
+  const g2 = sc.getContext('2d'); const grd = g2.createRadialGradient(64, 64, 0, 64, 64, 64);
+  grd.addColorStop(0, 'rgba(0,0,0,.42)'); grd.addColorStop(1, 'rgba(0,0,0,0)'); g2.fillStyle = grd; g2.fillRect(0, 0, 128, 128);
+  const shadow = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(sc), transparent: true, depthWrite: false }));
+  shadow.rotation.x = -Math.PI / 2; shadow.scale.set(3.6, 1.3, 1);
+
+  const pivot = new THREE.Group(); const spin = new THREE.Group(); pivot.add(spin); scene.add(pivot);
+  const floor = new THREE.Group(); floor.add(shadow); scene.add(floor);
+
+  // decode the embedded model
+  const gltf = await new GLTFLoader().loadAsync('/websites/sample/kadam/shoe.glb');
+  const model = gltf.scene;
+  const box = new THREE.Box3().setFromObject(model);
+  const size3 = box.getSize(new THREE.Vector3()), centre = box.getCenter(new THREE.Vector3());
+  model.position.sub(centre);
+  const holder = new THREE.Group(); holder.add(model); holder.scale.setScalar(3 / size3.x); spin.add(holder);
+  const shoeH = 3 / size3.x * size3.y;
+
+  // colour variants (KHR_materials_variants): material 0, 1, 2 = Midnight, Beach, Street
+  let mesh = null; model.traverse(o => { if (o.isMesh && !mesh) mesh = o; });
+  const mats = await Promise.all([0, 1, 2].map(i => gltf.parser.getDependency('material', i)));
+  mats.forEach(m => { m.envMapIntensity = 1; });
+  renderer.compile(scene, camera);
+
+  let dirty = true;
+  const S = {}; // current pose
+  // poses: ry/rx/rz in radians, x/y in scene units, s = scale. Desktop values; phones are adjusted in apply().
+  const K = {
+    hero:    { ry: -0.62, rx: 0.30, rz: 0.06, x: 1.95, y: -0.15, s: 0.92, my: 1.05 },
+    upper:   { ry: 0.00,  rx: 0.10, rz: 0.00, x: -1.05, y: -0.30, s: 1.55, my: 0.95 },
+    collar:  { ry: 2.25,  rx: 0.28, rz: -0.04, x: 1.05, y: -0.25, s: 1.65, my: 0.95 },
+    midsole: { ry: -0.10, rx: -0.06, rz: 0.00, x: -0.95, y: 0.45, s: 1.95, my: 1.05 },
+    outsole: { ry: 0.00,  rx: -1.42, rz: 0.30, x: 1.05, y: 0.00, s: 1.35, my: 0.95 },
+    weight:  { ry: 2 * Math.PI - 0.62, rx: 0.22, rz: 0.00, x: 0.00, y: -0.95, s: 0.85, my: -1.0 },
+    colours: { ry: 4 * Math.PI - 0.55, rx: 0.26, rz: 0.04, x: 0.00, y: -0.05, s: 0.95, my: -0.05 },
+    order:   { ry: 4 * Math.PI - 0.70, rx: 0.30, rz: 0.06, x: -1.15, y: -0.10, s: 1.15, my: 1.25 }
+  };
+  Object.assign(S, K.hero);
+
+  function setVariant(i) {
+    if (i === variant && mesh.material === mats[i]) return;
+    variant = i; mesh.material = mats[i]; dirty = true;
+    $$('.swatch').forEach(b => { const on = +b.dataset.v === i; b.classList.toggle('on', on); $('.pick', b).textContent = on ? 'On the shoe now' : 'Tap to try'; });
+    syncOrder();
+  }
+  mesh.material = mats[0];
+  $$('.swatch').forEach(b => b.addEventListener('click', () => setVariant(+b.dataset.v)));
+
+  function resize() {
+    const w = innerWidth, h = innerHeight;
+    renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); dirty = true;
+  }
+  addEventListener('resize', resize); resize();
+
+  function apply() {
+    const phone = innerWidth <= 760;
+    const k = phone ? Math.max(0.42, camera.aspect * 1.05) : Math.min(1, camera.aspect / 1.35); // narrow screens shrink the shoe
+    pivot.position.set(phone ? 0 : S.x * Math.min(1, camera.aspect / 1.6), phone ? S.my : S.y, 0);
+    pivot.scale.setScalar(S.s * k);
+    spin.rotation.set(S.rx, S.ry, S.rz);
+    // the shadow follows the shoe but stays on the floor; it fades when the sole turns up
+    floor.position.set(pivot.position.x, pivot.position.y - shoeH * 0.5 * pivot.scale.x - 0.02, 0);
+    floor.scale.setScalar(pivot.scale.x);
+    shadow.material.opacity = Math.max(0, 1 - Math.abs(S.rx) * 1.6);
+  }
+  function frame() {
+    if (dirty) { dirty = false; apply(); renderer.render(scene, camera); }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  canvas.classList.add('ready'); $('#loading').classList.add('gone');
+
+  if (reduce || !window.gsap || !window.ScrollTrigger) { document.documentElement.classList.add('still'); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  const mark = () => { dirty = true; };
+
+  // colours: pin the section and walk the cards sideways; the card in the middle colours the shoe
+  const track = $('#track');
+  const travel = () => Math.max(0, track.scrollWidth - innerWidth + 48);
+  gsap.to(track, { x: () => -travel(), ease: 'none',
+    scrollTrigger: { trigger: '#colours', start: 'top top+=60', end: () => '+=' + (travel() + innerHeight * 0.6), pin: true, scrub: 0.6, invalidateOnRefresh: true,
+      onUpdate: self => { setVariant(Math.min(2, Math.floor(self.progress * 3))); S.ry = K.colours.ry + self.progress * 1.2; dirty = true; } } });
+
+  // section to section: the shoe moves while the next card scrolls in, then holds while you read
+  const secs = $$('[data-k]');
+  secs.forEach((sec, i) => {
+    if (!i) return;
+    const prev = secs[i - 1].dataset.k, from = { ...K[prev] }, to = K[sec.dataset.k];
+    if (prev === 'colours') from.ry += 1.2;
+    gsap.fromTo(S, from, { ...to, ease: 'power1.inOut', immediateRender: false, onUpdate: mark,
+      scrollTrigger: { trigger: sec, start: 'top bottom', end: sec.id === 'colours' ? 'top 20%' : 'center center', scrub: 0.8 } });
+  });
+
+  // parallax: the big word in the hero drifts slower than the page
+  gsap.to('.bgword', { yPercent: 45, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  // kinetic type: the weight grows behind the spinning shoe
+  gsap.fromTo('#bigWeight', { scale: 0.45, opacity: 0.15 }, { scale: 1.12, opacity: 0.95, ease: 'none',
+    scrollTrigger: { trigger: '#weight', start: 'top bottom', end: 'bottom bottom', scrub: true } });
+
+  document.fonts && document.fonts.ready.then(() => ScrollTrigger.refresh());
+}
+</script>
+
+</body>
+</html>

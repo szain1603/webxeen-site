@@ -9,12 +9,18 @@
 window.WEBXEEN_CONTENT = {
 
   en: {
+    services: {
+      eyebrow: 'Two ways we help you sell',
+      title: 'What do you need?',
+      bot: { tag: 'WhatsApp Bot', title: 'An AI assistant on your WhatsApp', text: 'Answers customers in their language, takes orders and checks payments — day and night.', cta: 'See how the bot works' },
+      web: { tag: '3D Websites', title: 'A website that moves as you scroll', text: 'Your product turns and explains itself in 3D, with an order button that goes to WhatsApp.', cta: 'See the website service', sample: 'Open the live 3D sample' }
+    },
     meta: {
       lang: 'en', dir: 'ltr', switchLabel: 'English',
       title: 'Webxeen — AI WhatsApp sales assistant for your shop',
       description: 'Webxeen answers your customers on WhatsApp 24/7 in 8 languages, takes orders with receipts, checks payment screenshots and lets you run everything with one tap.'
     },
-    nav: { how: 'How it works', features: 'Features', pricing: 'Pricing', faq: 'FAQ', demo: 'Live demo', cta: 'Try live demo', menu: 'Menu', lang: 'Language', websites: 'Websites' },
+    nav: { how: 'How it works', features: 'Features', pricing: 'Pricing', faq: 'FAQ', demo: 'Live demo', cta: 'Try live demo', menu: 'Menu', lang: 'Language', websites: '3D Websites', bot: 'WhatsApp Bot' },
     hero: {
       badge: 'AI sales assistant for WhatsApp',
       title: 'Your shop’s WhatsApp, answering and taking orders <em>24/7.</em>',
@@ -181,12 +187,18 @@ window.WEBXEEN_CONTENT = {
   },
 
   ur: {
+    services: {
+      eyebrow: 'Hum do tarah madad karte hain',
+      title: 'Aap ko kya chahiye?',
+      bot: { tag: 'WhatsApp Bot', title: 'Aap ke WhatsApp par AI assistant', text: 'Customers ko unki zubaan mein jawab, orders lena aur payment check karna — din raat.', cta: 'Dekhein bot kaise kaam karta hai' },
+      web: { tag: '3D Websites', title: 'Aisi website jo scroll par chalti hai', text: 'Aap ka product 3D mein ghoom kar khud apni khoobiyan batata hai, aur order ka button seedha WhatsApp par jata hai.', cta: 'Website service dekhein', sample: 'Live 3D sample kholein' }
+    },
     meta: {
       lang: 'ur-Latn', dir: 'ltr', switchLabel: 'Roman Urdu',
       title: 'Webxeen — aap ki shop ke liye AI WhatsApp sales assistant',
       description: 'Webxeen WhatsApp par aap ke customers ko 24/7, 8 zubaanon mein jawab deta hai, receipt ke saath order leta hai, payment screenshot check karta hai aur sab kuch aik tap se chalata hai.'
     },
-    nav: { how: 'Kaise kaam karta hai', features: 'Features', pricing: 'Qeematein', faq: 'Sawalat', demo: 'Live demo', cta: 'Live demo', menu: 'Menu', lang: 'Zubaan', websites: 'Websites' },
+    nav: { how: 'Kaise kaam karta hai', features: 'Features', pricing: 'Qeematein', faq: 'Sawalat', demo: 'Live demo', cta: 'Live demo', menu: 'Menu', lang: 'Zubaan', websites: '3D Websites', bot: 'WhatsApp Bot' },
     hero: {
       badge: 'WhatsApp ke liye AI sales assistant',
       title: 'Aap ki shop ka WhatsApp — <em>24/7</em> jawab bhi de, order bhi le.',
@@ -353,6 +365,12 @@ window.WEBXEEN_CONTENT = {
   },
 
   ar: {
+    services: {
+      eyebrow: 'طريقتان نساعدك بهما على البيع',
+      title: 'ماذا تحتاج؟',
+      bot: { tag: 'بوت واتساب', title: 'مساعد ذكي على واتساب الخاص بك', text: 'يرد على العملاء بلغتهم، ويستقبل الطلبات ويتحقق من الدفع — ليلًا ونهارًا.', cta: 'شاهد كيف يعمل البوت' },
+      web: { tag: 'مواقع ثلاثية الأبعاد', title: 'موقع يتحرك مع التمرير', text: 'يدور منتجك ويشرح نفسه بتقنية ثلاثية الأبعاد، مع زر طلب يذهب إلى واتساب.', cta: 'تعرّف على خدمة المواقع', sample: 'افتح النموذج الحي ثلاثي الأبعاد' }
+    },
     web: {
       eyebrow: 'أيضًا من Webxeen',
       title: 'مواقع تتحرك مع التمرير.',
@@ -366,7 +384,7 @@ window.WEBXEEN_CONTENT = {
       title: 'Webxeen — مساعد مبيعات ذكي على واتساب لمتجرك',
       description: 'Webxeen يرد على عملائك في واتساب على مدار الساعة بـ 8 لغات منها العربية، يستقبل الطلبات ويرسل إيصالًا برقم الطلب، يفحص صور إثبات الدفع، وتدير كل شيء بلمسة واحدة.'
     },
-    nav: { websites: 'المواقع', how: 'كيف يعمل', features: 'المزايا', pricing: 'الأسعار', faq: 'الأسئلة الشائعة', demo: 'تجربة مباشرة', cta: 'جرّب الآن', menu: 'القائمة', lang: 'اللغة' },
+    nav: { websites: 'مواقع ثلاثية الأبعاد', bot: 'بوت واتساب', how: 'كيف يعمل', features: 'المزايا', pricing: 'الأسعار', faq: 'الأسئلة الشائعة', demo: 'تجربة مباشرة', cta: 'جرّب الآن', menu: 'القائمة', lang: 'اللغة' },
     hero: {
       badge: 'مساعد مبيعات بالذكاء الاصطناعي لواتساب',
       title: 'واتساب متجرك يرد على العملاء ويستقبل الطلبات <em>24/7.</em>',
