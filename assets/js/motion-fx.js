@@ -3,6 +3,8 @@
    Uses the Motion library (assets/js/motion.min.js, global `Motion`). */
 (function () {
   'use strict';
+  var CS = getComputedStyle(document.documentElement);
+  var ACC = (CS.getPropertyValue('--accent-rgb') || '52,224,161').trim(), ACC_L = (CS.getPropertyValue('--accent-l-rgb') || '167,243,208').trim();
   var M = window.Motion;
   if (!M || window.WEBXEEN_PRERENDER) return;
   var doc = document;
@@ -10,6 +12,11 @@
   var $$ = function (s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); };
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var touch = matchMedia('(hover: none)').matches;
+  // Phones, small screens and slow computers skip the heavy decorations so scrolling stays smooth.
+  var light = touch || matchMedia('(max-width: 900px)').matches ||
+    (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || (navigator.deviceMemory && navigator.deviceMemory <= 4);
+  var scrolling = 0;
+  addEventListener('scroll', function () { scrolling = performance.now(); }, { passive: true });
   var SPRING = { type: 'spring', stiffness: 260, damping: 22 };
   var NS = 'http://www.w3.org/2000/svg';
   function el(tag, cls, parent) { var e = doc.createElement(tag); if (cls) e.className = cls; if (parent) parent.appendChild(e); return e; }
@@ -23,16 +30,19 @@
 
   /* 2. hero: particle network (canvas) */
   (function () {
-    var hero = $('.hero'); if (!hero) return;
+    var hero = $('.hero'); if (!hero || light || reduce) return;
     var c = el('canvas', 'fx-net'); c.setAttribute('aria-hidden', 'true');
     var veil = $('.hero-veil', hero); hero.insertBefore(c, veil ? veil.nextSibling : hero.firstChild);
     var ctx = c.getContext('2d'), P = [], W = 0, H = 0, mx = -999, my = -999, dpr = Math.min(window.devicePixelRatio || 1, 2), visible = true;
     function size() {
       W = hero.clientWidth; H = hero.clientHeight; c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var n = Math.round(Math.min(W < 768 ? 22 : 60, W * H / 18000)); P = [];
+      var n = Math.round(Math.min(40, W * H / 24000)); P = [];
       for (var i = 0; i < n; i++) P.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3, r: 1 + Math.random() * 1.8 });
     }
+    var frame = 0;
     function draw() {
+      // ~30 frames a second, and none while the page is being scrolled
+      if (!reduce && visible && (++frame % 2 || performance.now() - scrolling < 150 || doc.hidden)) { requestAnimationFrame(draw); return; }
       ctx.clearRect(0, 0, W, H);
       for (var i = 0; i < P.length; i++) {
         var p = P[i];
@@ -44,9 +54,9 @@
         }
         for (var j = i + 1; j < P.length; j++) {
           var q = P[j], dd = Math.hypot(p.x - q.x, p.y - q.y);
-          if (dd < 120) { ctx.strokeStyle = 'rgba(52,211,153,' + (.2 * (1 - dd / 120)) + ')'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke(); }
+          if (dd < 120) { ctx.strokeStyle = 'rgba(' + ACC + ',' + (.2 * (1 - dd / 120)) + ')'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke(); }
         }
-        ctx.fillStyle = 'rgba(167,243,208,.7)'; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
+        ctx.fillStyle = 'rgba(' + ACC_L + ',.7)'; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
       }
       if (!reduce && visible) requestAnimationFrame(draw);
     }
@@ -92,26 +102,25 @@
     var svg = doc.createElementNS(NS, 'svg');
     svg.setAttribute('class', 'fx-flow'); svg.setAttribute('viewBox', '0 0 600 420'); svg.setAttribute('aria-hidden', 'true');
     svg.innerHTML =
-      '<defs><radialGradient id="fxCore"><stop offset="0" stop-color="#6EE7B7"/><stop offset=".6" stop-color="#10B981"/><stop offset="1" stop-color="#047857"/></radialGradient></defs>' +
+      '<defs><radialGradient id="fxCore"><stop offset="0" style="stop-color:var(--mint-l)"/><stop offset=".6" style="stop-color:var(--mint-d2)"/><stop offset="1" style="stop-color:var(--em-d)"/></radialGradient></defs>' +
       '<path d="M110 150 C 120 300, 200 330, 300 320" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="6" stroke-linecap="round"/>' +
       '<path d="M300 320 C 400 330, 480 300, 490 150" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="6" stroke-linecap="round"/>' +
       '<path d="M490 80 C 430 -10, 170 -10, 110 80" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round"/>' +
-      '<path class="fx-seg" d="M110 150 C 120 300, 200 330, 300 320" fill="none" stroke="#34D399" stroke-width="6" stroke-linecap="round"/>' +
-      '<path class="fx-seg" d="M300 320 C 400 330, 480 300, 490 150" fill="none" stroke="#34D399" stroke-width="6" stroke-linecap="round"/>' +
-      '<path class="fx-seg" d="M490 80 C 430 -10, 170 -10, 110 80" fill="none" stroke="#10B981" stroke-width="4" stroke-linecap="round"/>' +
+      '<path class="fx-seg" d="M110 150 C 120 300, 200 330, 300 320" fill="none" style="stroke:var(--mint)" stroke-width="6" stroke-linecap="round"/>' +
+      '<path class="fx-seg" d="M300 320 C 400 330, 480 300, 490 150" fill="none" style="stroke:var(--mint)" stroke-width="6" stroke-linecap="round"/>' +
+      '<path class="fx-seg" d="M490 80 C 430 -10, 170 -10, 110 80" fill="none" style="stroke:var(--mint-d2)" stroke-width="4" stroke-linecap="round"/>' +
       '<g class="fx-node"><rect x="72" y="60" width="76" height="118" rx="14" fill="#060B17" stroke="#24314F" stroke-width="2"/><rect x="80" y="72" width="60" height="94" rx="8" fill="#F2F6F3"/>' +
-        '<rect x="100" y="82" width="34" height="12" rx="6" fill="#D1FAE5"/><rect x="86" y="100" width="40" height="12" rx="6" fill="#fff"/><rect x="100" y="118" width="30" height="12" rx="6" fill="#D1FAE5"/></g>' +
-      '<g class="fx-node"><circle class="fx-ring" cx="300" cy="320" r="56" fill="none" stroke="#34D399" stroke-width="2" opacity=".45"/>' +
-        '<circle cx="300" cy="320" r="42" fill="url(#fxCore)"/><text x="300" y="329" text-anchor="middle" font-family="Jakarta,system-ui,sans-serif" font-weight="800" font-size="24" fill="#04281C">AI</text></g>' +
+        '<rect x="100" y="82" width="34" height="12" rx="6" style="fill:var(--em-xl)"/><rect x="86" y="100" width="40" height="12" rx="6" fill="#fff"/><rect x="100" y="118" width="30" height="12" rx="6" style="fill:var(--em-xl)"/></g>' +
+      '<g class="fx-node"><circle class="fx-ring" cx="300" cy="320" r="56" fill="none" style="stroke:var(--mint)" stroke-width="2" opacity=".45"/>' +
+        '<circle cx="300" cy="320" r="42" fill="url(#fxCore)"/><text x="300" y="329" text-anchor="middle" font-family="Sora,system-ui,sans-serif" font-weight="800" font-size="24" style="fill:var(--mint-ink)">AI</text></g>' +
       '<g class="fx-node"><rect x="452" y="60" width="76" height="118" rx="14" fill="#060B17" stroke="#24314F" stroke-width="2"/><rect x="460" y="72" width="60" height="94" rx="8" fill="#0E1B33"/>' +
-        '<rect x="468" y="82" width="44" height="30" rx="6" fill="#fff"/><rect x="468" y="118" width="21" height="14" rx="4" fill="#10B981"/><rect x="491" y="118" width="21" height="14" rx="4" fill="#334155"/></g>' +
-      '<circle class="fx-pkt" r="10" fill="#34D399" stroke="#fff" stroke-width="3" opacity="0"/>';
+        '<rect x="468" y="82" width="44" height="30" rx="6" fill="#fff"/><rect x="468" y="118" width="21" height="14" rx="4" style="fill:var(--mint-d2)"/><rect x="491" y="118" width="21" height="14" rx="4" fill="#334155"/></g>' +
+      '<circle class="fx-pkt" r="10" style="fill:var(--mint)" stroke="#fff" stroke-width="3" opacity="0"/>';
     vis.appendChild(svg);
     var segs = $$('.fx-seg', svg).map(function (p) { var L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = reduce ? 0 : L; return { p: p, L: L, done: reduce }; });
     var nodes = $$('.fx-node', svg), pkt = $('.fx-pkt', svg);
     nodes.forEach(function (n, i) { n.style.opacity = reduce || i === 0 ? 1 : .35; });
     if (reduce) { nodes.forEach(function (n) { n.style.opacity = 1; }); return; }
-    M.animate($('.fx-ring', svg), { r: [56, 70, 56], opacity: [.45, .1, .45] }, { duration: 2.4, repeat: Infinity });
     var queue = Promise.resolve();
     function drawSeg(i) {
       var s = segs[i]; if (s.done) return; s.done = true;
@@ -137,9 +146,18 @@
     var parts = $$('path,circle', svg);
     parts.forEach(function (p) { var L = p.getTotalLength ? p.getTotalLength() : 60; p._L = L; p.style.strokeDasharray = L; p.style.strokeDashoffset = reduce ? 0 : L; });
     if (reduce) return;
-    M.inView(svg, function () { parts.forEach(function (p, i) { M.animate(p, { strokeDashoffset: [p._L, 0] }, { duration: 1, delay: .2 + .15 * i, ease: 'easeOut' }); }); }, { amount: .6 });
+    // plain CSS transitions: the inline dash offset set above would hide a Motion attribute animation
+    function draw(dur, gap, start) {
+      parts.forEach(function (p, i) {
+        p.style.transition = 'none'; p.style.strokeDashoffset = p._L;
+        p.getBoundingClientRect();
+        p.style.transition = 'stroke-dashoffset ' + dur + 's cubic-bezier(.2,.7,.2,1) ' + (start + gap * i) + 's';
+        p.style.strokeDashoffset = 0;
+      });
+    }
+    M.inView(svg, function () { draw(1, .15, .2); }, { amount: .6 });
     var card = svg.closest('.fcard');
-    if (!touch) card.addEventListener('pointerenter', function () { parts.forEach(function (p, i) { M.animate(p, { strokeDashoffset: [p._L, 0] }, { duration: .7, delay: .08 * i }); }); });
+    if (!touch) card.addEventListener('pointerenter', function () { draw(.7, .08, 0); });
   });
   function tilt(sel, max, lift) {
     if (reduce || touch) return;
@@ -195,7 +213,7 @@
 
   /* 9. final call to action: parallax blobs */
   (function () {
-    var f = $('.final'); if (!f) return;
+    var f = $('.final'); if (!f || light) return;
     var a = el('span', 'fx-blob a'), b = el('span', 'fx-blob b');
     a.setAttribute('aria-hidden', 'true'); b.setAttribute('aria-hidden', 'true');
     f.insertBefore(b, f.firstChild); f.insertBefore(a, f.firstChild);

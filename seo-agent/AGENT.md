@@ -25,7 +25,11 @@ message you write for the owner is in simple Roman Urdu.
 6. **Cache-busting:** whenever you change `config.js`, `content.js` or any file in `assets/css/` or
    `assets/js/`, update the `?v=YYYYMMDD` version on its `<link>`/`<script>` tag in `index.html` to
    today's date, then re-run `seo-agent/tools/prerender.js` so every language page gets it too.
-   Otherwise returning visitors keep seeing the old file.
+   Otherwise returning visitors keep seeing the old file (files in `assets/css`, `assets/js` and
+   `assets/img` are cached for 7 days, so a changed file without a new `?v=` stays old for a week). The live demo page `demo/index.html`
+   (hand-written, not generated) loads `styles.css`, `demo.css`, `config.js` and `demo.js` with
+   its own `?v=` tags: bump those as well when you change them. Product pictures live in
+   `assets/img/art.svg` (referenced as `art.svg?v=YYYYMMDD#name`).
 7. **Legal pages** (privacy, terms) are drafts for the owner to review; say so clearly in the PR.
 8. Keep each PR small enough for a non-developer to review: 1 new article + a short list of
    fixes is ideal. Put the most important item first.
@@ -88,6 +92,24 @@ f. Commit on the branch and open the PR with `gh pr create`.
     dabayein, phir **Confirm merge**. Vercel 1 minute mein website update kar dega."
   - **Playbook updates** (if any, with sources)
 - If you could not do something (no repo access, a fetch failed), say so plainly.
+
+## Publishing an article (webxeen)
+- Start from `seo-agent/templates/article.html`; save as `blog/<slug>/index.html` (URL `/blog/<slug>`,
+  no trailing slash: the site uses `cleanUrls`). Replace every `{{...}}`; `grep '{{' ` must find nothing.
+- Content rules: playbook section 4. Author is "Webxeen team" (Organization) until the owner gives a
+  real person's name; never invent an author.
+- Add a card at the top of the list between `<!-- articles:start -->` and `<!-- articles:end -->` in
+  `blog/index.html` (remove the "first guides are on their way" box once there is one article).
+- Link the new article to 2+ related articles (and them back to it) once 2+ exist; always to the home page.
+- `sitemap.xml`: add `/blog/<slug>` with today's `lastmod`, and update `/blog`'s `lastmod`.
+- **First article only:** delete the `BLOG-NOINDEX` comment and the `robots noindex` line in
+  `blog/index.html`, add `https://webxeen.com/blog` to `sitemap.xml`, and add a "Blog" link to the
+  home footer: `footer.blog` text in content.js (en + ur), a `<a data-i18n="footer.blog" href="/blog">`
+  in index.html's footer, then bump `?v=` and re-run prerender.js (rule 6). Add the same link to the
+  footer of `privacy/index.html` and `terms/index.html`.
+- IndexNow: after the PR is merged, `.github/workflows/indexnow.yml` submits every URL whose sitemap
+  entry changed (key file `/e21cc142480f44c4c42672b747d0ff45.txt`). Nothing to do by hand.
+- Test in Chromium (desktop 1280 + mobile 390): no console errors, no 404s, links work.
 
 ## Things only the owner can do (mention when relevant, never pretend you did them)
 - Google Search Console and Bing Webmaster Tools (submit sitemap, request indexing,

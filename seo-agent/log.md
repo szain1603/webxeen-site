@@ -69,3 +69,78 @@ Newest entries at the bottom. One entry per site per run.
 - 09:31 UTC: owner pushed answers to PR #5 (Lahore address, payments, late fees, refunds, data
   deletion, no AI training, governing law) and removed noindex from /terms. Agent added /terms to
   sitemap.xml. /privacy kept on noindex: AI provider and WhatsApp Business provider names still open.
+
+## 2026-10-14 — webxeen
+- Playbook review skipped (last reviewed 2026-10-12, less than 6 days old).
+- Open PRs: #7 (owner's privacy-provider fix, not an agent PR) — left alone; it covers the /privacy
+  backlog item. No agent PR open, so this run opens a new one.
+- Done: FOUNDATION 5 (blog section).
+  - /blog (blog/index.html): hub page in the site design (new assets/css/blog.css), breadcrumb,
+    topics, empty "first guides on their way" box, demo CTA. Kept on noindex and out of sitemap.xml
+    until the first article exists (an empty hub is thin content); the home-page footer link is
+    added with the first article (steps in AGENT.md "Publishing an article").
+  - Article template: seo-agent/templates/article.html (not deployed): BlogPosting + BreadcrumbList
+    JSON-LD, byline "Webxeen team", short-answer box, TOC, checklist/table/example-chat blocks, CTA,
+    related guides, optional hreflang for a Roman Urdu twin.
+  - IndexNow: key file /e21cc142480f44c4c42672b747d0ff45.txt, seo-agent/tools/indexnow.js, and
+    .github/workflows/indexnow.yml (after a merge that changes sitemap.xml, waits for Vercel, then
+    submits the changed URLs). api.indexnow.org is blocked from the agent cloud, so it runs on GitHub.
+  - Demo links on blog pages are read from config.js (static href as fallback).
+- Tested in Chromium (desktop 1280 + mobile 390): /blog and a filled-in copy of the template —
+  1 h1, valid JSON-LD, no console errors, no 404s, no horizontal scroll.
+- Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: https://github.com/szain1603/webxeen-site/pull/12
+- Owner to do by hand: merge PR #12, then open https://webxeen.com/blog to check the look.
+  Nothing to submit in Search Console yet (blog hub is noindex until the first article).
+
+## 2026-10-15 — webxeen
+- Playbook review skipped (last reviewed 2026-10-12, less than 6 days old).
+- Open PRs: only #7 (owner's privacy fix, still open) — left alone; the /privacy backlog item stays.
+  No agent PR open, so this run opens a new one.
+- Done: GLOBAL 1 (market-neutral home page).
+  - Prices: config.js defaultRegion = 'auto'. Visitors whose device time zone is Asia/Karachi see
+    PKR first; everyone else sees USD first. /ur always starts in PKR. The PKR/USD buttons still
+    work and the visitor's choice is remembered. The static HTML on / now shows USD (global
+    version, what Google sees); /ur static HTML shows PKR. Prices themselves unchanged.
+  - USD visitors no longer see "Rs 1.5" for extra replies: text says "cost a small fee" until the
+    owner sets pricing.extraReplyPriceUSD in config.js.
+  - English copy (content.js "en"): hero languages list leads with English/Arabic/Spanish;
+    "how it works" chat example in USD (shirts, $52) with a multilingual first step (English,
+    Arabic, Roman Urdu); JazzCash/PKR wording replaced with "bank transfer / mobile wallet";
+    price toggle "Other countries (USD)"; FAQ "Does it work outside Pakistan?" rewritten
+    (no claims about existing customers or countries). Roman Urdu page text unchanged.
+  - ?v=20261015 on config.js, content.js, main.js (index.html, /ur, blog, article template);
+    prerender.js re-run (idempotent); sitemap lastmod for / and /ur = 2026-10-15.
+- Tested in Chromium: / with New York (1280), Karachi (390), Dubai (390) time zones and /ur
+  with London (1280): correct currency each time, toggle works, no console errors, no 404s,
+  no horizontal scroll. JSON-LD valid.
+- Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: https://github.com/szain1603/webxeen-site/pull/15
+- Owner to do by hand: merge the PR; optionally send the USD price per extra reply.
+
+## 2026-10-16 — webxeen
+- Playbook review skipped (last reviewed 2026-10-12, less than 6 days old).
+- Open PRs: #7 (owner's privacy fix) and #17 (owner's perf/smooth-scroll) — neither is an agent PR,
+  both left alone. /privacy backlog item stays until #7 is merged. New agent PR opened.
+- Done: GLOBAL 2, part 1 — Arabic home page at /ar (right-to-left).
+  - content.js: full "ar" block written for Arab/Gulf buyers (not word-for-word): chat examples in
+    dirhams (AED), Gulf names/places, FAQ "Does it reply in Arabic?" says Arabic is in Gold and
+    Premium (Silver = Urdu, Roman Urdu, English — same facts as the English page). Seller commands
+    stay in English (that is how the product works); the text says so. Prices: USD (from config.js).
+  - prerender.js: new PAGES entry (ar/index.html, og tags, skip link, noscript text). It now writes
+    hreflang en / ur-Latn / ar / x-default on all three pages and adds "ar" to WebSite.inLanguage.
+  - index.html: "العربية" link in the language switcher (also on /ur and /ar via prerender).
+  - styles.css: Arabic font fallback (Segoe UI / Noto Sans Arabic / Geeza Pro / Tahoma), no
+    negative letter-spacing on Arabic (it breaks joined letters), taller line-height.
+    ?v=20261016 on styles.css (all pages) and content.js.
+  - sitemap.xml: /ar added, ar hreflang on every home entry, lastmod 2026-10-16 for /, /ur, /ar.
+- Spanish /es left for the next run (top of backlog), so each language gets a careful translation.
+- Tested in Chromium: /ar at 1280 (Dubai) and 390 (Riyadh), / at 1280 (New York), /ur at 390
+  (Karachi): rtl + lang=ar, 1 h1, USD prices on /ar, no console errors, no 404s, no horizontal
+  scroll. JSON-LD valid on all three pages.
+- Note: PR #17 also changes styles.css and the ?v= lines, so whichever PR is merged second may
+  show a conflict; the agent will fix it on the next run.
+- Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: https://github.com/szain1603/webxeen-site/pull/18
+- Owner to do by hand: merge PR #18; then in Search Console request indexing for https://webxeen.com/ar;
+  optionally have a native Arabic speaker read /ar.

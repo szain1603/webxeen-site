@@ -1,0 +1,151 @@
+<!doctype html>
+<!--
+  ARTICLE TEMPLATE for webxeen.com/blog. Not deployed (seo-agent/ is in .vercelignore).
+  Copy to blog/<slug>/index.html and replace every {{...}}. Rules: seo-agent/playbook.md section 4,
+  checklist: seo-agent/AGENT.md "Publishing an article". Delete this comment and any unused block.
+  Facts only from content.js / config.js. Unknown fact -> leave it out or <!- - OWNER: please confirm - ->.
+-->
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{TITLE_50_60_CHARS}} — Webxeen</title>
+<meta name="description" content="{{DESCRIPTION_140_160_CHARS}}">
+<meta name="theme-color" content="#0B1730">
+<link rel="canonical" href="https://webxeen.com/blog/{{SLUG}}">
+<!-- Only when a Roman Urdu version exists (then put the same 3 lines, reversed canonical, on /ur/blog/{{SLUG}}):
+<link rel="alternate" hreflang="en" href="https://webxeen.com/blog/{{SLUG}}">
+<link rel="alternate" hreflang="ur-Latn" href="https://webxeen.com/ur/blog/{{SLUG}}">
+<link rel="alternate" hreflang="x-default" href="https://webxeen.com/blog/{{SLUG}}">
+-->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Webxeen">
+<meta property="og:url" content="https://webxeen.com/blog/{{SLUG}}">
+<meta property="og:title" content="{{H1}}">
+<meta property="og:description" content="{{DESCRIPTION_140_160_CHARS}}">
+<meta property="og:image" content="https://webxeen.com/og-image.jpg">
+<meta property="article:published_time" content="{{YYYY-MM-DD}}">
+<meta property="article:modified_time" content="{{YYYY-MM-DD}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/css/styles.css?v=20261016d">
+<link rel="stylesheet" href="/assets/css/blog.css?v=20261015">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"BlogPosting","@id":"https://webxeen.com/blog/{{SLUG}}#article",
+  "headline":"{{H1}}","description":"{{DESCRIPTION_140_160_CHARS}}",
+  "inLanguage":"en","datePublished":"{{YYYY-MM-DD}}","dateModified":"{{YYYY-MM-DD}}",
+  "mainEntityOfPage":"https://webxeen.com/blog/{{SLUG}}","image":"https://webxeen.com/og-image.jpg",
+  "author":{"@type":"Organization","name":"Webxeen team","url":"https://webxeen.com/"},
+  "publisher":{"@id":"https://webxeen.com/#org"}},
+ {"@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://webxeen.com/"},
+  {"@type":"ListItem","position":2,"name":"Blog","item":"https://webxeen.com/blog"},
+  {"@type":"ListItem","position":3,"name":"{{SHORT_NAME}}","item":"https://webxeen.com/blog/{{SLUG}}"}]}
+]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="blog-top">
+  <div class="wrap nav-in">
+    <a href="/" class="logo" aria-label="Webxeen home">
+      <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B7CFF"></stop><stop offset="1" stop-color="#1E44E0"></stop></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#lg)"></rect><path d="M9 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7a2.5 2.5 0 0 1-2.5 2.5h-7l-4.5 3.6v-3.6H9A2.5 2.5 0 0 1 6.5 19v-7A2.5 2.5 0 0 1 9 9.5z" fill="#fff"></path><path d="M16 11.6l1.1 2.7 2.7 1.1-2.7 1.1-1.1 2.7-1.1-2.7-2.7-1.1 2.7-1.1z" fill="#1E44E0"></path></svg>
+      <span>Webxeen</span>
+    </a>
+    <nav aria-label="Main">
+      <a class="hide-sm" href="/#how">How it works</a>
+      <a class="hide-sm" href="/#pricing">Pricing</a>
+      <a class="btn btn-em btn-sm" data-link="demoWhatsApp" href="https://wa.me/923164308893?text=Assalam%20o%20Alaikum%2C%20mujhe%20Webxeen%20ka%20free%20demo%20chahiye" target="_blank" rel="noopener">Free demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="blog">
+<article class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol>
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li aria-current="page">{{SHORT_NAME}}</li>
+</ol></nav>
+
+<h1>{{H1}}</h1>
+<p class="byline">By the Webxeen team · Updated <time datetime="{{YYYY-MM-DD}}">{{D Month YYYY}}</time> · {{N}} min read</p>
+
+<div class="answer">
+  <p><strong>Short answer:</strong> {{40_TO_60_WORD_DIRECT_ANSWER}}</p>
+</div>
+
+<nav class="toc" aria-label="On this page"><ol>
+  <li><a href="#{{ID_1}}">{{H2_1}}</a></li>
+  <li><a href="#{{ID_2}}">{{H2_2}}</a></li>
+</ol></nav>
+
+<h2 id="{{ID_1}}">{{H2_1 (a real sub-question)}}</h2>
+<p>{{Direct answer in the first sentence, then detail.}}</p>
+
+<!-- Practical element: use at least one of these blocks, delete the rest. -->
+<ul class="checklist">
+  <li>{{Checklist item}}</li>
+</ul>
+
+<div class="table-wrap"><table>
+  <thead><tr><th scope="col">{{Col}}</th><th scope="col">{{Col}}</th></tr></thead>
+  <tbody><tr><td>{{Cell}}</td><td>{{Cell}}</td></tr></tbody>
+</table></div>
+
+<!-- Example chat: fictional shop names and obviously fake numbers only (e.g. 0300-0000000). -->
+<div class="chat" role="group" aria-label="Example chat">
+  <p><span class="who">Customer</span>{{message}}</p>
+  <p class="me"><span class="who">Shop</span>{{reply}}</p>
+</div>
+
+<h2 id="{{ID_2}}">{{H2_2}}</h2>
+<p>{{...}}</p>
+
+<!-- Only where it genuinely fits; link to the matching home section, e.g. /#feature-d (payment check). -->
+<h2 id="webxeen">How Webxeen helps</h2>
+<p>{{Real product facts from content.js only.}}</p>
+
+<section class="cta-box" aria-labelledby="cta">
+  <h2 id="cta">See it with your own products</h2>
+  <p>Get a free test before you buy: we set up the assistant with your products on our test WhatsApp number, and you chat with it like a customer.</p>
+  <a class="btn btn-em" data-link="demoWhatsApp" href="https://wa.me/923164308893?text=Assalam%20o%20Alaikum%2C%20mujhe%20Webxeen%20ka%20free%20demo%20chahiye" target="_blank" rel="noopener">Get a free demo on WhatsApp</a>
+</section>
+
+<section class="related" aria-labelledby="rel">
+  <h2 id="rel">Related guides</h2>
+  <ul>
+    <li><a href="/blog/{{RELATED_SLUG_1}}">{{Related article H1}}</a></li>
+    <li><a href="/blog/{{RELATED_SLUG_2}}">{{Related article H1}}</a></li>
+  </ul>
+</section>
+</article>
+</main>
+
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <a href="/" class="logo logo-sm"><svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#2F5BFF"></rect><path d="M9 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7a2.5 2.5 0 0 1-2.5 2.5h-7l-4.5 3.6v-3.6H9A2.5 2.5 0 0 1 6.5 19v-7A2.5 2.5 0 0 1 9 9.5z" fill="#fff"></path></svg><span>Webxeen</span></a>
+      <p class="muted">AI WhatsApp sales assistant for small businesses.</p>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="/blog">Blog</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms</a>
+    </nav>
+    <p class="muted small">© 2023 Webxeen. All rights reserved.</p>
+  </div>
+</footer>
+<script src="/config.js?v=20261015"></script>
+<script>
+/* Keep links in sync with config.js (the static href above is the fallback). */
+(function(){var L=(window.WEBXEEN_CONFIG||{}).links||{};document.querySelectorAll('[data-link]').forEach(function(a){var u=L[a.getAttribute('data-link')];if(u&&u.indexOf('{{')<0)a.href=u;});})();
+</script>
+</body>
+</html>

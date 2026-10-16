@@ -1,9 +1,10 @@
 /* =====================================================================
    WEBXEEN WEBSITE TEXT — every word on the page lives in this file.
-   "en" = English, "ur" = Roman Urdu. Edit the text between the quotes.
+   "en" = English, "ur" = Roman Urdu, "ar" = Arabic. Edit the text between the quotes.
    Keep the same keys in both languages. {trial}, {usdFrom}, {year},
    {extra}, {yearly} are filled in automatically from config.js.
-   To add Arabic later: copy the "en" block, name it "ar", set dir:'rtl'.
+   "ar" = Arabic (right-to-left, page /ar). To add a language: copy the "en"
+   block, translate it for that market, and add it to PAGES in prerender.js.
    ===================================================================== */
 window.WEBXEEN_CONTENT = {
 
@@ -13,14 +14,34 @@ window.WEBXEEN_CONTENT = {
       title: 'Webxeen — AI WhatsApp sales assistant for your shop',
       description: 'Webxeen answers your customers on WhatsApp 24/7 in 8 languages, takes orders with receipts, checks payment screenshots and lets you run everything with one tap.'
     },
-    nav: { how: 'How it works', features: 'Features', pricing: 'Pricing', faq: 'FAQ', cta: 'Free demo', menu: 'Menu', lang: 'Language' },
+    nav: { how: 'How it works', features: 'Features', pricing: 'Pricing', faq: 'FAQ', demo: 'Live demo', cta: 'Try live demo', menu: 'Menu', lang: 'Language', websites: 'Websites' },
     hero: {
       badge: 'AI sales assistant for WhatsApp',
-      title: 'Your shop’s WhatsApp, answering and taking orders <em>24/7</em>.',
-      sub: 'Webxeen replies to your customers in their own language — Urdu, English, Arabic and more — and books orders automatically, even while you sleep.',
-      cta1: 'Get a free demo on WhatsApp', cta2: 'See pricing',
-      note: '{trial}-day free trial · No app to install',
-      videoLabel: 'Animation: a customer orders two kurtas on WhatsApp and the AI sends back a receipt.'
+      title: 'Your shop’s WhatsApp, answering and taking orders <em>24/7.</em>',
+      sub: 'Webxeen replies to your customers in their own language — English, Arabic, Spanish, Urdu and more — and books orders automatically, even while you sleep.',
+      cta1: 'Try the live demo', cta2: 'Free test on WhatsApp',
+      note: 'No sign-up · 8 languages · Free test before you buy',
+      artLabel: 'Example: a customer orders food on WhatsApp, the assistant books it, and the shop owner gets the order with one-tap buttons.'
+    },
+    heroChat: {
+      shop: 'Grill House', ini: 'GH', status: 'replies instantly', you: 'Customer',
+      c1: 'Hi! Can I see the menu? Do you deliver downtown?',
+      b1: 'Hi! Yes, downtown delivery is $3. Today’s favourites:',
+      p1: 'Chicken Kebab', p2: 'Classic Burger', p3: 'Margherita Pizza', pr1: '$12', pr2: '$9', pr3: '$14', a1: 'kabab', a2: 'burger', a3: 'pizza',
+      c2: '1 kebab plate and 2 burgers please',
+      b2: '1 x Chicken Kebab $12 + 2 x Classic Burger $18 + delivery $3 = <b>$33</b>. Shall I confirm?',
+      q1: 'Confirm', q2: 'Edit order', q3: 'More',
+      b3: 'Done! Order <b>#GH-0012</b> is booked. Cash on delivery.',
+      b4: 'Your order #GH-0012 is on the way.',
+      seller: 'You · shop owner', newOrder: 'New order #GH-0012', lines: '1 x Chicken Kebab<br>2 x Classic Burger · Downtown', total: '$33 · Cash on delivery',
+      paid: 'Paid', disp: 'Dispatched', more: 'More', told: 'Customer told automatically', wait: 'Waiting for new orders…'
+    },
+    demoStrip: {
+      eyebrow: 'Live demo',
+      title: 'Try it with your own business — in 2 minutes.',
+      text: 'Pick your business type, add your products and chat with your own assistant. You type as the customer on one phone and watch the shop owner’s phone on the other.',
+      cta: 'Open the live demo', note: 'No sign-up. Nothing is sent to real WhatsApp.',
+      cats: { restaurant: 'Restaurant', seller: 'Online seller', clinic: 'Clinic', school: 'School', salon: 'Salon', bakery: 'Bakery', grocery: 'Grocery', electronics: 'Electronics' }
     },
     facts: [
       { num: 8, label: 'languages it replies in' },
@@ -41,15 +62,15 @@ window.WEBXEEN_CONTENT = {
       eyebrow: 'How it works',
       title: 'Three steps. Zero extra work.',
       steps: [
-        { title: 'Customer sends a message', text: 'Any time, in any of 8 languages. “2 kurtay chahiye.”' },
+        { title: 'Customer sends a message', text: 'Any time, in any of 8 languages: “I need 2 shirts”, <bdi lang="ar">“أريد قميصين”</bdi> or “2 kurtay chahiye”.' },
         { title: 'AI answers and books the order', text: 'Using only your products, prices and delivery rules. It collects name, address and payment, then sends a receipt with an order number.' },
         { title: 'You tap one button', text: 'Paid, Dispatched or Cancel — right inside WhatsApp. Your customer is told automatically.' }
       ],
       demo: {
-        cust: '2 kurtay chahiye',
-        bot: 'Ji zaroor! Blue lawn kurta PKR 2,600 each. 2 kurtay = PKR 5,200. Order book kar doon?',
-        receipt: 'Order confirmed · #ALI-0012 · PKR 5,200',
-        seller: 'New order #12 · PKR 5,200',
+        cust: 'I need 2 shirts',
+        bot: 'Sure! The blue linen shirt is $26 each. 2 shirts = $52. Shall I book the order?',
+        receipt: 'Order confirmed · #ALI-0012 · $52',
+        seller: 'New order #12 · $52',
         told: 'Customer told ✓'
       }
     },
@@ -63,14 +84,14 @@ window.WEBXEEN_CONTENT = {
       {
         id: 'c', eyebrow: 'Orders', title: 'Orders with receipts and order numbers.',
         text: 'Product, quantity, name, address and payment method — collected in the chat, confirmed, and sent back as a clean receipt like #ALI-0012.',
-        bullets: ['Customer can switch payment method after booking (COD to JazzCash, etc.)', 'Customer can cancel before dispatch', 'Online payments use a slightly odd amount like PKR 5,199.72, so you spot each payment instantly — never more than the total'],
+        bullets: ['Customer can switch payment method after booking (e.g. cash on delivery to bank transfer or a mobile wallet)', 'Customer can cancel before dispatch', 'Online payments use a slightly odd amount like 5,199.72 instead of 5,200, so you spot each payment instantly — never more than the total'],
         videoLabel: 'Animation: items go into a cart, order details are filled in and a receipt with an order number prints.'
       },
       {
         id: 'd', eyebrow: 'Payment check', title: 'Checks payment screenshots for you.',
         text: 'The AI reads the amount, transaction ID, date and receiver. It rejects photos that are not receipts and warns you when something looks wrong:',
         bullets: ['Amount is lower than due', 'Money went to a different account', 'Screenshot looks edited', 'Same screenshot or transaction ID was used for another order'],
-        note: 'No AI can catch every fake. Always confirm the payment in your own bank or JazzCash app before you dispatch.',
+        note: 'No AI can catch every fake. Always confirm the payment in your own bank or mobile-wallet app before you dispatch.',
         videoLabel: 'Animation: a sample payment screenshot is scanned. First it looks OK, then a second one shows a lower amount warning.'
       },
       {
@@ -99,27 +120,38 @@ window.WEBXEEN_CONTENT = {
         { icon: 'globe', title: 'Your currency, your time zone', text: 'Each business has its own currency and time zone — selling in the Gulf or Europe works too.' }
       ]
     },
+    channels: {
+      eyebrow: 'One AI, every inbox',
+      title: 'WhatsApp today. Instagram and Messenger next.',
+      text: 'The same assistant, the same products and the same order flow — on every app your customers use to message you.',
+      live: 'Live now', soon: 'Coming soon',
+      wa: 'WhatsApp', ig: 'Instagram DMs', fb: 'Facebook Messenger',
+      chats: {
+        wa: [{ w: 'in', t: 'Hi, is this dress available?' }, { w: 'out', t: 'Yes! Sizes M and L — $45.' }, { w: 'in', t: 'M please. Can I pay on delivery?' }, { w: 'out', t: 'Sure. Please send your name and address 😊' }, { w: 'in', t: 'Sarah, 12 Park Road' }, { w: 'out', t: 'Order #ALI-0031 is booked ✅' }],
+        ig: [{ w: 'in', t: 'Price?' }, { w: 'out', t: '$25 — free delivery 🚚' }, { w: 'in', t: 'Do you have it in black?' }, { w: 'out', t: 'Yes, black and maroon. Shall I place the order?' }, { w: 'in', t: 'Yes please! 2 pieces' }, { w: 'out', t: 'Done ✅ Total $50. Receipt sent.' }],
+        fb: [{ w: 'in', t: 'Can it arrive by tomorrow?' }, { w: 'out', t: 'Delivery takes 1–2 days in the city.' }, { w: 'in', t: 'Can I pay by card?' }, { w: 'out', t: 'Yes, we send the exact amount right after your order.' }, { w: 'in', t: 'Sent the payment screenshot' }, { w: 'out', t: 'Payment received, thank you! 🙌' }]
+      }
+    },
     soon: {
       title: 'Coming soon', badge: 'Coming soon',
       items: [
-        { title: 'Facebook Messenger', text: 'The same AI, on Messenger' },
-        { title: 'Instagram DMs', text: 'The same AI, on Instagram' },
         { title: 'Comment-to-DM', text: 'Auto reply to “Price?” comments by DM' },
         { title: 'TikTok', text: 'Links to your WhatsApp for now' },
         { title: 'Seller dashboard', text: 'Manage everything online' }
       ]
     },
     pricing: {
-      eyebrow: 'Pricing', title: 'Simple monthly plans.', sub: 'Start with a {trial}-day free trial.',
-      regionPK: 'Pakistan (PKR)', regionAbroad: 'Abroad (USD)', regionLabel: 'Show prices for',
-      perMonth: '/month', setup: 'One-time setup', popular: 'Most popular', button: 'Start free trial',
+      eyebrow: 'Pricing', title: 'Simple monthly plans.', sub: 'Test it free with your own products before you buy.',
+      regionPK: 'Pakistan (PKR)', regionAbroad: 'Other countries (USD)', regionLabel: 'Show prices for',
+      extraAbroad: 'cost a small fee',
+      perMonth: '/month', setup: 'One-time setup', popular: 'Most popular', button: 'Get a free test',
       names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
       features: {
         silver: ['1,000 replies / month', 'Up to 50 products', 'Urdu + Roman Urdu + English', 'Orders + COD', 'Email order alerts + morning summary', '3 months memory'],
         gold: ['4,000 replies / month', 'Up to 300 products', 'All 8 languages', 'Payment screenshot checking', 'Complaints sent to your team', 'WhatsApp alerts with tap buttons', 'Monthly report', '1 year memory'],
         premium: ['15,000 replies / month', 'Unlimited products', 'Up to 3 numbers / branches', 'Everything in Gold', 'Priority support', 'Courier and payment-link integrations (coming soon)', '5 years memory']
       },
-      note: '{trial}-day free trial. Yearly plan = {yearly} months free. Extra replies {extra} each after your limit — the bot never stops mid-month.'
+      note: 'Free test: we set the assistant up with your products and you chat with it as a customer. Yearly plan = {yearly} months free. Extra replies {extra} each after your limit — the bot never stops mid-month.'
     },
     faq: {
       eyebrow: 'FAQ', title: 'Questions, answered.',
@@ -128,16 +160,24 @@ window.WEBXEEN_CONTENT = {
         { q: 'Can it cancel or refund?', a: 'Yes. Customers can cancel before dispatch. You can cancel, mark refunded or returned with one line (cancel 18, refunded 18, returned 18), and undo if needed. Every action asks a quick Yes/No, then the customer is told automatically.' },
         { q: 'Is my data safe?', a: 'Each business has its own separate setup — its own number, products, prices and customers. Your data is used to run your shop’s assistant. Please read our Privacy Policy for full details.' },
         { q: 'Which languages does it speak?', a: 'Urdu, Roman Urdu, English, Arabic, Farsi, Spanish, Hindi and Italian. The Silver plan covers Urdu, Roman Urdu and English; Gold and Premium include all languages.' },
-        { q: 'What if the AI makes a mistake?', a: 'It only answers from your own products and prices, and stays on topic. You confirm every payment yourself in your own bank or JazzCash app, and complaints go straight to your team with numbers like C1.' },
-        { q: 'Can I use it outside Pakistan?', a: 'Yes. Each business has its own currency and time zone. Plans abroad start at {usdFrom}/month.' }
+        { q: 'What if the AI makes a mistake?', a: 'It only answers from your own products and prices, and stays on topic. You confirm every payment yourself in your own bank or mobile-wallet app, and complaints go straight to your team with numbers like C1.' },
+        { q: 'Does it work outside Pakistan?', a: 'Yes. Each business has its own currency and time zone, and the assistant replies in 8 languages — so a shop in the Gulf, the UK, Europe or anywhere else on WhatsApp can use it. Plans outside Pakistan start at {usdFrom}/month.' }
       ]
+    },
+    web: {
+      eyebrow: 'Also from Webxeen',
+      title: 'Websites that move as you scroll.',
+      text: 'We build scroll-animation and 3D product websites for brands. Your product turns, opens up and explains itself as visitors scroll — and every page can end with an order button that goes straight to your WhatsApp assistant.',
+      points: ['3D product reveal and scroll stories', 'Fast and smooth on phones', 'Order on WhatsApp from any page', 'Ready for Google search'],
+      cta: 'See the website service',
+      cta2: 'Ask for a quote'
     },
     final: {
       title: 'Let your WhatsApp sell while you rest.',
-      sub: 'Try Webxeen free for {trial} days. We set it up with your products, prices and delivery rules.',
-      cta1: 'Get a free demo on WhatsApp', cta2: 'Email us'
+      sub: 'Test Webxeen free before you buy. We set it up with your products, prices and delivery rules, and you chat with it as a customer.',
+      cta0: 'Try the live demo', cta1: 'Get a free test on WhatsApp', cta2: 'Email us'
     },
-    footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© {year} Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
+    footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
   },
 
   ur: {
@@ -146,14 +186,34 @@ window.WEBXEEN_CONTENT = {
       title: 'Webxeen — aap ki shop ke liye AI WhatsApp sales assistant',
       description: 'Webxeen WhatsApp par aap ke customers ko 24/7, 8 zubaanon mein jawab deta hai, receipt ke saath order leta hai, payment screenshot check karta hai aur sab kuch aik tap se chalata hai.'
     },
-    nav: { how: 'Kaise kaam karta hai', features: 'Features', pricing: 'Qeematein', faq: 'Sawalat', cta: 'Free demo', menu: 'Menu', lang: 'Zubaan' },
+    nav: { how: 'Kaise kaam karta hai', features: 'Features', pricing: 'Qeematein', faq: 'Sawalat', demo: 'Live demo', cta: 'Live demo', menu: 'Menu', lang: 'Zubaan', websites: 'Websites' },
     hero: {
       badge: 'WhatsApp ke liye AI sales assistant',
       title: 'Aap ki shop ka WhatsApp — <em>24/7</em> jawab bhi de, order bhi le.',
       sub: 'Webxeen aap ke customers ko unki apni zubaan mein jawab deta hai — Urdu, English, Arabic aur bohat si — aur order khud book karta hai, chahe aap so rahe hon.',
-      cta1: 'WhatsApp par free demo lein', cta2: 'Qeematein dekhein',
-      note: '{trial} din free trial · Koi app install nahi karni',
-      videoLabel: 'Animation: customer WhatsApp par 2 kurtay order karta hai aur AI receipt bhejta hai.'
+      cta1: 'Live demo try karein', cta2: 'WhatsApp par free test',
+      note: 'Sign-up nahi · 8 zubaanein · Khareedne se pehle free test',
+      artLabel: 'Misaal: customer WhatsApp par khana order karta hai, assistant order book karta hai, aur shop owner ko aik tap wale buttons ke saath order milta hai.'
+    },
+    heroChat: {
+      shop: 'Karachi Grill', ini: 'KG', status: 'foran jawab deta hai', you: 'Customer',
+      c1: 'Menu bhej dein? DHA mein delivery hai?',
+      b1: 'Ji haan, DHA delivery Rs 150. Aaj ke favourite:',
+      p1: 'Chicken Karahi', p2: 'Seekh Kabab', p3: 'Garlic Naan', pr1: 'Rs 1,450', pr2: 'Rs 780', pr3: 'Rs 120', a1: 'karahi', a2: 'kabab', a3: 'naan',
+      c2: '1 karahi aur 4 naan',
+      b2: '1 x Chicken Karahi Rs 1,450 + 4 x Garlic Naan Rs 480 + delivery Rs 150 = <b>Rs 2,080</b>. Confirm kar doon?',
+      q1: 'Confirm', q2: 'Order edit', q3: 'More',
+      b3: 'Ho gaya! Order <b>#KG-0012</b> book ho gaya. Payment delivery par cash.',
+      b4: 'Aap ka order #KG-0012 raste mein hai.',
+      seller: 'Aap · shop owner', newOrder: 'Naya order #KG-0012', lines: '1 x Chicken Karahi<br>4 x Garlic Naan · DHA', total: 'Rs 2,080 · Cash on delivery',
+      paid: 'Paid', disp: 'Dispatched', more: 'More', told: 'Customer ko khud bata diya', wait: 'Naye orders ka intezar…'
+    },
+    demoStrip: {
+      eyebrow: 'Live demo',
+      title: 'Apne business ke saath try karein — sirf 2 minute mein.',
+      text: 'Apne business ki qism chunein, apne products daalein aur apne assistant se baat karein. Aik phone par aap customer hain, doosre par shop owner ka phone dekhein.',
+      cta: 'Live demo kholein', note: 'Sign-up nahi. Asal WhatsApp par kuch nahi jata.',
+      cats: { restaurant: 'Restaurant', seller: 'Online seller', clinic: 'Clinic', school: 'School', salon: 'Salon', bakery: 'Bakery', grocery: 'Grocery', electronics: 'Electronics' }
     },
     facts: [
       { num: 8, label: 'zubaanon mein jawab' },
@@ -232,27 +292,38 @@ window.WEBXEEN_CONTENT = {
         { icon: 'globe', title: 'Apni currency, apna time zone', text: 'Har business ki apni currency aur time zone — Gulf ya Europe mein bechna bhi mumkin hai.' }
       ]
     },
+    channels: {
+      eyebrow: 'Aik AI, har inbox',
+      title: 'Aaj WhatsApp. Agla qadam Instagram aur Messenger.',
+      text: 'Wohi assistant, wohi products, wohi order ka tareeqa — har us app par jahan aap ke customers aap ko message karte hain.',
+      live: 'Abhi live', soon: 'Jald aa raha hai',
+      wa: 'WhatsApp', ig: 'Instagram DMs', fb: 'Facebook Messenger',
+      chats: {
+        wa: [{ w: 'in', t: 'Assalam o Alaikum, yeh suit available hai?' }, { w: 'out', t: 'Ji haan! Size M aur L — Rs 4,500.' }, { w: 'in', t: 'M chahiye, COD ho jayega?' }, { w: 'out', t: 'Bilkul. Naam aur address bhej dein 😊' }, { w: 'in', t: 'Ayesha, Model Town Lahore' }, { w: 'out', t: 'Order #ALI-0031 book ho gaya ✅' }],
+        ig: [{ w: 'in', t: 'Price?' }, { w: 'out', t: 'Rs 2,450 — Lahore mein free delivery 🚚' }, { w: 'in', t: 'Black mein hai?' }, { w: 'out', t: 'Ji, black aur maroon dono. Order karein?' }, { w: 'in', t: 'Yes please! 2 pieces' }, { w: 'out', t: 'Done ✅ Total Rs 4,900. Receipt bhej di.' }],
+        fb: [{ w: 'in', t: 'Kal tak deliver ho jayega?' }, { w: 'out', t: 'Lahore mein 1–2 din mein, InshaAllah.' }, { w: 'in', t: 'JazzCash se pay kar sakta hun?' }, { w: 'out', t: 'Ji, order ke baad exact amount bhej dete hain.' }, { w: 'in', t: 'Screenshot bhej diya' }, { w: 'out', t: 'Payment mil gayi, shukriya! 🙌' }]
+      }
+    },
     soon: {
       title: 'Jald aa raha hai', badge: 'Jald aa raha hai',
       items: [
-        { title: 'Facebook Messenger', text: 'Wohi AI, Messenger par' },
-        { title: 'Instagram DMs', text: 'Wohi AI, Instagram par' },
         { title: 'Comment-to-DM', text: '“Price?” comment ka jawab DM mein' },
         { title: 'TikTok', text: 'Abhi ke liye aap ke WhatsApp ka link' },
         { title: 'Seller dashboard', text: 'Sab kuch online manage karein' }
       ]
     },
     pricing: {
-      eyebrow: 'Qeematein', title: 'Aasaan mahana plans.', sub: '{trial} din free trial se shuru karein.',
+      eyebrow: 'Qeematein', title: 'Aasaan mahana plans.', sub: 'Khareedne se pehle apne products ke saath free test karein.',
       regionPK: 'Pakistan (PKR)', regionAbroad: 'Bahar (USD)', regionLabel: 'Qeematein dikhayein',
-      perMonth: '/mahina', setup: 'Aik dafa setup', popular: 'Sab se pasandeeda', button: 'Free trial shuru karein',
+      extraAbroad: 'ki choti si fees',
+      perMonth: '/mahina', setup: 'Aik dafa setup', popular: 'Sab se pasandeeda', button: 'Free test karein',
       names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
       features: {
         silver: ['1,000 jawab / mahina', '50 products tak', 'Urdu + Roman Urdu + English', 'Orders + COD', 'Email order alerts + subah ki summary', '3 mahine ki yaaddasht'],
         gold: ['4,000 jawab / mahina', '300 products tak', 'Tamam 8 zubaanein', 'Payment screenshot check', 'Shikayatein aap ki team tak', 'WhatsApp alerts tap buttons ke saath', 'Mahana report', '1 saal ki yaaddasht'],
         premium: ['15,000 jawab / mahina', 'Unlimited products', '3 numbers / branches tak', 'Gold ki har cheez', 'Priority support', 'Courier aur payment-link integrations (jald aa raha hai)', '5 saal ki yaaddasht']
       },
-      note: '{trial} din free trial. Saalana plan = {yearly} mahine free. Limit ke baad har extra jawab {extra} — bot mahine ke beech kabhi band nahi hota.'
+      note: 'Free test: hum assistant ko aap ke products ke saath set karte hain aur aap customer ban kar us se baat karte hain. Saalana plan = {yearly} mahine free. Limit ke baad har extra jawab {extra} — bot mahine ke beech kabhi band nahi hota.'
     },
     faq: {
       eyebrow: 'Sawalat', title: 'Aap ke sawal, hamare jawab.',
@@ -265,11 +336,191 @@ window.WEBXEEN_CONTENT = {
         { q: 'Kya Pakistan se bahar use ho sakta hai?', a: 'Ji haan. Har business ki apni currency aur time zone hoti hai. Bahar ke plans {usdFrom}/mahina se shuru hain.' }
       ]
     },
+    web: {
+      eyebrow: 'Webxeen ki doosri service',
+      title: 'Aisi websites jo scroll ke saath chalti hain.',
+      text: 'Hum brands ke liye scroll animation aur 3D product websites banate hain. Visitor scroll karta hai to aap ka product ghoomta hai, khulta hai aur apni khoobiyan khud batata hai — aur har page ke aakhir mein order ka button seedha aap ke WhatsApp assistant tak le jata hai.',
+      points: ['3D product reveal aur scroll stories', 'Phone par tez aur smooth', 'Har page se WhatsApp par order', 'Google search ke liye tayyar'],
+      cta: 'Website service dekhein',
+      cta2: 'Qeemat poochein'
+    },
     final: {
       title: 'Aap ka WhatsApp bechta rahe, aap aaram karein.',
-      sub: 'Webxeen {trial} din free try karein. Hum isay aap ke products, qeematon aur delivery rules ke saath set kar dete hain.',
-      cta1: 'WhatsApp par free demo lein', cta2: 'Email karein'
+      sub: 'Khareedne se pehle Webxeen ka free test karein. Hum isay aap ke products, qeematon aur delivery rules ke saath set kar dete hain, aur aap customer ban kar check karte hain.',
+      cta0: 'Live demo try karein', cta1: 'WhatsApp par free test', cta2: 'Email karein'
     },
-    footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© {year} Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }
+    footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }
+  },
+
+  ar: {
+    web: {
+      eyebrow: 'أيضًا من Webxeen',
+      title: 'مواقع تتحرك مع التمرير.',
+      text: 'نصمم مواقع بحركة التمرير وعرض المنتجات ثلاثي الأبعاد للعلامات التجارية. يدور منتجك ويُظهر تفاصيله بينما يتصفح الزائر — ويمكن أن تنتهي كل صفحة بزر طلب يذهب مباشرة إلى مساعد واتساب الخاص بك.',
+      points: ['عرض المنتج ثلاثي الأبعاد وقصص التمرير', 'سريعة وسلسة على الجوال', 'اطلب عبر واتساب من أي صفحة', 'جاهزة لبحث Google'],
+      cta: 'تعرّف على خدمة المواقع',
+      cta2: 'اطلب عرض سعر'
+    },
+    meta: {
+      lang: 'ar', dir: 'rtl', switchLabel: 'العربية',
+      title: 'Webxeen — مساعد مبيعات ذكي على واتساب لمتجرك',
+      description: 'Webxeen يرد على عملائك في واتساب على مدار الساعة بـ 8 لغات منها العربية، يستقبل الطلبات ويرسل إيصالًا برقم الطلب، يفحص صور إثبات الدفع، وتدير كل شيء بلمسة واحدة.'
+    },
+    nav: { websites: 'المواقع', how: 'كيف يعمل', features: 'المزايا', pricing: 'الأسعار', faq: 'الأسئلة الشائعة', demo: 'تجربة مباشرة', cta: 'جرّب الآن', menu: 'القائمة', lang: 'اللغة' },
+    hero: {
+      badge: 'مساعد مبيعات بالذكاء الاصطناعي لواتساب',
+      title: 'واتساب متجرك يرد على العملاء ويستقبل الطلبات <em>24/7.</em>',
+      sub: 'يرد Webxeen على عملائك بلغتهم — العربية والإنجليزية والأردية والإسبانية وغيرها — ويسجّل الطلبات تلقائيًا، حتى وأنت نائم.',
+      cta1: 'جرّب العرض المباشر', cta2: 'تجربة مجانية على واتساب',
+      note: 'بدون تسجيل · 8 لغات · تجربة مجانية قبل الشراء',
+      artLabel: 'مثال: عميل يطلب طعامًا عبر واتساب، فيسجّل المساعد الطلب، ويصل الطلب إلى صاحب المتجر مع أزرار تعمل بلمسة واحدة.'
+    },
+    heroChat: {
+      shop: 'مشويات الدار', ini: 'MD', status: 'يرد فورًا', you: 'العميل',
+      c1: 'مرحبًا! ممكن أشوف المنيو؟ هل يوجد توصيل إلى وسط المدينة؟',
+      b1: 'أهلًا وسهلًا! نعم، التوصيل إلى وسط المدينة 10 درهم. الأكثر طلبًا اليوم:',
+      p1: 'كباب دجاج', p2: 'برجر كلاسيك', p3: 'بيتزا مارغريتا', pr1: '45 درهم', pr2: '35 درهم', pr3: '50 درهم', a1: 'kabab', a2: 'burger', a3: 'pizza',
+      c2: 'طبق كباب واحد و2 برجر لو سمحت',
+      b2: '1 × كباب دجاج 45 + 2 × برجر كلاسيك 70 + التوصيل 10 = <b>125 درهم</b>. هل أؤكد الطلب؟',
+      q1: 'تأكيد', q2: 'تعديل الطلب', q3: 'المزيد',
+      b3: 'تم! سُجّل طلبك رقم <b>#MD-0012</b>. الدفع عند الاستلام.',
+      b4: 'طلبك رقم #MD-0012 في الطريق إليك.',
+      seller: 'أنت · صاحب المتجر', newOrder: 'طلب جديد #MD-0012', lines: '1 × كباب دجاج<br>2 × برجر كلاسيك · وسط المدينة', total: '125 درهم · الدفع عند الاستلام',
+      paid: 'مدفوع', disp: 'تم الشحن', more: 'المزيد', told: 'أُبلغ العميل تلقائيًا', wait: 'بانتظار طلبات جديدة…'
+    },
+    demoStrip: {
+      eyebrow: 'تجربة مباشرة',
+      title: 'جرّبه على نشاطك التجاري — في دقيقتين.',
+      text: 'اختر نوع نشاطك، وأضف منتجاتك، وتحدّث مع مساعدك الخاص. تكتب أنت كعميل على هاتف، وتشاهد هاتف صاحب المتجر على الآخر.',
+      cta: 'افتح العرض المباشر', note: 'بدون تسجيل. لا يُرسل شيء إلى واتساب حقيقي. العرض حاليًا بالإنجليزية.',
+      cats: { restaurant: 'مطعم', seller: 'بائع أونلاين', clinic: 'عيادة', school: 'مدرسة', salon: 'صالون', bakery: 'مخبز', grocery: 'بقالة', electronics: 'إلكترونيات' }
+    },
+    facts: [
+      { num: 8, label: 'لغات يرد بها' },
+      { text: '24/7', label: 'ردود ليلًا ونهارًا' },
+      { num: 1, label: 'لمسة لتأكيد الدفع' },
+      { num: 8, suffix: ' ص', label: 'تصلك قائمة الصباح' }
+    ],
+    problem: {
+      eyebrow: 'هل يبدو هذا مألوفًا؟',
+      title: 'البيع عبر واتساب لا يجب أن يحرمك من النوم.',
+      items: [
+        { icon: 'bubbles', title: '«كم السعر؟» في منتصف الليل', text: 'السؤال نفسه يصلك مرة بعد مرة، وفي كل ساعة. الرد على كل رسالة يأخذ يومك كله — وليلك أيضًا.' },
+        { icon: 'missed', title: 'طلبات ضائعة', text: 'الرد المتأخر يعني غالبًا عميلًا خسرته؛ فهو ببساطة يشتري من المتجر التالي.' },
+        { icon: 'fake', title: 'صور دفع مزيفة', text: 'يصعب كشف صور الإيصالات المعدّلة أو المكررة حين تكون مشغولًا.' }
+      ]
+    },
+    how: {
+      eyebrow: 'كيف يعمل',
+      title: 'ثلاث خطوات. بدون أي عمل إضافي.',
+      steps: [
+        { title: 'العميل يرسل رسالة', text: 'في أي وقت، وبأي لغة من 8 لغات: «أريد قميصين» أو «<bdi lang="en">I need 2 shirts</bdi>» أو «<bdi lang="ur-Latn">2 kurtay chahiye</bdi>».' },
+        { title: 'الذكاء الاصطناعي يرد ويسجّل الطلب', text: 'يعتمد فقط على منتجاتك وأسعارك وشروط التوصيل لديك. يجمع الاسم والعنوان وطريقة الدفع، ثم يرسل إيصالًا برقم الطلب.' },
+        { title: 'أنت تضغط زرًا واحدًا', text: 'مدفوع، تم الشحن أو إلغاء — داخل واتساب نفسه. ويُبلَّغ عميلك تلقائيًا.' }
+      ],
+      demo: {
+        cust: 'أريد قميصين',
+        bot: 'بكل سرور! القميص الكتان الأزرق بـ 95 درهم للقطعة. قميصان = 190 درهم. هل أسجّل الطلب؟',
+        receipt: 'تم تأكيد الطلب · #ALI-0012 · 190 درهم',
+        seller: 'طلب جديد #12 · 190 درهم',
+        told: 'أُبلغ العميل ✓'
+      }
+    },
+    features: [
+      {
+        id: 'b', eyebrow: 'اللغات', title: 'يتحدث بلغة عميلك.',
+        text: 'العربية، الإنجليزية، الأردية، الأردية بالحروف اللاتينية، الفارسية، الإسبانية، الهندية والإيطالية. يرد الذكاء الاصطناعي باللغة التي يكتب بها العميل — ويُبقي المحادثة بلطف حول متجرك.',
+        bullets: ['يجيب فقط من قائمة أسعارك — لا يخترع أسعارًا أبدًا', 'يعتذر بلطف عن الأسئلة الخارجة عن الموضوع', 'يتذكر العملاء العائدين وطلباتهم السابقة'],
+        videoLabel: 'رسوم متحركة: سؤال «كم السعر؟» وجوابه معروضان بـ 8 لغات.'
+      },
+      {
+        id: 'c', eyebrow: 'الطلبات', title: 'طلبات بإيصالات وأرقام طلب.',
+        text: 'المنتج والكمية والاسم والعنوان وطريقة الدفع — تُجمع كلها داخل المحادثة، ثم يُؤكَّد الطلب ويُرسل إيصال واضح برقم مثل #ALI-0012.',
+        bullets: ['يمكن للعميل تغيير طريقة الدفع بعد الحجز (مثلًا من الدفع عند الاستلام إلى تحويل بنكي أو محفظة إلكترونية)', 'يمكن للعميل إلغاء الطلب قبل الشحن', 'للدفع الإلكتروني يُطلب مبلغ مميز قليلًا مثل 199.72 بدل 200، فتتعرف على كل دفعة فورًا — ولا يزيد أبدًا عن الإجمالي'],
+        videoLabel: 'رسوم متحركة: منتجات تُضاف إلى السلة، وتُملأ تفاصيل الطلب، ويُطبع إيصال برقم الطلب.'
+      },
+      {
+        id: 'd', eyebrow: 'فحص الدفع', title: 'يفحص صور إثبات الدفع نيابةً عنك.',
+        text: 'يقرأ الذكاء الاصطناعي المبلغ ورقم العملية والتاريخ والمستلم. يرفض الصور التي ليست إيصالات، وينبّهك عندما يبدو شيء غير صحيح:',
+        bullets: ['المبلغ أقل من المستحق', 'المال حُوّل إلى حساب آخر', 'الصورة تبدو معدّلة', 'الصورة نفسها أو رقم العملية نفسه استُخدم لطلب آخر'],
+        note: 'لا يوجد ذكاء اصطناعي يكشف كل تزوير. تأكد دائمًا من وصول المبلغ في تطبيق البنك أو المحفظة الخاص بك قبل الشحن.',
+        videoLabel: 'رسوم متحركة: فحص صورة دفع تجريبية. الأولى تبدو سليمة، ثم تظهر في الثانية تنبيه بأن المبلغ أقل.'
+      },
+      {
+        id: 'e', eyebrow: 'تحكّم البائع', title: 'أدِر كل شيء من واتساب.',
+        text: 'كل طلب جديد وكل صورة دفع تصلك مع أزرار: مدفوع، غير مدفوع، تم الشحن، إلغاء. أو اكتب أمرًا قصيرًا (الأوامر بالإنجليزية كما هي):',
+        commands: ['paid 21', 'dispatched 18-24', 'cancel 18 out of stock', 'refunded 18', 'returned 18', 'undo 18', 'pending', 'solved C3'],
+        note: 'قبل كل إجراء يُطرح عليك سؤال سريع: نعم/لا — ثم يُبلَّغ عميلك تلقائيًا. لا حاجة لأي تطبيق.',
+        videoLabel: 'رسوم متحركة: البائع يضغط «مدفوع» فيصل للعميل تأكيد فوري. ثم يُعلّم الأمر «dispatched 18-24» سبعة طلبات كمشحونة.'
+      },
+      {
+        id: 'f', eyebrow: 'قائمة الصباح', title: 'نم مرتاحًا. قائمتك جاهزة الساعة 8 صباحًا.',
+        text: 'ساعات الهدوء تُبقي هاتفك صامتًا من 11 مساءً حتى 8 صباحًا. وفي الصباح تصلك قائمة واحدة:',
+        bullets: ['دفعات تحتاج إلى مراجعة', 'طرود يجب إرسالها', 'مبالغ مستحقة للاسترداد', 'شكاوى مرقّمة C1، C2…'],
+        videoLabel: 'رسوم متحركة: الليل يتحول إلى صباح وتظهر قائمة ملخص الصباح.'
+      }
+    ],
+    grid: {
+      eyebrow: 'مشمول أيضًا',
+      title: 'تفاصيل صغيرة كثيرة توفر وقتًا كبيرًا.',
+      items: [
+        { icon: 'memory', title: 'ذاكرة طويلة', text: 'يتذكر العملاء العائدين وطلباتهم السابقة. «متى كان آخر طلب لي؟» — الجواب جاهز.' },
+        { icon: 'undo', title: 'إلغاء، استرداد، إرجاع', text: 'سطر واحد لكلٍّ منها: cancel 18 أو refunded 18 أو returned 18 — أو undo 18 إن غيّرت رأيك.' },
+        { icon: 'shield', title: 'حماية الدفع عند الاستلام', text: 'بعد إرجاع طردين بالدفع عند الاستلام، يجب على ذلك العميل الدفع مسبقًا.' },
+        { icon: 'flag', title: 'شكاوى مرقّمة', text: 'تصل الشكاوى إلى فريقك بأرقام مثل C1، C2… ويحصل العميل على وعد بالرد خلال 24 ساعة.' },
+        { icon: 'clock', title: 'تذكير وإلغاء تلقائي', text: 'الطلبات الإلكترونية غير المدفوعة تتلقى تذكيرًا بعد 24 ساعة، وتُلغى تلقائيًا بعد 72 ساعة.' },
+        { icon: 'globe', title: 'عملتك ومنطقتك الزمنية', text: 'لكل نشاط تجاري عملته ومنطقته الزمنية الخاصة — البيع في الخليج أو أوروبا ممكن أيضًا.' }
+      ]
+    },
+    channels: {
+      eyebrow: 'ذكاء اصطناعي واحد لكل صناديق الرسائل',
+      title: 'واتساب اليوم. وإنستغرام وماسنجر قريبًا.',
+      text: 'المساعد نفسه، والمنتجات نفسها، وطريقة الطلب نفسها — على كل تطبيق يراسلك منه عملاؤك.',
+      live: 'متاح الآن', soon: 'قريبًا',
+      wa: 'واتساب', ig: 'رسائل إنستغرام', fb: 'فيسبوك ماسنجر',
+      chats: {
+        wa: [{ w: 'in', t: 'السلام عليكم، هل هذا الفستان متوفر؟' }, { w: 'out', t: 'وعليكم السلام! نعم، المقاس M و L — 160 درهم.' }, { w: 'in', t: 'أريد M. هل الدفع عند الاستلام متاح؟' }, { w: 'out', t: 'أكيد. أرسلي الاسم والعنوان من فضلك 😊' }, { w: 'in', t: 'مريم، دبي مارينا' }, { w: 'out', t: 'تم تسجيل الطلب #ALI-0031 ✅' }],
+        ig: [{ w: 'in', t: 'كم السعر؟' }, { w: 'out', t: '90 درهم — التوصيل مجاني 🚚' }, { w: 'in', t: 'هل يوجد باللون الأسود؟' }, { w: 'out', t: 'نعم، الأسود والعنابي. هل أسجّل الطلب؟' }, { w: 'in', t: 'نعم من فضلك! قطعتان' }, { w: 'out', t: 'تم ✅ الإجمالي 180 درهم. أرسلنا الإيصال.' }],
+        fb: [{ w: 'in', t: 'هل يمكن أن يصل غدًا؟' }, { w: 'out', t: 'التوصيل داخل المدينة يستغرق 1–2 يوم.' }, { w: 'in', t: 'هل يمكنني الدفع بالبطاقة؟' }, { w: 'out', t: 'نعم، نرسل لك المبلغ المطلوب بالضبط بعد الطلب مباشرة.' }, { w: 'in', t: 'أرسلت صورة الدفع' }, { w: 'out', t: 'وصلنا المبلغ، شكرًا لك! 🙌' }]
+      }
+    },
+    soon: {
+      title: 'قريبًا', badge: 'قريبًا',
+      items: [
+        { title: 'من التعليق إلى الرسائل', text: 'رد تلقائي في الرسائل الخاصة على تعليقات «كم السعر؟»' },
+        { title: 'تيك توك', text: 'حاليًا يحوّل إلى رقم واتساب الخاص بك' },
+        { title: 'لوحة تحكم البائع', text: 'أدِر كل شيء عبر الإنترنت' }
+      ]
+    },
+    pricing: {
+      eyebrow: 'الأسعار', title: 'باقات شهرية بسيطة.', sub: 'جرّبه مجانًا بمنتجاتك قبل أن تشتري.',
+      regionPK: 'باكستان (PKR)', regionAbroad: 'باقي الدول (USD)', regionLabel: 'اعرض الأسعار لـ',
+      extraAbroad: 'برسوم بسيطة',
+      perMonth: '/شهريًا', setup: 'رسوم إعداد لمرة واحدة', popular: 'الأكثر طلبًا', button: 'احصل على تجربة مجانية',
+      names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
+      features: {
+        silver: ['1,000 رد / شهريًا', 'حتى 50 منتجًا', 'الأردية + الأردية اللاتينية + الإنجليزية', 'الطلبات + الدفع عند الاستلام', 'تنبيهات الطلبات بالبريد + ملخص الصباح', 'ذاكرة 3 أشهر'],
+        gold: ['4,000 رد / شهريًا', 'حتى 300 منتج', 'كل اللغات الثماني (منها العربية)', 'فحص صور الدفع', 'إرسال الشكاوى إلى فريقك', 'تنبيهات واتساب مع أزرار', 'تقرير شهري', 'ذاكرة سنة'],
+        premium: ['15,000 رد / شهريًا', 'منتجات بلا حدود', 'حتى 3 أرقام / فروع', 'كل ما في Gold', 'دعم بأولوية', 'ربط مع شركات الشحن وروابط الدفع (قريبًا)', 'ذاكرة 5 سنوات']
+      },
+      note: 'التجربة المجانية: نُعدّ المساعد بمنتجاتك، وتتحدث معه أنت كعميل. في الباقة السنوية تحصل على أشهر مجانية (عددها: {yearly}). بعد الحد الشهري، كل رد إضافي {extra} — ولا يتوقف البوت أبدًا في منتصف الشهر.'
+    },
+    faq: {
+      eyebrow: 'الأسئلة الشائعة', title: 'أسئلتكم وأجوبتنا.',
+      items: [
+        { q: 'هل أحتاج إلى رقم جديد؟', a: 'غالبًا نعم — رقم غير مسجل على واتساب. أو أرسل لنا رقمك الحالي وسنتحقق إن كان يمكن ربطه.' },
+        { q: 'هل يمكنه الإلغاء أو الاسترداد؟', a: 'نعم. يمكن للعميل الإلغاء قبل الشحن. ويمكنك أنت الإلغاء أو تسجيل الاسترداد أو الإرجاع بسطر واحد (cancel 18، refunded 18، returned 18)، والتراجع عند الحاجة. قبل كل إجراء سؤال سريع نعم/لا، ثم يُبلَّغ العميل تلقائيًا.' },
+        { q: 'هل بياناتي آمنة؟', a: 'لكل نشاط تجاري إعداد مستقل — رقمه ومنتجاته وأسعاره وعملاؤه. تُستخدم بياناتك لتشغيل مساعد متجرك. يُرجى قراءة سياسة الخصوصية للتفاصيل الكاملة.' },
+        { q: 'هل يرد بالعربية؟', a: 'نعم. يرد بالعربية والإنجليزية والأردية والأردية اللاتينية والفارسية والإسبانية والهندية والإيطالية. باقة Silver تشمل الأردية والأردية اللاتينية والإنجليزية فقط؛ أما العربية وباقي اللغات ففي باقتي Gold و Premium.' },
+        { q: 'ماذا لو أخطأ الذكاء الاصطناعي؟', a: 'يجيب فقط من منتجاتك وأسعارك، ويبقى في موضوع متجرك. أنت من يؤكد كل دفعة بنفسه في تطبيق البنك أو المحفظة، وتصل الشكاوى مباشرة إلى فريقك بأرقام مثل C1.' },
+        { q: 'هل يعمل خارج باكستان، مثلًا في الخليج؟', a: 'نعم. لكل نشاط تجاري عملته ومنطقته الزمنية، ويرد المساعد بـ 8 لغات منها العربية — لذلك يمكن لأي متجر يبيع عبر واتساب، في الخليج أو أي مكان آخر، أن يستخدمه. الباقات خارج باكستان تبدأ من {usdFrom} شهريًا.' }
+      ]
+    },
+    final: {
+      title: 'دع واتساب يبيع عنك وأنت ترتاح.',
+      sub: 'جرّب Webxeen مجانًا قبل الشراء. نُعدّه بمنتجاتك وأسعارك وشروط التوصيل لديك، وتتحدث معه أنت كعميل.',
+      cta0: 'جرّب العرض المباشر', cta1: 'احصل على تجربة مجانية على واتساب', cta2: 'راسلنا بالبريد'
+    },
+    footer: { privacy: 'سياسة الخصوصية', terms: 'الشروط', rights: '© 2023 Webxeen. جميع الحقوق محفوظة.', tagline: 'مساعد مبيعات ذكي على واتساب للأنشطة التجارية الصغيرة.' }
   }
 };

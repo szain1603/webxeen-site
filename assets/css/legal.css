@@ -14,7 +14,7 @@
 .legal ul{list-style:disc;padding-inline-start:24px;margin:0 0 14px}
 .legal li{margin-bottom:6px}
 .legal a{color:var(--em-d);font-weight:600}
-.legal .toc{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin-bottom:8px}
+.legal .toc{background:var(--white);border:1px solid var(--line-l);border-radius:16px;padding:18px 22px;margin-bottom:8px}
 .legal .toc ol{list-style:decimal;padding-inline-start:22px;margin:0}
 .legal .toc li{margin-bottom:4px}
 @media (max-width:600px){.legal{padding:32px 0 56px}.legal h2{font-size:20px}}

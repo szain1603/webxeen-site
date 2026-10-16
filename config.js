@@ -18,14 +18,20 @@ window.WEBXEEN_CONFIG = {
 
   /* ---- Prices --------------------------------------------------------- */
   pricing: {
-    defaultRegion: 'pk',          // 'pk' shows PKR first, 'abroad' shows USD first
+    // 'auto' = PKR for visitors in Pakistan (by their device time zone) and on the Roman Urdu
+    // page, USD for everyone else. 'pk' always shows PKR first, 'abroad' always shows USD first.
+    // The visitor can still switch with the PKR/USD buttons.
+    defaultRegion: 'auto',
     trialDays: 7,
     yearlyFreeMonths: 2,
-    extraReplyPrice: 'Rs 1',
+    extraReplyPrice: 'Rs 1.5',
+    // Price per extra reply for USD visitors, e.g. 'USD 0.01'. Empty = the text says
+    // "a small fee" instead of a number.
+    extraReplyPriceUSD: '',
     plans: [
-      { id: 'silver',  monthlyPKR: 2500, setupPKR: 3000,  monthlyUSD: 29,  popular: false },
-      { id: 'gold',    monthlyPKR: 4500, setupPKR: 5000,  monthlyUSD: 59,  popular: true  },
-      { id: 'premium', monthlyPKR: 9000, setupPKR: 10000, monthlyUSD: 119, popular: false }
+      { id: 'silver',  monthlyPKR: 5000, setupPKR: 3000,  monthlyUSD: 29,  popular: false },
+      { id: 'gold',    monthlyPKR: 10000, setupPKR: 5000,  monthlyUSD: 59,  popular: true  },
+      { id: 'premium', monthlyPKR: 18000, setupPKR: 10000, monthlyUSD: 119, popular: false }
     ]
   }
 };
