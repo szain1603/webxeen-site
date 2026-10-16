@@ -248,7 +248,7 @@
         var v = e.target;
         if (e.isIntersecting && v.dataset.loaded && !reduce && !saveData) play(v); else v.pause();
       });
-    }, { threshold: 0.2 }) : null;
+    }, { threshold: 0.5 }) : null;   // play only the video that is mostly on screen
     vids.forEach(function (v) {
       if (v.hasAttribute('data-eager')) {
         setPoster(v);
@@ -332,6 +332,15 @@
     run(true);
   }
 
+  /* ---------- sections off screen: their looping animations rest (CSS .off) ---------- */
+  function restOffscreen() {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.classList.toggle('off', !e.isIntersecting); });
+    }, { rootMargin: '120px 0px' });
+    $$('main > section, main > div, .feat').forEach(function (s) { io.observe(s); });
+  }
+
   /* ---------- counters ---------- */
   function count(el) {
     var to = +el.dataset.count, suf = el.dataset.suffix || '', t0 = performance.now();
@@ -388,6 +397,7 @@
   // seo-agent/tools/prerender.js sets this flag to save the filled-in English page as static HTML
   if (window.WEBXEEN_PRERENDER) return;
   nav();
+  restOffscreen();
   heroChat();
   videos();
   // main.js runs right away (text is on screen at first paint); GSAP is deferred,
