@@ -169,6 +169,6 @@ Newest entries at the bottom. One entry per site per run.
   (Dubai): lang=es, 1 h1, USD prices on /es, valid JSON-LD, no console errors, no 404s, no
   horizontal scroll. /demo, /websites, /privacy, /blog at 340 and 1280: no errors, no horizontal scroll.
 - Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
-- PR: (see below)
+- PR: https://github.com/szain1603/webxeen-site/pull/21
 - Owner to do by hand: merge the PR; then in Search Console request indexing for https://webxeen.com/es;
   optionally have a native Spanish speaker read /es.
