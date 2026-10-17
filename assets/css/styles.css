@@ -505,3 +505,7 @@ a.svc-card:hover,.svc-card:focus-within{transform:translateY(-3px);border-color:
 .svc-links .svc-go:hover{text-decoration:underline}
 @media (max-width:760px){.svc-grid{grid-template-columns:1fr}.svc-card{padding:22px}}
 html[dir=rtl] .svc-go::after{content:" ←"}
+/* 4 language buttons + menu must fit on phones: short labels (EN / Urdu / عربي / ES) up to 560px,
+   and under 380px the home page logo shows only its icon (the link keeps its aria-label). */
+@media (max-width:560px){.l-full{display:none}.l-short{display:inline}.lang button,.lang a{padding:7px 10px;font-size:12.5px}.nav-in,.nav-right{gap:8px}}
+@media (max-width:379px){.nav-in:has(.lang a[data-lang="es"]) .logo span{display:none}}

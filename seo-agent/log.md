@@ -144,3 +144,31 @@ Newest entries at the bottom. One entry per site per run.
 - PR: https://github.com/szain1603/webxeen-site/pull/18
 - Owner to do by hand: merge PR #18; then in Search Console request indexing for https://webxeen.com/ar;
   optionally have a native Arabic speaker read /ar.
+
+## 2026-10-17 — webxeen
+- Playbook review skipped (last reviewed 2026-10-12, 5 days old — under 6).
+- Open PRs: none. PR #7 (owner's privacy fix) was merged, so the "/privacy owner review" backlog item
+  is done and removed. PR #18 (Arabic) and #20 (two services) are merged too. New agent PR opened.
+- Done: GLOBAL 2, part 2 — Spanish home page at /es.
+  - content.js: full "es" block in neutral Spanish for Latin America and Spain (tú form; words that
+    work in both, e.g. "pago contra entrega", "billetera digital", "quejas"); chat examples in US$
+    (in Latin America a bare "$" means pesos). FAQ "¿Responde en español?" says Spanish is in Gold and
+    Premium (Silver = Urdu, Roman Urdu, English — same facts as the English page). Seller commands stay
+    in English (product fact). The demo note says the demo is in English for now.
+  - prerender.js: new PAGES entry (es/index.html, og tags, skip link, noscript). hreflang en / ur-Latn /
+    ar / es / x-default on all four pages; "es" added to WebSite.inLanguage.
+  - index.html: "Español / ES" in the language switcher (also on /ur, /ar, /es via prerender).
+  - styles.css: with 4 language buttons the menu button was pushed off-screen on phones (401–519px,
+    and under 380px). Short labels now show up to 560px, and under 380px the home-page logo shows only
+    its icon. (401–450px was already broken on main with 3 languages; now fixed.) Tested 320–1200px:
+    menu and switcher always visible, no horizontal scroll.
+  - ?v=20261017 on content.js (index.html) and styles.css (all pages incl. demo, blog, websites,
+    privacy, terms, article template); prerender.js re-run.
+  - sitemap.xml: /es added, es hreflang on every home entry, lastmod 2026-10-17 for /, /ur, /ar, /es.
+- Tested in Chromium: /es at 1280 (Mexico City) and 390 (Madrid), / at 390 (New York), /ar at 390
+  (Dubai): lang=es, 1 h1, USD prices on /es, valid JSON-LD, no console errors, no 404s, no
+  horizontal scroll. /demo, /websites, /privacy, /blog at 340 and 1280: no errors, no horizontal scroll.
+- Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: https://github.com/szain1603/webxeen-site/pull/21
+- Owner to do by hand: merge the PR; then in Search Console request indexing for https://webxeen.com/es;
+  optionally have a native Spanish speaker read /es.
