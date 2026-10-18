@@ -144,3 +144,59 @@ Newest entries at the bottom. One entry per site per run.
 - PR: https://github.com/szain1603/webxeen-site/pull/18
 - Owner to do by hand: merge PR #18; then in Search Console request indexing for https://webxeen.com/ar;
   optionally have a native Arabic speaker read /ar.
+
+## 2026-10-17 — webxeen
+- Playbook review skipped (last reviewed 2026-10-12, 5 days old — under 6).
+- Open PRs: none. PR #7 (owner's privacy fix) was merged, so the "/privacy owner review" backlog item
+  is done and removed. PR #18 (Arabic) and #20 (two services) are merged too. New agent PR opened.
+- Done: GLOBAL 2, part 2 — Spanish home page at /es.
+  - content.js: full "es" block in neutral Spanish for Latin America and Spain (tú form; words that
+    work in both, e.g. "pago contra entrega", "billetera digital", "quejas"); chat examples in US$
+    (in Latin America a bare "$" means pesos). FAQ "¿Responde en español?" says Spanish is in Gold and
+    Premium (Silver = Urdu, Roman Urdu, English — same facts as the English page). Seller commands stay
+    in English (product fact). The demo note says the demo is in English for now.
+  - prerender.js: new PAGES entry (es/index.html, og tags, skip link, noscript). hreflang en / ur-Latn /
+    ar / es / x-default on all four pages; "es" added to WebSite.inLanguage.
+  - index.html: "Español / ES" in the language switcher (also on /ur, /ar, /es via prerender).
+  - styles.css: with 4 language buttons the menu button was pushed off-screen on phones (401–519px,
+    and under 380px). Short labels now show up to 560px, and under 380px the home-page logo shows only
+    its icon. (401–450px was already broken on main with 3 languages; now fixed.) Tested 320–1200px:
+    menu and switcher always visible, no horizontal scroll.
+  - ?v=20261017 on content.js (index.html) and styles.css (all pages incl. demo, blog, websites,
+    privacy, terms, article template); prerender.js re-run.
+  - sitemap.xml: /es added, es hreflang on every home entry, lastmod 2026-10-17 for /, /ur, /ar, /es.
+- Tested in Chromium: /es at 1280 (Mexico City) and 390 (Madrid), / at 390 (New York), /ar at 390
+  (Dubai): lang=es, 1 h1, USD prices on /es, valid JSON-LD, no console errors, no 404s, no
+  horizontal scroll. /demo, /websites, /privacy, /blog at 340 and 1280: no errors, no horizontal scroll.
+- Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: https://github.com/szain1603/webxeen-site/pull/21
+- Owner to do by hand: merge the PR; then in Search Console request indexing for https://webxeen.com/es;
+  optionally have a native Spanish speaker read /es.
+
+## 2026-10-18 — webxeen
+- Playbook reviewed (last review 2026-10-12, 6 days old). One change: Google's generative-AI content
+  guide (1 Oct 2026) asks sites to fact-check all AI text by hand, incl. titles, meta descriptions,
+  structured data and alt text — added to section 4. No new core/spam update listed 10–17 Oct.
+  Bing blog not verified.
+- Open PRs: #21 (agent, Spanish /es, not merged yet) — today's work added to the same branch and PR.
+- Done: GLOBAL 3, part 1 — English use-case page /whatsapp-bot-for-restaurants (worldwide, USD).
+  - Sections: short answer box, example order chat (made-up "Saffron Street Kitchen", COD → bank
+    transfer switch, odd amount $22.91 for $23, owner tap buttons), table of everyday restaurant
+    messages, 8 languages (EN/AR/ES/Roman Urdu example), owner side (buttons, commands, COD protection,
+    morning list), "is it right for you" + what to send for the free test, FAQ (menu size per plan,
+    branches, new number, mistakes, Instagram, outside Pakistan). Plan limits stated (tap buttons and
+    screenshot check = Gold/Premium). No prices hard-coded (links to /#pricing). Every fact checked
+    against content.js; reservations and changing quiet hours are NOT claimed (asked owner).
+  - CTAs: /demo?cat=restaurant (restaurant demo) and the free-test WhatsApp link (synced from config.js).
+  - JSON-LD: WebPage (about: Service) + BreadcrumbList. No FAQPage markup (playbook).
+  - New assets/css/usecase.css (reusable for the next use-case pages).
+  - Home footer link on /, /ur, /ar, /es (content.js footer.restaurants in 4 languages, says the page
+    is in English); content.js ?v=20261018; prerender.js re-run.
+  - sitemap.xml: new page added; lastmod 2026-10-18 for /, /ur, /ar, /es.
+- Tested in Chromium: new page at 1280, 390 and 320; / and /ar at 390: 1 h1, valid JSON-LD, no console
+  errors, no 404s, no horizontal scroll.
+- Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: https://github.com/szain1603/webxeen-site/pull/21 (updated)
+- Owner to do by hand: merge PR #21; then in Search Console request indexing for
+  https://webxeen.com/es and https://webxeen.com/whatsapp-bot-for-restaurants; answer the 2 questions
+  about table bookings and quiet hours.

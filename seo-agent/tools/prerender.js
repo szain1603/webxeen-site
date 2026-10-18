@@ -12,6 +12,7 @@
                    the JSON-LD block and the hreflang block are rewritten; edit the rest by hand.
     ur/index.html  Roman Urdu (/ur). Fully generated from index.html + content.js "ur".
     ar/index.html  Arabic (/ar, right-to-left). Fully generated from index.html + content.js "ar".
+    es/index.html  Spanish (/es). Fully generated from index.html + content.js "es".
                    Never edit these by hand: change index.html / content.js and re-run.
 */
 'use strict';
@@ -38,6 +39,13 @@ const PAGES = [
       ogDescription: 'مساعد مبيعات ذكي لواتساب: يرد بـ 8 لغات منها العربية، يستقبل الطلبات بإيصالات، ويفحص صور إثبات الدفع.',
       skip: 'انتقل إلى المحتوى',
       noscript: 'فعّل JavaScript لتشغيل الفيديوهات.'
+    } },
+  { key: 'es', hreflang: 'es', url: SITE + 'es', file: 'es/index.html',
+    extra: {
+      ogTitle: 'Webxeen — el WhatsApp de tu negocio responde y toma pedidos 24/7',
+      ogDescription: 'Asistente de ventas con IA para WhatsApp: responde en 8 idiomas, incluido el español, toma pedidos con recibo y revisa los comprobantes de pago.',
+      skip: 'Ir al contenido',
+      noscript: 'Activa JavaScript para ver los videos.'
     } }
 ];
 

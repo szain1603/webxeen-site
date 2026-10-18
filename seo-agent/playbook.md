@@ -1,6 +1,6 @@
 # SEO Playbook
 
-Last reviewed: 2026-10-12
+Last reviewed: 2026-10-18
 (The agent updates this date and the Changelog every run. Rules change only with a source.)
 
 ## 1. What actually moves rankings (what good agencies do)
@@ -85,6 +85,9 @@ that source.
   sub-question; a short "Webxeen kaise madad karta hai" section only where it genuinely
   fits; a closing call-to-action to the free WhatsApp demo.
 - Use the site's real product facts only. Link to the home page's relevant section.
+- **Fact-check everything before publishing** (Google, 1 Oct 2026): AI text can contain
+  "hallucinations", so check every claim against content.js / config.js by hand — including the
+  `<title>`, meta description, structured data and image alt text, not only the body.
 - Include at least one practical element: a checklist, a table, a step list, or an example
   chat (fictional shop names, obviously fake numbers like 0300-0000000).
 - Write the English version first. If the site has a Roman Urdu section, write a real
@@ -136,3 +139,15 @@ that source.
     rules from them; existing Red lines already cover what they target.
     https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history
   - Not verified this run (pages could not be fetched): Bing Webmaster blog. No Bing rule changed.
+- 2026-10-18 — Review (sources checked: Google Search Central blog, Search documentation updates,
+  Google Search Status Dashboard, PPC Land).
+  - Google's "Using generative AI content" guide (updated 1 Oct 2026) now says generative models
+    predict words rather than retrieve facts, that output may contain hallucinations, and that it is
+    critical to manually fact-check all AI-generated content — including titles, meta descriptions,
+    structured data and alt text. Added as a rule in section 4. No ranking change came with it.
+    https://developers.google.com/search/docs/fundamentals/using-gen-ai-content ,
+    https://ppc.land/google-tells-sites-to-manually-factcheck-all-ai-content-before-publishing/
+  - Other Search docs updates since 12 Oct (Indexing API quota page, UGC Fresh Data Program, SEO
+    learning-path playlists) do not affect this site. Search Status Dashboard: no ranking updates
+    listed 10–17 Oct. https://developers.google.com/search/updates
+  - Bing Webmaster blog not verified this run (no recent post found in search). No Bing rule changed.

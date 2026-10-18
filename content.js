@@ -3,7 +3,7 @@
    "en" = English, "ur" = Roman Urdu, "ar" = Arabic. Edit the text between the quotes.
    Keep the same keys in both languages. {trial}, {usdFrom}, {year},
    {extra}, {yearly} are filled in automatically from config.js.
-   "ar" = Arabic (right-to-left, page /ar). To add a language: copy the "en"
+   "ar" = Arabic (right-to-left, page /ar). "es" = Spanish (page /es). To add a language: copy the "en"
    block, translate it for that market, and add it to PAGES in prerender.js.
    ===================================================================== */
 window.WEBXEEN_CONTENT = {
@@ -183,7 +183,7 @@ window.WEBXEEN_CONTENT = {
       sub: 'Test Webxeen free before you buy. We set it up with your products, prices and delivery rules, and you chat with it as a customer.',
       cta0: 'Try the live demo', cta1: 'Get a free test on WhatsApp', cta2: 'Email us'
     },
-    footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
+    footer: { restaurants: 'WhatsApp bot for restaurants', privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
   },
 
   ur: {
@@ -361,7 +361,7 @@ window.WEBXEEN_CONTENT = {
       sub: 'Khareedne se pehle Webxeen ka free test karein. Hum isay aap ke products, qeematon aur delivery rules ke saath set kar dete hain, aur aap customer ban kar check karte hain.',
       cta0: 'Live demo try karein', cta1: 'WhatsApp par free test', cta2: 'Email karein'
     },
-    footer: { privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }
+    footer: { restaurants: 'Restaurants ke liye WhatsApp bot (English)', privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }
   },
 
   ar: {
@@ -539,6 +539,184 @@ window.WEBXEEN_CONTENT = {
       sub: 'جرّب Webxeen مجانًا قبل الشراء. نُعدّه بمنتجاتك وأسعارك وشروط التوصيل لديك، وتتحدث معه أنت كعميل.',
       cta0: 'جرّب العرض المباشر', cta1: 'احصل على تجربة مجانية على واتساب', cta2: 'راسلنا بالبريد'
     },
-    footer: { privacy: 'سياسة الخصوصية', terms: 'الشروط', rights: '© 2023 Webxeen. جميع الحقوق محفوظة.', tagline: 'مساعد مبيعات ذكي على واتساب للأنشطة التجارية الصغيرة.' }
+    footer: { restaurants: 'بوت واتساب للمطاعم (بالإنجليزية)', privacy: 'سياسة الخصوصية', terms: 'الشروط', rights: '© 2023 Webxeen. جميع الحقوق محفوظة.', tagline: 'مساعد مبيعات ذكي على واتساب للأنشطة التجارية الصغيرة.' }
+  },
+
+  es: {
+    services: {
+      eyebrow: 'Dos formas de ayudarte a vender',
+      title: '¿Qué necesitas?',
+      bot: { tag: 'Bot de WhatsApp', title: 'Un asistente con IA en tu WhatsApp', text: 'Responde a tus clientes en su idioma, toma pedidos y revisa los pagos — de día y de noche.', cta: 'Mira cómo funciona el bot' },
+      web: { tag: 'Webs 3D', title: 'Una web que se mueve al hacer scroll', text: 'Tu producto gira y se explica solo en 3D, con un botón de pedido que lleva a WhatsApp.', cta: 'Ver el servicio de webs', sample: 'Abrir el ejemplo 3D en vivo' }
+    },
+    web: {
+      eyebrow: 'También de Webxeen',
+      title: 'Webs que se mueven al hacer scroll.',
+      text: 'Creamos webs con animación al hacer scroll y productos en 3D para marcas. Tu producto gira, se abre y muestra sus detalles mientras el visitante baja por la página — y cada página puede terminar con un botón de pedido que va directo a tu asistente de WhatsApp.',
+      points: ['Producto en 3D e historias al hacer scroll', 'Rápida y fluida en el teléfono', 'Pedidos por WhatsApp desde cualquier página', 'Lista para la búsqueda de Google'],
+      cta: 'Ver el servicio de webs',
+      cta2: 'Pedir presupuesto'
+    },
+    meta: {
+      lang: 'es', dir: 'ltr', switchLabel: 'Español',
+      title: 'Webxeen — Bot de WhatsApp con IA para vender en tu tienda',
+      description: 'Webxeen responde a tus clientes en WhatsApp 24/7 en 8 idiomas, incluido el español, toma pedidos con recibo, revisa los comprobantes de pago y te deja gestionarlo todo con un toque.'
+    },
+    nav: { websites: 'Webs 3D', bot: 'Bot de WhatsApp', how: 'Cómo funciona', features: 'Funciones', pricing: 'Precios', faq: 'Preguntas', demo: 'Demo en vivo', cta: 'Probar la demo', menu: 'Menú', lang: 'Idioma' },
+    hero: {
+      badge: 'Asistente de ventas con IA para WhatsApp',
+      title: 'El WhatsApp de tu negocio responde y toma pedidos <em>24/7.</em>',
+      sub: 'Webxeen contesta a tus clientes en su propio idioma — español, inglés, árabe, urdu y más — y registra los pedidos solo, incluso mientras duermes.',
+      cta1: 'Probar la demo en vivo', cta2: 'Prueba gratis por WhatsApp',
+      note: 'Sin registro · 8 idiomas · Prueba gratis antes de comprar',
+      artLabel: 'Ejemplo: un cliente pide comida por WhatsApp, el asistente registra el pedido y el dueño del local lo recibe con botones de un toque.'
+    },
+    heroChat: {
+      shop: 'La Parrilla', ini: 'LP', status: 'responde al instante', you: 'Cliente',
+      c1: '¡Hola! ¿Me pasas el menú? ¿Hacen envíos al centro?',
+      b1: '¡Hola! Sí, el envío al centro cuesta US$3. Lo más pedido hoy:',
+      p1: 'Brocheta de pollo', p2: 'Hamburguesa clásica', p3: 'Pizza margarita', pr1: 'US$12', pr2: 'US$9', pr3: 'US$14', a1: 'kabab', a2: 'burger', a3: 'pizza',
+      c2: 'Una brocheta y 2 hamburguesas, por favor',
+      b2: '1 x Brocheta de pollo US$12 + 2 x Hamburguesa clásica US$18 + envío US$3 = <b>US$33</b>. ¿Lo confirmo?',
+      q1: 'Confirmar', q2: 'Cambiar pedido', q3: 'Más',
+      b3: '¡Listo! Tu pedido <b>#LP-0012</b> está registrado. Pago contra entrega.',
+      b4: 'Tu pedido #LP-0012 ya va en camino.',
+      seller: 'Tú · dueño del local', newOrder: 'Nuevo pedido #LP-0012', lines: '1 x Brocheta de pollo<br>2 x Hamburguesa clásica · Centro', total: 'US$33 · Pago contra entrega',
+      paid: 'Pagado', disp: 'Enviado', more: 'Más', told: 'Cliente avisado automáticamente', wait: 'Esperando nuevos pedidos…'
+    },
+    demoStrip: {
+      eyebrow: 'Demo en vivo',
+      title: 'Pruébalo con tu propio negocio — en 2 minutos.',
+      text: 'Elige tu tipo de negocio, añade tus productos y chatea con tu propio asistente. Escribes como cliente en un teléfono y ves el teléfono del dueño en el otro.',
+      cta: 'Abrir la demo en vivo', note: 'Sin registro. No se envía nada a un WhatsApp real. Por ahora la demo está en inglés.',
+      cats: { restaurant: 'Restaurante', seller: 'Tienda online', clinic: 'Clínica', school: 'Escuela', salon: 'Salón de belleza', bakery: 'Panadería', grocery: 'Supermercado', electronics: 'Electrónica' }
+    },
+    facts: [
+      { num: 8, label: 'idiomas en los que responde' },
+      { text: '24/7', label: 'respuestas, de día y de noche' },
+      { num: 1, label: 'toque para confirmar un pago' },
+      { num: 8, suffix: ' AM', label: 'llega tu lista de la mañana' }
+    ],
+    problem: {
+      eyebrow: '¿Te suena?',
+      title: 'Vender por WhatsApp no debería quitarte el sueño.',
+      items: [
+        { icon: 'bubbles', title: '«¿Precio?» a medianoche', text: 'La misma pregunta llega una y otra vez, a cualquier hora. Contestar cada mensaje te ocupa todo el día — y la noche.' },
+        { icon: 'missed', title: 'Pedidos perdidos', text: 'Una respuesta tarde suele ser un cliente perdido: simplemente le compra a la tienda de al lado.' },
+        { icon: 'fake', title: 'Comprobantes de pago falsos', text: 'Las capturas editadas o reutilizadas son difíciles de detectar cuando estás ocupado.' }
+      ]
+    },
+    how: {
+      eyebrow: 'Cómo funciona',
+      title: 'Tres pasos. Cero trabajo extra.',
+      steps: [
+        { title: 'El cliente envía un mensaje', text: 'A cualquier hora y en cualquiera de los 8 idiomas: «Quiero 2 camisas», «<bdi lang="en">I need 2 shirts</bdi>» o <bdi lang="ar">«أريد قميصين»</bdi>.' },
+        { title: 'La IA responde y registra el pedido', text: 'Usa solo tus productos, tus precios y tus condiciones de envío. Pide nombre, dirección y forma de pago, y envía un recibo con número de pedido.' },
+        { title: 'Tú tocas un botón', text: 'Pagado, Enviado o Cancelar — dentro del mismo WhatsApp. Tu cliente recibe el aviso automáticamente.' }
+      ],
+      demo: {
+        cust: 'Quiero 2 camisas',
+        bot: '¡Claro! La camisa de lino azul cuesta US$26 cada una. 2 camisas = US$52. ¿Registro el pedido?',
+        receipt: 'Pedido confirmado · #ALI-0012 · US$52',
+        seller: 'Nuevo pedido #12 · US$52',
+        told: 'Cliente avisado ✓'
+      }
+    },
+    features: [
+      {
+        id: 'b', eyebrow: 'Idiomas', title: 'Habla el idioma de tu cliente.',
+        text: 'Español, inglés, árabe, urdu, urdu romanizado, persa, hindi e italiano. La IA responde en el idioma en que escribe el cliente — y mantiene la conversación, con amabilidad, centrada en tu negocio.',
+        bullets: ['Responde solo con tu lista de precios — nunca inventa precios', 'Rechaza con educación las preguntas que no tienen que ver con tu negocio', 'Recuerda a los clientes que vuelven y sus pedidos anteriores'],
+        videoLabel: 'Animación: la pregunta «¿Cuánto cuesta?» y su respuesta mostradas en 8 idiomas.'
+      },
+      {
+        id: 'c', eyebrow: 'Pedidos', title: 'Pedidos con recibo y número de pedido.',
+        text: 'Producto, cantidad, nombre, dirección y forma de pago — todo se recoge en el chat, se confirma y se devuelve como un recibo claro, por ejemplo #ALI-0012.',
+        bullets: ['El cliente puede cambiar la forma de pago después de pedir (por ejemplo, de contra entrega a transferencia bancaria o billetera digital)', 'El cliente puede cancelar antes del envío', 'En los pagos online se pide un importe ligeramente distinto, como 199,72 en vez de 200, para que identifiques cada pago al instante — nunca más que el total'],
+        videoLabel: 'Animación: los productos entran en un carrito, se completan los datos del pedido y se imprime un recibo con número de pedido.'
+      },
+      {
+        id: 'd', eyebrow: 'Revisión de pagos', title: 'Revisa los comprobantes de pago por ti.',
+        text: 'La IA lee el importe, el número de operación, la fecha y el destinatario. Rechaza las fotos que no son comprobantes y te avisa cuando algo no cuadra:',
+        bullets: ['El importe es menor que lo que se debe', 'El dinero fue a otra cuenta', 'La captura parece editada', 'La misma captura o el mismo número de operación ya se usó en otro pedido'],
+        note: 'Ninguna IA detecta todos los fraudes. Confirma siempre el pago en la app de tu banco o de tu billetera digital antes de enviar el pedido.',
+        videoLabel: 'Animación: se revisa una captura de pago de ejemplo. La primera parece correcta; en la segunda aparece un aviso de importe menor.'
+      },
+      {
+        id: 'e', eyebrow: 'Control del vendedor', title: 'Gestiónalo todo desde WhatsApp.',
+        text: 'Cada pedido nuevo y cada comprobante llegan con botones: Pagado, No pagado, Enviado, Cancelar. O escribe un comando corto (los comandos van en inglés, tal cual):',
+        commands: ['paid 21', 'dispatched 18-24', 'cancel 18 out of stock', 'refunded 18', 'returned 18', 'undo 18', 'pending', 'solved C3'],
+        note: 'Antes de cada acción se te pide un Sí/No rápido — y luego tu cliente recibe el aviso automáticamente. No necesitas ninguna app.',
+        videoLabel: 'Animación: el vendedor toca Pagado y el cliente recibe la confirmación al instante. Luego el comando «dispatched 18-24» marca 7 pedidos como enviados.'
+      },
+      {
+        id: 'f', eyebrow: 'Lista de la mañana', title: 'Duerme tranquilo. Tu lista estará lista a las 8 AM.',
+        text: 'Las horas de silencio mantienen tu teléfono callado de 11 PM a 8 AM. Por la mañana recibes una sola lista:',
+        bullets: ['Pagos por revisar', 'Paquetes por enviar', 'Reembolsos pendientes', 'Quejas numeradas C1, C2…'],
+        videoLabel: 'Animación: la noche se convierte en mañana y aparece la lista resumen de la mañana.'
+      }
+    ],
+    grid: {
+      eyebrow: 'También incluye',
+      title: 'Muchos detalles pequeños que ahorran mucho tiempo.',
+      items: [
+        { icon: 'memory', title: 'Memoria larga', text: 'Recuerda a los clientes que vuelven y sus pedidos anteriores. «¿Cuándo fue mi último pedido?» — respondido.' },
+        { icon: 'undo', title: 'Cancelar, reembolsar, devolver', text: 'Una línea para cada cosa: cancel 18, refunded 18, returned 18 — o undo 18 si cambias de opinión.' },
+        { icon: 'shield', title: 'Protección contra entrega', text: 'Si un cliente devuelve 2 paquetes de pago contra entrega, desde entonces debe pagar por adelantado.' },
+        { icon: 'flag', title: 'Quejas numeradas', text: 'Las quejas llegan a tu equipo como C1, C2… y el cliente recibe la promesa de una respuesta en 24 horas.' },
+        { icon: 'clock', title: 'Recordatorios y cancelación automática', text: 'Los pedidos online sin pagar reciben un recordatorio a las 24 horas y se cancelan solos a las 72 horas.' },
+        { icon: 'globe', title: 'Tu moneda, tu zona horaria', text: 'Cada negocio tiene su propia moneda y zona horaria — puedes vender en Latinoamérica, España o cualquier otro país.' }
+      ]
+    },
+    channels: {
+      eyebrow: 'Una IA para todos tus mensajes',
+      title: 'Hoy WhatsApp. Pronto Instagram y Messenger.',
+      text: 'El mismo asistente, los mismos productos y el mismo proceso de pedido — en cada app desde la que te escriben tus clientes.',
+      live: 'Disponible', soon: 'Muy pronto',
+      wa: 'WhatsApp', ig: 'Mensajes de Instagram', fb: 'Facebook Messenger',
+      chats: {
+        wa: [{ w: 'in', t: 'Hola, ¿este vestido está disponible?' }, { w: 'out', t: '¡Sí! Tallas M y L — US$45.' }, { w: 'in', t: 'La M, por favor. ¿Puedo pagar contra entrega?' }, { w: 'out', t: 'Claro. Envíame tu nombre y dirección, por favor 😊' }, { w: 'in', t: 'Lucía, Calle Sol 12' }, { w: 'out', t: 'Pedido #ALI-0031 registrado ✅' }],
+        ig: [{ w: 'in', t: '¿Precio?' }, { w: 'out', t: 'US$25 — envío gratis 🚚' }, { w: 'in', t: '¿Lo tienes en negro?' }, { w: 'out', t: 'Sí, en negro y en granate. ¿Hago el pedido?' }, { w: 'in', t: '¡Sí, por favor! 2 unidades' }, { w: 'out', t: 'Listo ✅ Total US$50. Te envié el recibo.' }],
+        fb: [{ w: 'in', t: '¿Puede llegar mañana?' }, { w: 'out', t: 'El envío dentro de la ciudad tarda 1–2 días.' }, { w: 'in', t: '¿Puedo pagar con tarjeta?' }, { w: 'out', t: 'Sí, te enviamos el importe exacto justo después del pedido.' }, { w: 'in', t: 'Ya mandé la captura del pago' }, { w: 'out', t: '¡Pago recibido, gracias! 🙌' }]
+      }
+    },
+    soon: {
+      title: 'Muy pronto', badge: 'Muy pronto',
+      items: [
+        { title: 'Del comentario al mensaje', text: 'Respuesta automática por mensaje privado a los comentarios «¿Precio?»' },
+        { title: 'TikTok', text: 'Por ahora enlaza a tu WhatsApp' },
+        { title: 'Panel del vendedor', text: 'Gestiónalo todo online' }
+      ]
+    },
+    pricing: {
+      eyebrow: 'Precios', title: 'Planes mensuales sencillos.', sub: 'Pruébalo gratis con tus propios productos antes de comprar.',
+      regionPK: 'Pakistán (PKR)', regionAbroad: 'Otros países (USD)', regionLabel: 'Ver precios para',
+      extraAbroad: 'tienen un pequeño costo',
+      perMonth: '/mes', setup: 'Configuración (pago único)', popular: 'El más elegido', button: 'Pedir una prueba gratis',
+      names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
+      features: {
+        silver: ['1.000 respuestas / mes', 'Hasta 50 productos', 'Urdu + urdu romanizado + inglés', 'Pedidos + pago contra entrega', 'Avisos de pedidos por email + resumen de la mañana', 'Memoria de 3 meses'],
+        gold: ['4.000 respuestas / mes', 'Hasta 300 productos', 'Los 8 idiomas (incluido el español)', 'Revisión de comprobantes de pago', 'Quejas enviadas a tu equipo', 'Avisos por WhatsApp con botones', 'Informe mensual', 'Memoria de 1 año'],
+        premium: ['15.000 respuestas / mes', 'Productos ilimitados', 'Hasta 3 números / sucursales', 'Todo lo de Gold', 'Soporte prioritario', 'Integración con empresas de envío y enlaces de pago (muy pronto)', 'Memoria de 5 años']
+      },
+      note: 'Prueba gratis: configuramos el asistente con tus productos y tú chateas con él como si fueras un cliente. Plan anual = {yearly} meses gratis. Al pasar tu límite, las respuestas extra {extra} cada una — el bot nunca se detiene a mitad de mes.'
+    },
+    faq: {
+      eyebrow: 'Preguntas frecuentes', title: 'Tus preguntas, respondidas.',
+      items: [
+        { q: '¿Necesito un número nuevo?', a: 'Normalmente sí — un número que todavía no esté en WhatsApp. O envíanos tu número actual y revisamos si se puede conectar.' },
+        { q: '¿Puede cancelar o hacer reembolsos?', a: 'Sí. El cliente puede cancelar antes del envío. Tú puedes cancelar o marcar un pedido como reembolsado o devuelto con una línea (cancel 18, refunded 18, returned 18), y deshacerlo si hace falta. Cada acción pide un Sí/No rápido y luego el cliente recibe el aviso automáticamente.' },
+        { q: '¿Mis datos están seguros?', a: 'Cada negocio tiene su propia configuración separada — su número, sus productos, sus precios y sus clientes. Tus datos se usan para hacer funcionar el asistente de tu negocio. Lee nuestra Política de privacidad para conocer todos los detalles.' },
+        { q: '¿Responde en español?', a: 'Sí. Responde en español, inglés, árabe, urdu, urdu romanizado, persa, hindi e italiano. El plan Silver incluye urdu, urdu romanizado e inglés; el español y los demás idiomas están en los planes Gold y Premium.' },
+        { q: '¿Y si la IA se equivoca?', a: 'Solo responde con tus productos y tus precios, y no se sale del tema. Tú confirmas cada pago en la app de tu banco o de tu billetera digital, y las quejas llegan directo a tu equipo con números como C1.' },
+        { q: '¿Funciona en Latinoamérica y España?', a: 'Sí. Cada negocio tiene su propia moneda y zona horaria, y el asistente responde en 8 idiomas, incluido el español — así que cualquier negocio que venda por WhatsApp, en Latinoamérica, España o cualquier otro lugar, puede usarlo. Los planes fuera de Pakistán empiezan en {usdFrom}/mes.' }
+      ]
+    },
+    final: {
+      title: 'Deja que tu WhatsApp venda mientras descansas.',
+      sub: 'Prueba Webxeen gratis antes de comprar. Lo configuramos con tus productos, precios y condiciones de envío, y tú chateas con él como cliente.',
+      cta0: 'Probar la demo en vivo', cta1: 'Pedir una prueba gratis por WhatsApp', cta2: 'Escríbenos por email'
+    },
+    footer: { restaurants: 'Bot de WhatsApp para restaurantes (en inglés)', privacy: 'Política de privacidad', terms: 'Términos', rights: '© 2023 Webxeen. Todos los derechos reservados.', tagline: 'Asistente de ventas con IA en WhatsApp para pequeños negocios.' }
   }
 };
