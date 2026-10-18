@@ -15,7 +15,7 @@
       ],
       "facts_source": "content.js and config.js in the repo are the only source of product facts and prices.",
       "backlog": [
-        "GLOBAL 3: Add use-case landing pages in English for worldwide audiences, each genuinely different: restaurants, clothing/fashion shops, clinics and salons, Instagram sellers.",
+        "GLOBAL 3 (part 2): More English use-case landing pages for worldwide audiences, one per run, each genuinely different (not a name swap): clothing/fashion shops, clinics and salons, Instagram sellers. Restaurants was done on 2026-10-18 at /whatsapp-bot-for-restaurants: copy its structure and assets/css/usecase.css, but write new examples, table rows and FAQ for each business type. Link each new page from the home footer (content.js footer.* in en/ur/ar/es + index.html, bump ?v, re-run prerender) and cross-link the use-case pages to each other.",
         "ARTICLE: How to spot fake payment screenshots on WhatsApp (for Pakistani online sellers). This is the FIRST blog article: also do the 'First article only' steps in AGENT.md (remove blog noindex, add /blog to sitemap, footer link).",
         "ARTICLE: How to set up WhatsApp auto reply for an online clothing shop.",
         "ARTICLE: How to reduce COD returns for online sellers in Pakistan.",
@@ -34,7 +34,9 @@
         "IDEA: Arabic blog articles for Gulf sellers (e.g. 'بوت واتساب للمتاجر', 'الرد التلقائي في واتساب للأعمال') on /ar/blog/... with hreflang, once the English blog has its first articles.",
         "OWNER: ask a native Spanish speaker (ideally one from Latin America and one from Spain) to read https://webxeen.com/es once and send any wording changes; the agent will apply them in content.js.",
         "IDEA: Spanish blog articles for Latin American and Spanish sellers (e.g. 'bot de WhatsApp para tiendas', 'respuestas automáticas en WhatsApp Business', 'cómo detectar comprobantes de pago falsos') on /es/blog/... with hreflang, once the English blog has its first articles.",
-        "IDEA: the language switcher now has 4 buttons (EN, Urdu, عربي, ES). Before adding a 5th language, change it to a dropdown so it still fits on 320px phones."
+        "IDEA: the language switcher now has 4 buttons (EN, Urdu, عربي, ES). Before adding a 5th language, change it to a dropdown so it still fits on 320px phones.",
+        "OWNER: confirm two facts for the restaurant page: (1) can the restaurant setup also take table bookings/reservations? (2) can quiet hours (11 PM–8 AM) be changed for restaurants that open late? Until confirmed, the page does not claim either.",
+        "IDEA: Arabic and Spanish versions of /whatsapp-bot-for-restaurants (e.g. 'بوت واتساب للمطاعم', 'bot de WhatsApp para restaurantes') with hreflang, once the English use-case pages are done."
       ],
       "notes": "Owner contact for CTA: WhatsApp demo link and hello@webxeen.com are in config.js. Do not change prices. Cache-busting: see AGENT.md rule 6; the privacy/ and terms/ pages also link styles.css and legal.css with ?v=YYYYMMDD, bump those too. /demo is the live demo page (demo/index.html, assets/js/demo.js, assets/css/demo.css): a free rule-based demo that runs in the visitor's browser; keep its link in the menu, hero, demo strip and final call to action.",
       "target_markets": {

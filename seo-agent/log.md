@@ -172,3 +172,31 @@ Newest entries at the bottom. One entry per site per run.
 - PR: https://github.com/szain1603/webxeen-site/pull/21
 - Owner to do by hand: merge the PR; then in Search Console request indexing for https://webxeen.com/es;
   optionally have a native Spanish speaker read /es.
+
+## 2026-10-18 — webxeen
+- Playbook reviewed (last review 2026-10-12, 6 days old). One change: Google's generative-AI content
+  guide (1 Oct 2026) asks sites to fact-check all AI text by hand, incl. titles, meta descriptions,
+  structured data and alt text — added to section 4. No new core/spam update listed 10–17 Oct.
+  Bing blog not verified.
+- Open PRs: #21 (agent, Spanish /es, not merged yet) — today's work added to the same branch and PR.
+- Done: GLOBAL 3, part 1 — English use-case page /whatsapp-bot-for-restaurants (worldwide, USD).
+  - Sections: short answer box, example order chat (made-up "Saffron Street Kitchen", COD → bank
+    transfer switch, odd amount $22.91 for $23, owner tap buttons), table of everyday restaurant
+    messages, 8 languages (EN/AR/ES/Roman Urdu example), owner side (buttons, commands, COD protection,
+    morning list), "is it right for you" + what to send for the free test, FAQ (menu size per plan,
+    branches, new number, mistakes, Instagram, outside Pakistan). Plan limits stated (tap buttons and
+    screenshot check = Gold/Premium). No prices hard-coded (links to /#pricing). Every fact checked
+    against content.js; reservations and changing quiet hours are NOT claimed (asked owner).
+  - CTAs: /demo?cat=restaurant (restaurant demo) and the free-test WhatsApp link (synced from config.js).
+  - JSON-LD: WebPage (about: Service) + BreadcrumbList. No FAQPage markup (playbook).
+  - New assets/css/usecase.css (reusable for the next use-case pages).
+  - Home footer link on /, /ur, /ar, /es (content.js footer.restaurants in 4 languages, says the page
+    is in English); content.js ?v=20261018; prerender.js re-run.
+  - sitemap.xml: new page added; lastmod 2026-10-18 for /, /ur, /ar, /es.
+- Tested in Chromium: new page at 1280, 390 and 320; / and /ar at 390: 1 h1, valid JSON-LD, no console
+  errors, no 404s, no horizontal scroll.
+- Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: https://github.com/szain1603/webxeen-site/pull/21 (updated)
+- Owner to do by hand: merge PR #21; then in Search Console request indexing for
+  https://webxeen.com/es and https://webxeen.com/whatsapp-bot-for-restaurants; answer the 2 questions
+  about table bookings and quiet hours.
