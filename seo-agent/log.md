@@ -223,6 +223,6 @@ Newest entries at the bottom. One entry per site per run.
 - Tested in Chromium: new page at 1280, 390, 320; restaurants page, / and /ar at 390: 1 h1, valid
   JSON-LD, no console errors, no 404s, no horizontal scroll.
 - Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
-- PR: (link below)
+- PR: https://github.com/szain1603/webxeen-site/pull/22
 - Owner to do by hand: merge the PR; then in Search Console request indexing for
   https://webxeen.com/whatsapp-bot-for-clothing-stores; answer the stock question in the backlog.
