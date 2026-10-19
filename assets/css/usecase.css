@@ -34,3 +34,4 @@
 .uc-links a{color:var(--mint);font-weight:600}
 @media (max-width:900px){.uc-two{grid-template-columns:1fr;gap:28px}}
 @media (max-width:560px){.uc-table td:first-child{width:auto}.uc-table th,.uc-table td{padding:12px 14px}.uc-table table{font-size:15px}}
+.uc-page .foot-links{flex-wrap:wrap;gap:10px 20px}

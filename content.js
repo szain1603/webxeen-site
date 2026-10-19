@@ -183,7 +183,7 @@ window.WEBXEEN_CONTENT = {
       sub: 'Test Webxeen free before you buy. We set it up with your products, prices and delivery rules, and you chat with it as a customer.',
       cta0: 'Try the live demo', cta1: 'Get a free test on WhatsApp', cta2: 'Email us'
     },
-    footer: { restaurants: 'WhatsApp bot for restaurants', privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
+    footer: { restaurants: 'WhatsApp bot for restaurants', clothing: 'WhatsApp bot for clothing stores', privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
   },
 
   ur: {
@@ -361,7 +361,7 @@ window.WEBXEEN_CONTENT = {
       sub: 'Khareedne se pehle Webxeen ka free test karein. Hum isay aap ke products, qeematon aur delivery rules ke saath set kar dete hain, aur aap customer ban kar check karte hain.',
       cta0: 'Live demo try karein', cta1: 'WhatsApp par free test', cta2: 'Email karein'
     },
-    footer: { restaurants: 'Restaurants ke liye WhatsApp bot (English)', privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }
+    footer: { restaurants: 'Restaurants ke liye WhatsApp bot (English)', clothing: 'Clothing stores ke liye WhatsApp bot (English)', privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }
   },
 
   ar: {
@@ -539,7 +539,7 @@ window.WEBXEEN_CONTENT = {
       sub: 'جرّب Webxeen مجانًا قبل الشراء. نُعدّه بمنتجاتك وأسعارك وشروط التوصيل لديك، وتتحدث معه أنت كعميل.',
       cta0: 'جرّب العرض المباشر', cta1: 'احصل على تجربة مجانية على واتساب', cta2: 'راسلنا بالبريد'
     },
-    footer: { restaurants: 'بوت واتساب للمطاعم (بالإنجليزية)', privacy: 'سياسة الخصوصية', terms: 'الشروط', rights: '© 2023 Webxeen. جميع الحقوق محفوظة.', tagline: 'مساعد مبيعات ذكي على واتساب للأنشطة التجارية الصغيرة.' }
+    footer: { restaurants: 'بوت واتساب للمطاعم (بالإنجليزية)', clothing: 'بوت واتساب لمتاجر الملابس (بالإنجليزية)', privacy: 'سياسة الخصوصية', terms: 'الشروط', rights: '© 2023 Webxeen. جميع الحقوق محفوظة.', tagline: 'مساعد مبيعات ذكي على واتساب للأنشطة التجارية الصغيرة.' }
   },
 
   es: {
@@ -717,6 +717,6 @@ window.WEBXEEN_CONTENT = {
       sub: 'Prueba Webxeen gratis antes de comprar. Lo configuramos con tus productos, precios y condiciones de envío, y tú chateas con él como cliente.',
       cta0: 'Probar la demo en vivo', cta1: 'Pedir una prueba gratis por WhatsApp', cta2: 'Escríbenos por email'
     },
-    footer: { restaurants: 'Bot de WhatsApp para restaurantes (en inglés)', privacy: 'Política de privacidad', terms: 'Términos', rights: '© 2023 Webxeen. Todos los derechos reservados.', tagline: 'Asistente de ventas con IA en WhatsApp para pequeños negocios.' }
+    footer: { restaurants: 'Bot de WhatsApp para restaurantes (en inglés)', clothing: 'Bot de WhatsApp para tiendas de ropa (en inglés)', privacy: 'Política de privacidad', terms: 'Términos', rights: '© 2023 Webxeen. Todos los derechos reservados.', tagline: 'Asistente de ventas con IA en WhatsApp para pequeños negocios.' }
   }
 };
