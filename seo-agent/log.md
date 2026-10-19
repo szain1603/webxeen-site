@@ -200,3 +200,29 @@ Newest entries at the bottom. One entry per site per run.
 - Owner to do by hand: merge PR #21; then in Search Console request indexing for
   https://webxeen.com/es and https://webxeen.com/whatsapp-bot-for-restaurants; answer the 2 questions
   about table bookings and quiet hours.
+
+## 2026-10-19 — webxeen
+- Playbook not reviewed (last review 2026-10-18, 1 day old; daily runs review every 6+ days).
+- Open PRs: none (PR #21 merged). New branch seo/webxeen/2026-10-19.
+- Done: GLOBAL 3, part 2 — English use-case page /whatsapp-bot-for-clothing-stores (worldwide, USD).
+  - Different from the restaurant page: size/colour questions, collection-drop rush, COD returns
+    section (returned 18, pay-in-advance after 2 returned COD parcels), unpaid-order reminder 24 h /
+    auto-cancel 72 h, complaints for damaged/wrong parcels, Instagram + comment-to-DM (coming soon),
+    courier integrations (Premium, coming soon). Example chat: made-up "Juniper & Thread" boutique,
+    size M in sage, bank transfer odd amount $74.86 for $75, screenshot to owner with buttons.
+    Languages: EN / AR (abaya size) / ES / Roman Urdu examples. FAQ: product limits, number,
+    Instagram, courier, mistakes, outside Pakistan. ~1,500 words. Every fact checked against content.js.
+    Live stock tracking NOT claimed (OWNER comment in the HTML + backlog question).
+  - CTAs: /demo?cat=seller (boutique demo) and the free-test WhatsApp link (synced from config.js).
+  - JSON-LD: WebPage (about: Service) + BreadcrumbList. No FAQPage markup.
+  - Cross-links: both use-case pages link to each other (uc-links + footer). usecase.css: footer links
+    now wrap (fixes 46px horizontal scroll at 390px caused by the extra footer links); ?v=20261019.
+  - Home footer link on /, /ur, /ar, /es (content.js footer.clothing in 4 languages); content.js
+    ?v=20261019; prerender.js re-run.
+  - sitemap.xml: new page added; lastmod 2026-10-19 for /, /ur, /ar, /es, restaurants page.
+- Tested in Chromium: new page at 1280, 390, 320; restaurants page, / and /ar at 390: 1 h1, valid
+  JSON-LD, no console errors, no 404s, no horizontal scroll.
+- Live site and PageSpeed not fetched (webxeen.com blocked from agent cloud).
+- PR: (link below)
+- Owner to do by hand: merge the PR; then in Search Console request indexing for
+  https://webxeen.com/whatsapp-bot-for-clothing-stores; answer the stock question in the backlog.
