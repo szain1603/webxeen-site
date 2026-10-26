@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Webxeen Redesign Demo</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Design demo for a new Webxeen homepage: painted shopkeeper portrait, scroll story and animated background.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800;900&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: KADAM-style editorial scroll page. Warm paper ground, condensed display type,
+   Webxeen blue as the one accent, dark "phone islands". Sections: hero (painted portrait +
+   code-made background film), pinned chat story, 24/7 number, pricing, final call. */
+:root{
+  --paper:#EEEAE3; --paper-2:#E5E0D6; --card:#F8F6F1; --ink:#141414; --dim:#5E5A54; --line:#D6D0C5;
+  --blue:#2F5BFF; --blue-2:#6F8CFF; --night:#0E1426; --night-2:#18213A; --green:#1E9E63;
+  --display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body:"Archivo", "Segoe UI", Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.92;margin:0;text-transform:uppercase;letter-spacing:.005em;text-wrap:balance}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font:600 15px/1 var(--body);text-decoration:none;border:1.5px solid var(--ink);transition:transform .2s,background .2s,color .2s}
+.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.btn-blue{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn-blue:hover{transform:translateY(-2px)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.logo{font:800 26px/1 var(--display);letter-spacing:.02em;text-decoration:none;text-transform:uppercase}
+.logo i{color:var(--blue);font-style:normal}
+.bar nav{display:flex;gap:26px;font-size:14px}
+.bar nav a{text-decoration:none;color:var(--dim)}
+.bar nav a:hover{color:var(--ink)}
+.bar .btn{padding:11px 18px;font-size:14px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;min-height:min(92vh,860px);display:flex;align-items:center;border-bottom:1px solid var(--line)}
+#film{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ghost{position:absolute;inset:auto 0 4% 0;text-align:center;font:900 clamp(120px,24vw,360px)/.8 var(--display);color:transparent;-webkit-text-stroke:1.5px rgba(20,20,20,.09);letter-spacing:.01em;pointer-events:none;user-select:none;white-space:nowrap}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-block:56px}
+.hero h1{font-size:clamp(58px,8.4vw,124px)}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero p.lede{max-width:46ch;margin:22px 0 28px;font-size:18px;color:var(--dim)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero .facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;font:500 12px/1 var(--mono);letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+.portrait{position:relative;justify-self:center;width:min(100%,460px);aspect-ratio:6/7}
+.portrait canvas{width:100%;height:100%;display:block;border-radius:28px;background:var(--paper-2);box-shadow:0 30px 60px -30px rgba(20,20,20,.45)}
+.portrait .tag{position:absolute;left:-14px;bottom:28px;background:var(--night);color:#fff;border-radius:16px;padding:12px 14px;font-size:13px;line-height:1.35;max-width:230px;box-shadow:0 18px 40px -16px rgba(0,0,0,.5)}
+.portrait .tag b{display:block;font:500 11px/1 var(--mono);letter-spacing:.1em;color:var(--blue-2);margin-bottom:6px;text-transform:uppercase}
+.portrait .stamp{position:absolute;right:-10px;top:22px;background:var(--blue);color:#fff;font:800 20px/1 var(--display);padding:10px 14px;border-radius:12px;transform:rotate(4deg);text-transform:uppercase}
+.paintmeter{margin-top:14px;display:flex;align-items:center;gap:10px;font:500 11px/1 var(--mono);color:var(--dim);letter-spacing:.08em;text-transform:uppercase}
+.paintmeter span{flex:1;height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.paintmeter i{display:block;height:100%;width:0;background:var(--blue)}
+
+/* ---------- story (sticky) ---------- */
+.story{position:relative;height:420vh;border-bottom:1px solid var(--line)}
+.story .stick{position:sticky;top:calc(64px + env(safe-area-inset-top,0px));height:calc(100vh - 64px);display:flex;align-items:center}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;width:100%}
+.phone{justify-self:center;width:min(100%,330px);aspect-ratio:9/18.5;max-height:calc(100vh - 120px);background:var(--night);border-radius:38px;padding:12px;box-shadow:0 40px 70px -30px rgba(14,20,38,.6)}
+.screen{height:100%;border-radius:28px;background:#0B1020;display:flex;flex-direction:column;overflow:hidden}
+.screen .head{display:flex;align-items:center;gap:10px;padding:14px 16px;background:var(--night-2);color:#fff;font-size:14px}
+.screen .head .av{width:30px;height:30px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font:700 12px/1 var(--body)}
+.screen .head small{display:block;color:#8FA6FF;font-size:11px}
+.msgs{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:6px 14px 14px;overflow:hidden}
+.m{max-width:84%;max-height:0;margin-top:0;padding:0 12px;border-radius:14px;font-size:13px;line-height:1.4;opacity:0;overflow:hidden;transform:translateY(12px) scale(.98);transition:opacity .45s,transform .45s,max-height .45s,padding .45s,margin .45s}
+.m.on{opacity:1;transform:none;max-height:200px;margin-top:8px;padding:9px 12px}
+.m.c{align-self:flex-end;background:#145C43;color:#E8FFF4;border-bottom-right-radius:4px}
+.m.a{align-self:flex-start;background:#1E2742;color:#E9EDFF;border-bottom-left-radius:4px}
+.m.r{align-self:center;background:#F8F6F1;color:#141414;font-family:var(--mono);font-size:12px;border-radius:8px;max-width:92%}
+.m.r b{display:block;font-size:15px;color:var(--blue);margin:2px 0}
+.m.s{align-self:stretch;max-width:100%;background:#26304F;color:#fff;border:1px solid #3C4A78}
+.m.s .tb{display:flex;gap:6px;margin-top:8px}
+.m.s .tb span{flex:1;text-align:center;padding:6px 0;border-radius:8px;background:#33406A;font-size:11px}
+.m.s .tb span.hit{background:var(--green)}
+.cards{display:grid}
+.card{grid-area:1/1;position:relative;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s;pointer-events:none}
+.card.on{opacity:1;transform:none;pointer-events:auto}
+.card .top{display:flex;justify-content:space-between;font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:20px}
+.card .top b{color:var(--blue);font-weight:500}
+.card h2{font-size:clamp(44px,5vw,64px);margin-bottom:16px}
+.card p{margin:0 0 18px;color:var(--dim)}
+.card dl{margin:0;border-top:1px solid var(--line)}
+.card dl div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.card dt{font:500 11px/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.card dd{margin:0;font-weight:600;text-align:right}
+.dots{display:flex;gap:8px;margin-top:18px}
+.dots i{width:28px;height:4px;border-radius:4px;background:var(--line);transition:background .3s}
+.dots i.on{background:var(--blue)}
+
+/* ---------- 24/7 ---------- */
+.allday{position:relative;padding-block:110px 90px;overflow:hidden;text-align:center;border-bottom:1px solid var(--line)}
+.big{font:900 clamp(150px,30vw,420px)/.8 var(--display);letter-spacing:-.01em;white-space:nowrap}
+.big .o{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.big .f{color:var(--blue);display:inline-block;transform:translateY(var(--lift,40px));transition:transform .2s linear}
+.allday h2{font-size:clamp(40px,5.4vw,72px);margin-top:18px}
+.allday p{max-width:52ch;margin:14px auto 30px;color:var(--dim)}
+.langs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.langs span{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:14px;transition:background .3s,color .3s,border-color .3s}
+.langs span.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ---------- pricing ---------- */
+.pricing{padding-block:100px;border-bottom:1px solid var(--line)}
+.pricing .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:36px}
+.pricing h2{font-size:clamp(52px,7vw,96px)}
+.seg{display:inline-flex;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.seg button{font:600 14px/1 var(--body);padding:11px 16px;border-radius:999px;border:0;background:none;color:var(--dim);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.seg button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.plan.pop{background:var(--night);color:#fff;border-color:var(--night)}
+.plan .nm{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.plan.pop .nm{color:var(--blue-2)}
+.plan .pr{font:800 clamp(38px,3.8vw,56px)/1 var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.plan .pr small{font:500 14px var(--body);color:var(--dim);margin-left:4px}
+.plan.pop .pr small{color:#A9B4D6}
+.plan .su{font-size:14px;color:var(--dim);min-height:22px}
+.plan.pop .su{color:#C7CFE8}
+.plan .su s{opacity:.7}
+.plan .su b{color:var(--blue)}
+.plan.pop .su b{color:var(--blue-2)}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px;flex:1}
+.plan li::before{content:"—";color:var(--blue);margin-right:8px}
+.plan .btn{justify-content:center}
+.plan.pop .btn{background:var(--blue);border-color:var(--blue);color:#fff}
+.note{margin-top:20px;font-size:14px;color:var(--dim);max-width:80ch}
+
+/* ---------- final ---------- */
+.final{padding-block:120px;text-align:center}
+.final h2{font-size:clamp(60px,10vw,150px)}
+.final h2 em{font-style:normal;color:var(--blue)}
+.final p{color:var(--dim);margin:18px auto 30px;max-width:48ch}
+footer{border-top:1px solid var(--line);padding-block:26px;font-size:13px;color:var(--dim)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.demo-badge{position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:80;padding:9px 14px;border-radius:999px;background:var(--night);color:#fff;font:600 12px/1 var(--body);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.demo-badge b{color:#8FA6FF;font-weight:600}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .bar nav{display:none}
+  .hero .wrap{grid-template-columns:1fr;padding-block:40px 56px}
+  .portrait{width:min(100%,380px)}
+  .portrait .tag{left:8px}
+  .portrait .stamp{right:8px}
+  .story{height:460vh}
+  .story .stick{align-items:flex-start;padding-top:14px}
+  .story .wrap{grid-template-columns:1fr;gap:12px}
+  .phone{width:auto;height:min(46vh,390px);max-height:none;aspect-ratio:9/16;border-radius:30px;padding:9px}
+  .screen{border-radius:22px}
+  .card{padding:18px 20px}
+  .card .top{margin-bottom:12px}
+  .card h2{font-size:36px;margin-bottom:8px}
+  .card p{font-size:15px;margin-bottom:0}
+  .card dl{display:none}
+  .dots{margin-top:10px}
+  .plans{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .m,.card,.big .f{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top">Webxeen<i>.</i></a>
+    <nav aria-label="Sections"><a href="#story">How it works</a><a href="#allday">Languages</a><a href="#pricing">Pricing</a></nav>
+    <a class="btn btn-blue" data-wa href="https://wa.me/923164308893" target="_blank" rel="noopener">Free test</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <canvas id="film" aria-hidden="true"></canvas>
+    <div class="ghost" aria-hidden="true">WEBXEEN</div>
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">AI sales assistant · WhatsApp</p>
+        <h1 id="heroTitle">Your shop <em>never</em> closes.</h1>
+        <p class="lede">While you sleep, Webxeen answers every customer on WhatsApp in their own language, takes the order and sends a receipt. You wake up to a list of sales.</p>
+        <div class="ctas">
+          <a class="btn btn-blue" data-wa href="https://wa.me/923164308893" target="_blank" rel="noopener">Get a free test on WhatsApp</a>
+          <a class="btn btn-ghost" href="#story">See how it works</a>
+        </div>
+        <div class="facts"><span>8 languages</span><span>Orders + receipts</span><span>24/7</span></div>
+      </div>
+      <figure class="portrait" style="margin:0">
+        <canvas id="paint" width="600" height="700" role="img" aria-label="Painted portrait of a smiling shopkeeper holding a phone, painted in brush strokes as you scroll"></canvas>
+        <div class="stamp">3:12 am</div>
+        <div class="tag"><b>New order #KG-0012</b>1 × Chicken Karahi, 4 × Naan · Rs 2,080 · paid on delivery</div>
+        <div class="paintmeter" aria-hidden="true">Painting<span><i id="meter"></i></span><em id="pct" style="font-style:normal">0%</em></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story" aria-label="How Webxeen handles one order">
+    <div class="stick">
+      <div class="wrap">
+        <div class="phone" aria-hidden="true">
+          <div class="screen">
+            <div class="head"><span class="av">KG</span><span>Karachi Grill<small>replies instantly</small></span></div>
+            <div class="msgs" id="msgs">
+              <div class="m c" data-step="0">Assalam o Alaikum, karahi available hai? DHA delivery?</div>
+              <div class="m a" data-step="0">Ji haan! Chicken Karahi Rs 1,450. DHA delivery Rs 150.</div>
+              <div class="m c" data-step="1">1 karahi aur 4 naan</div>
+              <div class="m a" data-step="1">1 Karahi + 4 Naan + delivery = Rs 2,080. Confirm kar doon?</div>
+              <div class="m c" data-step="2">Haan, cash on delivery</div>
+              <div class="m r" data-step="2">ORDER CONFIRMED<b>#KG-0012</b>Rs 2,080 · COD · DHA</div>
+              <div class="m s" data-step="3">Owner · New order #KG-0012 · Rs 2,080<div class="tb"><span>Paid</span><span class="hit">Dispatched</span><span>Cancel</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="cards">
+            <article class="card on" data-card="0">
+              <div class="top"><b>01 / 04</b><span>Customer asks</span></div>
+              <h2>Every question, answered at once</h2>
+              <p>Prices, delivery, stock. The assistant answers only from your own price list, so it never invents a number.</p>
+              <dl><div><dt>Reply time</dt><dd>Seconds</dd></div><div><dt>Languages</dt><dd>8, incl. Roman Urdu</dd></div></dl>
+            </article>
+            <article class="card" data-card="1">
+              <div class="top"><b>02 / 04</b><span>Order</span></div>
+              <h2>It adds it up for you</h2>
+              <p>Items, quantity and delivery are totalled in the chat, and the customer confirms before anything is booked.</p>
+              <dl><div><dt>Math</dt><dd>Done by the bot</dd></div><div><dt>Confirm step</dt><dd>Always</dd></div></dl>
+            </article>
+            <article class="card" data-card="2">
+              <div class="top"><b>03 / 04</b><span>Receipt</span></div>
+              <h2>A receipt with a number</h2>
+              <p>Every order gets a clean receipt like #KG-0012, so you and the customer talk about the same thing.</p>
+              <dl><div><dt>Payment</dt><dd>COD, bank, wallet</dd></div><div><dt>Cancel</dt><dd>Before dispatch</dd></div></dl>
+            </article>
+            <article class="card" data-card="3">
+              <div class="top"><b>04 / 04</b><span>You</span></div>
+              <h2>One tap from your phone</h2>
+              <p>The order lands on your WhatsApp with buttons: Paid, Dispatched, Cancel. The customer is told automatically.</p>
+              <dl><div><dt>App needed</dt><dd>None</dd></div><div><dt>Morning summary</dt><dd>Yes</dd></div></dl>
+            </article>
+          </div>
+          <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 24/7 -->
+  <section class="allday" id="allday" aria-labelledby="alldayTitle">
+    <div class="big" aria-hidden="true"><span class="o">24/</span><span class="f" id="seven">7</span></div>
+    <div class="wrap">
+      <h2 id="alldayTitle">Open all night. In every language.</h2>
+      <p>An order at 3 am gets the same polite answer as one at 3 pm, in the language the customer writes in.</p>
+      <div class="langs" id="langs"><span>Urdu</span><span>Roman Urdu</span><span>English</span><span>Arabic</span><span>Farsi</span><span>Spanish</span><span>Hindi</span><span>Italian</span></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing" aria-labelledby="priceTitle">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Pricing</p><h2 id="priceTitle">Simple monthly plans</h2></div>
+        <div class="seg" role="group" aria-label="Show prices for">
+          <button type="button" id="rPK" data-r="pk" aria-pressed="true">Pakistan (PKR)</button>
+          <button type="button" id="rAB" data-r="abroad" aria-pressed="false">Other countries (USD)</button>
+        </div>
+      </div>
+      <div class="plans" id="plans"></div>
+      <p class="note" id="note"></p>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final" aria-labelledby="finalTitle">
+    <div class="wrap">
+      <h2 id="finalTitle">Let your WhatsApp <em>sell</em> while you rest.</h2>
+      <p>We set it up with your products and prices. You chat with it as a customer before you pay anything.</p>
+      <a class="btn btn-blue" data-wa href="https://wa.me/923164308893" target="_blank" rel="noopener">Get a free test on WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© Webxeen</span><span>Design demo · the live site is unchanged</span></div></footer>
+<div class="demo-badge"><b>Design demo</b> · not the live site</div>
+
+<script src="/config.js?v=20261026"></script>
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var CFG = window.WEBXEEN_CONFIG || {};
+  if (CFG.links && CFG.links.demoWhatsApp && !/\{\{/.test(CFG.links.demoWhatsApp)) {
+    document.querySelectorAll('[data-wa]').forEach(function (a) { a.href = CFG.links.demoWhatsApp; });
+  }
+
+  /* ===================== 1. Background "film" (code-made video) ===================== */
+  var film = document.getElementById('film'), fx = film.getContext('2d');
+  var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2);
+  function sizeFilm() { var r = film.getBoundingClientRect(); W = r.width; H = r.height; film.width = W * DPR; film.height = H * DPR; fx.setTransform(DPR, 0, 0, DPR, 0, 0); }
+  sizeFilm(); addEventListener('resize', sizeFilm);
+  var blobs = [
+    { x: .18, y: .25, r: .42, c: '47,91,255', a: .16, sx: .00009, sy: .00013 },
+    { x: .82, y: .70, r: .48, c: '255,170,90', a: .18, sx: .00011, sy: .00008 },
+    { x: .60, y: .15, r: .30, c: '111,140,255', a: .12, sx: .00014, sy: .0001 }
+  ];
+  var bubbles = [];
+  for (var i = 0; i < 16; i++) bubbles.push({ x: Math.random(), y: Math.random(), w: 60 + Math.random() * 90, s: .00002 + Math.random() * .00004, me: Math.random() < .5, ph: Math.random() * 6 });
+  function rr(c, x, y, w, h, r) { c.beginPath(); c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath(); }
+  var filmOn = true;
+  function drawFilm(t) {
+    fx.clearRect(0, 0, W, H);
+    blobs.forEach(function (b, k) {
+      var x = (b.x + Math.sin(t * b.sx + k) * .08) * W, y = (b.y + Math.cos(t * b.sy + k) * .08) * H, r = b.r * Math.max(W, H);
+      var g = fx.createRadialGradient(x, y, 0, x, y, r);
+      g.addColorStop(0, 'rgba(' + b.c + ',' + b.a + ')'); g.addColorStop(1, 'rgba(' + b.c + ',0)');
+      fx.fillStyle = g; fx.fillRect(0, 0, W, H);
+    });
+    bubbles.forEach(function (b) {
+      var y = ((b.y - t * b.s) % 1 + 1) % 1, x = b.x * W + Math.sin(t * .0004 + b.ph) * 14;
+      var py = y * (H + 80) - 40, h = 26, alpha = .10 + .06 * Math.sin(t * .001 + b.ph);
+      fx.fillStyle = b.me ? 'rgba(30,158,99,' + alpha + ')' : 'rgba(20,20,20,' + (alpha * .7) + ')';
+      rr(fx, x, py, b.w, h, 12); fx.fill();
+      fx.fillStyle = 'rgba(255,255,255,' + (alpha * 1.6) + ')';
+      fx.fillRect(x + 12, py + 9, b.w * .55, 3); fx.fillRect(x + 12, py + 15, b.w * .35, 3);
+    });
+  }
+  if (reduce) drawFilm(4000);
+  else {
+    var io = new IntersectionObserver(function (e) { filmOn = e[0].isIntersecting; }, { threshold: 0 });
+    io.observe(film);
+    (function loop(t) { if (filmOn) drawFilm(t); requestAnimationFrame(loop); })(0);
+  }
+
+  /* ===================== 2. Painted shopkeeper (brush strokes) ===================== */
+  // Step A: draw a simple original portrait on a hidden canvas (the "reference").
+  var ref = document.createElement('canvas'); ref.width = 600; ref.height = 700;
+  var r = ref.getContext('2d');
+  function ell(x, y, rx, ry, c) { r.fillStyle = c; r.beginPath(); r.ellipse(x, y, rx, ry, 0, 0, Math.PI * 2); r.fill(); }
+  // background: warm shop wall with shelves
+  var bg = r.createLinearGradient(0, 0, 0, 700); bg.addColorStop(0, '#E9C99A'); bg.addColorStop(1, '#C98F5B'); r.fillStyle = bg; r.fillRect(0, 0, 600, 700);
+  r.fillStyle = '#8A5A35'; r.fillRect(0, 150, 600, 14); r.fillRect(0, 300, 600, 14);
+  ['#2F5BFF', '#E2553A', '#F2C14E', '#1E9E63', '#6F8CFF', '#E2553A', '#F2C14E'].forEach(function (c, k) { r.fillStyle = c; r.fillRect(20 + k * 85, 92, 46, 58); r.fillRect(40 + k * 82, 244, 38, 56); });
+  // kurta / shoulders
+  r.fillStyle = '#1F4E6B'; r.beginPath(); r.moveTo(60, 700); r.quadraticCurveTo(80, 500, 300, 480); r.quadraticCurveTo(520, 500, 540, 700); r.fill();
+  r.fillStyle = '#163B52'; r.beginPath(); r.moveTo(270, 482); r.lineTo(300, 600); r.lineTo(330, 482); r.fill();
+  // neck
+  r.fillStyle = '#B97A4E'; r.fillRect(262, 400, 76, 95);
+  // face
+  ell(300, 330, 112, 138, '#C98B5C');
+  ell(258, 300, 40, 50, '#D69C6C'); ell(345, 300, 40, 50, '#D69C6C');
+  // hair
+  r.fillStyle = '#231A15'; r.beginPath(); r.ellipse(300, 222, 116, 70, 0, Math.PI, Math.PI * 2); r.fill();
+  r.beginPath(); r.moveTo(186, 230); r.quadraticCurveTo(190, 300, 200, 320); r.lineTo(210, 250); r.fill();
+  r.beginPath(); r.moveTo(414, 230); r.quadraticCurveTo(410, 300, 400, 320); r.lineTo(390, 250); r.fill();
+  // ears
+  ell(190, 335, 16, 28, '#B97A4E'); ell(410, 335, 16, 28, '#B97A4E');
+  // beard
+  r.fillStyle = '#2B201A'; r.beginPath(); r.moveTo(196, 340); r.quadraticCurveTo(205, 470, 300, 478); r.quadraticCurveTo(395, 470, 404, 340); r.quadraticCurveTo(380, 410, 300, 412); r.quadraticCurveTo(220, 410, 196, 340); r.fill();
+  // mustache + smile
+  r.fillStyle = '#2B201A'; r.beginPath(); r.ellipse(300, 378, 46, 12, 0, 0, Math.PI * 2); r.fill();
+  r.fillStyle = '#7A2E22'; r.beginPath(); r.ellipse(300, 400, 30, 11, 0, 0, Math.PI); r.fill();
+  r.fillStyle = '#F5EDE2'; r.fillRect(280, 400, 40, 4);
+  // nose
+  r.fillStyle = '#A86B42'; r.beginPath(); r.moveTo(300, 312); r.lineTo(286, 362); r.lineTo(314, 362); r.fill();
+  // eyes + brows
+  ell(255, 310, 17, 9, '#F7F1E8'); ell(345, 310, 17, 9, '#F7F1E8');
+  ell(257, 311, 7, 7, '#1B1310'); ell(343, 311, 7, 7, '#1B1310');
+  r.fillStyle = '#1B1310'; r.fillRect(232, 286, 46, 7); r.fillRect(322, 286, 46, 7);
+  // hand holding a glowing phone
+  ell(430, 590, 46, 40, '#C98B5C');
+  r.fillStyle = '#0E1426'; r.save(); r.translate(430, 545); r.rotate(-.18); r.fillRect(-34, -62, 68, 120); r.fillStyle = '#2F5BFF'; r.fillRect(-27, -54, 54, 100); r.fillStyle = '#E8FFF4'; r.fillRect(-20, -40, 30, 9); r.fillRect(-6, -24, 30, 9); r.fillRect(-20, -8, 26, 9); r.restore();
+  var px = r.getImageData(0, 0, 600, 700).data;
+  function col(x, y) { x = Math.max(0, Math.min(599, x | 0)); y = Math.max(0, Math.min(699, y | 0)); var i = (y * 600 + x) * 4; return [px[i], px[i + 1], px[i + 2]]; }
+  function lum(x, y) { var c = col(x, y); return .3 * c[0] + .59 * c[1] + .11 * c[2]; }
+
+  // Step B: plan every brush stroke once (big first, fine detail last). Seeded so it is the same each visit.
+  var seed = 7; function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+  var strokes = [];
+  [[26, 34, 900], [14, 20, 2600], [7, 11, 5200], [3.5, 6, 6000]].forEach(function (L) {
+    for (var n = 0; n < L[2]; n++) {
+      var x = rnd() * 600, y = rnd() * 700, c = col(x, y);
+      var gx = lum(x + 2, y) - lum(x - 2, y), gy = lum(x, y + 2) - lum(x, y - 2);
+      var ang = (gx || gy) ? Math.atan2(gy, gx) + Math.PI / 2 : rnd() * Math.PI;
+      ang += (rnd() - .5) * .5;
+      var j = (rnd() - .5) * 18;
+      strokes.push({ x: x, y: y, a: ang, w: L[0], l: L[1] * (0.8 + rnd() * .6), c: 'rgb(' + Math.max(0, Math.min(255, c[0] + j)) + ',' + Math.max(0, Math.min(255, c[1] + j)) + ',' + Math.max(0, Math.min(255, c[2] + j)) + ')' });
+    }
+  });
+  var paint = document.getElementById('paint'), pc = paint.getContext('2d');
+  pc.lineCap = 'round';
+  var drawn = 0;
+  function base() { pc.fillStyle = '#E5E0D6'; pc.fillRect(0, 0, 600, 700); }
+  base();
+  function drawTo(n) {
+    n = Math.max(0, Math.min(strokes.length, Math.round(n)));
+    if (n < drawn) { base(); drawn = 0; }
+    for (var k = drawn; k < n; k++) {
+      var s = strokes[k], dx = Math.cos(s.a) * s.l / 2, dy = Math.sin(s.a) * s.l / 2;
+      pc.strokeStyle = s.c; pc.globalAlpha = .9; pc.lineWidth = s.w;
+      pc.beginPath(); pc.moveTo(s.x - dx, s.y - dy); pc.quadraticCurveTo(s.x + dy * .15, s.y - dx * .15, s.x + dx, s.y + dy); pc.stroke();
+    }
+    pc.globalAlpha = 1; drawn = n;
+    var p = Math.round(n / strokes.length * 100);
+    document.getElementById('meter').style.width = p + '%';
+    document.getElementById('pct').textContent = p + '%';
+  }
+  // Intro: paint the first 55% on load, then scrolling finishes the portrait.
+  var introTarget = strokes.length * .55, intro = 0;
+  if (reduce) drawTo(strokes.length);
+  else (function introLoop() { intro = Math.min(introTarget, intro + 260); drawTo(Math.max(intro, scrollTarget())); if (intro < introTarget) requestAnimationFrame(introLoop); })();
+  function scrollTarget() {
+    var hero = document.querySelector('.hero'), h = hero.offsetHeight;
+    var p = Math.min(1, Math.max(0, window.scrollY / (h * .6)));
+    return introTarget + (strokes.length - introTarget) * p;
+  }
+
+  /* ===================== 3. Story: messages + cards follow the scroll ===================== */
+  var story = document.getElementById('story'), msgs = document.querySelectorAll('#msgs .m'), cards = document.querySelectorAll('.card'), dots = document.querySelectorAll('.dots i');
+  function storyStep() {
+    var r = story.getBoundingClientRect(), total = story.offsetHeight - innerHeight;
+    var p = Math.min(.999, Math.max(0, -r.top / total)), step = Math.floor(p * 4);
+    msgs.forEach(function (m) { m.classList.toggle('on', +m.getAttribute('data-step') <= step); });
+    cards.forEach(function (c, k) { c.classList.toggle('on', k === step); });
+    dots.forEach(function (d, k) { d.classList.toggle('on', k <= step); });
+  }
+
+  /* ===================== 4. 24/7: the 7 rises, languages light up ===================== */
+  var allday = document.getElementById('allday'), seven = document.getElementById('seven'), langs = document.querySelectorAll('#langs span');
+  function alldayStep() {
+    var r = allday.getBoundingClientRect(), p = Math.min(1, Math.max(0, 1 - (r.top + r.height * .3) / innerHeight));
+    seven.style.setProperty('--lift', (reduce ? 0 : 40 - p * 60) + 'px');
+    var n = Math.round(p * langs.length * 1.3);
+    langs.forEach(function (l, k) { l.classList.toggle('on', k < n); });
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function () { ticking = false; if (!reduce && intro >= introTarget) drawTo(scrollTarget()); storyStep(); alldayStep(); });
+  }
+  addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll);
+  storyStep(); alldayStep();
+
+  /* ===================== 5. Pricing from config.js ===================== */
+  var P = CFG.pricing || { plans: [] }, region = 'pk';
+  try { if (Intl.DateTimeFormat().resolvedOptions().timeZone !== 'Asia/Karachi') region = 'abroad'; } catch (e) {}
+  var feats = {
+    silver: ['1,000 replies / month', 'Up to 50 products', 'Urdu + Roman Urdu + English', 'Orders + COD', 'Email alerts + morning summary'],
+    gold: ['4,000 replies / month', 'Up to 300 products', 'All 8 languages', 'Payment screenshot checking', 'WhatsApp alerts with tap buttons'],
+    premium: ['15,000 replies / month', 'Unlimited products', 'Up to 3 numbers / branches', 'Everything in Gold', 'Priority support']
+  };
+  var fmt = function (n) { return Number(n).toLocaleString('en-US'); };
+  function offerOn() {
+    if (!P.setupFreeUntil) return false;
+    var d = ''; try { d = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Karachi' }).format(new Date()); } catch (e) { d = new Date().toISOString().slice(0, 10); }
+    return d <= P.setupFreeUntil;
+  }
+  function renderPlans() {
+    var box = document.getElementById('plans'); box.innerHTML = '';
+    var until = P.setupFreeUntil ? new Date(P.setupFreeUntil + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }) : '';
+    P.plans.forEach(function (p) {
+      var a = document.createElement('article'); a.className = 'plan' + (p.popular ? ' pop' : '');
+      var price = region === 'abroad' ? 'USD ' + fmt(p.monthlyUSD) : 'PKR ' + fmt(p.monthlyPKR);
+      var su = region === 'abroad' ? '' : (offerOn() ? 'Setup: <s>PKR ' + fmt(p.setupPKR) + '</s> <b>Free until ' + until + '</b>' : 'Setup: PKR ' + fmt(p.setupPKR));
+      a.innerHTML = '<span class="nm">' + p.id + (p.popular ? ' · most popular' : '') + '</span><div class="pr">' + price + '<small>/month</small></div><div class="su">' + su + '</div><ul>' +
+        (feats[p.id] || []).map(function (f) { return '<li>' + f + '</li>'; }).join('') + '</ul><a class="btn' + (p.popular ? '' : ' btn-ghost') + '" target="_blank" rel="noopener" href="' + ((CFG.links && CFG.links.demoWhatsApp) || '#') + '">Get a free test</a>';
+      box.appendChild(a);
+    });
+    var extra = region === 'abroad' ? (P.extraReplyPriceUSD || 'a small fee') : P.extraReplyPrice;
+    document.getElementById('note').textContent = 'Free test first: we set it up with your products and you chat with it as a customer. Yearly plan = ' + (P.yearlyFreeMonths || 2) + ' months free. Extra replies ' + extra + ' each after your limit.' + (region === 'abroad' ? ' Germany and other high-cost WhatsApp regions: custom quote.' : '');
+    document.querySelectorAll('.seg button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-r') === region)); });
+  }
+  document.querySelectorAll('.seg button').forEach(function (b) { b.addEventListener('click', function () { region = b.getAttribute('data-r'); renderPlans(); }); });
+  renderPlans();
+})();
+</script>
+</body>
+</html>
