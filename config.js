@@ -24,14 +24,17 @@ window.WEBXEEN_CONFIG = {
     defaultRegion: 'auto',
     trialDays: 7,
     yearlyFreeMonths: 2,
-    extraReplyPrice: 'Rs 1.5',
+    extraReplyPrice: 'Rs 6',
     // Price per extra reply for USD visitors, e.g. 'USD 0.01'. Empty = the text says
     // "a small fee" instead of a number.
-    extraReplyPriceUSD: '',
+    extraReplyPriceUSD: 'USD 0.025',
+    // Launch offer: setup fee is waived for sign-ups up to and including this date (Pakistan time).
+    // After this date the normal setup fee shows again automatically. Empty '' = no offer.
+    setupFreeUntil: '2026-12-31',
     plans: [
-      { id: 'silver',  monthlyPKR: 5000, setupPKR: 3000,  monthlyUSD: 29,  popular: false },
-      { id: 'gold',    monthlyPKR: 10000, setupPKR: 5000,  monthlyUSD: 59,  popular: true  },
-      { id: 'premium', monthlyPKR: 18000, setupPKR: 10000, monthlyUSD: 119, popular: false }
+      { id: 'silver',  monthlyPKR: 10000, setupPKR: 3000,  monthlyUSD: 59,  popular: false },
+      { id: 'gold',    monthlyPKR: 25000, setupPKR: 5000,  monthlyUSD: 99,  popular: true  },
+      { id: 'premium', monthlyPKR: 80000, setupPKR: 10000, monthlyUSD: 349, popular: false }
     ]
   }
 };

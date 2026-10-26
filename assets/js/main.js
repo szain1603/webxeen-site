@@ -182,20 +182,40 @@
   }
 
   /* ---------- prices ---------- */
+  // Launch offer: the setup fee is waived until P.setupFreeUntil (a YYYY-MM-DD date, Pakistan time).
+  function setupOfferActive() {
+    if (!P.setupFreeUntil) return false;
+    var today = '';
+    try { today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Karachi' }).format(new Date()); } catch (e) {}
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(today)) today = new Date().toISOString().slice(0, 10);
+    return today <= P.setupFreeUntil;
+  }
+  function offerDate() {
+    var d = new Date(P.setupFreeUntil + 'T12:00:00Z');
+    try { return d.toLocaleDateString(lang === 'ar' ? 'ar' : (lang === 'es' ? 'es' : 'en-GB'), { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }); }
+    catch (e) { return P.setupFreeUntil; }
+  }
   function renderPrices() {
     var per = get('pricing.perMonth'), setup = get('pricing.setup');
+    var offer = setupOfferActive();
+    var free = offer ? (get('pricing.setupFree') || get('pricing.setupFree', 'en')).replace(/\{until\}/g, offerDate()) : '';
     P.plans.forEach(function (p) {
       var pr = $('[data-price="' + p.id + '"]'), su = $('[data-setup="' + p.id + '"]');
       if (region === 'abroad') {
         pr.innerHTML = 'USD ' + fmt(p.monthlyUSD) + '<small>' + per + '</small>';
         su.textContent = '';
+      } else if (offer) {
+        su.innerHTML = setup + ': <s>PKR ' + fmt(p.setupPKR) + '</s> <b class="setup-free" style="color:var(--em)">' + free + '</b>';
+        pr.innerHTML = 'PKR ' + fmt(p.monthlyPKR) + '<small>' + per + '</small>';
       } else {
         pr.innerHTML = 'PKR ' + fmt(p.monthlyPKR) + '<small>' + per + '</small>';
         su.textContent = setup + ': PKR ' + fmt(p.setupPKR);
       }
     });
     $$('[data-region]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-region') === region)); });
-    $('#planNote').innerHTML = fill(get('pricing.note'));
+    var note = fill(get('pricing.note'));
+    if (region === 'abroad') note += ' ' + (get('pricing.highCost') || get('pricing.highCost', 'en'));
+    $('#planNote').innerHTML = note;
   }
 
   /* ---------- links ---------- */

@@ -150,7 +150,8 @@ window.WEBXEEN_CONTENT = {
       eyebrow: 'Pricing', title: 'Simple monthly plans.', sub: 'Test it free with your own products before you buy.',
       regionPK: 'Pakistan (PKR)', regionAbroad: 'Other countries (USD)', regionLabel: 'Show prices for',
       extraAbroad: 'cost a small fee',
-      perMonth: '/month', setup: 'One-time setup', popular: 'Most popular', button: 'Get a free test',
+      perMonth: '/month', setup: 'One-time setup', setupFree: 'Free until {until}',
+      highCost: 'Germany and other high-cost WhatsApp regions: custom quote.', popular: 'Most popular', button: 'Get a free test',
       names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
       features: {
         silver: ['1,000 replies / month', 'Up to 50 products', 'Urdu + Roman Urdu + English', 'Orders + COD', 'Email order alerts + morning summary', '3 months memory'],
@@ -328,7 +329,8 @@ window.WEBXEEN_CONTENT = {
       eyebrow: 'Qeematein', title: 'Aasaan mahana plans.', sub: 'Khareedne se pehle apne products ke saath free test karein.',
       regionPK: 'Pakistan (PKR)', regionAbroad: 'Bahar (USD)', regionLabel: 'Qeematein dikhayein',
       extraAbroad: 'ki choti si fees',
-      perMonth: '/mahina', setup: 'Aik dafa setup', popular: 'Sab se pasandeeda', button: 'Free test karein',
+      perMonth: '/mahina', setup: 'Aik dafa setup', setupFree: '{until} tak free',
+      highCost: 'Germany aur doosre mehnge WhatsApp regions ke liye alag quote.', popular: 'Sab se pasandeeda', button: 'Free test karein',
       names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
       features: {
         silver: ['1,000 jawab / mahina', '50 products tak', 'Urdu + Roman Urdu + English', 'Orders + COD', 'Email order alerts + subah ki summary', '3 mahine ki yaaddasht'],
@@ -514,7 +516,8 @@ window.WEBXEEN_CONTENT = {
       eyebrow: 'الأسعار', title: 'باقات شهرية بسيطة.', sub: 'جرّبه مجانًا بمنتجاتك قبل أن تشتري.',
       regionPK: 'باكستان (PKR)', regionAbroad: 'باقي الدول (USD)', regionLabel: 'اعرض الأسعار لـ',
       extraAbroad: 'برسوم بسيطة',
-      perMonth: '/شهريًا', setup: 'رسوم إعداد لمرة واحدة', popular: 'الأكثر طلبًا', button: 'احصل على تجربة مجانية',
+      perMonth: '/شهريًا', setup: 'رسوم إعداد لمرة واحدة', setupFree: 'مجانًا حتى {until}',
+      highCost: 'ألمانيا والمناطق الأخرى مرتفعة التكلفة في واتساب: عرض سعر خاص.', popular: 'الأكثر طلبًا', button: 'احصل على تجربة مجانية',
       names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
       features: {
         silver: ['1,000 رد / شهريًا', 'حتى 50 منتجًا', 'الأردية + الأردية اللاتينية + الإنجليزية', 'الطلبات + الدفع عند الاستلام', 'تنبيهات الطلبات بالبريد + ملخص الصباح', 'ذاكرة 3 أشهر'],
@@ -692,7 +695,8 @@ window.WEBXEEN_CONTENT = {
       eyebrow: 'Precios', title: 'Planes mensuales sencillos.', sub: 'Pruébalo gratis con tus propios productos antes de comprar.',
       regionPK: 'Pakistán (PKR)', regionAbroad: 'Otros países (USD)', regionLabel: 'Ver precios para',
       extraAbroad: 'tienen un pequeño costo',
-      perMonth: '/mes', setup: 'Configuración (pago único)', popular: 'El más elegido', button: 'Pedir una prueba gratis',
+      perMonth: '/mes', setup: 'Configuración (pago único)', setupFree: 'Gratis hasta el {until}',
+      highCost: 'Alemania y otras regiones de WhatsApp de alto costo: presupuesto a medida.', popular: 'El más elegido', button: 'Pedir una prueba gratis',
       names: { silver: 'Silver', gold: 'Gold', premium: 'Premium' },
       features: {
         silver: ['1.000 respuestas / mes', 'Hasta 50 productos', 'Urdu + urdu romanizado + inglés', 'Pedidos + pago contra entrega', 'Avisos de pedidos por email + resumen de la mañana', 'Memoria de 3 meses'],
