@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Webxeen Redesign Demo</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Design demo for a new Webxeen homepage: painted shopkeeper portrait, scroll story and animated background.">
+<meta name="description" content="Design demo for a new Webxeen homepage: 3D phone with a live chat, scroll story and animated background.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800;900&family=JetBrains+Mono:wght@500&display=swap">
 <style>
 /* Layout: KADAM-style editorial scroll page. Warm paper ground, condensed display type,
-   Webxeen blue as the one accent, dark "phone islands". Sections: hero (painted portrait +
+   Webxeen blue as the one accent, dark "phone islands". Sections: hero (3D phone with live chat +
    code-made background film), pinned chat story, 24/7 number, pricing, final call. */
 :root{
   --paper:#EEEAE3; --paper-2:#E5E0D6; --card:#F8F6F1; --ink:#141414; --dim:#5E5A54; --line:#D6D0C5;
@@ -56,14 +56,25 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero p.lede{max-width:46ch;margin:22px 0 28px;font-size:18px;color:var(--dim)}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
 .hero .facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;font:500 12px/1 var(--mono);letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
-.portrait{position:relative;justify-self:center;width:min(100%,460px);aspect-ratio:6/7}
-.portrait canvas{width:100%;height:100%;display:block;border-radius:28px;background:var(--paper-2);box-shadow:0 30px 60px -30px rgba(20,20,20,.45)}
-.portrait .tag{position:absolute;left:-14px;bottom:28px;background:var(--night);color:#fff;border-radius:16px;padding:12px 14px;font-size:13px;line-height:1.35;max-width:230px;box-shadow:0 18px 40px -16px rgba(0,0,0,.5)}
-.portrait .tag b{display:block;font:500 11px/1 var(--mono);letter-spacing:.1em;color:var(--blue-2);margin-bottom:6px;text-transform:uppercase}
-.portrait .stamp{position:absolute;right:-10px;top:22px;background:var(--blue);color:#fff;font:800 20px/1 var(--display);padding:10px 14px;border-radius:12px;transform:rotate(4deg);text-transform:uppercase}
-.paintmeter{margin-top:14px;display:flex;align-items:center;gap:10px;font:500 11px/1 var(--mono);color:var(--dim);letter-spacing:.08em;text-transform:uppercase}
-.paintmeter span{flex:1;height:3px;background:var(--line);border-radius:3px;overflow:hidden}
-.paintmeter i{display:block;height:100%;width:0;background:var(--blue)}
+.stage{position:relative;justify-self:center;width:min(100%,420px);height:min(78vh,640px);display:grid;place-items:center;perspective:1400px}
+.hphone{position:relative;width:min(78%,300px);aspect-ratio:9/19;background:linear-gradient(145deg,#2A3350,#0B1020 55%,#1A2240);border-radius:44px;padding:11px;box-shadow:0 2px 0 1px #3A4566 inset,0 50px 80px -30px rgba(14,20,38,.65),0 18px 30px -18px rgba(14,20,38,.5);transform:rotateY(-18deg) rotateX(6deg) rotateZ(2deg);transform-style:preserve-3d;transition:transform .15s linear}
+.hphone::before{content:"";position:absolute;top:18px;left:50%;width:84px;height:22px;margin-left:-42px;background:#05070D;border-radius:999px;z-index:3}
+.hscreen{height:100%;border-radius:34px;background:#0B1020;display:flex;flex-direction:column;overflow:hidden}
+.hscreen .head{display:flex;align-items:center;gap:10px;padding:48px 16px 12px;background:var(--night-2);color:#fff;font-size:14px}
+.hscreen .head .av{width:30px;height:30px;border-radius:50%;background:var(--green);display:grid;place-items:center;font:700 12px/1 var(--body)}
+.hscreen .head small{display:block;color:#8FA6FF;font-size:11px}
+.hmsgs{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:6px 12px 14px;overflow:hidden}
+.hmsgs .m{opacity:1;transform:none;max-height:none;margin-top:8px;padding:9px 12px;animation:pop .45s ease both}
+.hmsgs .typing{align-self:flex-start;margin-top:8px;background:#1E2742;border-radius:14px;padding:10px 12px;display:flex;gap:4px}
+.hmsgs .typing i{width:6px;height:6px;border-radius:50%;background:#8FA6FF;animation:blink 1s infinite}
+.hmsgs .typing i:nth-child(2){animation-delay:.15s}.hmsgs .typing i:nth-child(3){animation-delay:.3s}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
+.glare{position:absolute;inset:11px;border-radius:34px;background:linear-gradient(115deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 38%);pointer-events:none}
+.stage .tag{position:absolute;left:0;bottom:12%;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:12px 14px;font-size:13px;line-height:1.35;max-width:220px;box-shadow:0 18px 40px -16px rgba(0,0,0,.35);opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
+.stage .tag.on{opacity:1;transform:none}
+.stage .tag b{display:block;font:500 11px/1 var(--mono);letter-spacing:.1em;color:var(--blue);margin-bottom:6px;text-transform:uppercase}
+.stage .stamp{position:absolute;right:4%;top:10%;background:var(--blue);color:#fff;font:800 20px/1 var(--display);padding:10px 14px;border-radius:12px;transform:rotate(4deg);text-transform:uppercase}
 
 /* ---------- story (sticky) ---------- */
 .story{position:relative;height:420vh;border-bottom:1px solid var(--line)}
@@ -152,9 +163,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 @media (max-width:900px){
   .bar nav{display:none}
   .hero .wrap{grid-template-columns:1fr;padding-block:40px 56px}
-  .portrait{width:min(100%,380px)}
-  .portrait .tag{left:8px}
-  .portrait .stamp{right:8px}
+  .stage{height:560px}
+  .hphone{width:min(70vw,260px)}
   .story{height:460vh}
   .story .stick{align-items:flex-start;padding-top:14px}
   .story .wrap{grid-template-columns:1fr;gap:12px}
@@ -200,12 +210,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         </div>
         <div class="facts"><span>8 languages</span><span>Orders + receipts</span><span>24/7</span></div>
       </div>
-      <figure class="portrait" style="margin:0">
-        <canvas id="paint" width="600" height="700" role="img" aria-label="Painted portrait of a smiling shopkeeper holding a phone, painted in brush strokes as you scroll"></canvas>
+      <div class="stage" aria-hidden="true">
+        <div class="hphone" id="hphone">
+          <div class="hscreen">
+            <div class="head"><span class="av">AG</span><span>Ali Garments<small id="hstatus">online</small></span></div>
+            <div class="hmsgs" id="hmsgs"></div>
+          </div>
+          <span class="glare"></span>
+        </div>
         <div class="stamp">3:12 am</div>
-        <div class="tag"><b>New order #KG-0012</b>1 × Chicken Karahi, 4 × Naan · Rs 2,080 · paid on delivery</div>
-        <div class="paintmeter" aria-hidden="true">Painting<span><i id="meter"></i></span><em id="pct" style="font-style:normal">0%</em></div>
-      </figure>
+        <div class="tag" id="htag"><b>New order #ALI-0012</b>2 × Blue lawn kurta · Rs 5,200 · cash on delivery</div>
+      </div>
     </div>
   </section>
 
@@ -346,88 +361,41 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     (function loop(t) { if (filmOn) drawFilm(t); requestAnimationFrame(loop); })(0);
   }
 
-  /* ===================== 2. Painted shopkeeper (brush strokes) ===================== */
-  // Step A: draw a simple original portrait on a hidden canvas (the "reference").
-  var ref = document.createElement('canvas'); ref.width = 600; ref.height = 700;
-  var r = ref.getContext('2d');
-  function ell(x, y, rx, ry, c) { r.fillStyle = c; r.beginPath(); r.ellipse(x, y, rx, ry, 0, 0, Math.PI * 2); r.fill(); }
-  // background: warm shop wall with shelves
-  var bg = r.createLinearGradient(0, 0, 0, 700); bg.addColorStop(0, '#E9C99A'); bg.addColorStop(1, '#C98F5B'); r.fillStyle = bg; r.fillRect(0, 0, 600, 700);
-  r.fillStyle = '#8A5A35'; r.fillRect(0, 150, 600, 14); r.fillRect(0, 300, 600, 14);
-  ['#2F5BFF', '#E2553A', '#F2C14E', '#1E9E63', '#6F8CFF', '#E2553A', '#F2C14E'].forEach(function (c, k) { r.fillStyle = c; r.fillRect(20 + k * 85, 92, 46, 58); r.fillRect(40 + k * 82, 244, 38, 56); });
-  // kurta / shoulders
-  r.fillStyle = '#1F4E6B'; r.beginPath(); r.moveTo(60, 700); r.quadraticCurveTo(80, 500, 300, 480); r.quadraticCurveTo(520, 500, 540, 700); r.fill();
-  r.fillStyle = '#163B52'; r.beginPath(); r.moveTo(270, 482); r.lineTo(300, 600); r.lineTo(330, 482); r.fill();
-  // neck
-  r.fillStyle = '#B97A4E'; r.fillRect(262, 400, 76, 95);
-  // face
-  ell(300, 330, 112, 138, '#C98B5C');
-  ell(258, 300, 40, 50, '#D69C6C'); ell(345, 300, 40, 50, '#D69C6C');
-  // hair
-  r.fillStyle = '#231A15'; r.beginPath(); r.ellipse(300, 222, 116, 70, 0, Math.PI, Math.PI * 2); r.fill();
-  r.beginPath(); r.moveTo(186, 230); r.quadraticCurveTo(190, 300, 200, 320); r.lineTo(210, 250); r.fill();
-  r.beginPath(); r.moveTo(414, 230); r.quadraticCurveTo(410, 300, 400, 320); r.lineTo(390, 250); r.fill();
-  // ears
-  ell(190, 335, 16, 28, '#B97A4E'); ell(410, 335, 16, 28, '#B97A4E');
-  // beard
-  r.fillStyle = '#2B201A'; r.beginPath(); r.moveTo(196, 340); r.quadraticCurveTo(205, 470, 300, 478); r.quadraticCurveTo(395, 470, 404, 340); r.quadraticCurveTo(380, 410, 300, 412); r.quadraticCurveTo(220, 410, 196, 340); r.fill();
-  // mustache + smile
-  r.fillStyle = '#2B201A'; r.beginPath(); r.ellipse(300, 378, 46, 12, 0, 0, Math.PI * 2); r.fill();
-  r.fillStyle = '#7A2E22'; r.beginPath(); r.ellipse(300, 400, 30, 11, 0, 0, Math.PI); r.fill();
-  r.fillStyle = '#F5EDE2'; r.fillRect(280, 400, 40, 4);
-  // nose
-  r.fillStyle = '#A86B42'; r.beginPath(); r.moveTo(300, 312); r.lineTo(286, 362); r.lineTo(314, 362); r.fill();
-  // eyes + brows
-  ell(255, 310, 17, 9, '#F7F1E8'); ell(345, 310, 17, 9, '#F7F1E8');
-  ell(257, 311, 7, 7, '#1B1310'); ell(343, 311, 7, 7, '#1B1310');
-  r.fillStyle = '#1B1310'; r.fillRect(232, 286, 46, 7); r.fillRect(322, 286, 46, 7);
-  // hand holding a glowing phone
-  ell(430, 590, 46, 40, '#C98B5C');
-  r.fillStyle = '#0E1426'; r.save(); r.translate(430, 545); r.rotate(-.18); r.fillRect(-34, -62, 68, 120); r.fillStyle = '#2F5BFF'; r.fillRect(-27, -54, 54, 100); r.fillStyle = '#E8FFF4'; r.fillRect(-20, -40, 30, 9); r.fillRect(-6, -24, 30, 9); r.fillRect(-20, -8, 26, 9); r.restore();
-  var px = r.getImageData(0, 0, 600, 700).data;
-  function col(x, y) { x = Math.max(0, Math.min(599, x | 0)); y = Math.max(0, Math.min(699, y | 0)); var i = (y * 600 + x) * 4; return [px[i], px[i + 1], px[i + 2]]; }
-  function lum(x, y) { var c = col(x, y); return .3 * c[0] + .59 * c[1] + .11 * c[2]; }
-
-  // Step B: plan every brush stroke once (big first, fine detail last). Seeded so it is the same each visit.
-  var seed = 7; function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
-  var strokes = [];
-  [[26, 34, 900], [14, 20, 2600], [7, 11, 5200], [3.5, 6, 6000]].forEach(function (L) {
-    for (var n = 0; n < L[2]; n++) {
-      var x = rnd() * 600, y = rnd() * 700, c = col(x, y);
-      var gx = lum(x + 2, y) - lum(x - 2, y), gy = lum(x, y + 2) - lum(x, y - 2);
-      var ang = (gx || gy) ? Math.atan2(gy, gx) + Math.PI / 2 : rnd() * Math.PI;
-      ang += (rnd() - .5) * .5;
-      var j = (rnd() - .5) * 18;
-      strokes.push({ x: x, y: y, a: ang, w: L[0], l: L[1] * (0.8 + rnd() * .6), c: 'rgb(' + Math.max(0, Math.min(255, c[0] + j)) + ',' + Math.max(0, Math.min(255, c[1] + j)) + ',' + Math.max(0, Math.min(255, c[2] + j)) + ')' });
-    }
+  /* ===================== 2. Hero phone: chat types itself, phone turns on scroll ===================== */
+  var hm = document.getElementById('hmsgs'), hstatus = document.getElementById('hstatus'), htag = document.getElementById('htag'), hphone = document.getElementById('hphone');
+  var script = [
+    ['c', 'Assalam o Alaikum, blue lawn kurta available hai?'],
+    ['a', 'Ji haan! Blue lawn kurta PKR 2,600. Size S, M, L.'],
+    ['c', '2 chahiye, size M. COD ho jayega?'],
+    ['a', '2 × PKR 2,600 = PKR 5,200. COD bilkul. Naam aur address bhej dein?'],
+    ['c', 'Ayesha, House 12, Street 4, Lahore'],
+    ['r', 'ORDER CONFIRMED<b>#ALI-0012</b>PKR 5,200 · COD · Lahore']
+  ];
+  function bubble(kind, html) { var d = document.createElement('div'); d.className = 'm ' + kind; d.innerHTML = html; hm.appendChild(d); while (hm.children.length > 7) hm.removeChild(hm.firstChild); }
+  function playChat() {
+    if (reduce) { script.forEach(function (x) { bubble(x[0], x[1]); }); htag.classList.add('on'); return; }
+    hm.innerHTML = ''; htag.classList.remove('on');
+    var i = 0;
+    (function next() {
+      if (i >= script.length) { htag.classList.add('on'); hstatus.textContent = 'online'; setTimeout(playChat, 5200); return; }
+      var x = script[i++];
+      if (x[0] === 'c') { bubble('c', x[1]); setTimeout(next, 1100); return; }
+      hstatus.textContent = 'typing…';
+      var t = document.createElement('div'); t.className = 'typing'; t.innerHTML = '<i></i><i></i><i></i>'; hm.appendChild(t);
+      setTimeout(function () { t.remove(); hstatus.textContent = 'online'; bubble(x[0], x[1]); setTimeout(next, 1300); }, 1100);
+    })();
+  }
+  playChat();
+  function heroTilt() {
+    if (reduce) { hphone.style.transform = 'none'; return; }
+    var h = document.querySelector('.hero').offsetHeight, p = Math.min(1, Math.max(0, scrollY / (h * .8)));
+    hphone.style.transform = 'rotateY(' + (-18 + 36 * p) + 'deg) rotateX(' + (6 - 4 * p) + 'deg) rotateZ(' + (2 - 4 * p) + 'deg) translateY(' + (p * 30) + 'px)';
+  }
+  if (!reduce) addEventListener('pointermove', function (e) {
+    if (scrollY > 40) return;
+    var x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+    hphone.style.transform = 'rotateY(' + (-18 + x * 14) + 'deg) rotateX(' + (6 - y * 10) + 'deg) rotateZ(2deg)';
   });
-  var paint = document.getElementById('paint'), pc = paint.getContext('2d');
-  pc.lineCap = 'round';
-  var drawn = 0;
-  function base() { pc.fillStyle = '#E5E0D6'; pc.fillRect(0, 0, 600, 700); }
-  base();
-  function drawTo(n) {
-    n = Math.max(0, Math.min(strokes.length, Math.round(n)));
-    if (n < drawn) { base(); drawn = 0; }
-    for (var k = drawn; k < n; k++) {
-      var s = strokes[k], dx = Math.cos(s.a) * s.l / 2, dy = Math.sin(s.a) * s.l / 2;
-      pc.strokeStyle = s.c; pc.globalAlpha = .9; pc.lineWidth = s.w;
-      pc.beginPath(); pc.moveTo(s.x - dx, s.y - dy); pc.quadraticCurveTo(s.x + dy * .15, s.y - dx * .15, s.x + dx, s.y + dy); pc.stroke();
-    }
-    pc.globalAlpha = 1; drawn = n;
-    var p = Math.round(n / strokes.length * 100);
-    document.getElementById('meter').style.width = p + '%';
-    document.getElementById('pct').textContent = p + '%';
-  }
-  // Intro: paint the first 55% on load, then scrolling finishes the portrait.
-  var introTarget = strokes.length * .55, intro = 0;
-  if (reduce) drawTo(strokes.length);
-  else (function introLoop() { intro = Math.min(introTarget, intro + 260); drawTo(Math.max(intro, scrollTarget())); if (intro < introTarget) requestAnimationFrame(introLoop); })();
-  function scrollTarget() {
-    var hero = document.querySelector('.hero'), h = hero.offsetHeight;
-    var p = Math.min(1, Math.max(0, window.scrollY / (h * .6)));
-    return introTarget + (strokes.length - introTarget) * p;
-  }
 
   /* ===================== 3. Story: messages + cards follow the scroll ===================== */
   var story = document.getElementById('story'), msgs = document.querySelectorAll('#msgs .m'), cards = document.querySelectorAll('.card'), dots = document.querySelectorAll('.dots i');
@@ -451,10 +419,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   var ticking = false;
   function onScroll() {
     if (ticking) return; ticking = true;
-    requestAnimationFrame(function () { ticking = false; if (!reduce && intro >= introTarget) drawTo(scrollTarget()); storyStep(); alldayStep(); });
+    requestAnimationFrame(function () { ticking = false; heroTilt(); storyStep(); alldayStep(); });
   }
   addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll);
-  storyStep(); alldayStep();
+  heroTilt(); storyStep(); alldayStep();
 
   /* ===================== 5. Pricing from config.js ===================== */
   var P = CFG.pricing || { plans: [] }, region = 'pk';
