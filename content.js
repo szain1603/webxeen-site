@@ -196,7 +196,7 @@ window.WEBXEEN_CONTENT = {
     meta: {
       lang: 'ur-Latn', dir: 'ltr', switchLabel: 'Roman Urdu',
       title: 'Webxeen — aap ki shop ke liye AI WhatsApp sales assistant',
-      description: 'Webxeen WhatsApp par aap ke customers ko 24/7, 8 zubaanon mein jawab deta hai, receipt ke saath order leta hai, payment screenshot check karta hai aur sab kuch aik tap se chalata hai.'
+      description: 'Webxeen aap ke WhatsApp par customers ko 24/7, 8 zubaanon mein jawab deta hai, receipt ke saath order leta hai aur payment screenshot check karta hai.'
     },
     nav: { how: 'Kaise kaam karta hai', features: 'Features', pricing: 'Qeematein', faq: 'Sawalat', demo: 'Live demo', cta: 'Live demo', menu: 'Menu', lang: 'Zubaan', websites: '3D Websites', bot: 'WhatsApp Bot' },
     hero: {
@@ -560,7 +560,7 @@ window.WEBXEEN_CONTENT = {
     meta: {
       lang: 'es', dir: 'ltr', switchLabel: 'Español',
       title: 'Webxeen — Bot de WhatsApp con IA para vender en tu tienda',
-      description: 'Webxeen responde a tus clientes en WhatsApp 24/7 en 8 idiomas, incluido el español, toma pedidos con recibo, revisa los comprobantes de pago y te deja gestionarlo todo con un toque.'
+      description: 'Webxeen responde a tus clientes en WhatsApp 24/7 en 8 idiomas, toma pedidos con recibo y revisa los comprobantes de pago. Todo con un toque.'
     },
     nav: { websites: 'Webs 3D', bot: 'Bot de WhatsApp', how: 'Cómo funciona', features: 'Funciones', pricing: 'Precios', faq: 'Preguntas', demo: 'Demo en vivo', cta: 'Probar la demo', menu: 'Menú', lang: 'Idioma' },
     hero: {
