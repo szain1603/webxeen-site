@@ -15,7 +15,7 @@
       ],
       "facts_source": "content.js and config.js in the repo are the only source of product facts and prices.",
       "backlog": [
-        "GLOBAL 3 (part 2): More English use-case landing pages for worldwide audiences, one per run, each genuinely different (not a name swap): clothing/fashion shops, clinics and salons, Instagram sellers. Restaurants was done on 2026-10-18 at /whatsapp-bot-for-restaurants: copy its structure and assets/css/usecase.css, but write new examples, table rows and FAQ for each business type. Link each new page from the home footer (content.js footer.* in en/ur/ar/es + index.html, bump ?v, re-run prerender) and cross-link the use-case pages to each other.",
+        "GLOBAL 3 (part 2): More English use-case landing pages for worldwide audiences, one per run, each genuinely different (not a name swap): clinics and salons, Instagram sellers. Restaurants was done on 2026-10-18 and clothing shops on 2026-10-26 (/whatsapp-bot-for-clothing-shops) at /whatsapp-bot-for-restaurants: copy its structure and assets/css/usecase.css, but write new examples, table rows and FAQ for each business type. Link each new page from the home footer (content.js footer.* in en/ur/ar/es + index.html, bump ?v, re-run prerender) and cross-link the use-case pages to each other.",
         "ARTICLE: How to spot fake payment screenshots on WhatsApp (for Pakistani online sellers). This is the FIRST blog article: also do the 'First article only' steps in AGENT.md (remove blog noindex, add /blog to sitemap, footer link).",
         "ARTICLE: How to set up WhatsApp auto reply for an online clothing shop.",
         "ARTICLE: How to reduce COD returns for online sellers in Pakistan.",

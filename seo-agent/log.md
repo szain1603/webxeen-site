@@ -200,3 +200,21 @@ Newest entries at the bottom. One entry per site per run.
 - Owner to do by hand: merge PR #21; then in Search Console request indexing for
   https://webxeen.com/es and https://webxeen.com/whatsapp-bot-for-restaurants; answer the 2 questions
   about table bookings and quiet hours.
+
+## 2026-10-26 — webxeen
+- Owner-led session (not a scheduled run). Same day, owner approved and pushed to main: new prices
+  (config.js), free-setup launch offer to 31 Dec 2026, /websites shows the KADAM sample first.
+- Done: GLOBAL 3, part 2 — English use-case page /whatsapp-bot-for-clothing-shops (worldwide, USD).
+  - Sections: short answer box, example order chat (made-up "Linen & Loom", sizes/colours, odd amount
+    $67.94 for $68, owner buttons), table of everyday fashion messages, returns & COD section
+    (2 returned COD parcels → pay in advance; returned/refunded/cancel out of stock/undo commands;
+    24 h reminder, 72 h auto-cancel), 8 languages, owner side, fit + what to send, FAQ
+    (incl. Instagram "Price?" comment-to-DM = coming soon, not claimed as live).
+  - Facts from content.js only. One wording to confirm with owner: "answers from the sizes and
+    colours you put in your product list" (follows from "answers only from your product list").
+  - Cross-links: restaurants page ↔ clothing page; home footer link in en/ur/ar/es
+    (content.js footer.clothing, ?v=20261026b, prerender re-run).
+  - sitemap.xml: new page; lastmod 2026-10-26 for / and /ar.
+- Tested in Chromium at 1366 and 390: 1 h1, valid JSON-LD, no console errors, no horizontal scroll.
+- Owner to do by hand: after going live, Search Console → URL Inspection → Request indexing for
+  https://webxeen.com/whatsapp-bot-for-clothing-shops (and /es, /whatsapp-bot-for-restaurants).
