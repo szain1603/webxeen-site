@@ -218,3 +218,18 @@ Newest entries at the bottom. One entry per site per run.
 - Tested in Chromium at 1366 and 390: 1 h1, valid JSON-LD, no console errors, no horizontal scroll.
 - Owner to do by hand: after going live, Search Console → URL Inspection → Request indexing for
   https://webxeen.com/whatsapp-bot-for-clothing-shops (and /es, /whatsapp-bot-for-restaurants).
+- (later, same day) Keyword check with Ubersuggest (owner connected it; free tier): webxeen.com has
+  0 organic keywords, 0 search traffic, DA 1, 4 backlinks (all nofollow). PageSpeed via Ubersuggest:
+  desktop LCP 0.68 s, mobile LCP 2.3 s, CLS < 0.01; a redirect hop is reported (0.19 s desktop,
+  0.63 s mobile), cause not confirmed. Global volumes: "whatsapp ai agent" 1,600/mo,
+  "whatsapp chatbot for business" 720, "best whatsapp ai agent" 170, "whatsapp bot for clothing store" ~0.
+- Done (owner asked): home title/description/hero badge now say "WhatsApp AI agent" (en + ur only;
+  ar/es unchanged until a native speaker reviews). og tags + Organization description updated.
+- Done: FIRST blog article /blog/how-to-choose-a-whatsapp-ai-agent (target "best whatsapp ai agent",
+  ~1,100 words: checklist, vendor-questions table, price drivers incl. Meta per-message fees with link
+  to Meta's pricing page, 5-message test, Webxeen section from content.js facts). First-article steps:
+  blog noindex removed, post card on /blog, /blog + article in sitemap, footer.blog in en/ur/ar/es
+  (?v=20261026c, prerender re-run), Blog link on privacy/terms footers.
+- Owner to do by hand: Search Console → Request indexing for /, /blog and
+  /blog/how-to-choose-a-whatsapp-ai-agent. Google Business Profile: NOT eligible (Google lists
+  online-only businesses as ineligible) — do not create one.

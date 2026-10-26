@@ -29,7 +29,7 @@ const PAGES = [
   { key: 'ur', hreflang: 'ur-Latn', url: SITE + 'ur', file: 'ur/index.html',
     extra: {
       ogTitle: 'Webxeen — aap ki shop ka WhatsApp, 24/7 jawab bhi de, order bhi le',
-      ogDescription: 'WhatsApp ke liye AI sales assistant: 8 zubaanon mein jawab, receipt ke saath orders, payment screenshot ki checking.',
+      ogDescription: 'Chhote businesses ke liye WhatsApp AI agent: 8 zubaanon mein jawab, receipt ke saath orders, payment screenshot ki checking.',
       skip: 'Content par jayein',
       noscript: 'Videos chalane ke liye JavaScript on karein.'
     } },

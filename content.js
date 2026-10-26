@@ -17,12 +17,12 @@ window.WEBXEEN_CONTENT = {
     },
     meta: {
       lang: 'en', dir: 'ltr', switchLabel: 'English',
-      title: 'Webxeen — AI WhatsApp sales assistant for your shop',
-      description: 'Webxeen answers your customers on WhatsApp 24/7 in 8 languages, takes orders with receipts, checks payment screenshots and lets you run everything with one tap.'
+      title: 'WhatsApp AI Agent That Sells for Your Shop 24/7 — Webxeen',
+      description: 'Webxeen is a WhatsApp AI agent for small businesses. It answers customers 24/7 in 8 languages, takes orders with receipts and checks payment screenshots.'
     },
     nav: { how: 'How it works', features: 'Features', pricing: 'Pricing', faq: 'FAQ', demo: 'Live demo', cta: 'Try live demo', menu: 'Menu', lang: 'Language', websites: '3D Websites', bot: 'WhatsApp Bot' },
     hero: {
-      badge: 'AI sales assistant for WhatsApp',
+      badge: 'WhatsApp AI agent for small businesses',
       title: 'Your shop’s WhatsApp, answering and taking orders <em>24/7.</em>',
       sub: 'Webxeen replies to your customers in their own language — English, Arabic, Spanish, Urdu and more — and books orders automatically, even while you sleep.',
       cta1: 'Try the live demo', cta2: 'Free test on WhatsApp',
@@ -184,7 +184,7 @@ window.WEBXEEN_CONTENT = {
       sub: 'Test Webxeen free before you buy. We set it up with your products, prices and delivery rules, and you chat with it as a customer.',
       cta0: 'Try the live demo', cta1: 'Get a free test on WhatsApp', cta2: 'Email us'
     },
-    footer: { restaurants: 'WhatsApp bot for restaurants', clothing: 'WhatsApp bot for clothing shops', privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
+    footer: { restaurants: 'WhatsApp bot for restaurants', clothing: 'WhatsApp bot for clothing shops', blog: 'Blog', privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. All rights reserved.', tagline: 'AI WhatsApp sales assistant for small businesses.' }
   },
 
   ur: {
@@ -196,12 +196,12 @@ window.WEBXEEN_CONTENT = {
     },
     meta: {
       lang: 'ur-Latn', dir: 'ltr', switchLabel: 'Roman Urdu',
-      title: 'Webxeen — aap ki shop ke liye AI WhatsApp sales assistant',
-      description: 'Webxeen aap ke WhatsApp par customers ko 24/7, 8 zubaanon mein jawab deta hai, receipt ke saath order leta hai aur payment screenshot check karta hai.'
+      title: 'Aap ki shop ke liye WhatsApp AI agent, 24/7 — Webxeen',
+      description: 'Webxeen ek WhatsApp AI agent hai: customers ko 24/7, 8 zubaanon mein jawab deta hai, receipt ke saath order leta hai aur payment screenshot check karta hai.'
     },
     nav: { how: 'Kaise kaam karta hai', features: 'Features', pricing: 'Qeematein', faq: 'Sawalat', demo: 'Live demo', cta: 'Live demo', menu: 'Menu', lang: 'Zubaan', websites: '3D Websites', bot: 'WhatsApp Bot' },
     hero: {
-      badge: 'WhatsApp ke liye AI sales assistant',
+      badge: 'Chhote businesses ke liye WhatsApp AI agent',
       title: 'Aap ki shop ka WhatsApp — <em>24/7</em> jawab bhi de, order bhi le.',
       sub: 'Webxeen aap ke customers ko unki apni zubaan mein jawab deta hai — Urdu, English, Arabic aur bohat si — aur order khud book karta hai, chahe aap so rahe hon.',
       cta1: 'Live demo try karein', cta2: 'WhatsApp par free test',
@@ -363,7 +363,7 @@ window.WEBXEEN_CONTENT = {
       sub: 'Khareedne se pehle Webxeen ka free test karein. Hum isay aap ke products, qeematon aur delivery rules ke saath set kar dete hain, aur aap customer ban kar check karte hain.',
       cta0: 'Live demo try karein', cta1: 'WhatsApp par free test', cta2: 'Email karein'
     },
-    footer: { restaurants: 'Restaurants ke liye WhatsApp bot (English)', clothing: 'Kapron ki dukaan ke liye WhatsApp bot (English)', privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }
+    footer: { restaurants: 'Restaurants ke liye WhatsApp bot (English)', clothing: 'Kapron ki dukaan ke liye WhatsApp bot (English)', blog: 'Blog (English)', privacy: 'Privacy Policy', terms: 'Terms', rights: '© 2023 Webxeen. Tamam huqooq mehfooz hain.', tagline: 'Chhote businesses ke liye AI WhatsApp sales assistant.' }
   },
 
   ar: {
@@ -542,7 +542,7 @@ window.WEBXEEN_CONTENT = {
       sub: 'جرّب Webxeen مجانًا قبل الشراء. نُعدّه بمنتجاتك وأسعارك وشروط التوصيل لديك، وتتحدث معه أنت كعميل.',
       cta0: 'جرّب العرض المباشر', cta1: 'احصل على تجربة مجانية على واتساب', cta2: 'راسلنا بالبريد'
     },
-    footer: { restaurants: 'بوت واتساب للمطاعم (بالإنجليزية)', clothing: 'بوت واتساب لمتاجر الملابس (بالإنجليزية)', privacy: 'سياسة الخصوصية', terms: 'الشروط', rights: '© 2023 Webxeen. جميع الحقوق محفوظة.', tagline: 'مساعد مبيعات ذكي على واتساب للأنشطة التجارية الصغيرة.' }
+    footer: { restaurants: 'بوت واتساب للمطاعم (بالإنجليزية)', clothing: 'بوت واتساب لمتاجر الملابس (بالإنجليزية)', blog: 'المدونة (بالإنجليزية)', privacy: 'سياسة الخصوصية', terms: 'الشروط', rights: '© 2023 Webxeen. جميع الحقوق محفوظة.', tagline: 'مساعد مبيعات ذكي على واتساب للأنشطة التجارية الصغيرة.' }
   },
 
   es: {
@@ -721,6 +721,6 @@ window.WEBXEEN_CONTENT = {
       sub: 'Prueba Webxeen gratis antes de comprar. Lo configuramos con tus productos, precios y condiciones de envío, y tú chateas con él como cliente.',
       cta0: 'Probar la demo en vivo', cta1: 'Pedir una prueba gratis por WhatsApp', cta2: 'Escríbenos por email'
     },
-    footer: { restaurants: 'Bot de WhatsApp para restaurantes (en inglés)', clothing: 'Bot de WhatsApp para tiendas de ropa (en inglés)', privacy: 'Política de privacidad', terms: 'Términos', rights: '© 2023 Webxeen. Todos los derechos reservados.', tagline: 'Asistente de ventas con IA en WhatsApp para pequeños negocios.' }
+    footer: { restaurants: 'Bot de WhatsApp para restaurantes (en inglés)', clothing: 'Bot de WhatsApp para tiendas de ropa (en inglés)', blog: 'Blog (en inglés)', privacy: 'Política de privacidad', terms: 'Términos', rights: '© 2023 Webxeen. Todos los derechos reservados.', tagline: 'Asistente de ventas con IA en WhatsApp para pequeños negocios.' }
   }
 };
