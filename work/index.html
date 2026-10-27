@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Work: AI Automation, WhatsApp Agents &amp; Websites — Webxeen</title>
+<meta name="description" content="Real projects by Shah Zain at Webxeen: an AI clinic receptionist, WhatsApp sales assistant guardrails, a booking chatbot, websites and a 3D product page, with screenshots.">
+<link rel="canonical" href="https://webxeen.com/work/">
+<meta property="og:title" content="Our Work — Webxeen">
+<meta property="og:description" content="AI automation, WhatsApp agents and websites built by Shah Zain, with real screenshots.">
+<meta property="og:url" content="https://webxeen.com/work/">
+<meta property="og:image" content="https://webxeen.com/og-image.jpg">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%;height:auto}
+/* Layout: single readable column; a workflow "pipeline" strip as the signature element; case study with evidence screenshots */
+:root{
+  --bg:#F3F6F5; --surface:#FFFFFF; --ink:#13201D; --muted:#56655F; --line:#D5DEDA;
+  --accent:#D9480F; --accent-soft:#FCE8DD; --ok:#1F7A4D; --ok-soft:#E1F3E9;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1715; --surface:#17221F; --ink:#E7EFEC; --muted:#9AABA4; --line:#2A3833;
+  --accent:#FF7A3D; --accent-soft:#3A2116; --ok:#5CC892; --ok-soft:#163026; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1715; --surface:#17221F; --ink:#E7EFEC; --muted:#9AABA4; --line:#2A3833;
+  --accent:#FF7A3D; --accent-soft:#3A2116; --ok:#5CC892; --ok-soft:#163026; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+.wrap{max-width:900px;margin:0 auto;padding-block:48px 64px;display:grid;gap:64px}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:1.75rem;font-weight:700}
+h3{font-size:1.15rem;font-weight:500}
+p{margin:0;max-width:65ch}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono)}
+section{display:grid;gap:24px}
+
+/* Hero */
+.hero{display:grid;gap:20px}
+.role{font-size:1.25rem;color:var(--accent);font-weight:600}
+.lede{font-size:1.1rem;color:var(--muted)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+.pipe{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px}
+.node{font-family:var(--mono);font-size:.82rem;padding:8px 12px;border:1px solid var(--line);background:var(--surface);border-radius:8px}
+.node.ai{border-color:var(--accent);background:var(--accent-soft);color:var(--ink)}
+.arrow{color:var(--muted);font-family:var(--mono)}
+
+/* Services */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.svc{padding:20px;border-top:3px solid var(--ink);background:var(--surface);display:grid;gap:8px;align-content:start}
+.svc p{color:var(--muted);font-size:.95rem}
+
+/* Case study */
+.case{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,4vw,40px);display:grid;gap:28px}
+.tag{display:inline-block;font-family:var(--mono);font-size:.75rem;padding:3px 10px;border-radius:99px;background:var(--ok-soft);color:var(--ok);font-weight:500}
+.ps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.ps > div{display:grid;gap:8px;min-width:0}
+.ps p{color:var(--muted)}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:12px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;counter-increment:s}
+.steps li::before{content:counter(s);font-family:var(--mono);font-size:.85rem;width:28px;height:28px;border-radius:50%;
+  display:grid;place-items:center;border:1px solid var(--line);color:var(--muted)}
+.steps b{font-weight:600}
+.rules{width:100%;border-collapse:collapse;font-size:.92rem}
+.tablebox{overflow-x:auto}
+.rules th,.rules td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.rules th{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.pill{font-family:var(--mono);font-size:.78rem;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.pill.hot{background:var(--accent-soft);color:var(--accent)}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+figure{margin:0;display:grid;gap:8px;min-width:0}
+figure.wide{grid-column:1/-1}
+figure img{width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff;display:block}
+figcaption{font-size:.85rem;color:var(--muted)}
+
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.res{display:grid;gap:4px;padding-left:14px;border-left:2px solid var(--ok)}
+.res span{font-size:.92rem;color:var(--muted)}
+
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.tools span{font-family:var(--mono);font-size:.82rem;padding:6px 12px;border:1px solid var(--line);border-radius:99px;background:var(--surface)}
+
+.contact{display:grid;gap:16px;padding-top:32px;border-top:1px solid var(--line)}
+.copyrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.addr{font-family:var(--mono);font-size:1rem;user-select:all}
+button{font:inherit;font-size:.85rem;padding:8px 14px;border-radius:8px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.note{font-size:.85rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Portfolio · Lahore, Pakistan</div>
+    <h1>Shah Zain</h1>
+    <div class="role">AI Automation &amp; Chatbot Specialist</div>
+    <p class="lede">I build AI systems that answer customers, sort enquiries and keep records for small businesses, so owners and staff spend less time on repetitive messages and data entry.</p>
+    <div class="pipe" aria-label="Example workflow">
+      <span class="node">Customer message</span><span class="arrow">→</span>
+      <span class="node ai">AI reads &amp; decides</span><span class="arrow">→</span>
+      <span class="node">Google Sheet</span><span class="arrow">→</span>
+      <span class="node">Owner alert</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="eyebrow">What I do</div>
+    <div class="services">
+      <div class="svc"><h3>AI workflow automation</h3><p>Forms, emails and messages processed automatically with n8n: data saved, staff alerted, nothing typed by hand.</p></div>
+      <div class="svc"><h3>Business chatbots</h3><p>Assistants that answer FAQs about prices, timings and bookings in Urdu, Roman Urdu or English, with clear limits on what they will say.</p></div>
+      <div class="svc"><h3>Prompt &amp; AI setup</h3><p>Well-tested prompts and guardrails, so the AI gives accurate answers and hands over to a human when unsure.</p></div>
+      <div class="svc"><h3>Websites &amp; 3D product pages</h3><p>Modern, multilingual business websites built with a professional AI-assisted workflow, including scroll-driven 3D product reveals that lead straight to WhatsApp.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Case study 1</div>
+    <article class="case">
+      <div style="display:grid;gap:10px">
+        <span class="tag">Demo project · built and tested live</span>
+        <h2>AI Receptionist for a Dental Clinic</h2>
+        <p class="note">Built for a sample clinic, "Areesha Dental Clinic", Model Town Link Road, Lahore. Patient names and numbers shown are test data.</p>
+      </div>
+
+      <div class="ps">
+        <div><h3>The problem</h3><p>A receptionist reads every appointment request by hand, copies names and numbers into a register, and has to judge which patient needs urgent attention. Requests that come in after hours wait until morning.</p></div>
+        <div><h3>The solution</h3><p>An online appointment form connected to an n8n workflow. Google Gemini reads each request, flags emergencies, checks clinic hours, and the details land in a Google Sheet with an email alert to the doctor within seconds, day or night.</p></div>
+      </div>
+
+      <div style="display:grid;gap:14px">
+        <h3>How it works</h3>
+        <ol class="steps">
+          <li><div><b>Patient fills the form</b> with name, phone, preferred time and problem.</div></li>
+          <li><div><b>Gemini AI reads the request</b> and returns three decisions: is it urgent, is the clinic open at that time, and a clean date.</div></li>
+          <li><div><b>Google Sheets</b> gets a new row with the patient details and the AI's decisions.</div></li>
+          <li><div><b>Gmail alerts the doctor.</b> Urgent cases arrive with a 🚨 URGENT subject so they stand out in the inbox.</div></li>
+        </ol>
+      </div>
+
+      <div style="display:grid;gap:12px">
+        <h3>What the AI decided in testing</h3>
+        <div class="tablebox">
+          <table class="rules">
+            <thead><tr><th>Patient wrote</th><th>Asked time</th><th>Urgent</th><th>Time check</th></tr></thead>
+            <tbody>
+              <tr><td>Tooth pain and bleeding, a lot</td><td>Today 5:30 pm</td><td><span class="pill hot">Haan</span></td><td><span class="pill ok">Theek</span></td></tr>
+              <tr><td>Wants a filling</td><td>Wednesday 8:30 pm</td><td><span class="pill ok">Nahi</span></td><td><span class="pill hot">Clinic band hoga</span></td></tr>
+              <tr><td>Tooth pain</td><td>Sunday 3 pm</td><td><span class="pill ok">Nahi</span></td><td><span class="pill hot">Clinic band hoga</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Rules given to the AI: clinic open Monday to Saturday, 1 pm to 6 pm; severe pain, swelling or bleeding counts as urgent. The definition of "urgent" is agreed with the doctor before going live.</p>
+      </div>
+
+      <div class="shots">
+        <figure class="wide"><img loading="lazy" src="img/workflow.webp" alt="n8n workflow: form submission, Information Extractor with Google Gemini model, append row in Google Sheet, send Gmail message"><figcaption>The live n8n workflow: Form → Gemini AI → Google Sheets → Gmail.</figcaption></figure>
+        <figure><img loading="lazy" src="img/urgent-email.webp" alt="Email with subject URGENT Naya Appointment showing patient details, Urgent Haan"><figcaption>Urgent case: flagged in the subject line.</figcaption></figure>
+        <figure><img loading="lazy" src="img/routine-email.webp" alt="Routine appointment email showing Urgent Nahi and Clinic band hoga"><figcaption>Routine case on a Sunday: AI notes the clinic is closed.</figcaption></figure>
+        <figure class="wide"><img loading="lazy" src="img/sheet.webp" alt="Google Sheet with appointment rows; later rows include Urgent and Waqt Check columns filled by AI"><figcaption>Before and after: top rows came from a plain form, lower rows include the AI's decisions and readable dates.</figcaption></figure>
+        <figure class="wide"><img loading="lazy" src="img/ai-output.webp" alt="n8n Information Extractor output in JSON: urgent Nahi, waqt_check Clinic band hoga, date 19 Oct 2026 4:16 PM"><figcaption>The AI's structured output inside n8n.</figcaption></figure>
+      </div>
+
+      <div class="results">
+        <div class="res"><b>Seconds, not minutes</b><span>Each request is recorded and the doctor alerted automatically.</span></div>
+        <div class="res"><b>Urgent cases first</b><span>Emergencies are marked before anyone opens the email.</span></div>
+        <div class="res"><b>Fewer wrong visits</b><span>Requests outside clinic hours are flagged for a call back.</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">Case study 2</div>
+    <article class="case">
+      <div style="display:grid;gap:10px">
+        <span class="tag">Demo project · prompt design</span>
+        <h2>WhatsApp Assistant with Safety Rules</h2>
+      </div>
+      <div class="ps">
+        <div><h3>What I built</h3><p>A system prompt that turns an AI model into a clinic's WhatsApp assistant: it knows the address, fees and timings, replies in the patient's own language, and keeps answers short.</p></div>
+        <div><h3>Guardrails tested</h3><p>It never suggests medicine, even in an emergency; it collects a booking request without confirming a slot; and it says plainly that it is an AI assistant when asked.</p></div>
+      </div>
+      <div class="shots">
+        <figure class="wide"><img loading="lazy" src="img/bot-test.webp" alt="Chat test: assistant refuses to suggest medicine and directs patient to call, collects appointment request, and states it is an AI assistant"><figcaption>Three test questions: medicine request, appointment request, and "are you human?".</figcaption></figure>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">Website design</div>
+    <article class="case">
+      <div style="display:grid;gap:10px">
+        <span class="tag">Live website · webxeen.com</span>
+        <h2>Webxeen: Product Website for a WhatsApp AI Sales Assistant</h2>
+        <p class="note">Designed and built using AI tools in a professional workflow: AI for drafts, copy and code, with every section reviewed, edited and tested by hand.</p>
+      </div>
+      <div class="ps">
+        <div><h3>The brief</h3><p>A landing site for a WhatsApp AI sales assistant aimed at small shops. It had to explain the product to non-technical owners in seconds, work in several languages, and turn visitors into free-trial requests on WhatsApp.</p></div>
+        <div><h3>What I delivered</h3><p>A clear one-page site: a live chat mock-up in the hero, a two-service overview (WhatsApp bot and 3D websites), a three-step "how it works", feature sections, PKR/USD pricing, FAQ and a WhatsApp call to action. Language switcher for English, Roman Urdu, Arabic and Spanish, and a live 3D product sample for the 3D website service.</p></div>
+      </div>
+      <div class="tablebox">
+        <table class="rules">
+          <thead><tr><th>Design decision</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Hero shows a real-looking order chat (Karachi Grill)</td><td>Owners see the result before reading a word</td></tr>
+            <tr><td>Language switcher in the header</td><td>Customers in Pakistan, the Gulf and Europe read it in their own language</td></tr>
+            <tr><td>PKR and USD price toggle with a free test</td><td>Local and overseas buyers each see prices they understand</td></tr>
+            <tr><td>Every button leads to WhatsApp or the demo</td><td>One clear next step, no forms to abandon</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="shots">
+        <figure class="wide"><img loading="lazy" src="img/wx-hero.webp" alt="Webxeen homepage hero: headline 'Your shop's WhatsApp, answering and taking orders 24/7' beside a phone mock-up of an order chat"><figcaption>Hero with a live-style order chat and an owner notification.</figcaption></figure>
+        <figure><img loading="lazy" src="img/wx-services.webp" alt="Two service cards: WhatsApp Bot and 3D Websites with a link to the live 3D sample"><figcaption>Two services, including the 3D website with a live 3D sample.</figcaption></figure>
+        <figure><img loading="lazy" src="img/wx-languages.webp" alt="Languages section showing a Spanish chat reply and eight language chips"><figcaption>Multilingual section with an animated language demo.</figcaption></figure>
+        <figure><img loading="lazy" src="img/wx-orders.webp" alt="Orders section with cart, order details card and receipt #ALI-0012"><figcaption>Order flow told visually: cart, details, receipt.</figcaption></figure>
+        <figure><img loading="lazy" src="img/wx-features.webp" alt="Grid of six feature cards: long memory, cancel refund return, COD protection, complaints, reminders, currency and time zone"><figcaption>Feature grid written for shop owners, not engineers.</figcaption></figure>
+        <figure class="wide"><img loading="lazy" src="img/wx-pricing.webp" alt="Pricing section with Silver, Gold and Premium plans and a PKR/USD toggle"><figcaption>Three plans with a PKR/USD toggle and a free-test offer.</figcaption></figure>
+      </div>
+      <p><a href="https://webxeen.com" style="color:var(--accent);font-weight:600">Visit webxeen.com →</a></p>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">3D product website</div>
+    <article class="case">
+      <div style="display:grid;gap:10px">
+        <span class="tag">Live demo · sample brand</span>
+        <h2>KADAM Runner 01: a Shoe that Explains Itself as You Scroll</h2>
+        <p class="note">A sample product site for an invented shoe brand, made to show what a 3D product website can do. Built with AI tools in a professional workflow and linked from webxeen.com as the live 3D sample.</p>
+      </div>
+      <div class="ps">
+        <div><h3>The idea</h3><p>Product photos show one angle. Here a 3D shoe turns as the visitor scrolls, stopping at each part to explain it: the knit upper, the padded collar and heel tab, the weight, then the colours.</p></div>
+        <div><h3>Built to sell</h3><p>Visitors try each colour on the 3D shoe, pick a size, and tap "Order on WhatsApp". The message opens with the colour and size already filled in, so the shop's WhatsApp assistant can confirm the order straight away.</p></div>
+      </div>
+      <div class="tablebox">
+        <table class="rules">
+          <thead><tr><th>Scroll stop</th><th>What the 3D model does</th></tr></thead>
+          <tbody>
+            <tr><td>Hero</td><td>Shoe floats beside the headline</td></tr>
+            <tr><td>01 Upper</td><td>Turns side-on to show the knit mesh and stripes</td></tr>
+            <tr><td>02 Collar &amp; heel</td><td>Rotates to the back to show padding and pull tab</td></tr>
+            <tr><td>240 g</td><td>Drops in front of an oversized weight figure</td></tr>
+            <tr><td>Colours</td><td>Changes to Midnight, Beach or Street as you scroll or tap</td></tr>
+            <tr><td>Order</td><td>Shows the chosen colour next to size buttons and the WhatsApp order button</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="shots">
+        <figure class="wide"><img loading="lazy" src="img/kadam-hero.webp" alt="KADAM hero: headline 'Light enough to forget you're wearing it' beside a blue 3D running shoe"><figcaption>Opening view with the 3D shoe beside the headline.</figcaption></figure>
+        <figure><img loading="lazy" src="img/kadam-upper.webp" alt="3D shoe side view next to card '01/04 Knit mesh that breathes'"><figcaption>Stop 1: the knit upper.</figcaption></figure>
+        <figure><img loading="lazy" src="img/kadam-heel.webp" alt="3D shoe rotated to the back next to card '02/04 Padded collar, pull tab'"><figcaption>Stop 2: the model turns to show the heel.</figcaption></figure>
+        <figure><img loading="lazy" src="img/kadam-weight.webp" alt="Shoe in front of a large '240g' figure"><figcaption>The weight, told with type and the model together.</figcaption></figure>
+        <figure><img loading="lazy" src="img/kadam-colours.webp" alt="Pick your colour section with the shoe shown in charcoal and coral, and three colour cards"><figcaption>Colour picker that recolours the 3D shoe.</figcaption></figure>
+        <figure class="wide"><img loading="lazy" src="img/kadam-order.webp" alt="Order card: Rs 7,900, size buttons 39 to 45, colour Street size 42, Order on WhatsApp button"><figcaption>Size and colour flow into a pre-filled WhatsApp order.</figcaption></figure>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">Case study 3</div>
+    <article class="case">
+      <div style="display:grid;gap:10px">
+        <span class="tag">Demo project · built and tested live</span>
+        <h2>Booking Chatbot that Checks the Doctor's Schedule</h2>
+        <p class="note">Built for the same sample clinic. Bookings shown are test data.</p>
+      </div>
+      <div class="ps">
+        <div><h3>The problem</h3><p>A chatbot that only says "the clinic will confirm" still leaves staff to check the diary and call every patient back. Patients asking at night wait until the next day.</p></div>
+        <div><h3>The solution</h3><p>An n8n AI Agent with memory and two tools. It reads the clinic's booking register before offering a time, suggests the nearest free 15-minute slots, collects name, phone and problem one question at a time, then writes the booking itself and confirms.</p></div>
+      </div>
+      <div style="display:grid;gap:14px">
+        <h3>How it works</h3>
+        <ol class="steps">
+          <li><div><b>Patient asks for a time in chat</b>, in Urdu, Roman Urdu or English. The bot works out the real date from words like "Thursday" or "kal".</div></li>
+          <li><div><b>check_bookings</b> reads the register in Google Sheets.</div></li>
+          <li><div><b>If the slot is taken</b>, the bot offers the nearest free 15-minute slots that day.</div></li>
+          <li><div><b>book_appointment</b> writes the booking to the sheet, and only then does the bot confirm.</div></li>
+        </ol>
+      </div>
+      <div class="tablebox">
+        <table class="rules">
+          <thead><tr><th>Built-in rule</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>Never confirm without writing to the register</td><td>No promised slot that staff do not know about</td></tr>
+            <tr><td>Clinic hours and Sunday closure enforced</td><td>No patient arrives at a closed clinic</td></tr>
+            <tr><td>No medicine or treatment advice; emergencies sent to call</td><td>Patient safety and clinic liability</td></tr>
+            <tr><td>Retry and backup AI model</td><td>Keeps replying when the AI service is busy</td></tr>
+            <tr><td>If the AI still fails, the patient gets a polite message with the clinic number and the owner gets an email</td><td>No patient is left without an answer, and no failure goes unnoticed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="shots">
+        <figure class="wide"><img loading="lazy" src="img/chatbot-canvas.webp" alt="n8n canvas: chat trigger to AI Agent with Gemini model, memory, check_bookings and book_appointment Google Sheets tools"><figcaption>AI Agent with a model, memory and two Google Sheets tools.</figcaption></figure>
+        <figure class="wide"><img loading="lazy" src="img/chatbot-slots.webp" alt="Bot output: Thursday 22 October 2:00 pm is already booked, offering 1:45, 2:15 or 2:30"><figcaption>2:00 pm was taken, so the bot offered the nearest free slots.</figcaption></figure>
+        <figure class="wide"><img loading="lazy" src="img/chatbot-confirm.webp" alt="Bot output confirming appointment for Thursday 22 October 2026 at 2:15 pm, with book_appointment tool run"><figcaption>Booking written by the bot, then confirmed to the patient.</figcaption></figure>
+        <figure class="wide"><img loading="lazy" src="img/chatbot-sheet.webp" alt="Bookings sheet with new row 2026-10-22, 14:15, Root canal"><figcaption>The register after the chat: the 2:15 pm booking added in the right format.</figcaption></figure>
+        <figure class="wide"><img loading="lazy" src="img/chatbot-fallback.webp" alt="n8n canvas during a failure test: both AI models fail, the AI Agent takes its error path to a Gmail alert and a fallback message, and the chat shows the polite 'system busy, please call' reply"><figcaption>Failure test: both AI models switched off on purpose. The bot still replied politely with the clinic number, and an alert email went to the owner.</figcaption></figure>
+      </div>
+      <div class="results">
+        <div class="res"><b>Books around the clock</b><span>Patients get a confirmed slot at any hour.</span></div>
+        <div class="res"><b>Works from the real diary</b><span>Taken slots are skipped and alternatives offered.</span></div>
+        <div class="res"><b>No retyping</b><span>Every booking lands in the clinic's sheet.</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">Redesign concept</div>
+    <article class="case">
+      <div style="display:grid;gap:10px">
+        <span class="tag">Design demo · not live</span>
+        <h2>Webxeen Homepage Redesign: a Phone that Sells While You Scroll</h2>
+        <p class="note">A concept for a new Webxeen homepage in the editorial style of the KADAM sample. Built with AI tools and hand-tested on desktop and phone.</p>
+      </div>
+      <div class="ps">
+        <div><h3>The idea</h3><p>Show the product working instead of describing it. A tilted 3D phone runs a real-looking order chat on its own: the customer asks, the assistant types, the order is confirmed and a receipt card appears.</p></div>
+        <div><h3>What moves</h3><p>A code-made animated background with drifting chat bubbles, a phone that turns as you scroll and follows the mouse, a sticky four-step chat story, a rising "24/7" with languages lighting up, and pricing read live from the site's settings file.</p></div>
+      </div>
+      <div class="shots">
+        <figure class="wide"><img loading="lazy" src="img/redesign-hero.webp" alt="Redesign hero: headline 'Your shop never closes' beside a tilted phone running an order chat for Ali Garments"><figcaption>Hero: the phone types out an order chat by itself.</figcaption></figure>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">SEO &amp; growth</div>
+    <article class="case">
+      <div style="display:grid;gap:10px">
+        <span class="tag">Live on webxeen.com</span>
+        <h2>Getting a New Website Ready for Google</h2>
+        <p class="note">SEO work on a two-week-old site: technical audit, keyword research, new landing pages and the first blog article. Search results take months to show, so this case study shows the work, not traffic.</p>
+      </div>
+      <div class="ps">
+        <div><h3>Audit</h3><p>Checked 11 pages for title and description length, one H1, canonical tags, hreflang across 4 languages, social images, structured data, alt text and broken links. All passed. Speed: 0.7 s largest paint on desktop, 2.3 s on mobile.</p></div>
+        <div><h3>What I built</h3><p>Keyword research showed people search "WhatsApp AI agent" (about 1,600 searches a month worldwide), so the homepage wording was updated. Added a clothing-shop landing page, opened the blog to search, and wrote a buyer's-guide article. Every claim was checked against the product's own content.</p></div>
+      </div>
+      <div class="tablebox">
+        <table class="rules">
+          <thead><tr><th>Change</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Homepage title: "WhatsApp AI Agent That Sells for Your Shop 24/7"</td><td>Matches what buyers actually type</td></tr>
+            <tr><td>New page for clothing shops, cross-linked with restaurants</td><td>A page for each real use case, written fresh, not a name swap</td></tr>
+            <tr><td>First article: how to choose a WhatsApp AI agent</td><td>Targets "best WhatsApp AI agent" with an honest checklist</td></tr>
+            <tr><td>Sitemap, footer links in 4 languages, blog opened to search</td><td>Helps Google find and index the new pages</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="shots">
+        <figure class="wide"><img loading="lazy" src="img/home-agent.webp" alt="Webxeen homepage with the badge 'WhatsApp AI agent for small businesses'"><figcaption>Homepage after the wording update.</figcaption></figure>
+        <figure><img loading="lazy" src="img/seo-clothing-phone.webp" alt="Clothing-shop landing page on a phone"><figcaption>New landing page for clothing shops (mobile).</figcaption></figure>
+        <figure><img loading="lazy" src="img/seo-article-phone.webp" alt="Blog article 'Best WhatsApp AI agent for a small business' on a phone"><figcaption>First blog article (mobile).</figcaption></figure>
+        <figure class="wide"><img loading="lazy" src="img/websites-desk.webp" alt="3D Websites page with the live KADAM sample shown first"><figcaption>3D Websites page reworked so the live sample is the first thing visitors see.</figcaption></figure>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">Tools</div>
+    <div class="tools">
+      <span>n8n</span><span>n8n AI Agent &amp; tools</span><span>Google Gemini</span><span>ChatGPT</span><span>Claude</span><span>Google Sheets</span><span>Gmail</span><span>Prompt engineering</span><span>AI-assisted web design</span><span>3D product pages</span><span>Technical SEO</span><span>Keyword research</span><span>GitHub &amp; Vercel</span><span>JSON data extraction</span>
+    </div>
+  </section>
+
+  <footer class="contact">
+    <h2>Let's automate your busywork</h2>
+    <p class="lede">Tell me which task your team repeats every day. I will show you what it could look like automated.</p>
+    <div class="copyrow">
+      <span class="addr" id="email">szain1603@gmail.com</span>
+      <button type="button" id="copyBtn">Copy email</button>
+    </div>
+    <p class="note">Shah Zain · Lahore, Pakistan · Available for remote projects</p>
+  </footer>
+</main>
+
+<p style="text-align:center;margin:0 0 40px"><a href="/" style="color:var(--accent)">&larr; Back to webxeen.com</a></p>
+<script>
+document.getElementById('copyBtn').addEventListener('click', function(){
+  var b=this, t=document.getElementById('email').textContent;
+  try{
+    navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email'},1600)},
+      function(){selectIt()});
+  }catch(e){selectIt()}
+  function selectIt(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl+C'}
+});
+</script>
+
+</body>
+</html>
